@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hexo on sappy blog</title>
+    <link>https://blog.sappy.tw/tags/hexo/</link>
+    <description>Recent content in hexo on sappy blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 04 Mar 2018 19:47:58 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.sappy.tw/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>安裝 markdown-it</title>
+      <link>https://blog.sappy.tw/posts/markdown-it-install/</link>
+      <pubDate>Sun, 04 Mar 2018 19:47:58 +0000</pubDate>
+      
+      <guid>https://blog.sappy.tw/posts/markdown-it-install/</guid>
+      <description>起因 由於發現預設的 render 功能有點少，因此換了一下 renderer 安裝 主要參考 * Hexo 研究筆記 1 * hexo-next 使用hexo-renderer-markdown-it 但是發現 markdonw-it</description>
+    </item>
+    
+    <item>
+      <title>測試 markdown-it</title>
+      <link>https://blog.sappy.tw/posts/markdown-it-test/</link>
+      <pubDate>Sun, 04 Mar 2018 18:46:32 +0000</pubDate>
+      
+      <guid>https://blog.sappy.tw/posts/markdown-it-test/</guid>
+      <description>markdown-it-footnote Footnote 1 link1. Footnote 2 link2. Inline footnote3 definition. Duplicated footnote reference2. markdown-it-abbr This is HTML abbreviation example. It converts &amp;ldquo;HTML&amp;rdquo;, but keep intact partial entries like &amp;ldquo;xxxHTMLyyy&amp;rdquo; and so on. *[HTML]: Hyper Text Markup Language hexo-filter-github-emojis Hello✨Test 👽 Footnote can have markup and multiple paragraphs. [return] Footnote text. [return] Text of inline footnote [return]</description>
+    </item>
+    
+  </channel>
+</rss>
