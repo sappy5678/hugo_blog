@@ -18,7 +18,7 @@
       <pubDate>Sun, 04 Mar 2018 18:46:32 +0000</pubDate>
       
       <guid>https://blog.sappy.tw/posts/markdown-it-test/</guid>
-      <description>markdown-it-footnote Footnote 1 link1. Footnote 2 link2. Inline footnote3 definition. Duplicated footnote reference2. markdown-it-abbr This is HTML abbreviation example. It converts &amp;ldquo;HTML&amp;rdquo;, but keep intact partial entries like &amp;ldquo;xxxHTMLyyy&amp;rdquo; and so on. *[HTML]: Hyper Text Markup Language hexo-filter-github-emojis Hello✨Test 👽 Footnote can have markup and multiple paragraphs. [return] Footnote text. [return] Text of inline footnote [return]</description>
+      <description>markdown-it-footnote Footnote 1 link1. Footnote 2 link2. Inline footnote^[Text of inline footnote] definition. Duplicated footnote reference2. markdown-it-abbr This is HTML abbreviation example. It converts &amp;ldquo;HTML&amp;rdquo;, but keep intact partial entries like &amp;ldquo;xxxHTMLyyy&amp;rdquo; and so on. *[HTML]: Hyper Text Markup Language hexo-filter-github-emojis Hello✨Test 👽 Footnote can have markup and multiple paragraphs. &amp;#x21a9;&amp;#xfe0e; Footnote text. &amp;#x21a9;&amp;#xfe0e;</description>
     </item>
     
   </channel>

@@ -27,7 +27,7 @@
       <pubDate>Sun, 04 Mar 2018 19:47:58 +0000</pubDate>
       
       <guid>https://blog.sappy.tw/posts/markdown-it-install/</guid>
-      <description>起因 由於發現預設的 render 功能有點少，因此換了一下 renderer 安裝 主要參考 * Hexo 研究筆記 1 * hexo-next 使用hexo-renderer-markdown-it 但是發現 markdonw-it</description>
+      <description>起因 由於發現預設的 render 功能有點少，因此換了一下 renderer 安裝 主要參考 Hexo 研究筆記 1 hexo-next 使用hexo-renderer-markdown-it 但是發現 markdonw-it 的套</description>
     </item>
     
     <item>
@@ -36,12 +36,9 @@
       <pubDate>Thu, 28 Sep 2017 22:34:55 +0000</pubDate>
       
       <guid>https://blog.sappy.tw/posts/tensorflow-gpu-install/</guid>
-      <description>&lt;h1 id=&#34;起因&#34;&gt;起因&lt;/h1&gt;
-
+      <description>&lt;h1 id=&#34;heading&#34;&gt;起因&lt;/h1&gt;
 &lt;p&gt;因為教授要求要做物體辨識, 加上實驗室的Server目前暫時不能使用,所以只好先在自己的電腦上面跑&lt;/p&gt;
-
-&lt;h1 id=&#34;環境&#34;&gt;環境&lt;/h1&gt;
-
+&lt;h1 id=&#34;heading-1&#34;&gt;環境&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;Ubuntu 17.04&lt;/li&gt;
 &lt;li&gt;Tensorflow 1.3&lt;/li&gt;

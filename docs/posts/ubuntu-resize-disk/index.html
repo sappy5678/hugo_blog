@@ -9,16 +9,13 @@
 	<meta name="msapplication-TileColor" content="#494f5c">
 <meta itemprop="name" content="Ubuntu 調整硬碟大小教學">
 <meta itemprop="description" content="前言 最近在安裝 opencv 時，因為VM硬碟大小不夠，所以只好擴充硬碟大小，但是 root partition 好像沒辦法在開機時調整大小(不確定)，所以這次用 Gparted 過程 首先，先用 live cd">
-
-
 <meta itemprop="datePublished" content="2017-09-14T21:13:33&#43;00:00" />
 <meta itemprop="dateModified" content="2017-09-14T21:13:33&#43;00:00" />
 <meta itemprop="wordCount" content="153">
 
 
 
-<meta itemprop="keywords" content="Ubuntu,硬碟,教學,調整,Gparted," />
-<meta property="og:title" content="Ubuntu 調整硬碟大小教學" />
+<meta itemprop="keywords" content="Ubuntu,硬碟,教學,調整,Gparted," /><meta property="og:title" content="Ubuntu 調整硬碟大小教學" />
 <meta property="og:description" content="前言 最近在安裝 opencv 時，因為VM硬碟大小不夠，所以只好擴充硬碟大小，但是 root partition 好像沒辦法在開機時調整大小(不確定)，所以這次用 Gparted 過程 首先，先用 live cd" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.sappy.tw/posts/ubuntu-resize-disk/" />
@@ -75,20 +72,14 @@
 				<h1>Ubuntu 調整硬碟大小教學</h1>
 			</header>
 			<div class="content">
-				
-
-<h1 id="前言">前言<a href="#前言" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-
+				<h1 id="heading">前言<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <p>最近在安裝 opencv 時，因為VM硬碟大小不夠，所以只好擴充硬碟大小，但是 root partition 好像沒辦法在開機時調整大小(不確定)，所以這次用 Gparted</p>
-
-<h1 id="過程">過程<a href="#過程" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-
+<h1 id="heading-1">過程<a href="#heading-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <p>首先，先用 live cd 做開機
 <a href="http://xx3d2ybnf.pixnet.net/blog/post/128713507-vmware%25E8%2599%259B%25E6%2593%25AC%25E6%25A9%259F%25E5%2599%25A8%25E9%2580%25B2%25E5%2585%25A5bios%25E6%2588%2596%25E6%2598%25AF%25E9%2596%258B%25E6%25A9%259F%25E9%2581%25B8%25E5%2596%25AEboot-menu%25E7%259A%2584">參考這篇</a></p>
-
 <p>然後打開 Gparted
 會看到被紅色圈起來的部分，然後對她右鍵，按下 swapoff
-<img src="images/snipaste_20170914_211549.png" alt="snipaste_20170914_211549" />
+<img src="images/snipaste_20170914_211549.png" alt="snipaste_20170914_211549">
 然後把他移動到右邊(先擴充到右邊，移過去，再縮小)，並且在對他右鍵做swapon 就完成了(灑花花</p>
 
 			</div>

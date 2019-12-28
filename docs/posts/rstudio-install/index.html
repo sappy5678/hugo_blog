@@ -9,16 +9,13 @@
 	<meta name="msapplication-TileColor" content="#494f5c">
 <meta itemprop="name" content="R RStudio 安裝教學">
 <meta itemprop="description" content="起因 因為之前在 Ubuntu 上安裝 RStudio 時遇到一點問題，便把過程記錄下來，並讓其他人參考 安裝過程 (2017 / 06 /27 安裝) 環境需求 硬體需求 至少 1GB RAM 軟體需求 Ubuntu 17.04 要有roo">
-
-
 <meta itemprop="datePublished" content="2017-06-28T00:22:33&#43;00:00" />
 <meta itemprop="dateModified" content="2017-06-28T00:22:33&#43;00:00" />
-<meta itemprop="wordCount" content="592">
+<meta itemprop="wordCount" content="586">
 
 
 
-<meta itemprop="keywords" content="R,RStudio,教學," />
-<meta property="og:title" content="R RStudio 安裝教學" />
+<meta itemprop="keywords" content="R,RStudio,教學," /><meta property="og:title" content="R RStudio 安裝教學" />
 <meta property="og:description" content="起因 因為之前在 Ubuntu 上安裝 RStudio 時遇到一點問題，便把過程記錄下來，並讓其他人參考 安裝過程 (2017 / 06 /27 安裝) 環境需求 硬體需求 至少 1GB RAM 軟體需求 Ubuntu 17.04 要有roo" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.sappy.tw/posts/rstudio-install/" />
@@ -75,121 +72,83 @@
 				<h1>R RStudio 安裝教學</h1>
 			</header>
 			<div class="content">
-				
-
-<h1 id="起因">起因<a href="#起因" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-
+				<h1 id="heading">起因<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <p>因為之前在 Ubuntu 上安裝 RStudio 時遇到一點問題，便把過程記錄下來，並讓其他人參考</p>
-
-<h1 id="安裝過程">安裝過程<a href="#安裝過程" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-
+<h1 id="heading-1">安裝過程<a href="#heading-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <blockquote>
 <p>(2017 / 06 /27  安裝)</p>
 </blockquote>
-
-<h1 id="環境需求">環境需求<a href="#環境需求" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-
+<h1 id="heading-2">環境需求<a href="#heading-2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <ul>
-<li><p>硬體需求</p>
-
+<li>
+<p>硬體需求</p>
 <ul>
 <li>至少 1GB RAM</li>
-</ul></li>
-
-<li><p>軟體需求</p>
-
+</ul>
+</li>
+<li>
+<p>軟體需求</p>
 <ul>
 <li>Ubuntu 17.04</li>
-<li>要有root or sudo 的權限
-<!-- more --></li>
-</ul></li>
+<li>要有root or sudo 的權限</li>
 </ul>
-
-<h1 id="第一步-安裝-r">第一步 - 安裝 R<a href="#第一步-安裝-r" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<h1 id="----r">第一步 - 安裝 R<a href="#----r" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <p>因為 Ubuntu 預設的 R 通常版本都很舊，所以要用到外部別人包好的 R 套件
 這裡使用 CRAN 維護的版本</p>
-
-<p><font color="red"><strong>注意!! 請選擇可信賴的外部團體維護的版本</strong></font></p>
-
+<p><!-- raw HTML omitted --><strong>注意!! 請選擇可信賴的外部團體維護的版本</strong><!-- raw HTML omitted --></p>
 <p>輸入下列指令</p>
-
 <pre><code>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-</code></pre>
-
-<p>你將會看到如下的輸出
-<img src="https://i.imgur.com/MxCrJIr.png" alt="" /></p>
-
+</code></pre><p>你將會看到如下的輸出
+<img src="https://i.imgur.com/MxCrJIr.png" alt=""></p>
 <p>再來把套件來源加入到套件管理系統的列表中
-<font color="red"><strong>請把最後的zesty換成你ubuntu的版本</strong></font>
+<!-- raw HTML omitted --><strong>請把最後的zesty換成你ubuntu的版本</strong><!-- raw HTML omitted -->
 請參考<a href="https://wiki.ubuntu.com/Releases">版本名稱對照表</a></p>
-
 <pre><code>sudo add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu zesty/'
-</code></pre>
-
-<p>更新你的列表資訊</p>
-
+</code></pre><p>更新你的列表資訊</p>
 <pre><code>sudo apt-get update
-</code></pre>
-
-<p>如果成功你可能會看到如下輸出(get 後的數字不一定會一樣)
-<img src="https://i.imgur.com/C6jkVzl.png" alt="" /></p>
-
+</code></pre><p>如果成功你可能會看到如下輸出(get 後的數字不一定會一樣)
+<img src="https://i.imgur.com/C6jkVzl.png" alt=""></p>
 <p>最後就可以安裝R 了</p>
-
 <pre><code>sudo apt-get install r-base
-</code></pre>
-
-<p>如果一切順利，沒有跑出錯誤的訊息那應該就代表你成功了(灑花花</p>
-
-<h1 id="第二步-安裝-rstudio">第二步 - 安裝 Rstudio<a href="#第二步-安裝-rstudio" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-
-<p>他有分成兩個版本
-* Server 版
-* Desktop 版
+</code></pre><p>如果一切順利，沒有跑出錯誤的訊息那應該就代表你成功了(灑花花</p>
+<h1 id="----rstudio">第二步 - 安裝 Rstudio<a href="#----rstudio" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<p>他有分成兩個版本</p>
+<ul>
+<li>Server 版</li>
+<li>Desktop 版
 我只有安裝 Desktop版，所以Server板我不清楚怎麼安裝
-所以要安裝Server版的請看</p>
-
+所以要安裝Server版的請看</li>
+</ul>
 <p><a href="https://www.rstudio.com/products/rstudio/download-server/">Server 版安裝方式</a></p>
-
-<p>Desktop 版安裝方式
-1. 先去 Rstudio 的官網把 Rstudio 的安裝套件抓下來
-    a. <a href="https://www.rstudio.com/products/rstudio/download/">快速連結</a>
-2. 找到你要的版本並下載
-    a. <img src="https://i.imgur.com/fDVGiIx.png" alt="" /></p>
-
-<pre><code>b. 看你是 32 bit or 64 bit
-c. Command Line (小黑窗) 底下可以用底下的命令
-
-```
-wget 下載網址 
-```
-</code></pre>
-
+<p>Desktop 版安裝方式</p>
 <ol>
-<li><p>因為 RStudio 的新版本加入了兩個相依套件，所以要先安裝
+<li>
+<p>先去 Rstudio 的官網把 Rstudio 的安裝套件抓下來
+a. <a href="https://www.rstudio.com/products/rstudio/download/">快速連結</a></p>
+</li>
+<li>
+<p>找到你要的版本並下載
+a. <img src="https://i.imgur.com/fDVGiIx.png" alt=""></p>
+<p>b. 看你是 32 bit or 64 bit
+c. Command Line (小黑窗) 底下可以用底下的命令</p>
+<pre><code>wget 下載網址 
+</code></pre></li>
+<li>
+<p>因為 RStudio 的新版本加入了兩個相依套件，所以要先安裝
 a. 到 <a href="https://packages.debian.org/jessie/amd64/libgstreamer-plugins-base0.10-0/download">https://packages.debian.org/jessie/amd64/libgstreamer-plugins-base0.10-0/download</a> ， 下載 libgstreamer-plugins-base0.10-0_0.10.36-2_amd64.deb</p>
-
 <p>b. 到  <a href="https://packages.debian.org/jessie/amd64/libgstreamer0.10-0/download">https://packages.debian.org/jessie/amd64/libgstreamer0.10-0/download</a> 下載 libgstreamer0.10-0_0.10.36-1.5_amd64.deb</p>
-
 <p>c.使用 sudo dpkg -i  剛剛下載的兩個套件名稱 安裝套件，大概長這樣 並補充一下，用tab鍵可以自動補全名稱，但是要在同一個目錄底下</p>
-
 <pre><code>sudo dpkg -i  libgstreamer-plugins-base0.10-0_0.10.36-2_amd64.deb libgstreamer0.10-0_0.10.36-1.5
-</code></pre>
-
-<p>d. 安裝另外兩個相依套件</p>
-
+</code></pre><p>d. 安裝另外兩個相依套件</p>
 <pre><code>sudo apt install libjpeg62 libedit2
-</code></pre>
-
-<p>e. 最後 安裝 Rstudio</p>
-
+</code></pre><p>e. 最後 安裝 Rstudio</p>
 <pre><code>sudo dpkg -i rstudio-1.0.143-amd64.deb
-</code></pre>
-
-<p><img src="https://i.imgur.com/TTSfnFF.png" alt="" /></p></li>
+</code></pre><p><img src="https://i.imgur.com/TTSfnFF.png" alt=""></p>
+</li>
 </ol>
-
 <p>到這裡就大功告成啦XDD</p>
 
 			</div>

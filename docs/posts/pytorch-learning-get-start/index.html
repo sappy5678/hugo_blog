@@ -9,16 +9,13 @@
 	<meta name="msapplication-TileColor" content="#494f5c">
 <meta itemprop="name" content="Pytorch 學習筆記">
 <meta itemprop="description" content="資源 官方教學 - 六十分鐘學會 Pytorch 六十分鐘學會 Pytorch - 中文翻譯 六十分鐘學會 Pytorch - 我的畫注 深度学习框架PyTorch：入门与实践 - 程式碼 這裡補充一些 Variable 的小">
-
-
 <meta itemprop="datePublished" content="2018-03-06T22:44:40&#43;00:00" />
 <meta itemprop="dateModified" content="2018-03-06T22:44:40&#43;00:00" />
 <meta itemprop="wordCount" content="174">
 
 
 
-<meta itemprop="keywords" content="深度學習,Pytorch,教學," />
-<meta property="og:title" content="Pytorch 學習筆記" />
+<meta itemprop="keywords" content="深度學習,Pytorch,教學," /><meta property="og:title" content="Pytorch 學習筆記" />
 <meta property="og:description" content="資源 官方教學 - 六十分鐘學會 Pytorch 六十分鐘學會 Pytorch - 中文翻譯 六十分鐘學會 Pytorch - 我的畫注 深度学习框架PyTorch：入门与实践 - 程式碼 這裡補充一些 Variable 的小" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.sappy.tw/posts/pytorch-learning-get-start/" />
@@ -75,45 +72,48 @@
 				<h1>Pytorch 學習筆記</h1>
 			</header>
 			<div class="content">
-				
-
-<h1 id="資源">資源<a href="#資源" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-
+				<h1 id="heading">資源<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <ul>
-<li><a href="http://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html">官方教學 - 六十分鐘學會 Pytorch</a><br /></li>
-<li><a href="https://zhuanlan.zhihu.com/p/25572330">六十分鐘學會 Pytorch - 中文翻譯</a><br /></li>
-
-<li><p><a href="https://goo.gl/YBKk2s">六十分鐘學會 Pytorch - 我的畫注</a></p></li>
-
-<li><p><a href="https://github.com/chenyuntc/pytorch-book">深度学习框架PyTorch：入门与实践 - 程式碼</a></p></li>
+<li>
+<p><a href="http://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html">官方教學 - 六十分鐘學會 Pytorch</a></p>
+</li>
+<li>
+<p><a href="https://zhuanlan.zhihu.com/p/25572330">六十分鐘學會 Pytorch - 中文翻譯</a></p>
+</li>
+<li>
+<p><a href="https://goo.gl/YBKk2s">六十分鐘學會 Pytorch - 我的畫注</a></p>
+</li>
+<li>
+<p><a href="https://github.com/chenyuntc/pytorch-book">深度学习框架PyTorch：入门与实践 - 程式碼</a></p>
+</li>
 </ul>
-
 <p>這裡補充一些 Variable 的小東西</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">([</span><span class="mi">3</span><span class="p">]),</span> <span class="n">requires_grad</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">([</span><span class="mi">4</span><span class="p">]),</span> <span class="n">requires_grad</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="p">)</span><span class="p">,</span> <span class="n">requires_grad</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="p">)</span><span class="p">,</span> <span class="n">requires_grad</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
 
 
 <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 
-<span class="n">d</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># a^2 + b</span></code></pre></div>
-<p>可以透過 算出 梯度</p>
-<div class="highlight"><pre class="chroma"><code class="language-pytohn" data-lang="pytohn">d.backward()
+<span class="n">d</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># a^2 + b</span>
+</code></pre></div><p>可以透過 算出 梯度</p>
+<pre><code class="language-pytohn" data-lang="pytohn">d.backward()
 print(a.grad)
-print(b.grad)</code></pre></div>
-<p>輸出是</p>
-<div class="highlight"><pre class="chroma"><code class="language-output" data-lang="output">Variable containing:
+print(b.grad)
+</code></pre><p>輸出是</p>
+<pre><code class="language-output" data-lang="output">Variable containing:
  6
 [torch.FloatTensor of size 1]
 
 Variable containing:
  1
-[torch.FloatTensor of size 1]</code></pre></div>
-<p>透過 grad_fn 可以看出計算圖(Computation Graph)長成甚麼樣子</p>
+[torch.FloatTensor of size 1]
+</code></pre><p>透過 grad_fn 可以看出計算圖(Computation Graph)長成甚麼樣子</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">grad_fn</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">grad_fn</span><span class="o">.</span><span class="n">next_functions</span><span class="p">)</span></code></pre></div>
-<p>輸出</p>
-<div class="highlight"><pre class="chroma"><code class="language-output" data-lang="output">&lt;AddBackward1 object at 0x7f73196e5eb8&gt;
-((&lt;PowBackward0 object at 0x7f73196e5ba8&gt;, 0), (&lt;AccumulateGrad object at 0x7f73196e5b38&gt;, 0))</code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">grad_fn</span><span class="o">.</span><span class="n">next_functions</span><span class="p">)</span>
+</code></pre></div><p>輸出</p>
+<pre><code class="language-output" data-lang="output">&lt;AddBackward1 object at 0x7f73196e5eb8&gt;
+((&lt;PowBackward0 object at 0x7f73196e5ba8&gt;, 0), (&lt;AccumulateGrad object at 0x7f73196e5b38&gt;, 0))
+</code></pre>
 			</div>
 			<hr class="post-end">
 			<footer class="post-info">

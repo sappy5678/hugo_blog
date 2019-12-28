@@ -9,16 +9,13 @@
 	<meta name="msapplication-TileColor" content="#494f5c">
 <meta itemprop="name" content="Linux 開機自啟動 Jupyter">
 <meta itemprop="description" content="環境 Ubuntu 16.04 桌面版 Anaconda 3.6 方法 用管理員權限使用 emacs1 打開 /etc/rc.local sudo emacs /etc/rc.local 加入下面兩行(請隨自己的設定改變) 說明 $user_name 是指自己的使用者名稱 su $user_name 是要以該使用者的身分執行">
-
-
 <meta itemprop="datePublished" content="2018-03-07T18:43:51&#43;00:00" />
 <meta itemprop="dateModified" content="2018-03-07T18:43:51&#43;00:00" />
 <meta itemprop="wordCount" content="243">
 
 
 
-<meta itemprop="keywords" content="Ubuntu,開機自啟,Jupyter," />
-<meta property="og:title" content="Linux 開機自啟動 Jupyter" />
+<meta itemprop="keywords" content="Ubuntu,開機自啟,Jupyter," /><meta property="og:title" content="Linux 開機自啟動 Jupyter" />
 <meta property="og:description" content="環境 Ubuntu 16.04 桌面版 Anaconda 3.6 方法 用管理員權限使用 emacs1 打開 /etc/rc.local sudo emacs /etc/rc.local 加入下面兩行(請隨自己的設定改變) 說明 $user_name 是指自己的使用者名稱 su $user_name 是要以該使用者的身分執行" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.sappy.tw/posts/run-jupyter-on-boot/" />
@@ -75,61 +72,52 @@
 				<h1>Linux 開機自啟動 Jupyter</h1>
 			</header>
 			<div class="content">
-				
-
-<h1 id="環境">環境<a href="#環境" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-
+				<h1 id="heading">環境<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <ul>
 <li>Ubuntu 16.04 桌面版</li>
 <li>Anaconda 3.6</li>
 </ul>
-
-<h1 id="方法">方法<a href="#方法" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-
+<h1 id="heading-1">方法<a href="#heading-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <ol>
-<li><p>用管理員權限使用 emacs<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> 打開 /etc/rc.local</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo emacs /etc/rc.local</code></pre></div></li>
-
-<li><p>加入下面兩行(請隨自己的設定改變)
+<li>
+<p>用管理員權限使用 emacs<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> 打開 /etc/rc.local</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo emacs /etc/rc.local
+</code></pre></div></li>
+<li>
+<p>加入下面兩行(請隨自己的設定改變)
 說明</p>
-
 <ul>
 <li>$user_name 是指自己的使用者名稱</li>
 <li>su $user_name 是要以該使用者的身分執行</li>
 <li>/home/$user_name/anaconda3/envs/DL3/bin/jupyter 則是你執行 jupyter 的位置，這裡是以 ubuntu 下的 anaconda 為例</li>
-
-<li><p>lab 跟 notebook 分別是執行 <a href="https://github.com/jupyterlab/jupyterlab">jupyter lab</a> 跟 <a href="http://jupyter.org/">jupyter notebook</a>，看個人需要使用</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">su <span class="nv">$user_name</span> -c <span class="s2">&#34;/home/</span><span class="nv">$user_name</span><span class="s2">/anaconda3/envs/DL3/bin/jupyter lab --no-browser;&#34;</span> <span class="p">&amp;</span>
-su <span class="nv">$user_name</span> -c <span class="s2">&#34;/home/</span><span class="nv">$user_name</span><span class="s2">/anaconda3/envs/DL3/bin/jupyter notebook --port 8889 --no-browser;&#34;</span> <span class="p">&amp;</span></code></pre></div></li>
+<li>lab 跟 notebook 分別是執行 <a href="https://github.com/jupyterlab/jupyterlab">jupyter lab</a> 跟 <a href="http://jupyter.org/">jupyter notebook</a>，看個人需要使用</li>
 </ul>
-
-<p>所以我是</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">su <span class="nv">$user_name</span> -c <span class="s2">&#34;</span><span class="s2">/home/</span><span class="nv">$user_name</span><span class="s2">/anaconda3/envs/DL3/bin/jupyter lab --no-browser;</span><span class="s2">&#34;</span> <span class="p">&amp;</span>
+su <span class="nv">$user_name</span> -c <span class="s2">&#34;</span><span class="s2">/home/</span><span class="nv">$user_name</span><span class="s2">/anaconda3/envs/DL3/bin/jupyter notebook --port 8889 --no-browser;</span><span class="s2">&#34;</span> <span class="p">&amp;</span>
+</code></pre></div><p>所以我是</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter lab --no-browser;&#34;</span> <span class="p">&amp;</span>
-su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter notebook --port 8889 --no-browser;&#34;</span> <span class="p">&amp;</span></code></pre></div></li>
-
-<li><p>可以使用下面的指令來協助除錯，詳細可以看<a href="http://linux.vbird.org/linux_basic/0510osloader.php#rc.local">這篇文章</a></p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">systemctl status rc-local.service</code></pre></div></li>
+su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter notebook --port 8889 --no-browser;&#34;</span> <span class="p">&amp;</span>
+</code></pre></div></li>
+<li>
+<p>可以使用下面的指令來協助除錯，詳細可以看<a href="http://linux.vbird.org/linux_basic/0510osloader.php#rc.local">這篇文章</a></p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">systemctl status rc-local.service
+</code></pre></div></li>
 </ol>
-
-<h1 id="結論">結論<a href="#結論" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-
+<h1 id="heading-2">結論<a href="#heading-2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <p>rc.local 雖然已經過時了，但是&hellip;&hellip;能用就好 😁 😄</p>
-
-<h1 id="參考">參考<a href="#參考" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-
+<h1 id="heading-3">參考<a href="#heading-3" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <ul>
 <li><a href="http://linux.vbird.org/linux_basic/0510osloader.php">鳥哥的 Linux 私房菜</a></li>
 <li><a href="https://stackoverflow.com/questions/44231789/run-jupyter-notebook-on-boot-on-ubuntu">server - Run Jupyter-notebook on boot on Ubuntu - Stack Overflow</a></li>
 </ul>
-<div class="footnotes">
-
-<hr />
-
+<section class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn:1">一種編輯器
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p>一種編輯器 <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
-</div>
+</section>
 
 			</div>
 			<hr class="post-end">
@@ -142,6 +130,9 @@ su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter not
 			</footer>
 		</article>
 		<div class="post-nav thin">
+			<a class="next-post" href="https://blog.sappy.tw/posts/docker-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;</span><br><span>Docker 開發環境簡易教學</span>
+			</a>
 			<a class="prev-post" href="https://blog.sappy.tw/posts/pytorch-learning-get-start/">
 				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>Pytorch 學習筆記</span>
 			</a>

@@ -9,16 +9,13 @@
 	<meta name="msapplication-TileColor" content="#494f5c">
 <meta itemprop="name" content="OpenCV 安裝教學">
 <meta itemprop="description" content="前言 因為教授要求安裝 opencv，但是因為 opencv 安裝複雜，所以在此紀錄一下 環境要求 opencv3.3 ubuntu 17.04 安裝紀錄 首先，我是參考 How to install OpenCV 3.1 on Ubuntu 14.04 64bits 以及官方文件 一開">
-
-
 <meta itemprop="datePublished" content="2017-09-14T16:07:33&#43;00:00" />
 <meta itemprop="dateModified" content="2017-09-14T16:07:33&#43;00:00" />
 <meta itemprop="wordCount" content="281">
 
 
 
-<meta itemprop="keywords" content="Opencv3,Ubuntu,安裝,教學," />
-<meta property="og:title" content="OpenCV 安裝教學" />
+<meta itemprop="keywords" content="Opencv3,Ubuntu,安裝,教學," /><meta property="og:title" content="OpenCV 安裝教學" />
 <meta property="og:description" content="前言 因為教授要求安裝 opencv，但是因為 opencv 安裝複雜，所以在此紀錄一下 環境要求 opencv3.3 ubuntu 17.04 安裝紀錄 首先，我是參考 How to install OpenCV 3.1 on Ubuntu 14.04 64bits 以及官方文件 一開" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.sappy.tw/posts/opencv-install/" />
@@ -75,53 +72,35 @@
 				<h1>OpenCV 安裝教學</h1>
 			</header>
 			<div class="content">
-				
-
-<h1 id="前言">前言<a href="#前言" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-
+				<h1 id="heading">前言<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <p>因為教授要求安裝 opencv，但是因為 opencv 安裝複雜，所以在此紀錄一下</p>
-
-<h1 id="環境要求">環境要求<a href="#環境要求" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-
+<h1 id="heading-1">環境要求<a href="#heading-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <ul>
 <li>opencv3.3</li>
 <li>ubuntu 17.04</li>
 </ul>
-
-<h1 id="安裝紀錄">安裝紀錄<a href="#安裝紀錄" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-
+<h1 id="heading-2">安裝紀錄<a href="#heading-2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <p>首先，我是參考 <a href="https://gist.github.com/MarcWang/0547f87cf777b6576275">How to install OpenCV 3.1 on Ubuntu 14.04 64bits</a>
 以及<a href="http://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html">官方文件</a></p>
-
 <p>一開始我是先 按照 <a href="https://gist.github.com/MarcWang/0547f87cf777b6576275">How to install OpenCV 3.1 on Ubuntu 14.04 64bits</a> 安裝</p>
-
 <p>在下面這行遇到一些困難</p>
-
 <pre><code>sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
-</code></pre>
-
-<p>首先，libjasper-dev 已經被從 ubuntu 17 上移除了，所以我是透過 <a href="https://stackoverflow.com/a/44488374/4754280">這個方法</a> 來安裝 ubuntu 16 版的 libjasper-dev
+</code></pre><p>首先，libjasper-dev 已經被從 ubuntu 17 上移除了，所以我是透過 <a href="https://stackoverflow.com/a/44488374/4754280">這個方法</a> 來安裝 ubuntu 16 版的 libjasper-dev
 其次
 libpng12-dev 已經被 libpng12-0 所取代了，所以把上面的這部分換掉即可</p>
-
 <p>這裡說明一下比較會用到的編譯的參數( <a href="http://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html">官方文件</a> 上都找的到)</p>
-
 <pre><code>cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D CMAKE_INSTALL_PREFIX=/usr/local \
     -D INSTALL_C_EXAMPLES=OFF \
     -D INSTALL_PYTHON_EXAMPLES=ON \
     -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
     -D BUILD_EXAMPLES=ON ..
-</code></pre>
-
-<ul>
+</code></pre><ul>
 <li>CMAKE_BUILD_TYPE 可以設為 Release or Debug</li>
 <li>最後的 .. 是指 opencv 原始碼的路徑</li>
 <li>OPENCV_EXTRA_MODULES_PATH 要放 opencv_contrib/modules 的路徑</li>
 </ul>
-
 <p>之後參考<a href="http://cccharles.pixnet.net/blog/post/338054801-%25E5%259C%25A8ubuntu-16.04%25E5%25AE%2589%25E8%25A3%259Dopencv-3.1">這篇</a> 安裝 Anaconda 的 opencv 以及一些加速器</p>
-
 <p>最後做完一些測試就OK了 ^^</p>
 
 			</div>

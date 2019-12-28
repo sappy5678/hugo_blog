@@ -9,16 +9,13 @@
 	<meta name="msapplication-TileColor" content="#494f5c">
 <meta itemprop="name" content="gdb簡易教學">
 <meta itemprop="description" content="簡介 gdb 是一種除錯的工具,經常在 Linux 環境中被使用 參考資料 Linux 除錯利器 - GDB 簡介 Debugging with GDB （入門篇） 小技巧 印出ascii或客製化輸出 輸出格式 使用方法 EX: p /c">
-
-
 <meta itemprop="datePublished" content="2017-04-08T17:12:01&#43;00:00" />
 <meta itemprop="dateModified" content="2017-04-08T17:12:01&#43;00:00" />
 <meta itemprop="wordCount" content="112">
 
 
 
-<meta itemprop="keywords" content="gdb,教學," />
-<meta property="og:title" content="gdb簡易教學" />
+<meta itemprop="keywords" content="gdb,教學," /><meta property="og:title" content="gdb簡易教學" />
 <meta property="og:description" content="簡介 gdb 是一種除錯的工具,經常在 Linux 環境中被使用 參考資料 Linux 除錯利器 - GDB 簡介 Debugging with GDB （入門篇） 小技巧 印出ascii或客製化輸出 輸出格式 使用方法 EX: p /c" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.sappy.tw/posts/gdb%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/" />
@@ -75,43 +72,28 @@
 				<h1>gdb簡易教學</h1>
 			</header>
 			<div class="content">
-				
-
-<h1 id="簡介">簡介<a href="#簡介" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-
+				<h1 id="heading">簡介<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <p>gdb 是一種除錯的工具,經常在 Linux 環境中被使用</p>
-
-<!-- more -->
-
-<h1 id="參考資料">參考資料<a href="#參考資料" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-
+<!-- raw HTML omitted -->
+<h1 id="heading-1">參考資料<a href="#heading-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <ul>
 <li><a href="http://tetralet.luna.com.tw/?op=ViewArticle&amp;articleId=187&amp;blogId=1">Linux 除錯利器 - GDB 簡介</a></li>
 <li><a href="http://www.study-area.org/goldencat/debug.htm">Debugging with GDB （入門篇）</a></li>
 </ul>
-
-<h2 id="小技巧">小技巧<a href="#小技巧" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
-
-<h3 id="印出ascii或客製化輸出">印出ascii或客製化輸出<a href="#印出ascii或客製化輸出" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
-
+<h2 id="heading-2">小技巧<a href="#heading-2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h3 id="ascii">印出ascii或客製化輸出<a href="#ascii" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <ul>
 <li><a href="https://sourceware.org/gdb/onlinedocs/gdb/Output-Formats.html">輸出格式</a></li>
 <li>使用方法
-
 <ul>
-<li>EX: p /c char_string
-<br /></li>
-</ul></li>
+<li>EX: p /c char_string</li>
 </ul>
-
-<h3 id="中斷點條件">中斷點條件<a href="#中斷點條件" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
-
+</li>
+</ul>
+<h3 id="heading-3">中斷點條件<a href="#heading-3" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p><a href="http://stackoverflow.com/questions/4183871/how-do-i-set-a-conditional-breakpoint-in-gdb-when-char-x-points-to-a-string-wh">by StackOverFlow</a></p>
-
 <pre><code>break x:20 if strcmp(y, &quot;hello&quot;) == 0
-</code></pre>
-
-<p>20 是指行數, x 是可以是任何檔案名稱, 而 y 可以是任何變數</p>
+</code></pre><p>20 是指行數, x 是可以是任何檔案名稱, 而 y 可以是任何變數</p>
 
 			</div>
 			<hr class="post-end">
