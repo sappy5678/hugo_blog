@@ -8,21 +8,21 @@
 	<meta name="theme-color" content="#494f5c">
 	<meta name="msapplication-TileColor" content="#494f5c">
 <meta itemprop="name" content="Docker 開發環境簡易教學">
-<meta itemprop="description" content="簡介 最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法 常駐 docker 並能連接上 terminal 用 {} 包起來代表變數 docker run -id {image} docker exec -it {id} bash">
-<meta itemprop="dateModified" content="2019-12-28T13:59:47&#43;00:00" />
-<meta itemprop="wordCount" content="67">
+<meta itemprop="description" content="簡介 最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法 常駐 docker 並能連接上 terminal 用 {} 包起來代表變數 docker run -id {image} docker exec -it {id} bash 做 fuzz test">
+<meta itemprop="dateModified" content="2019-12-29T11:55:38&#43;00:00" />
+<meta itemprop="wordCount" content="94">
 
 
 
 <meta itemprop="keywords" content="dev,docker," /><meta property="og:title" content="Docker 開發環境簡易教學" />
-<meta property="og:description" content="簡介 最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法 常駐 docker 並能連接上 terminal 用 {} 包起來代表變數 docker run -id {image} docker exec -it {id} bash" />
+<meta property="og:description" content="簡介 最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法 常駐 docker 並能連接上 terminal 用 {} 包起來代表變數 docker run -id {image} docker exec -it {id} bash 做 fuzz test" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.sappy.tw/posts/docker-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/" />
-<meta property="article:published_time" content="2019-12-28T13:59:47+00:00" />
-<meta property="article:modified_time" content="2019-12-28T13:59:47+00:00" />
+<meta property="article:published_time" content="2019-12-29T11:55:38+00:00" />
+<meta property="article:modified_time" content="2019-12-29T11:55:38+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Docker 開發環境簡易教學"/>
-<meta name="twitter:description" content="簡介 最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法 常駐 docker 並能連接上 terminal 用 {} 包起來代表變數 docker run -id {image} docker exec -it {id} bash"/>
+<meta name="twitter:description" content="簡介 最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法 常駐 docker 並能連接上 terminal 用 {} 包起來代表變數 docker run -id {image} docker exec -it {id} bash 做 fuzz test"/>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -67,7 +67,7 @@
 	<main class="site-main section-inner animated fadeIn faster">
 		<article class="thin">
 			<header class="post-header">
-				<div class="post-meta"><span>Dec 28, 2019</span></div>
+				<div class="post-meta"><span>Dec 29, 2019</span></div>
 				<h1>Docker 開發環境簡易教學</h1>
 			</header>
 			<div class="content">
@@ -78,8 +78,13 @@
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker run -id <span class="o">{</span>image<span class="o">}</span>
 
 docker <span class="nb">exec</span> -it <span class="o">{</span>id<span class="o">}</span> bash
+</code></pre></div><h2 id="-fuzz-test">做 fuzz test<a href="#-fuzz-test" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker run -id --ulimit <span class="nv">core</span><span class="o">=</span>-1 --privileged <span class="o">{</span>image<span class="o">}</span>
+</code></pre></div><p><a href="https://ephrain.net/docker-%E5%9C%A8-container-%E8%A3%A1%E8%A8%AD%E5%AE%9A-core-dump-%E7%9A%84%E6%AA%94%E6%A1%88%E5%90%8D%E7%A8%B1%E6%A0%BC%E5%BC%8F/">參考</a></p>
+<h2 id="-image">打包現有環境到新 image<a href="#-image" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker commit <span class="o">{</span>old_running_docker<span class="o">}</span> <span class="o">{</span>newimagename<span class="o">}</span>
+</code></pre></div><p><a href="https://stackoverflow.com/questions/28302178/how-can-i-add-a-volume-to-an-existing-docker-container">參考</a></p>
 
-</code></pre></div>
 			</div>
 			<hr class="post-end">
 			<footer class="post-info">
@@ -87,15 +92,12 @@ docker <span class="nb">exec</span> -it <span class="o">{</span>id<span class="o
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://blog.sappy.tw/tags/dev">dev</a></span><span class="tag"><a href="https://blog.sappy.tw/tags/docker">docker</a></span>
 				</p>
 				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></p>
-				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-12-28 21:59 &#43;0800</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-12-29 19:55 &#43;0800</p>
 			</footer>
 		</article>
 		<div class="post-nav thin">
-			<a class="next-post" href="https://blog.sappy.tw/posts/pyspark-%E5%B0%8F%E6%8A%80%E5%B7%A7/">
-				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;</span><br><span>pyspark 小技巧</span>
-			</a>
-			<a class="prev-post" href="https://blog.sappy.tw/posts/run-jupyter-on-boot/">
-				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>Linux 開機自啟動 Jupyter</span>
+			<a class="prev-post" href="https://blog.sappy.tw/posts/pyspark-%E5%B0%8F%E6%8A%80%E5%B7%A7/">
+				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>pyspark 小技巧</span>
 			</a>
 		</div>
 		<div id="comments" class="thin">

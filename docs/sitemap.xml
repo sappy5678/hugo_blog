@@ -3,8 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.sappy.tw/tags/dev/</loc>
+    <lastmod>2019-12-29T11:55:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sappy.tw/tags/docker/</loc>
+    <lastmod>2019-12-29T11:55:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sappy.tw/posts/docker-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</loc>
+    <lastmod>2019-12-29T11:55:38+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.sappy.tw/posts/</loc>
-    <lastmod>2019-12-28T14:06:02+00:00</lastmod>
+    <lastmod>2019-12-29T11:55:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sappy.tw/</loc>
+    <lastmod>2019-12-29T11:55:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sappy.tw/tags/</loc>
+    <lastmod>2019-12-29T11:55:38+00:00</lastmod>
   </url>
   
   <url>
@@ -23,33 +48,8 @@
   </url>
   
   <url>
-    <loc>https://blog.sappy.tw/</loc>
-    <lastmod>2019-12-28T14:06:02+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://blog.sappy.tw/tags/spark/</loc>
     <lastmod>2019-12-28T14:06:02+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.sappy.tw/tags/</loc>
-    <lastmod>2019-12-28T14:06:02+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.sappy.tw/tags/dev/</loc>
-    <lastmod>2019-12-28T13:59:47+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.sappy.tw/tags/docker/</loc>
-    <lastmod>2019-12-28T13:59:47+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.sappy.tw/posts/docker-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</loc>
-    <lastmod>2019-12-28T13:59:47+00:00</lastmod>
   </url>
   
   <url>

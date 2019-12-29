@@ -6,8 +6,31 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>zh-tw</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sat, 28 Dec 2019 14:06:02 +0000</lastBuildDate>
+		<lastBuildDate>Sun, 29 Dec 2019 11:55:38 +0000</lastBuildDate>
 		<atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Docker 開發環境簡易教學</title>
+			<link>https://blog.sappy.tw/posts/docker-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</link>
+			<pubDate>Sun, 29 Dec 2019 11:55:38 +0000</pubDate>
+			
+			<guid>https://blog.sappy.tw/posts/docker-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</guid>
+			<description>簡介 最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法 常駐 docker 並能連接上 terminal 用 {} 包起來代表變數 docker run -id {image} docker exec -it {id} bash 做 fuzz test</description>
+			<content type="html"><![CDATA[<h1 id="heading">簡介</h1>
+<p>最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法</p>
+<h2 id="-docker--terminal">常駐 docker 並能連接上 terminal</h2>
+<p>用 {} 包起來代表變數</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker run -id <span class="o">{</span>image<span class="o">}</span>
+
+docker <span class="nb">exec</span> -it <span class="o">{</span>id<span class="o">}</span> bash
+</code></pre></div><h2 id="-fuzz-test">做 fuzz test</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker run -id --ulimit <span class="nv">core</span><span class="o">=</span>-1 --privileged <span class="o">{</span>image<span class="o">}</span>
+</code></pre></div><p><a href="https://ephrain.net/docker-%E5%9C%A8-container-%E8%A3%A1%E8%A8%AD%E5%AE%9A-core-dump-%E7%9A%84%E6%AA%94%E6%A1%88%E5%90%8D%E7%A8%B1%E6%A0%BC%E5%BC%8F/">參考</a></p>
+<h2 id="-image">打包現有環境到新 image</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker commit <span class="o">{</span>old_running_docker<span class="o">}</span> <span class="o">{</span>newimagename<span class="o">}</span>
+</code></pre></div><p><a href="https://stackoverflow.com/questions/28302178/how-can-i-add-a-volume-to-an-existing-docker-container">參考</a></p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>pyspark 小技巧</title>
@@ -36,24 +59,6 @@
 <p>使用 repartition() 或 checkpoint() 可以解決這問題<br>
 <a href="https://changhsinlee.com/pyspark-dataframe-basics/">https://changhsinlee.com/pyspark-dataframe-basics/</a></p>
 ]]></content>
-		</item>
-		
-		<item>
-			<title>Docker 開發環境簡易教學</title>
-			<link>https://blog.sappy.tw/posts/docker-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</link>
-			<pubDate>Sat, 28 Dec 2019 13:59:47 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/docker-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</guid>
-			<description>簡介 最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法 常駐 docker 並能連接上 terminal 用 {} 包起來代表變數 docker run -id {image} docker exec -it {id} bash</description>
-			<content type="html"><![CDATA[<h1 id="heading">簡介</h1>
-<p>最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法</p>
-<h2 id="-docker--terminal">常駐 docker 並能連接上 terminal</h2>
-<p>用 {} 包起來代表變數</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker run -id <span class="o">{</span>image<span class="o">}</span>
-
-docker <span class="nb">exec</span> -it <span class="o">{</span>id<span class="o">}</span> bash
-
-</code></pre></div>]]></content>
 		</item>
 		
 		<item>
