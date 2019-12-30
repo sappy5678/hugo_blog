@@ -1,22 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Posts on sappy blog</title>
-		<link>https://blog.sappy.tw/posts/</link>
-		<description>Recent content in Posts on sappy blog</description>
-		<generator>Hugo -- gohugo.io</generator>
-		<language>zh-tw</language>
-		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sun, 29 Dec 2019 11:55:38 +0000</lastBuildDate>
-		<atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>Docker 開發環境簡易教學</title>
-			<link>https://blog.sappy.tw/posts/docker-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</link>
-			<pubDate>Sun, 29 Dec 2019 11:55:38 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/docker-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</guid>
-			<description>簡介 最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法 常駐 docker 並能連接上 terminal 用 {} 包起來代表變數 docker run -id {image} docker exec -it {id} bash 做 fuzz test</description>
-			<content type="html"><![CDATA[<h1 id="heading">簡介</h1>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 29 Dec 2019 11:55:38 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker 開發環境簡易教學</title><link>https://blog.sappy.tw/posts/docker-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</link><pubDate>Sun, 29 Dec 2019 11:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/docker-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</guid><description>簡介 最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法 常駐 docker 並能連接上 terminal 用 {} 包起來代表變數 docker run -id {image} docker exec -it {id} bash 做 fuzz test</description><content type="html"><![CDATA[<h1 id="heading">簡介</h1>
 <p>最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法</p>
 <h2 id="-docker--terminal">常駐 docker 並能連接上 terminal</h2>
 <p>用 {} 包起來代表變數</p>
@@ -29,17 +11,7 @@ docker <span class="nb">exec</span> -it <span class="o">{</span>id<span class="o
 <h2 id="-image">打包現有環境到新 image</h2>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker commit <span class="o">{</span>old_running_docker<span class="o">}</span> <span class="o">{</span>newimagename<span class="o">}</span>
 </code></pre></div><p><a href="https://stackoverflow.com/questions/28302178/how-can-i-add-a-volume-to-an-existing-docker-container">參考</a></p>
-]]></content>
-		</item>
-		
-		<item>
-			<title>pyspark 小技巧</title>
-			<link>https://blog.sappy.tw/posts/pyspark-%E5%B0%8F%E6%8A%80%E5%B7%A7/</link>
-			<pubDate>Sat, 28 Dec 2019 14:06:02 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/pyspark-%E5%B0%8F%E6%8A%80%E5%B7%A7/</guid>
-			<description>簡介 最近在弄 spark 時遇到一堆破事，特此紀錄 collect 很久，甚至沒反應 conf = SparkConf().setMaster(&amp;#34;local[*]&amp;#34;) \ .setAppName(&amp;#34;App_Name&amp;#34;) \ .set(&amp;#39;spark.executor.memory&amp;#39;, &amp;#39;4G&amp;#39;) \ .set(&amp;#39;spark.driver.memory&amp;#39;, &amp;#39;45G&amp;#39;) \ .set(&amp;#39;spark.driver.maxResultSize&amp;#39;, &amp;#39;10G&amp;#39;) self.sc = SparkContext(conf=conf) saveAsFile 很久，甚至沒反應 conf = SparkConf().setMaster(&amp;#34;local[*]&amp;#34;) \ .setAppName(&amp;#34;App_Name&amp;#34;) \ .set(&amp;#39;spark.executor.memory&amp;#39;, &amp;#39;4G&amp;#39;) \ .set(&amp;#39;spark.driver.memory&amp;#39;, &amp;#39;45G&amp;#39;) \ .set(&amp;#39;spark.driver.maxResultSize&amp;#39;, &amp;#39;10G&amp;#39;) self.sc =</description>
-			<content type="html"><![CDATA[<h1 id="heading">簡介</h1>
+]]></content></item><item><title>pyspark 小技巧</title><link>https://blog.sappy.tw/posts/pyspark-%E5%B0%8F%E6%8A%80%E5%B7%A7/</link><pubDate>Sat, 28 Dec 2019 14:06:02 +0000</pubDate><guid>https://blog.sappy.tw/posts/pyspark-%E5%B0%8F%E6%8A%80%E5%B7%A7/</guid><description>簡介 最近在弄 spark 時遇到一堆破事，特此紀錄 collect 很久，甚至沒反應 conf = SparkConf().setMaster(&amp;#34;local[*]&amp;#34;) \ .setAppName(&amp;#34;App_Name&amp;#34;) \ .set(&amp;#39;spark.executor.memory&amp;#39;, &amp;#39;4G&amp;#39;) \ .set(&amp;#39;spark.driver.memory&amp;#39;, &amp;#39;45G&amp;#39;) \ .set(&amp;#39;spark.driver.maxResultSize&amp;#39;, &amp;#39;10G&amp;#39;) self.sc = SparkContext(conf=conf) saveAsFile 很久，甚至沒反應 conf = SparkConf().setMaster(&amp;#34;local[*]&amp;#34;) \ .setAppName(&amp;#34;App_Name&amp;#34;) \ .set(&amp;#39;spark.executor.memory&amp;#39;, &amp;#39;4G&amp;#39;) \ .set(&amp;#39;spark.driver.memory&amp;#39;, &amp;#39;45G&amp;#39;) \ .set(&amp;#39;spark.driver.maxResultSize&amp;#39;, &amp;#39;10G&amp;#39;) self.sc =</description><content type="html"><![CDATA[<h1 id="heading">簡介</h1>
 <p>最近在弄 spark 時遇到一堆破事，特此紀錄</p>
 <h2 id="collect-">collect 很久，甚至沒反應</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">conf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">(</span><span class="p">)</span><span class="o">.</span><span class="n">setMaster</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">local[*]</span><span class="s2">&#34;</span><span class="p">)</span> \
@@ -58,17 +30,7 @@ docker <span class="nb">exec</span> -it <span class="o">{</span>id<span class="o
 </code></pre></div><h2 id="for-loop-">for loop 越跑越慢</h2>
 <p>使用 repartition() 或 checkpoint() 可以解決這問題<br>
 <a href="https://changhsinlee.com/pyspark-dataframe-basics/">https://changhsinlee.com/pyspark-dataframe-basics/</a></p>
-]]></content>
-		</item>
-		
-		<item>
-			<title>Linux 開機自啟動 Jupyter</title>
-			<link>https://blog.sappy.tw/posts/run-jupyter-on-boot/</link>
-			<pubDate>Wed, 07 Mar 2018 18:43:51 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/run-jupyter-on-boot/</guid>
-			<description>環境 Ubuntu 16.04 桌面版 Anaconda 3.6 方法 用管理員權限使用 emacs1 打開 /etc/rc.local sudo emacs /etc/rc.local 加入下面兩行(請隨自己的設定改變) 說明 $user_name 是指自己的使用者名稱 su $user_name 是要以該使用者的身分執行</description>
-			<content type="html"><![CDATA[<h1 id="heading">環境</h1>
+]]></content></item><item><title>Linux 開機自啟動 Jupyter</title><link>https://blog.sappy.tw/posts/run-jupyter-on-boot/</link><pubDate>Wed, 07 Mar 2018 18:43:51 +0000</pubDate><guid>https://blog.sappy.tw/posts/run-jupyter-on-boot/</guid><description>環境 Ubuntu 16.04 桌面版 Anaconda 3.6 方法 用管理員權限使用 emacs1 打開 /etc/rc.local sudo emacs /etc/rc.local 加入下面兩行(請隨自己的設定改變) 說明 $user_name 是指自己的使用者名稱 su $user_name 是要以該使用者的身分執行</description><content type="html"><![CDATA[<h1 id="heading">環境</h1>
 <ul>
 <li>Ubuntu 16.04 桌面版</li>
 <li>Anaconda 3.6</li>
@@ -114,17 +76,7 @@ su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter not
 </li>
 </ol>
 </section>
-]]></content>
-		</item>
-		
-		<item>
-			<title>Pytorch 學習筆記</title>
-			<link>https://blog.sappy.tw/posts/pytorch-learning-get-start/</link>
-			<pubDate>Tue, 06 Mar 2018 22:44:40 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/pytorch-learning-get-start/</guid>
-			<description>資源 官方教學 - 六十分鐘學會 Pytorch 六十分鐘學會 Pytorch - 中文翻譯 六十分鐘學會 Pytorch - 我的畫注 深度学习框架PyTorch：入门与实践 - 程式碼 這裡補充一些 Variable 的小</description>
-			<content type="html"><![CDATA[<h1 id="heading">資源</h1>
+]]></content></item><item><title>Pytorch 學習筆記</title><link>https://blog.sappy.tw/posts/pytorch-learning-get-start/</link><pubDate>Tue, 06 Mar 2018 22:44:40 +0000</pubDate><guid>https://blog.sappy.tw/posts/pytorch-learning-get-start/</guid><description>資源 官方教學 - 六十分鐘學會 Pytorch 六十分鐘學會 Pytorch - 中文翻譯 六十分鐘學會 Pytorch - 我的畫注 深度学习框架PyTorch：入门与实践 - 程式碼 這裡補充一些 Variable 的小</description><content type="html"><![CDATA[<h1 id="heading">資源</h1>
 <ul>
 <li>
 <p><a href="http://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html">官方教學 - 六十分鐘學會 Pytorch</a></p>
@@ -165,17 +117,7 @@ Variable containing:
 </code></pre></div><p>輸出</p>
 <pre><code class="language-output" data-lang="output">&lt;AddBackward1 object at 0x7f73196e5eb8&gt;
 ((&lt;PowBackward0 object at 0x7f73196e5ba8&gt;, 0), (&lt;AccumulateGrad object at 0x7f73196e5b38&gt;, 0))
-</code></pre>]]></content>
-		</item>
-		
-		<item>
-			<title>安裝 markdown-it</title>
-			<link>https://blog.sappy.tw/posts/markdown-it-install/</link>
-			<pubDate>Sun, 04 Mar 2018 19:47:58 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/markdown-it-install/</guid>
-			<description>起因 由於發現預設的 render 功能有點少，因此換了一下 renderer 安裝 主要參考 Hexo 研究筆記 1 hexo-next 使用hexo-renderer-markdown-it 但是發現 markdonw-it 的套</description>
-			<content type="html"><![CDATA[<h1 id="heading">起因</h1>
+</code></pre>]]></content></item><item><title>安裝 markdown-it</title><link>https://blog.sappy.tw/posts/markdown-it-install/</link><pubDate>Sun, 04 Mar 2018 19:47:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/markdown-it-install/</guid><description>起因 由於發現預設的 render 功能有點少，因此換了一下 renderer 安裝 主要參考 Hexo 研究筆記 1 hexo-next 使用hexo-renderer-markdown-it 但是發現 markdonw-it 的套</description><content type="html"><![CDATA[<h1 id="heading">起因</h1>
 <p>由於發現預設的 render 功能有點少，因此換了一下 renderer</p>
 <h1 id="heading-1">安裝</h1>
 <p>主要參考</p>
@@ -186,17 +128,7 @@ Variable containing:
 <p>但是發現 markdonw-it 的套件已經很久沒更新了
 因此使用下面這行直接從 github 上安裝即可
 <code>npm install git+https://github.com/hexojs/hexo-renderer-markdown-it.git —save</code></p>
-]]></content>
-		</item>
-		
-		<item>
-			<title>測試 markdown-it</title>
-			<link>https://blog.sappy.tw/posts/markdown-it-test/</link>
-			<pubDate>Sun, 04 Mar 2018 18:46:32 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/markdown-it-test/</guid>
-			<description>markdown-it-footnote Footnote 1 link1. Footnote 2 link2. Inline footnote^[Text of inline footnote] definition. Duplicated footnote reference2. markdown-it-abbr This is HTML abbreviation example. It converts &amp;ldquo;HTML&amp;rdquo;, but keep intact partial entries like &amp;ldquo;xxxHTMLyyy&amp;rdquo; and so on. *[HTML]: Hyper Text Markup Language hexo-filter-github-emojis Hello✨Test 👽 Footnote can have markup and multiple paragraphs. &amp;#x21a9;&amp;#xfe0e; Footnote text. &amp;#x21a9;&amp;#xfe0e;</description>
-			<content type="html"><![CDATA[<h1 id="markdown-it-footnote">markdown-it-footnote</h1>
+]]></content></item><item><title>測試 markdown-it</title><link>https://blog.sappy.tw/posts/markdown-it-test/</link><pubDate>Sun, 04 Mar 2018 18:46:32 +0000</pubDate><guid>https://blog.sappy.tw/posts/markdown-it-test/</guid><description>markdown-it-footnote Footnote 1 link1. Footnote 2 link2. Inline footnote^[Text of inline footnote] definition. Duplicated footnote reference2. markdown-it-abbr This is HTML abbreviation example. It converts &amp;ldquo;HTML&amp;rdquo;, but keep intact partial entries like &amp;ldquo;xxxHTMLyyy&amp;rdquo; and so on. *[HTML]: Hyper Text Markup Language hexo-filter-github-emojis Hello✨Test 👽 Footnote can have markup and multiple paragraphs. &amp;#x21a9;&amp;#xfe0e; Footnote text. &amp;#x21a9;&amp;#xfe0e;</description><content type="html"><![CDATA[<h1 id="markdown-it-footnote">markdown-it-footnote</h1>
 <p>Footnote 1 link<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
 <p>Footnote 2 link<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
 <p>Inline footnote^[Text of inline footnote] definition.</p>
@@ -220,17 +152,7 @@ It converts &ldquo;HTML&rdquo;, but keep intact partial entries like &ldquo;xxxH
 </li>
 </ol>
 </section>
-]]></content>
-		</item>
-		
-		<item>
-			<title>protobuf install</title>
-			<link>https://blog.sappy.tw/posts/protobuf-install/</link>
-			<pubDate>Sat, 14 Oct 2017 09:37:58 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/protobuf-install/</guid>
-			<description>前言 最近在弄 caffe 的安裝，過程中需要安裝到 opencv，但opencv又需要安裝到 protobuf 環境 ubuntu 17.04 過程 基本上按照官網做就好了，唯一需要注意的是，如果有</description>
-			<content type="html"><![CDATA[<h1 id="heading">前言</h1>
+]]></content></item><item><title>protobuf install</title><link>https://blog.sappy.tw/posts/protobuf-install/</link><pubDate>Sat, 14 Oct 2017 09:37:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/protobuf-install/</guid><description>前言 最近在弄 caffe 的安裝，過程中需要安裝到 opencv，但opencv又需要安裝到 protobuf 環境 ubuntu 17.04 過程 基本上按照官網做就好了，唯一需要注意的是，如果有</description><content type="html"><![CDATA[<h1 id="heading">前言</h1>
 <p>最近在弄 caffe 的安裝，過程中需要安裝到 opencv，但opencv又需要安裝到 protobuf</p>
 <h1 id="heading-1">環境</h1>
 <ul>
@@ -238,42 +160,22 @@ It converts &ldquo;HTML&rdquo;, but keep intact partial entries like &ldquo;xxxH
 </ul>
 <h1 id="heading-2">過程</h1>
 <p>基本上按照官網做就好了，唯一需要注意的是，如果有安裝 anconda ，可能會吃到anaconda內建的libtool，因此我的作法是更新anaconda的libtool，讓它版本相符合</p>
-]]></content>
-		</item>
-		
-		<item>
-			<title>update-alternatives 多版本控制</title>
-			<link>https://blog.sappy.tw/posts/update-alternatives/</link>
-			<pubDate>Mon, 09 Oct 2017 18:14:32 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/update-alternatives/</guid>
-			<description>起因 因為要安裝 cuda ,但是我的 gcc/g++ 版本已經到了6.3了,因此得想辦法降回 4.x 解法 參考 注意: 優先度（install 最後的數字）是按照 大到小的 更詳細的參</description>
-			<content type="html"><![CDATA[<h1 id="heading">起因</h1>
+]]></content></item><item><title>update-alternatives 多版本控制</title><link>https://blog.sappy.tw/posts/update-alternatives/</link><pubDate>Mon, 09 Oct 2017 18:14:32 +0000</pubDate><guid>https://blog.sappy.tw/posts/update-alternatives/</guid><description>起因 因為要安裝 cuda ,但是我的 gcc/g++ 版本已經到了6.3了,因此得想辦法降回 4.x 解法 參考 注意: 優先度（install 最後的數字）是按照 大到小的 更詳細的參</description><content type="html"><![CDATA[<h1 id="heading">起因</h1>
 <p>因為要安裝 cuda ,但是我的 gcc/g++ 版本已經到了6.3了,因此得想辦法降回 4.x</p>
 <h1 id="heading-1">解法</h1>
 <p><a href="https://askubuntu.com/a/26518/745445">參考</a>
 注意: 優先度（install 最後的數字）是按照 大到小的</p>
 <p><a href="http://blog.csdn.net/jasonding1354/article/details/50470109">更詳細的參數</a></p>
 <p>可以用 &ndash;query 來找有沒有替代板</p>
-]]></content>
-		</item>
-		
-		<item>
-			<title>Tensorflow with Gpu 安裝教學</title>
-			<link>https://blog.sappy.tw/posts/tensorflow-gpu-install/</link>
-			<pubDate>Thu, 28 Sep 2017 22:34:55 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/tensorflow-gpu-install/</guid>
-			<description>&lt;h1 id=&#34;heading&#34;&gt;起因&lt;/h1&gt;
-&lt;p&gt;因為教授要求要做物體辨識, 加上實驗室的Server目前暫時不能使用,所以只好先在自己的電腦上面跑&lt;/p&gt;
-&lt;h1 id=&#34;heading-1&#34;&gt;環境&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Ubuntu 17.04&lt;/li&gt;
-&lt;li&gt;Tensorflow 1.3&lt;/li&gt;
-&lt;li&gt;Cuda 9.0&lt;/li&gt;
-&lt;li&gt;Cudnn 7.0&lt;/li&gt;
-&lt;/ul&gt;</description>
-			<content type="html"><![CDATA[<h1 id="heading">起因</h1>
+]]></content></item><item><title>Tensorflow with Gpu 安裝教學</title><link>https://blog.sappy.tw/posts/tensorflow-gpu-install/</link><pubDate>Thu, 28 Sep 2017 22:34:55 +0000</pubDate><guid>https://blog.sappy.tw/posts/tensorflow-gpu-install/</guid><description>&lt;h1 id="heading">起因&lt;/h1>
+&lt;p>因為教授要求要做物體辨識, 加上實驗室的Server目前暫時不能使用,所以只好先在自己的電腦上面跑&lt;/p>
+&lt;h1 id="heading-1">環境&lt;/h1>
+&lt;ul>
+&lt;li>Ubuntu 17.04&lt;/li>
+&lt;li>Tensorflow 1.3&lt;/li>
+&lt;li>Cuda 9.0&lt;/li>
+&lt;li>Cudnn 7.0&lt;/li>
+&lt;/ul></description><content type="html"><![CDATA[<h1 id="heading">起因</h1>
 <p>因為教授要求要做物體辨識, 加上實驗室的Server目前暫時不能使用,所以只好先在自己的電腦上面跑</p>
 <h1 id="heading-1">環境</h1>
 <ul>
@@ -316,17 +218,7 @@ $ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 </code></pre></div></li>
 </ol>
 <h2 id="heading-3">選用</h2>
-<p>如要使用 pycharm 要記得幫它加上環境變數</p>]]></content>
-		</item>
-		
-		<item>
-			<title>Ubuntu 調整硬碟大小教學</title>
-			<link>https://blog.sappy.tw/posts/ubuntu-resize-disk/</link>
-			<pubDate>Thu, 14 Sep 2017 21:13:33 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/ubuntu-resize-disk/</guid>
-			<description>前言 最近在安裝 opencv 時，因為VM硬碟大小不夠，所以只好擴充硬碟大小，但是 root partition 好像沒辦法在開機時調整大小(不確定)，所以這次用 Gparted 過程 首先，先用 live cd</description>
-			<content type="html"><![CDATA[<h1 id="heading">前言</h1>
+<p>如要使用 pycharm 要記得幫它加上環境變數</p>]]></content></item><item><title>Ubuntu 調整硬碟大小教學</title><link>https://blog.sappy.tw/posts/ubuntu-resize-disk/</link><pubDate>Thu, 14 Sep 2017 21:13:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/ubuntu-resize-disk/</guid><description>前言 最近在安裝 opencv 時，因為VM硬碟大小不夠，所以只好擴充硬碟大小，但是 root partition 好像沒辦法在開機時調整大小(不確定)，所以這次用 Gparted 過程 首先，先用 live cd</description><content type="html"><![CDATA[<h1 id="heading">前言</h1>
 <p>最近在安裝 opencv 時，因為VM硬碟大小不夠，所以只好擴充硬碟大小，但是 root partition 好像沒辦法在開機時調整大小(不確定)，所以這次用 Gparted</p>
 <h1 id="heading-1">過程</h1>
 <p>首先，先用 live cd 做開機
@@ -335,17 +227,7 @@ $ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 會看到被紅色圈起來的部分，然後對她右鍵，按下 swapoff
 <img src="images/snipaste_20170914_211549.png" alt="snipaste_20170914_211549">
 然後把他移動到右邊(先擴充到右邊，移過去，再縮小)，並且在對他右鍵做swapon 就完成了(灑花花</p>
-]]></content>
-		</item>
-		
-		<item>
-			<title>OpenCV 安裝教學</title>
-			<link>https://blog.sappy.tw/posts/opencv-install/</link>
-			<pubDate>Thu, 14 Sep 2017 16:07:33 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/opencv-install/</guid>
-			<description>前言 因為教授要求安裝 opencv，但是因為 opencv 安裝複雜，所以在此紀錄一下 環境要求 opencv3.3 ubuntu 17.04 安裝紀錄 首先，我是參考 How to install OpenCV 3.1 on Ubuntu 14.04 64bits 以及官方文件 一開</description>
-			<content type="html"><![CDATA[<h1 id="heading">前言</h1>
+]]></content></item><item><title>OpenCV 安裝教學</title><link>https://blog.sappy.tw/posts/opencv-install/</link><pubDate>Thu, 14 Sep 2017 16:07:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/opencv-install/</guid><description>前言 因為教授要求安裝 opencv，但是因為 opencv 安裝複雜，所以在此紀錄一下 環境要求 opencv3.3 ubuntu 17.04 安裝紀錄 首先，我是參考 How to install OpenCV 3.1 on Ubuntu 14.04 64bits 以及官方文件 一開</description><content type="html"><![CDATA[<h1 id="heading">前言</h1>
 <p>因為教授要求安裝 opencv，但是因為 opencv 安裝複雜，所以在此紀錄一下</p>
 <h1 id="heading-1">環境要求</h1>
 <ul>
@@ -375,34 +257,14 @@ libpng12-dev 已經被 libpng12-0 所取代了，所以把上面的這部分換�
 </ul>
 <p>之後參考<a href="http://cccharles.pixnet.net/blog/post/338054801-%25E5%259C%25A8ubuntu-16.04%25E5%25AE%2589%25E8%25A3%259Dopencv-3.1">這篇</a> 安裝 Anaconda 的 opencv 以及一些加速器</p>
 <p>最後做完一些測試就OK了 ^^</p>
-]]></content>
-		</item>
-		
-		<item>
-			<title>[Onenote]把pdf列印在同一頁</title>
-			<link>https://blog.sappy.tw/posts/onenote-print-pdf-in-one-page/</link>
-			<pubDate>Tue, 22 Aug 2017 10:39:58 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/onenote-print-pdf-in-one-page/</guid>
-			<description>前因 因為想讓Onenote的Pdf可以放在同一頁而不被切割成好幾頁，所以上網稍微找了一下方法 解法 到 檔案 -&amp;gt; 選項 -&amp;gt; 進階 (英文的話會是File -&amp;gt; Options</description>
-			<content type="html"><![CDATA[<h1 id="heading">前因</h1>
+]]></content></item><item><title>[Onenote]把pdf列印在同一頁</title><link>https://blog.sappy.tw/posts/onenote-print-pdf-in-one-page/</link><pubDate>Tue, 22 Aug 2017 10:39:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/onenote-print-pdf-in-one-page/</guid><description>前因 因為想讓Onenote的Pdf可以放在同一頁而不被切割成好幾頁，所以上網稍微找了一下方法 解法 到 檔案 -&amp;gt; 選項 -&amp;gt; 進階 (英文的話會是File -&amp;gt; Options</description><content type="html"><![CDATA[<h1 id="heading">前因</h1>
 <p>因為想讓Onenote的Pdf可以放在同一頁而不被切割成好幾頁，所以上網稍微找了一下方法</p>
 <h1 id="heading-1">解法</h1>
 <p>到 檔案 -&gt; 選項 -&gt; 進階 (英文的話會是File -&gt; Options -&gt; Advanced)
 找到 在多頁上插入長的列印成品 (Insert long printouts on multiple pages) 並把他取消打勾，這樣就可以了 ^^</p>
 <h1 id="heading-2">參考</h1>
 <p><a href="https://social.technet.microsoft.com/Forums/office/en-US/f5ac4d90-b92a-446f-b766-0e5ff3445187/how-to-print-multiple-page-pdfs-onto-a-single-onenote-page?forum=officeitpro">How to print multiple page PDFs onto a single Onenote Page?</a></p>
-]]></content>
-		</item>
-		
-		<item>
-			<title>cmder 設定</title>
-			<link>https://blog.sappy.tw/posts/cmder-setting/</link>
-			<pubDate>Sun, 20 Aug 2017 14:33:20 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/cmder-setting/</guid>
-			<description>緣由 因為最近開始在找 windows 10 系統上好用的另列命令列工具, 在友人的推薦下使用了這個 安裝 由於他的安裝只是把它解壓縮而已, 在此就不多說了 設定 ls 中文資料</description>
-			<content type="html"><![CDATA[<h1 id="heading">緣由</h1>
+]]></content></item><item><title>cmder 設定</title><link>https://blog.sappy.tw/posts/cmder-setting/</link><pubDate>Sun, 20 Aug 2017 14:33:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/cmder-setting/</guid><description>緣由 因為最近開始在找 windows 10 系統上好用的另列命令列工具, 在友人的推薦下使用了這個 安裝 由於他的安裝只是把它解壓縮而已, 在此就不多說了 設定 ls 中文資料</description><content type="html"><![CDATA[<h1 id="heading">緣由</h1>
 <p>因為最近開始在找 windows 10 系統上好用的另列命令列工具, 在友人的推薦下使用了這個</p>
 <h1 id="heading-1">安裝</h1>
 <p>由於他的安裝只是把它解壓縮而已, 在此就不多說了</p>
@@ -421,17 +283,7 @@ libpng12-dev 已經被 libpng12-0 所取代了，所以把上面的這部分換�
 <pre><code>-new_console:d:&quot;D:\Data&quot;
 </code></pre><h1 id="heading-4">參考資料</h1>
 <p><a href="http://zwindr.blogspot.tw/2016/01/cmder-setting-1.html">子風的知識庫</a></p>
-]]></content>
-		</item>
-		
-		<item>
-			<title>dpkg: error processing archive *</title>
-			<link>https://blog.sappy.tw/posts/dpkg-fail/</link>
-			<pubDate>Sat, 19 Aug 2017 12:39:58 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/dpkg-fail/</guid>
-			<description>前提 在更新時遇到 dpkg: error processing archive /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb (--unpack): trying to overwrite &#39;/usr/lib/python2.7/dist-packages/lldb&#39;, which is also in package python-lldb-4.0 1:4.0-1ubuntu1 看到網路上的解法 sudo dpkg --force-all -i /var/cache/apt/archives/linux-libc-dev_3.13.0-88.135_armhf.deb 於是稍微修改一下，變成 sudo dpkg --force-all -i /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb 就大功告成了</description>
-			<content type="html"><![CDATA[<h1 id="heading">前提</h1>
+]]></content></item><item><title>dpkg: error processing archive *</title><link>https://blog.sappy.tw/posts/dpkg-fail/</link><pubDate>Sat, 19 Aug 2017 12:39:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/dpkg-fail/</guid><description>前提 在更新時遇到 dpkg: error processing archive /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb (--unpack): trying to overwrite '/usr/lib/python2.7/dist-packages/lldb', which is also in package python-lldb-4.0 1:4.0-1ubuntu1 看到網路上的解法 sudo dpkg --force-all -i /var/cache/apt/archives/linux-libc-dev_3.13.0-88.135_armhf.deb 於是稍微修改一下，變成 sudo dpkg --force-all -i /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb 就大功告成了</description><content type="html"><![CDATA[<h1 id="heading">前提</h1>
 <p>在更新時遇到</p>
 <pre><code>dpkg: error processing archive /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb (--unpack): trying to overwrite '/usr/lib/python2.7/dist-packages/lldb', which is also in package python-lldb-4.0 1:4.0-1ubuntu1
 </code></pre><p>看到網路上的<a href="https://github.com/dnschneid/crouton/issues/2631">解法</a></p>
@@ -439,17 +291,7 @@ libpng12-dev 已經被 libpng12-0 所取代了，所以把上面的這部分換�
 </code></pre><p>於是稍微修改一下，變成</p>
 <pre><code>sudo dpkg --force-all -i /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb
 </code></pre><p>就大功告成了</p>
-]]></content>
-		</item>
-		
-		<item>
-			<title>如何在github上建立gitlab的鏡像</title>
-			<link>https://blog.sappy.tw/posts/gitlab-mirror-to-github/</link>
-			<pubDate>Tue, 15 Aug 2017 14:47:27 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/gitlab-mirror-to-github/</guid>
-			<description>起因 因為 gitlab 上相對於 github 的可玩性跟福利都比較大所以打算逐漸遷移過去, 然而由於 github 上使用的人數依然比較多, 便想說能不能在 github 上面建立一個 gitlab 的複製版 設定</description>
-			<content type="html"><![CDATA[<h1 id="heading">起因</h1>
+]]></content></item><item><title>如何在github上建立gitlab的鏡像</title><link>https://blog.sappy.tw/posts/gitlab-mirror-to-github/</link><pubDate>Tue, 15 Aug 2017 14:47:27 +0000</pubDate><guid>https://blog.sappy.tw/posts/gitlab-mirror-to-github/</guid><description>起因 因為 gitlab 上相對於 github 的可玩性跟福利都比較大所以打算逐漸遷移過去, 然而由於 github 上使用的人數依然比較多, 便想說能不能在 github 上面建立一個 gitlab 的複製版 設定</description><content type="html"><![CDATA[<h1 id="heading">起因</h1>
 <p>因為 gitlab 上相對於 github 的可玩性跟福利都比較大所以打算逐漸遷移過去, 然而由於 github 上使用的人數依然比較多, 便想說能不能在 github 上面建立一個 gitlab 的複製版</p>
 <!-- raw HTML omitted -->
 <h1 id="heading-1">設定</h1>
@@ -462,17 +304,7 @@ libpng12-dev 已經被 libpng12-0 所取代了，所以把上面的這部分換�
 </ol>
 <h1 id="heading-2">參考資料</h1>
 <p><a href="https://espadav8.co.uk/2016/08/22/gitlab-mirror-pushing-to-github/">espadav8 blog</a></p>
-]]></content>
-		</item>
-		
-		<item>
-			<title>R RStudio 安裝教學</title>
-			<link>https://blog.sappy.tw/posts/rstudio-install/</link>
-			<pubDate>Wed, 28 Jun 2017 00:22:33 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/rstudio-install/</guid>
-			<description>起因 因為之前在 Ubuntu 上安裝 RStudio 時遇到一點問題，便把過程記錄下來，並讓其他人參考 安裝過程 (2017 / 06 /27 安裝) 環境需求 硬體需求 至少 1GB RAM 軟體需求 Ubuntu 17.04 要有roo</description>
-			<content type="html"><![CDATA[<h1 id="heading">起因</h1>
+]]></content></item><item><title>R RStudio 安裝教學</title><link>https://blog.sappy.tw/posts/rstudio-install/</link><pubDate>Wed, 28 Jun 2017 00:22:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/rstudio-install/</guid><description>起因 因為之前在 Ubuntu 上安裝 RStudio 時遇到一點問題，便把過程記錄下來，並讓其他人參考 安裝過程 (2017 / 06 /27 安裝) 環境需求 硬體需求 至少 1GB RAM 軟體需求 Ubuntu 17.04 要有roo</description><content type="html"><![CDATA[<h1 id="heading">起因</h1>
 <p>因為之前在 Ubuntu 上安裝 RStudio 時遇到一點問題，便把過程記錄下來，並讓其他人參考</p>
 <h1 id="heading-1">安裝過程</h1>
 <blockquote>
@@ -550,17 +382,7 @@ a. 到 <a href="https://packages.debian.org/jessie/amd64/libgstreamer-plugins-ba
 </li>
 </ol>
 <p>到這裡就大功告成啦XDD</p>
-]]></content>
-		</item>
-		
-		<item>
-			<title>ycmd-install</title>
-			<link>https://blog.sappy.tw/posts/ycmd-install/</link>
-			<pubDate>Sat, 27 May 2017 21:47:33 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/ycmd-install/</guid>
-			<description>什麼是ycmd ycmd原本是在vim上的You-Complete-Me, 而後作者把補全部分單獨分離出來做為一個後端,使其他編輯器也能享受這種</description>
-			<content type="html"><![CDATA[<h1 id="ycmd">什麼是ycmd</h1>
+]]></content></item><item><title>ycmd-install</title><link>https://blog.sappy.tw/posts/ycmd-install/</link><pubDate>Sat, 27 May 2017 21:47:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/ycmd-install/</guid><description>什麼是ycmd ycmd原本是在vim上的You-Complete-Me, 而後作者把補全部分單獨分離出來做為一個後端,使其他編輯器也能享受這種</description><content type="html"><![CDATA[<h1 id="ycmd">什麼是ycmd</h1>
 <p>ycmd原本是在vim上的You-Complete-Me, 而後作者把補全部分單獨分離出來做為一個後端,使其他編輯器也能享受這種神級的補全系統.
 我目前主要是用它來補全c++,但是他還能夠補全像是go,JS之類的語言,可說是十分全能</p>
 <!-- raw HTML omitted -->
@@ -595,27 +417,7 @@ a. 到 <a href="https://packages.debian.org/jessie/amd64/libgstreamer-plugins-ba
 </code></pre><ul>
 <li>要記得安裝auto-complete 讓自動補權的前端顯示出來</li>
 </ul>
-]]></content>
-		</item>
-		
-		<item>
-			<title>RancherOS安裝教學</title>
-			<link>https://blog.sappy.tw/posts/rancheros%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8/</link>
-			<pubDate>Mon, 01 May 2017 00:14:25 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/rancheros%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8/</guid>
-			<description></description>
-			<content type="html"><![CDATA[]]></content>
-		</item>
-		
-		<item>
-			<title>gdb簡易教學</title>
-			<link>https://blog.sappy.tw/posts/gdb%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</link>
-			<pubDate>Sat, 08 Apr 2017 17:12:01 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/gdb%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</guid>
-			<description>簡介 gdb 是一種除錯的工具,經常在 Linux 環境中被使用 參考資料 Linux 除錯利器 - GDB 簡介 Debugging with GDB （入門篇） 小技巧 印出ascii或客製化輸出 輸出格式 使用方法 EX: p /c</description>
-			<content type="html"><![CDATA[<h1 id="heading">簡介</h1>
+]]></content></item><item><title>RancherOS安裝教學</title><link>https://blog.sappy.tw/posts/rancheros%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8/</link><pubDate>Mon, 01 May 2017 00:14:25 +0000</pubDate><guid>https://blog.sappy.tw/posts/rancheros%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8/</guid><description/><content type="html"></content></item><item><title>gdb簡易教學</title><link>https://blog.sappy.tw/posts/gdb%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</link><pubDate>Sat, 08 Apr 2017 17:12:01 +0000</pubDate><guid>https://blog.sappy.tw/posts/gdb%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</guid><description>簡介 gdb 是一種除錯的工具,經常在 Linux 環境中被使用 參考資料 Linux 除錯利器 - GDB 簡介 Debugging with GDB （入門篇） 小技巧 印出ascii或客製化輸出 輸出格式 使用方法 EX: p /c</description><content type="html"><![CDATA[<h1 id="heading">簡介</h1>
 <p>gdb 是一種除錯的工具,經常在 Linux 環境中被使用</p>
 <!-- raw HTML omitted -->
 <h1 id="heading-1">參考資料</h1>
@@ -637,17 +439,7 @@ a. 到 <a href="https://packages.debian.org/jessie/amd64/libgstreamer-plugins-ba
 <p><a href="http://stackoverflow.com/questions/4183871/how-do-i-set-a-conditional-breakpoint-in-gdb-when-char-x-points-to-a-string-wh">by StackOverFlow</a></p>
 <pre><code>break x:20 if strcmp(y, &quot;hello&quot;) == 0
 </code></pre><p>20 是指行數, x 是可以是任何檔案名稱, 而 y 可以是任何變數</p>
-]]></content>
-		</item>
-		
-		<item>
-			<title>Python 簡略教學</title>
-			<link>https://blog.sappy.tw/posts/python-%E7%B0%A1%E7%95%A5%E6%95%99%E5%AD%B8/</link>
-			<pubDate>Sun, 05 Mar 2017 10:39:58 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/python-%E7%B0%A1%E7%95%A5%E6%95%99%E5%AD%B8/</guid>
-			<description>安裝 請先到 Anaconda 安裝Anaconda (建議 Python 3.x 版本) 再來到 Pycharm 安裝 IDE (Community 版本是免費的) 安裝完成後, 打開 Pycharm 新增一個 .py 檔, 並輸入 print(&amp;ldquo;Hello World&amp;rdquo;), 之後執行看看, 看看有</description>
-			<content type="html"><![CDATA[<h1 id="heading">安裝</h1>
+]]></content></item><item><title>Python 簡略教學</title><link>https://blog.sappy.tw/posts/python-%E7%B0%A1%E7%95%A5%E6%95%99%E5%AD%B8/</link><pubDate>Sun, 05 Mar 2017 10:39:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/python-%E7%B0%A1%E7%95%A5%E6%95%99%E5%AD%B8/</guid><description>安裝 請先到 Anaconda 安裝Anaconda (建議 Python 3.x 版本) 再來到 Pycharm 安裝 IDE (Community 版本是免費的) 安裝完成後, 打開 Pycharm 新增一個 .py 檔, 並輸入 print(&amp;ldquo;Hello World&amp;rdquo;), 之後執行看看, 看看有</description><content type="html"><![CDATA[<h1 id="heading">安裝</h1>
 <ol>
 <li>請先到 <a href="https://www.continuum.io/downloads">Anaconda</a> 安裝Anaconda (建議 Python 3.x 版本)</li>
 <li>再來到 <a href="https://www.jetbrains.com/pycharm/download/#section=windows">Pycharm</a> 安裝 IDE (Community 版本是免費的)</li>
@@ -725,21 +517,11 @@ Python 常見以下幾種資料型態</p>
 <h1 id="library">library</h1>
 <h2 id="heading-8">安裝</h2>
 <h2 id="heading-9">使用</h2>
-]]></content>
-		</item>
-		
-		<item>
-			<title>Hello World</title>
-			<link>https://blog.sappy.tw/posts/hello-world/</link>
-			<pubDate>Tue, 28 Jun 2016 00:22:33 +0000</pubDate>
-			
-			<guid>https://blog.sappy.tw/posts/hello-world/</guid>
-			<description>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+]]></content></item><item><title>Hello World</title><link>https://blog.sappy.tw/posts/hello-world/</link><pubDate>Tue, 28 Jun 2016 00:22:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/hello-world/</guid><description>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
 Quick Start Create a new post $ hexo new &amp;#34;My New Post&amp;#34; More info: Writing
 Run server $ hexo server More info: Server
 Generate static files $ hexo generate More info: Generating
-Deploy to remote sites $ hexo deploy More info: Deployment</description>
-			<content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+Deploy to remote sites $ hexo deploy More info: Deployment</description><content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="quick-start">Quick Start</h2>
 <h3 id="create-a-new-post">Create a new post</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ hexo new <span class="s2">&#34;My New Post&#34;</span>
@@ -753,8 +535,4 @@ Deploy to remote sites $ hexo deploy More info: Deployment</description>
 <h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ hexo deploy
 </code></pre></div><p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
-]]></content>
-		</item>
-		
-	</channel>
-</rss>
+]]></content></item></channel></rss>
