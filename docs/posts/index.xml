@@ -1,4 +1,81 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 29 Dec 2019 11:55:38 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker 開發環境簡易教學</title><link>https://blog.sappy.tw/posts/docker-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</link><pubDate>Sun, 29 Dec 2019 11:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/docker-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</guid><description>簡介 最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法 常駐 docker 並能連接上 terminal 用 {} 包起來代表變數 docker run -id {image} docker exec -it {id} bash 做 fuzz test</description><content type="html"><![CDATA[<h1 id="heading">簡介</h1>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 04 Jan 2020 13:25:04 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>文獻管理軟體比較</title><link>https://blog.sappy.tw/posts/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86%E8%BB%9F%E9%AB%94%E6%AF%94%E8%BC%83/</link><pubDate>Sat, 04 Jan 2020 13:25:04 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86%E8%BB%9F%E9%AB%94%E6%AF%94%E8%BC%83/</guid><description>文獻管理軟體比較 比較的時間以 2020/1/1 ~ 2020/1/5 的版本為主 前言 開始了研究生的生活後，陸陸續續使用了不同方法來管理文獻，但還是希望能穩定在一個軟體上，省去手</description><content type="html"><![CDATA[<h1 id="heading">文獻管理軟體比較</h1>
+<p>比較的時間以 2020/1/1 ~ 2020/1/5 的版本為主</p>
+<h1 id="heading-1">前言</h1>
+<p>開始了研究生的生活後，陸陸續續使用了不同方法來管理文獻，但還是希望能穩定在一個軟體上，省去手動的步驟。<br>
+經過了一段時間的比較後，終於誕生了這篇文章。</p>
+<h1 id="heading-2">需求簡介</h1>
+<ol>
+<li>標註必須附著在 pdf 上 - 由於我本身喜歡在 pdf 上做註記，也希望未來若要更換軟體時能方便地把我的資料帶走，而我的筆記就應當是我的筆記，不能被鎖死在特定格式上</li>
+<li>取用文獻方便且正確（特別是在 arXiv 上的） - 由於我的領域很多時候會在 arXiv 上看到論文，因此要能夠正確的解析 arXiv 上的文獻，獲得正確的引用資訊外，也必須足夠方便把文獻放入管理軟體中，最好能一鍵解決</li>
+<li>跨平台 - 由於我習慣用 ipad 來閱讀論文，用 pc or mac 寫作，因此至少要能跨這三個平台</li>
+<li>便宜 - 因為我很窮ＱＡＱ</li>
+<li>可用偏好的 pdf 閱讀器閱讀及編輯 - 因為學校有提供 adobe pdf，而有些軟體內建的不是很好用</li>
+</ol>
+<h1 id="heading-3">開始比較</h1>
+<h2 id="heading-4">參賽選手</h2>
+<ol>
+<li><a href="https://www.mendeley.com">Mendeley</a> - 之前使用的軟體</li>
+<li><a href="https://www.zotero.org/">Zotero</a> - 本次冠軍</li>
+<li><a href="https://endnote.com/">Endnote x9</a> - 老牌管理軟體</li>
+<li><a href="https://www.citavi.com/en">Citavi 6</a> - 功能強大</li>
+<li><a href="https://www.readcube.com/home">ReadCube</a> - 管理軟體新銳</li>
+</ol>
+<h2 id="heading-5">第一輪淘汰</h2>
+<ol>
+<li>Citavi 6 - 沒有跨平台</li>
+<li>Endnote x9 - 對 arXiv 支援不好</li>
+<li>ReadCube - 對 arXiv 支援不好 + 無法註記在 pdf 上</li>
+</ol>
+<h2 id="heading-6">第二輪比較</h2>
+<h3 id="mendeley">Mendeley</h3>
+<h4 id="heading-7">優點</h4>
+<ol>
+<li>龐大社群</li>
+<li>優秀的論文推薦功能</li>
+<li>對 arXiv 支援超好</li>
+<li>跨平台</li>
+</ol>
+<h4 id="heading-8">缺點</h4>
+<ol>
+<li>不能直接標記在 pdf 上</li>
+<li>搜尋時，相同論文會出現多篇，引用、被引用次數不精確（跟 google scholar 相比）</li>
+<li>貴(相比 Zotero)</li>
+</ol>
+<h3 id="zotero">Zotero</h3>
+<h4 id="heading-9">優點</h4>
+<ol>
+<li>開源</li>
+<li>支持 plugin</li>
+<li>便宜（搭配 zotfile 服用）</li>
+<li>可直接標註在 pdf 上</li>
+<li>可自訂 pdf 檔名（zotfile）</li>
+</ol>
+<h4 id="heading-10">缺點</h4>
+<ol>
+<li>對 arXiv 支援不佳（相比 Mendeley）</li>
+<li>沒有論文推薦功能</li>
+<li>不跨平台（ipad）</li>
+</ol>
+<h1 id="heading-11">結論</h1>
+<p>最終還是選定 Zotero + Zotfile 搭配服用
+下面來說明一下我的設定</p>
+<h1 id="zotero-">Zotero 設定</h1>
+<ol>
+<li>安裝 <a href="http://zotfile.com/">Zotfile</a></li>
+<li>取消自動快照
+<img src="./images/zotero/zotero-1.png" alt=""></li>
+<li>設定同步
+<img src="./images/zotero/zotero-sync.png" alt=""></li>
+<li>修改連結目錄成為相對目錄，這是最重要的步驟，在此目錄下的所有檔案都會變成相對目錄，因此在不同電腦上只要設定正確，就都能成功開啟檔案
+<img src="./images/zotero/zotero-linked-file.png" alt=""></li>
+<li>設定 Zotfile，告知要把檔案幫去哪裡，要跟上面的相對路徑一樣
+<img src="./images/zotero/zotfile-config.png" alt=""></li>
+<li>傳送到 ipad - 個人感覺不是很必要，因為這只是把檔案放到雲端硬碟上的資料夾而已，如果第五步驟已經把檔案放在雲端硬碟中，那這步驟就可以略過，不過假若將來檔案多起來，或許就能用這功能，減少在雲端硬碟中一個個慢慢找的時間
+<img src="./images/zotero/zotfile-send-to-table.png" alt=""></li>
+<li>命名規則，這步驟很重要，我是 年_標題_作者 <code>{%y_}{%t_}{%a}</code> 這樣命名，也要用 collection 作為子資料夾來分大類 <code>/%s</code>
+<img src="./images/zotero/zotfile-rename.png" alt=""></li>
+</ol>
+]]></content></item><item><title>Docker 開發環境簡易教學</title><link>https://blog.sappy.tw/posts/docker-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</link><pubDate>Sun, 29 Dec 2019 11:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/docker-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</guid><description>簡介 最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法 常駐 docker 並能連接上 terminal 用 {} 包起來代表變數 docker run -id {image} docker exec -it {id} bash 做 fuzz test</description><content type="html"><![CDATA[<h1 id="heading">簡介</h1>
 <p>最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法</p>
 <h2 id="-docker--terminal">常駐 docker 並能連接上 terminal</h2>
 <p>用 {} 包起來代表變數</p>
