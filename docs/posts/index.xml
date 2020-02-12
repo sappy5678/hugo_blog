@@ -1,4 +1,22 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 04 Jan 2020 17:05:24 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>文獻管理軟體比較</title><link>https://blog.sappy.tw/posts/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86%E8%BB%9F%E9%AB%94%E6%AF%94%E8%BC%83/</link><pubDate>Sat, 04 Jan 2020 17:05:24 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86%E8%BB%9F%E9%AB%94%E6%AF%94%E8%BC%83/</guid><description>文獻管理軟體比較 比較的時間以 2020/1/1 ~ 2020/1/5 的版本為主 前言 開始了研究生的生活後，陸陸續續使用了不同方法來管理文獻，但還是希望能穩定在一個軟體上，省去手</description><content type="html"><![CDATA[<h1 id="文獻管理軟體比較">文獻管理軟體比較</h1>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 11 Feb 2020 12:33:20 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>ubuntu 上的中文輸入法設定 Chinese Input Method Setup on Ubuntu</title><link>https://blog.sappy.tw/posts/chinese-input-install-on-ubuntu/</link><pubDate>Tue, 11 Feb 2020 12:33:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/chinese-input-install-on-ubuntu/</guid><description>緣由 最近在 Ubuntu 上做開發，便來安裝注音輸入法 安裝 此方法應該適用於 Ubuntu 12.10 以上版本（在 19.04 中測試過） 安裝 rime sudo apt-get install ibus-rime 安裝 注音 sudo apt-get install librime-data-terra-pinyin librime-data-bopomofo terminal 輸入 ibus-setup 會跳出 IBus Preferences 視</description><content type="html"><![CDATA[<h1 id="緣由">緣由</h1>
+<p>最近在 Ubuntu 上做開發，便來安裝注音輸入法</p>
+<h1 id="安裝">安裝</h1>
+<p>此方法應該適用於 Ubuntu 12.10 以上版本（在 19.04 中測試過）</p>
+<ol>
+<li>安裝 rime <code>sudo apt-get install ibus-rime</code></li>
+<li>安裝 注音 <code>sudo apt-get install librime-data-terra-pinyin librime-data-bopomofo</code></li>
+<li>terminal 輸入 <code>ibus-setup</code> 會跳出 IBus Preferences 視窗</li>
+<li>在 IBus Preferences -&gt; Input Method -&gt; Add -&gt; Chinese bopomofo</li>
+<li>進入 settings -&gt; Region &amp; Language -&gt; Input Sources -&gt; + -&gt; Chinese (Bopomofo)</li>
+<li>重新登入即可</li>
+</ol>
+<h1 id="參考資料">參考資料</h1>
+<ul>
+<li><a href="https://github.com/rime/home/wiki/RimeWithIBus">RimeWithIBus</a></li>
+<li><a href="https://github.com/rime/plum">plum</a></li>
+<li><a href="https://github.com/rime/rime-bopomofo">rime-bopomofo</a></li>
+</ul>
+]]></content></item><item><title>文獻管理軟體比較</title><link>https://blog.sappy.tw/posts/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86%E8%BB%9F%E9%AB%94%E6%AF%94%E8%BC%83/</link><pubDate>Sat, 04 Jan 2020 17:05:24 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86%E8%BB%9F%E9%AB%94%E6%AF%94%E8%BC%83/</guid><description>文獻管理軟體比較 比較的時間以 2020/1/1 ~ 2020/1/5 的版本為主 前言 開始了研究生的生活後，陸陸續續使用了不同方法來管理文獻，但還是希望能穩定在一個軟體上，省去手</description><content type="html"><![CDATA[<h1 id="文獻管理軟體比較">文獻管理軟體比較</h1>
 <p>比較的時間以 2020/1/1 ~ 2020/1/5 的版本為主</p>
 <h1 id="前言">前言</h1>
 <p>開始了研究生的生活後，陸陸續續使用了不同方法來管理文獻，但還是希望能穩定在一個軟體上，省去手動的步驟。<br>
