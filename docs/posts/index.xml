@@ -1,23 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 28 Mar 2020 23:49:20 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>跨平台 terminal 設定</title><link>https://blog.sappy.tw/posts/%E8%B7%A8%E5%B9%B3%E5%8F%B0terminal%E8%A8%AD%E5%AE%9A/</link><pubDate>Sat, 28 Mar 2020 23:49:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E8%B7%A8%E5%B9%B3%E5%8F%B0terminal%E8%A8%AD%E5%AE%9A/</guid><description>緣由 最近在因為 terminal 跨平台讓我有點煩躁，所以才寫下這篇備忘 安裝 目前有兩款比較熱門的跨平台 terminal hyper terminus 就顏質跟設定方便度而言，我選擇了後者，也就是 terminus Windows 安</description><content type="html"><![CDATA[<h1 id="緣由">緣由</h1>
-<p>最近在因為 terminal 跨平台讓我有點煩躁，所以才寫下這篇備忘</p>
-<h1 id="安裝">安裝</h1>
-<p>目前有兩款比較熱門的跨平台 terminal</p>
-<ol>
-<li><a href="https://hyper.is/">hyper</a></li>
-<li><a href="https://eugeny.github.io/terminus/">terminus</a></li>
-</ol>
-<p>就顏質跟設定方便度而言，我選擇了後者，也就是 <a href="https://eugeny.github.io/terminus/">terminus</a></p>
-<h2 id="windows-安裝">Windows 安裝</h2>
-<ol>
-<li>使用 <a href="https://chocolatey.org/">chocolatey</a> 安裝
-<code>choco install terminus</code></li>
-<li>安裝 <a href="https://github.com/PowerShell/PowerShell">powershell core</a>，
-<code>choco install powershell-core</code></li>
-<li>安裝 <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts">nerd fonts</a> 中任意喜歡的字體
-我個人比較推 <code>FiraCode</code> <code>SourceCodePro</code> <code>CascadiaCode</code> 這三款</li>
-<li>打開 terminus，在 terminus 的設定 -&gt; 外觀 -&gt; 字體上選擇字體</li>
-</ol>
-]]></content></item><item><title>ubuntu 上的中文輸入法設定 Chinese Input Method Setup on Ubuntu</title><link>https://blog.sappy.tw/posts/chinese-input-install-on-ubuntu/</link><pubDate>Tue, 11 Feb 2020 12:33:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/chinese-input-install-on-ubuntu/</guid><description>緣由 最近在 Ubuntu 上做開發，便來安裝注音輸入法 安裝 此方法應該適用於 Ubuntu 12.10 以上版本（在 19.04 中測試過） 安裝 rime sudo apt-get install ibus-rime 安裝 注音 sudo apt-get install librime-data-terra-pinyin librime-data-bopomofo terminal 輸入 ibus-setup 會跳出 IBus Preferences 視</description><content type="html"><![CDATA[<h1 id="緣由">緣由</h1>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 11 Feb 2020 12:33:20 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>ubuntu 上的中文輸入法設定 Chinese Input Method Setup on Ubuntu</title><link>https://blog.sappy.tw/posts/chinese-input-install-on-ubuntu/</link><pubDate>Tue, 11 Feb 2020 12:33:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/chinese-input-install-on-ubuntu/</guid><description>緣由 最近在 Ubuntu 上做開發，便來安裝注音輸入法 安裝 此方法應該適用於 Ubuntu 12.10 以上版本（在 19.04 中測試過） 安裝 rime sudo apt-get install ibus-rime 安裝 注音 sudo apt-get install librime-data-terra-pinyin librime-data-bopomofo terminal 輸入 ibus-setup 會跳出 IBus Preferences 視</description><content type="html"><![CDATA[<h1 id="緣由">緣由</h1>
 <p>最近在 Ubuntu 上做開發，便來安裝注音輸入法</p>
 <h1 id="安裝">安裝</h1>
 <p>此方法應該適用於 Ubuntu 12.10 以上版本（在 19.04 中測試過）</p>
