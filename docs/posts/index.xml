@@ -100,16 +100,16 @@
 <ol>
 <li>安裝 <a href="http://zotfile.com/">Zotfile</a></li>
 <li>取消自動快照
-<img src="https://raw.githubusercontent.com/sappy5678/Images/master/zotero/zotero-1.png" alt="zotero-1">
-<img src="https://raw.githubusercontent.com/sappy5678/Images/master/zotero/zotero-sync.png" alt="zotero-sync"></li>
+<img src="https://images.sappy.tw/zotero/zotero-1.png" alt="zotero-1">
+<img src="https://images.sappy.tw/zotero/zotero-sync.png" alt="zotero-sync"></li>
 <li>修改連結目錄成為相對目錄，這是最重要的步驟，在此目錄下的所有檔案都會變成相對目錄，因此在不同電腦上只要設定正確，就都能成功開啟檔案
-<img src="https://raw.githubusercontent.com/sappy5678/Images/master/zotero/zotero-linked-file.png" alt="zotero-linked-file"></li>
+<img src="https://images.sappy.tw/zotero/zotero-linked-file.png" alt="zotero-linked-file"></li>
 <li>設定 Zotfile，告知要把檔案幫去哪裡，要跟上面的相對路徑一樣
-<img src="https://raw.githubusercontent.com/sappy5678/Images/master/zotero/zotfile-config.png" alt="zotfile-config"></li>
+<img src="https://images.sappy.tw/zotero/zotfile-config.png" alt="zotfile-config"></li>
 <li>傳送到 ipad - 個人感覺不是很必要，因為這只是把檔案放到雲端硬碟上的資料夾而已，如果第五步驟已經把檔案放在雲端硬碟中，那這步驟就可以略過，不過假若將來檔案多起來，或許就能用這功能，減少在雲端硬碟中一個個慢慢找的時間
-<img src="https://raw.githubusercontent.com/sappy5678/Images/master/zotero/zotfile-send-to-table.png" alt="zotfile-send-to-table"></li>
+<img src="https://images.sappy.tw/zotero/zotfile-send-to-table.png" alt="zotfile-send-to-table"></li>
 <li>命名規則，這步驟很重要，我是 年_標題_作者 <code>{%y_}{%t_}{%a}</code> 這樣命名，也要用 collection 作為子資料夾來分大類 <code>/%s</code>
-<img src="https://raw.githubusercontent.com/sappy5678/Images/master/zotero/zotfile-rename.png" alt="zotfile-rename"></li>
+<img src="https://images.sappy.tw/zotero/zotfile-rename.png" alt="zotfile-rename"></li>
 </ol>
 ]]></content></item><item><title>Docker 開發環境簡易教學</title><link>https://blog.sappy.tw/posts/docker%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</link><pubDate>Sun, 29 Dec 2019 11:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/docker%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</guid><description>簡介 最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法 常駐 docker 並能連接上 terminal 用 {} 包起來代表變數 docker run -id {image} docker exec -it {id} bash 做 fuzz test</description><content type="html"><![CDATA[<h1 id="簡介">簡介</h1>
 <p>最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法</p>
@@ -175,7 +175,7 @@ su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter not
 </code></pre></div></li>
 </ol>
 <h1 id="結論">結論</h1>
-<p>rc.local 雖然已經過時了，但是&hellip;&hellip;能用就好 😁 😄</p>
+<p>rc.local 雖然已經過時了，但是&hellip;&hellip;能用就好 😁 😁</p>
 <h1 id="參考">參考</h1>
 <ul>
 <li><a href="http://linux.vbird.org/linux_basic/0510osloader.php">鳥哥的 Linux 私房菜</a></li>
