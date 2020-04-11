@@ -103,7 +103,7 @@ Subgame perfect equilibrium 是 Nash
 </ol>
 <p>power law</p>
 <p>small world - Six degrees of separation</p>
-<p>[] Todo &ndash; 看影片
+<p>[] TODO &ndash; 看影片
 Homophily - 相似度</p>
 <p>Community detection algorithms</p>
 ]]></content></item><item><title>用 QEMU 建立VM</title><link>https://blog.sappy.tw/posts/%E7%94%A8qemu%E5%BB%BA%E7%AB%8Bvm/</link><pubDate>Sun, 29 Mar 2020 23:49:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%94%A8qemu%E5%BB%BA%E7%AB%8Bvm/</guid><description>緣由 練習 QEMU 安裝 目前有兩款比較熱門的跨平台 terminal hyper terminus 就顏質跟設定方便度而言，我選擇了後者，也就是 terminus 建立VM並開機 使用 chocolatey 安裝 choco install terminus 安裝 powershell core， choco</description><content type="html"><![CDATA[<h1 id="緣由">緣由</h1>
