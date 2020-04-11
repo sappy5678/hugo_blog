@@ -1,4 +1,198 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 28 Mar 2020 23:49:20 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>跨平台 terminal 設定</title><link>https://blog.sappy.tw/posts/%E8%B7%A8%E5%B9%B3%E5%8F%B0terminal%E8%A8%AD%E5%AE%9A/</link><pubDate>Sat, 28 Mar 2020 23:49:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E8%B7%A8%E5%B9%B3%E5%8F%B0terminal%E8%A8%AD%E5%AE%9A/</guid><description>緣由 最近在因為 terminal 跨平台讓我有點煩躁，所以才寫下這篇備忘 安裝 目前有兩款比較熱門的跨平台 terminal hyper terminus 就顏質跟設定方便度而言，我選擇了後者，也就是 terminus Windows 安</description><content type="html"><![CDATA[<h1 id="緣由">緣由</h1>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 11 Apr 2020 18:13:30 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>社群網路筆記 賽局理論</title><link>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E8%B3%BD%E5%B1%80/</link><pubDate>Sat, 11 Apr 2020 18:13:30 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E8%B3%BD%E5%B1%80/</guid><description>賽局理論最大的特色在於，他有許多決策者 名詞 Player Strategies Payoff Payoff Matrix 目前先考慮 one shot game player 同時下決策，且 player 之間的決策過程是獨立的 幾個假設 player 只關注如何最大化自身利</description><content type="html"><![CDATA[<p>賽局理論最大的特色在於，他有許多決策者</p>
+<h1 id="名詞">名詞</h1>
+<ol>
+<li>Player</li>
+<li>Strategies</li>
+<li>Payoff</li>
+<li>Payoff Matrix</li>
+</ol>
+<p>目前先考慮 one shot game
+player 同時下決策，且 player 之間的決策過程是獨立的</p>
+<p>幾個假設</p>
+<ol>
+<li>player 只關注如何最大化自身利益 - rationality</li>
+<li>player 不關心他人或集體的利益</li>
+<li>player 能完整知道整個 game 的訊息(也有不知道所有訊息的 game)</li>
+</ol>
+<p>TODO 例子</p>
+<h1 id="best-responses--dominant-strategies">Best Responses &amp; Dominant Strategies</h1>
+<p>當其他人選 T 時， S 是最好的選擇</p>
+<h1 id="strictly-dominant-strategy">Strictly Dominant Strategy</h1>
+<p>無論其他怎麼選，都是最優的選項
+最優的選項 - 大於其他所有選項</p>
+<p>TODO 例子 - 囚犯困境 - 都有Strictly Dominant Strategy</p>
+<p>TODO 例子 - 只有一方有 Strictly Dominant Strategy</p>
+<h1 id="nash-equilibrium">Nash Equilibrium</h1>
+<p>解決都不存在 Strictly Dominant Strategy 的狀況</p>
+<p>在這組決策下，沒有任何一方能夠通過改變自己的決策獲取更多利益，使其他人沒有動機改變決策</p>
+<p>TODO 三人例子</p>
+<p>找 Nash 的方法</p>
+<ol>
+<li>暴力搜尋所有組合</li>
+<li>找每一個人的所有 best responses，並交集所有人的 best responses - 比較好的方法</li>
+</ol>
+<h2 id="coordination-game---多個-nash-equilibrium">coordination game - 多個 Nash Equilibrium</h2>
+<p>TODO 變種 + 特例
+<a href="https://en.wikipedia.org/wiki/Coordination_game">https://en.wikipedia.org/wiki/Coordination_game</a></p>
+<ol>
+<li>Coordination game</li>
+<li>Unbalanced coordination game</li>
+<li>Battle of the sexes</li>
+<li>Mis-coordination games - 如果沒協調好的話，追求最大利益的反而懲罰越大</li>
+</ol>
+<h1 id="mixed-strategies">Mixed strategies</h1>
+<p>引入機率，讓對手更難預測自身的行為 -&gt; 讓對手選哪個選項 payoff 都相同(indifference)
+透過引入機率，解決沒有 Nash Equilibrium 的問題
+之前的決策沒有機率，所以撐過 pure strategies</p>
+<p>TODO 例子 - pennies game</p>
+<p>zero sum 零和遊戲 - payoff 加總唯一常數</p>
+<p>TODO 例子</p>
+<p>!!! 在有限的 player 跟 有限的策略時，一定有 mixed strategiy equilibrium</p>
+<p>TODO 有兩個 mixed Nash Equilibrium 的例子</p>
+<p>找Nash 的方法</p>
+<ol>
+<li>先用 pure strategies 方式去找</li>
+<li>找不到再用 mixed</li>
+</ol>
+<h1 id="pareto-optimality">Pareto Optimality</h1>
+<p>考慮整體的利益，不一定能達到整體最好，但能達到局部最好
+當存在一種組合，使每個人的 payoff 都比現在的組合好的時候，現在的組合即不是 pareto optimality</p>
+<p>TODO 例子</p>
+<h1 id="social-optimal">Social Optimal</h1>
+<p>把每個人的 payoff 加總，最大的那個組合</p>
+<p>TODO 證明 如果是 social optimal 則一定是 pareto optimal</p>
+<h1 id="dominated-strategies">Dominated Strategies</h1>
+<p>注意 Dominated strategies != Dominant Strategies
+即有選擇全面的比現有選擇還要好，主要用來降低 Game 的分析複雜度</p>
+<p>TODO 例子</p>
+<p>策略組合 = outcome = choice of strategy = joint strategy = strategy profile = strategy combination = action profile</p>
+<h2 id="證明">證明</h2>
+<ol>
+<li>有沒有可能把 Nash Equilibrium 刪了?</li>
+<li>有沒有可能剩下的 Nash Equilibrium 原本不是 Nash Equilibrium</li>
+</ol>
+<h1 id="weekly-dominate-strategies">Weekly Dominate Strategies</h1>
+<p>即 &gt;=</p>
+<h1 id="dynamic-game">Dynamic Game</h1>
+<p>不同時執行
+之前的 game 又叫做 normal form = strategic game = matrix game
+現在 Game 叫做 Dynamic game = extensive form</p>
+<p>解法</p>
+<ol>
+<li>動態規劃解，由下往上 - 這比較好 - Backward induction</li>
+<li>轉成 matrix 解 - 有些解不存在，會有多的 Nash Equilibrium</li>
+</ol>
+<h1 id="subgame-perfect-equilibrium">Subgame perfect equilibrium</h1>
+<p>在所有 subgame 中都是最好的
+Subgame perfect equilibrium 是 Nash
+但 Nash 不一定是 Subgame perfect equilibrium</p>
+]]></content></item><item><title>社群網路筆記 1</title><link>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_1/</link><pubDate>Tue, 31 Mar 2020 23:49:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_1/</guid><description>社群網路的重要理論 The small world property - 六度空間法則，任兩點之間平均過六格就能抵達對面 ?? 但是，在規模多大內才有效? Scale-free, power-law degree distributions - power law，所有點的 degree 分布圖，</description><content type="html"><![CDATA[<h1 id="社群網路的重要理論">社群網路的重要理論</h1>
+<ol>
+<li>The small world property - 六度空間法則，任兩點之間平均過六格就能抵達對面 ?? 但是，在規模多大內才有效?</li>
+<li>Scale-free, power-law degree distributions  - power law，所有點的 degree 分布圖，會呈現平方下降</li>
+<li>Relatively large clustering coefficient - 三個點都相連會比只有兩條邊的數量要多</li>
+<li>Assortative mixing and homophily - 相似度計算</li>
+<li>Existence of community structures - 小群體的結構</li>
+</ol>
+<p>centralities - 中心，影響力，重要性</p>
+<ol>
+<li>Degree centrality , 用 degree 描述 =&gt; 不理想，不是所有 Neighbor 都一樣重要</li>
+<li>pagerank</li>
+<li>Closeness, 其他點到該點倒數距離的平方</li>
+<li>Betweenness, 最多最短路徑經過的節點</li>
+</ol>
+<p>power law</p>
+<p>small world - Six degrees of separation</p>
+<p>[] Todo &ndash; 看影片
+Homophily - 相似度</p>
+<p>Community detection algorithms</p>
+]]></content></item><item><title>用 QEMU 建立VM</title><link>https://blog.sappy.tw/posts/%E7%94%A8qemu%E5%BB%BA%E7%AB%8Bvm/</link><pubDate>Sun, 29 Mar 2020 23:49:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%94%A8qemu%E5%BB%BA%E7%AB%8Bvm/</guid><description>緣由 練習 QEMU 安裝 目前有兩款比較熱門的跨平台 terminal hyper terminus 就顏質跟設定方便度而言，我選擇了後者，也就是 terminus 建立VM並開機 使用 chocolatey 安裝 choco install terminus 安裝 powershell core， choco</description><content type="html"><![CDATA[<h1 id="緣由">緣由</h1>
+<p>練習 QEMU</p>
+<h1 id="安裝">安裝</h1>
+<p>目前有兩款比較熱門的跨平台 terminal</p>
+<ol>
+<li><a href="https://hyper.is/">hyper</a></li>
+<li><a href="https://eugeny.github.io/terminus/">terminus</a></li>
+</ol>
+<p>就顏質跟設定方便度而言，我選擇了後者，也就是 <a href="https://eugeny.github.io/terminus/">terminus</a></p>
+<h2 id="建立vm並開機">建立VM並開機</h2>
+<ol>
+<li>使用 <a href="https://chocolatey.org/">chocolatey</a> 安裝
+<code>choco install terminus</code></li>
+<li>安裝 <a href="https://github.com/PowerShell/PowerShell">powershell core</a>，
+<code>choco install powershell-core</code></li>
+<li>安裝 <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts">nerd fonts</a> 中任意喜歡的字體
+我個人比較推 <code>FiraCode</code> <code>SourceCodePro</code> <code>CascadiaCode</code> 這三款</li>
+<li>打開 terminus，在 terminus 的設定 -&gt; 外觀 -&gt; 字體上選擇字體</li>
+</ol>
+<p>開機</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">qemu-img create -f qcow2 1.qcow2 40G
+
+qemu-system-x86_64 --enable-kvm -hda 1.qcow2 -m <span class="m">1024</span> -net nic,model<span class="o">=</span>virtio -net user,hostfwd<span class="o">=</span>tcp::2223-:22 -cdrom ../ubuntu-16.04.6-desktop-amd64.iso -vga std -cpu host -smp 4,cores<span class="o">=</span>4,threads<span class="o">=</span>1,sockets<span class="o">=</span>4,maxcpus<span class="o">=</span><span class="m">16</span> -boot <span class="nv">strict</span><span class="o">=</span>on
+</code></pre></div><p>必要安裝</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt install openssh-server
+
+sudo sed -i <span class="s1">&#39;s/APT::Periodic::Update-Package-Lists &#34;1&#34;/APT::Periodic::Update-Package-Lists &#34;0&#34;/&#39;</span> /etc/apt/apt.conf.d/20auto-upgrades
+
+</code></pre></div><p>安裝 tensorflow
+&ndash;no-cache-dir tensorflow 是為了修正 memory error 的 bug</p>
+<pre><code>pip3 install --no-cache-dir tensorflow
+</code></pre><p>編譯 kernel</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">uname -r
+
+mkdir kernel
+<span class="nb">cd</span> kernel
+
+wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.6.2.tar.xz
+
+tar Jxvf linux-5.6.2.tar.xz
+
+sudo mv linux-5.6.2/ /usr/src/
+
+sudo apt install fakeroot build-essential libncurses5-dev kernel-package openssl bison flex libssl-dev
+
+<span class="nb">cd</span> /usr/src/linux-5.6.2
+
+<span class="c1"># sudo cp /boot/config-`uname -r` ./.config</span>
+
+<span class="c1"># make oldconfig</span>
+
+touch REPORTING-BUGS
+
+make menuconfig
+
+sudo fakeroot make-kpkg -j4 --initrd kernel_image kernel_headers
+sudo fakeroot make-kpkg -j32 --initrd kernel_image kernel_headers
+
+<span class="nb">cd</span> ..
+
+wget 192.168.122.1:8000/linux-image-5.6.2_5.6.2-10.00.Custom_amd64.deb
+wget 192.168.122.1:8000/linux-headers-5.6.2_5.6.2-10.00.Custom_amd64.deb
+
+sudo dpkg -i linux-image-5.6.2_5.6.2-10.00.Custom_amd64.deb
+
+sudo dpkg -i linux-headers-5.6.2_5.6.2-10.00.Custom_amd64.deb
+
+sudo reboot now
+
+uname -r
+
+systemd-analyze 
+
+</code></pre></div><p>compiler</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt install software-properties-common
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt update
+sudo apt install gcc-9 g++-9
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 <span class="m">90</span> --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gcov gcov /usr/bin/gcov-9
+</code></pre></div><p>分析
+systemd-analyze blame</p>
+<h1 id="todo">Todo</h1>
+<ul>
+<li>[] Compiler 優化</li>
+<li></li>
+</ul>
+]]></content></item><item><title>跨平台 terminal 設定</title><link>https://blog.sappy.tw/posts/%E8%B7%A8%E5%B9%B3%E5%8F%B0terminal%E8%A8%AD%E5%AE%9A/</link><pubDate>Sat, 28 Mar 2020 23:49:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E8%B7%A8%E5%B9%B3%E5%8F%B0terminal%E8%A8%AD%E5%AE%9A/</guid><description>緣由 最近在因為 terminal 跨平台讓我有點煩躁，所以才寫下這篇備忘 安裝 目前有兩款比較熱門的跨平台 terminal hyper terminus 就顏質跟設定方便度而言，我選擇了後者，也就是 terminus Windows 安</description><content type="html"><![CDATA[<h1 id="緣由">緣由</h1>
 <p>最近在因為 terminal 跨平台讓我有點煩躁，所以才寫下這篇備忘</p>
 <h1 id="安裝">安裝</h1>
 <p>目前有兩款比較熱門的跨平台 terminal</p>
@@ -648,4 +842,82 @@ Deploy to remote sites $ hexo deploy More info: Deployment</description><content
 <h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ hexo deploy
 </code></pre></div><p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+]]></content></item><item><title>LSTM 心得</title><link>https://blog.sappy.tw/posts/lstm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.sappy.tw/posts/lstm/</guid><description>RNN RNN 其本質上就是一個具狀態的 NN，他跟其他 NN 不同的地方就在於他多了一個輸入，表示上一個狀態(Hidden State) 如下圖所示 1 RNN 示意圖 RNN 缺點 而隨之帶</description><content type="html"><![CDATA[<h1 id="rnn">RNN</h1>
+<p>RNN 其本質上就是一個具狀態的 NN，他跟其他 NN 不同的地方就在於他多了一個輸入，表示上一個狀態(Hidden State)<br>
+如下圖所示</p>
+<p><img src="https://miro.medium.com/max/250/1*T_ECcHZWpjn0Ki4_4BEzow.gif" alt="RNN 示意圖"><br>
+<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> RNN 示意圖</p>
+<h2 id="rnn-缺點">RNN 缺點</h2>
+<p>而隨之帶來的問題即是梯度消失 or 爆炸的問題<br>
+因 RNN 在計算時，是以乘法為主，而乘法有一個特性，那就是很容易使數值太大或太小，
+例如 (1.01) 的 365 次方 會是 37.7834343329，
+而   (0.99) 的 365 次方 則是 0.02551796445，
+因此如果網路很深，句子很長，遇到太長句子時，在 Backward Propagation (反向傳播) 很容易使數字太大或太小，造成梯度爆炸或消失的問題，使越前面的句子，其參數很難被 RNN 更新的很好。
+也因此，越是前面的句子，越難被 RNN 所利用 (因為其參數更新不好)，也因此造成 RNN 僅能很好的利用靠近句子結尾的幾個字而已。<br>
+<img src="https://miro.medium.com/max/960/1*Ku54qmCryZVBaIc6g8rjGA.gif" alt="RNN 反向傳播 示意圖"><br>
+<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> RNN 反向傳播 示意圖</p>
+<h1 id="lstm">LSTM</h1>
+<p><img src="https://www.researchgate.net/profile/Savvas_Varsamopoulos/publication/329362532/figure/fig5/AS:699592479870977@1543807253596/Structure-of-the-LSTM-cell-and-equations-that-describe-the-gates-of-an-LSTM-cell_W640.jpg" alt=""><br>
+LSTM 架構圖 <a href="https://www.researchgate.net/publication/329362532_Designing_neural_network_based_decoders_for_surface_codes/figures?lo=1">出處</a></p>
+<p>那要怎麼解決呢? LSTM 提出的做法是透過多一個狀態來保存長距離訊息</p>
+<h2 id="lstm-結構">LSTM 結構</h2>
+<p>$\sigma$ 控制著資訊流過去的百分比 (0 ~ 1)<br>
+$tanh$ 則是代表資訊的數值 (-1 ~ 1)</p>
+<h3 id="forget-gate-最左邊的-sigma">Forget gate (最左邊的 $\sigma$)</h3>
+<p>從圖中可以很明顯的看出，<br>
+決定長距離訊息 C 有多少要用到</p>
+<h3 id="input-gate-中間的黃色-sigma--tanh">Input gate (中間的黃色 $\sigma\ &amp;\ tanh$)</h3>
+<p>決定多少短距離訊息要被更新到 C 裡面</p>
+<h3 id="output-gate最右邊的區域">Output gate(最右邊的區域)</h3>
+<p>決定什麼要進入隱藏狀態中</p>
+<h1 id="gru">GRU</h1>
+<p><img src="https://miro.medium.com/max/1400/1*jhi5uOm9PvZfmxvfaCektw.png" alt=""><br>
+<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> GRU 架構圖</p>
+<h1 id="參考">參考</h1>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9">Illustrated Guide to Recurrent Neural Networks</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21">Illustrated Guide to LSTM’s and GRU’s: A step by step explanation</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+]]></content></item><item><title>社群網路筆記 2</title><link>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</guid><description>社群網路的圖的定義 Node - 點, 個人 Edge - 邊, 人與人的關係 TODO IMAGE Undirected graph and directed graph undirected graph - 邊沒有特定方向 directed graph - 邊具有方向性 TODO IMAGE Adjacency matrix - 用矩陣來表達圖的關係, 1 代表</description><content type="html"><![CDATA[<h1 id="社群網路的圖的定義">社群網路的圖的定義</h1>
+<ul>
+<li>Node - 點, 個人</li>
+<li>Edge - 邊, 人與人的關係
+TODO IMAGE</li>
+<li>Undirected graph and directed graph
+<ul>
+<li>undirected graph - 邊沒有特定方向</li>
+<li>directed graph - 邊具有方向性
+TODO IMAGE</li>
+</ul>
+</li>
+<li>Adjacency matrix - 用矩陣來表達圖的關係, 1 代表有連接, 0 代表沒有連接
+<ul>
+<li><a href="http://www.csie.ntnu.edu.tw/~u91029/Graph.html#3">詳情可參考</a></li>
+</ul>
+</li>
+<li>Paths - 路徑, 一連串由 Edge 連接起來的 Node 組成的東西
+<ul>
+<li>Simple Path - 無重複點的路徑</li>
+<li>Cycles - 只有起點跟終點是同一點的路徑
+<ul>
+<li>特點是 - redundancy - 代表這個圈就算任一邊斷掉，也是相連的</li>
+<li>在社群網路中 很常見</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Connected Graph - 此 Graph 上任兩點間都有 path ，使之能夠抵達另一點
+<ul>
+<li>大部分的社群網路都是這樣，越大越是如此</li>
+<li>在社群網路中 很常見</li>
+</ul>
+</li>
+</ul>
 ]]></content></item></channel></rss>
