@@ -1,4 +1,39 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 21 Apr 2020 10:15:37 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>社群網路筆記 拍賣</title><link>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%B8%82%E5%A0%B4%E4%BA%A4%E6%98%93/</link><pubDate>Tue, 21 Apr 2020 10:15:37 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%B8%82%E5%A0%B4%E4%BA%A4%E6%98%93/</guid><description>Matching Markets - 市場交易 多人拍賣 人對不同貨品有不同程度的偏好 價格也是有偏好的 allocation 可以是最佳的 圖例 左邊是 賣家 右邊是 買家 實體線代表 賣家跟買家 之間有沒有可能有</description><content type="html"><![CDATA[<h1 id="matching-markets---市場交易">Matching Markets - 市場交易</h1>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 24 Apr 2020 13:58:34 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>批次 ppt 轉 pdf</title><link>https://blog.sappy.tw/posts/%E6%89%B9%E6%AC%A1ppt%E8%BD%89pdf/</link><pubDate>Fri, 24 Apr 2020 13:58:34 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E6%89%B9%E6%AC%A1ppt%E8%BD%89pdf/</guid><description>網路上的 powershell 程式碼，並修改了一下，使之能在最新版的 powershell + MS ppt 使用 # Batch convert all .ppt/.pptx files encountered in folder and all its subfolders # The produced PDF files are stored in the invocation folder # # Adapted from http://stackoverflow.com/questions/16534292/basic-powershell-batch-convert-word-docx-to-pdf # Thanks to MFT, takabanana, ComFreek # # If PowerShell exits</description><content type="html"><![CDATA[<p>網路上的 powershell 程式碼，並修改了一下，使之能在最新版的 powershell + MS ppt 使用</p>
+<div class="highlight"><pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="c"># Batch convert all .ppt/.pptx files encountered in folder and all its subfolders</span>
+<span class="c"># The produced PDF files are stored in the invocation folder</span>
+<span class="c">#</span>
+<span class="c"># Adapted from http://stackoverflow.com/questions/16534292/basic-powershell-batch-convert-word-docx-to-pdf</span>
+<span class="c"># Thanks to MFT, takabanana, ComFreek</span>
+<span class="c">#</span>
+<span class="c"># If PowerShell exits with an error, check if unsigned scripts are allowed in your system.</span>
+<span class="c"># You can allow them by calling PowerShell as an Administrator and typing</span>
+<span class="c"># ```</span>
+<span class="c"># Set-ExecutionPolicy Unrestricted</span>
+<span class="c"># ```</span>
+<span class="c"># Get invocation path</span>
+<span class="c"># $wdTypes = Add-Type -AssemblyName &#39;Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType&#39;</span>
+<span class="nv">$curr_path</span> <span class="p">=</span> <span class="nb">Split-Path</span> <span class="n">-parent</span> <span class="nv">$MyInvocation</span><span class="p">.</span><span class="n">MyCommand</span><span class="p">.</span><span class="n">Path</span>
+<span class="c"># Create a PowerPoint object</span>
+<span class="nv">$ppt_app</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">-ComObject</span> <span class="n">powerpoint</span><span class="p">.</span><span class="n">application</span>
+<span class="c"># Get all objects of type .ppt? in $curr_path and its subfolders</span>
+<span class="nb">Get-ChildItem</span> <span class="n">-Path</span> <span class="nv">$curr_path</span> <span class="n">-Recurse</span> <span class="n">-Filter</span> <span class="p">*.</span><span class="n">ppt</span><span class="p">?</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&#34;Processing&#34;</span> <span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span> <span class="s2">&#34;...&#34;</span>
+    <span class="c"># Open it in PowerPoint</span>
+    <span class="nv">$document</span> <span class="p">=</span> <span class="nv">$ppt_app</span><span class="p">.</span><span class="n">Presentations</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span><span class="p">)</span>
+    <span class="c"># Create a name for the PDF document; they are stored in the invocation folder!</span>
+    <span class="c"># If you want them to be created locally in the folders containing the source PowerPoint file, replace $curr_path with $_.DirectoryName</span>
+    <span class="nv">$pdf_filename</span> <span class="p">=</span> <span class="s2">&#34;</span><span class="p">$(</span><span class="nv">$curr_path</span><span class="p">)</span><span class="s2">\</span><span class="p">$(</span><span class="nv">$_</span><span class="p">.</span><span class="n">BaseName</span><span class="p">)</span><span class="s2">.pdf&#34;</span>
+    <span class="c"># Save as PDF -- 17 is the literal value of `wdFormatPDF`</span>
+    
+    <span class="nv">$opt</span> <span class="p">=</span> <span class="no">[Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType]</span><span class="p">::</span><span class="n">ppSaveAsPDF</span>
+    <span class="nv">$document</span><span class="p">.</span><span class="n">SaveAs</span><span class="p">(</span><span class="nv">$pdf_filename</span><span class="p">,</span> <span class="nv">$opt</span><span class="p">)</span>
+    <span class="c"># Close PowerPoint file</span>
+    <span class="nv">$document</span><span class="p">.</span><span class="n">Close</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="c"># Exit and release the PowerPoint object</span>
+<span class="nv">$ppt_app</span><span class="p">.</span><span class="n">Quit</span><span class="p">()</span>
+<span class="no">[System.Runtime.Interopservices.Marshal]</span><span class="p">::</span><span class="n">ReleaseComObject</span><span class="p">(</span><span class="nv">$ppt_app</span><span class="p">)</span>
+</code></pre></div>]]></content></item><item><title>社群網路筆記 拍賣</title><link>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%B8%82%E5%A0%B4%E4%BA%A4%E6%98%93/</link><pubDate>Tue, 21 Apr 2020 10:15:37 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%B8%82%E5%A0%B4%E4%BA%A4%E6%98%93/</guid><description>Matching Markets - 市場交易 多人拍賣 人對不同貨品有不同程度的偏好 價格也是有偏好的 allocation 可以是最佳的 圖例 左邊是 賣家 右邊是 買家 實體線代表 賣家跟買家 之間有沒有可能有</description><content type="html"><![CDATA[<h1 id="matching-markets---市場交易">Matching Markets - 市場交易</h1>
 <ul>
 <li>多人拍賣</li>
 <li>人對不同貨品有不同程度的偏好</li>
