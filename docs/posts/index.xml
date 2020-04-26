@@ -1,4 +1,161 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 24 Apr 2020 13:58:34 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>批次 ppt 轉 pdf</title><link>https://blog.sappy.tw/posts/%E6%89%B9%E6%AC%A1ppt%E8%BD%89pdf/</link><pubDate>Fri, 24 Apr 2020 13:58:34 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E6%89%B9%E6%AC%A1ppt%E8%BD%89pdf/</guid><description>網路上的 powershell 程式碼，並修改了一下，使之能在最新版的 powershell + MS ppt 使用 # Batch convert all .ppt/.pptx files encountered in folder and all its subfolders # The produced PDF files are stored in the invocation folder # # Adapted from http://stackoverflow.com/questions/16534292/basic-powershell-batch-convert-word-docx-to-pdf # Thanks to MFT, takabanana, ComFreek # # If PowerShell exits</description><content type="html"><![CDATA[<p>網路上的 powershell 程式碼，並修改了一下，使之能在最新版的 powershell + MS ppt 使用</p>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 24 Apr 2020 20:23:30 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>社群網路筆記 Networks in Their Surrounding Contexts</title><link>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_network_with_context/</link><pubDate>Fri, 24 Apr 2020 20:23:30 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_network_with_context/</guid><description>考慮 node 的 meta data，這會影響網路的演變 Homophily - 相似度 相似度越高，越容易相處在一起 要怎麼知道這個因素是否影響圖的連結 用 Homophily test Homophily test 跟純 random 比較，看看這因</description><content type="html"><![CDATA[<p>考慮 node 的 meta data，這會影響網路的演變</p>
+<h1 id="homophily---相似度">Homophily - 相似度</h1>
+<p>相似度越高，越容易相處在一起</p>
+<p>要怎麼知道這個因素是否影響圖的連結<br>
+用 Homophily test</p>
+<h2 id="homophily-test">Homophily test</h2>
+<p>跟純 random 比較，看看這因素是否會影響</p>
+<p>假設男性占 p 成，女性佔 q 成 (q = 1-p)
+一個 edge 兩端都是男性的機率是 $p^2$，都是女性是 $q^2$ ，一男一女是 $2pq$<br>
+如果跨性別的 edge 顯著比 2pq 還少，那就說明是 homophily<br>
+如下圖<br>
+<img src="https://images.sappy.tw/Social_Network/network_with_context/homophily_test.png" alt="homophily_test.png"></p>
+<h1 id="homophily-底下的機制---selection-and-social-influence">homophily 底下的機制 - selection and social influence</h1>
+<ul>
+<li>selection - 人會選擇有像似特質的做朋友</li>
+<li>characteristics - 特質
+<ul>
+<li>immutable - 不可變，人種</li>
+<li>mutable - 可變，興趣</li>
+</ul>
+</li>
+<li>Socialization - 同化現象</li>
+</ul>
+<h2 id="朋友相似是因認識前就相似還是認識後被同化">朋友相似，是因認識前就相似，還是認識後被同化</h2>
+<p>要觀察網路多個時間<br>
+longitudinal study - 長時間的研究</p>
+<p>假設同個特徵的是朋友，那可能是</p>
+<ol>
+<li>因這個特徵變朋友</li>
+<li>變朋友後被同化</li>
+<li>因其他原因變成朋友，但剛好有同樣特徵</li>
+</ol>
+<h1 id="affiliation">Affiliation</h1>
+<p>把 surrounding context (node 的 meta data) 變成網路內部看待<br>
+把 meta data 變成 node，稱為 focal point(或是 foci) ，這稱為 affiliation network<br>
+<img src="https://images.sappy.tw/Social_Network/network_with_context/affiliation.png" alt="affiliation"></p>
+<h2 id="social-affiliation-network">social-affiliation network</h2>
+<p><img src="https://images.sappy.tw/Social_Network/network_with_context/social-affiliation.png" alt="social-affiliation"></p>
+<p>擴展之前說的 triadic closure，讓他也能在 foci 跟 people 上使用<br>
+<img src="https://images.sappy.tw/Social_Network/network_with_context/extend_triadic_closure.PNG" alt="extend_triadic_closure"></p>
+]]></content></item><item><title>社群網路筆記 Positive and Negative Relationships</title><link>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E6%AD%A3%E8%B2%A0%E9%97%9C%E4%BF%82/</link><pubDate>Fri, 24 Apr 2020 20:23:30 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E6%AD%A3%E8%B2%A0%E9%97%9C%E4%BF%82/</guid><description>Structurtally balance edge 有正負關係 左邊兩個穩定，右邊兩個不穩定 Structural Banalnce property 如果是 fully connected 的話，過一段時間後會變成穩定狀態 X 跟 Y 內部 edge 都 + 值，但 X-Y 的 edge 都是 - 值 或是只有一個</description><content type="html"><![CDATA[<h1 id="structurtally-balance">Structurtally balance</h1>
+<p>edge 有正負關係<br>
+左邊兩個穩定，右邊兩個不穩定<br>
+<img src="https://images.sappy.tw/Social_Network/%E6%AD%A3%E8%B2%A0%E9%97%9C%E4%BF%82/structurally_balance.png" alt="structurally_balance.png"></p>
+<h1 id="structural-banalnce-property">Structural Banalnce property</h1>
+<p>如果是 fully connected 的話，過一段時間後會變成穩定狀態
+X 跟 Y 內部 edge 都 + 值，但 X-Y 的 edge 都是 - 值<br>
+或是只有一個 set，且都是 + 值<br>
+<img src="https://images.sappy.tw/Social_Network/%E6%AD%A3%E8%B2%A0%E9%97%9C%E4%BF%82/structurally_balance_network.png" alt="structurally_balance_network.png"></p>
+<h1 id="balance-theorem">Balance Theorem</h1>
+<p>cluster network = Structural Banalnce property
+證明 上述結果 (Structural Banalnce property)<br>
+當選一個 A 點出來，用 Structurtally balance 帶進去找 ? 的值，就發現符合理論<br>
+<img src="https://images.sappy.tw/Social_Network/%E6%AD%A3%E8%B2%A0%E9%97%9C%E4%BF%82/structurally_balance_network_proof.png" alt="structurally_balance_network_proof.png"></p>
+<h2 id="general-版本的-不一定要是-fully-connected">General 版本的 (不一定要是 fully connected)</h2>
+<ul>
+<li>loop(A 點出發，繞一圈再回到 A 點) 是偶數的 - 值，就稱為 structurally balanced or balanced</li>
+<li>clusterable - network 可被分為兩群(two disjoint set)
+右邊不是 clusterable<br>
+<img src="https://images.sappy.tw/Social_Network/%E6%AD%A3%E8%B2%A0%E9%97%9C%E4%BF%82/clusterable.png" alt="clusterable"></li>
+<li>Harary&rsquo;s balance theorem =&gt; : A signed network is balanced = clusterable</li>
+</ul>
+<p>證明方法</p>
+<ol>
+<li>證明每個 sub graph 是 balanced</li>
+<li>A B 兩點間經過的 edge 會是偶數個負值</li>
+<li>就可從上面兩個推出來</li>
+</ol>
+]]></content></item><item><title>社群網路筆記 Strong and Weak Ties</title><link>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_strong_and_weak_ties/</link><pubDate>Fri, 24 Apr 2020 15:23:30 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_strong_and_weak_ties/</guid><description>Triadic closure A-B，A-C 認識，則過一段時間後，B-C 很有可能也會互相認識 也有可能跨多點連結，如 D-G Clustering coefficient $三角形/只有兩個邊的三角形$ Bridges - 連結兩個 component 的</description><content type="html"><![CDATA[<ul>
+<li>Triadic closure
+A-B，A-C 認識，則過一段時間後，B-C 很有可能也會互相認識 <br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/triadic_closure.png" alt="triadic_closure"><br>
+也有可能跨多點連結，如 D-G<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/long-time.png" alt="long time">
+<ul>
+<li>Clustering coefficient
+<ul>
+<li>$三角形/只有兩個邊的三角形$</li>
+<li><img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/coefficient.png" alt="只有兩個邊的三角形"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="bridges---連結兩個-component-的邊">Bridges - 連結兩個 component 的邊</h1>
+<h2 id="bridge">Bridge</h2>
+<p>A-B 中間的即是 bridge<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/bridge.png" alt="bridge"></p>
+<h2 id="local-bridge">local bridge</h2>
+<p>但是 bridge 在社群網路上非常稀少，因此放鬆定義<br>
+兩個連線端點上無其他共同的點時，該連線即可稱為 local bridge<br>
+A-B 即是 local bridge<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/local-bridge.png" alt="local-bridge"></p>
+<h2 id="span">Span</h2>
+<p>當把 local bridge 刪除後 兩點的距離<br>
+span 一定 &gt;= 3  (因為 local bridge 沒有共同點)</p>
+<p>Bridge 類似於 Local bridge + 超大 span</p>
+<h1 id="strong-ties-and-weak-ties">Strong ties and weak ties</h1>
+<ul>
+<li>Strong ties =&gt; 朋友</li>
+<li>Weak ties =&gt; 認識的人</li>
+</ul>
+<h2 id="strong-triadic-closure-property">Strong triadic closure property</h2>
+<p>如果 A-B，A-C 都是 strong ties，則 B-C 一定有 ties(strong or weak)<br>
+左邊滿足 Strong triadic closure property，右邊不滿足  Strong triadic closure property<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/strong_triadic_closure_property.png" alt="strong_triadic_closure_property.png"></p>
+<h2 id="local-bridges-and-weak-ties">Local bridges and weak ties</h2>
+<p>如一個 點 A 所在的 graph 滿足 Strong Triadic Closure，有兩個以上的 strong tie，如果有 local bridge 則 local bridge 一定是 weak ties<br>
+用反證法來證明　　<br>
+假設 A-B 是 local bridge，根據 Strong triadic closure property，B-C 一定有邊，但這違反了 local bridge 的定義<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/Local_bridges_and_weak_ties.png" alt="Local_bridges_and_weak_ties"></p>
+<h2 id="clusters">clusters</h2>
+<p>大網路內的 clusters 其內部大多是 strong，並透過 weak ties 跟其他 cluster 連接
+下面章節會證明</p>
+<h1 id="tie-strength-and-network-structure-in-large-scale-data">Tie strength and network structure in large-scale data</h1>
+<p>因為 local bridge 實在太少，又放寬定義
+定義 nearborhood overlap<br>
+$\dfrac{A \cap B}{A \cup B}$  !!注意 $A \ cup B$ 不包含 A B 本身<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/nearborhood_overlap.png" alt="nearborhood_overlap"><br>
+這樣還有個好處就是可以數值化ties 的強弱<br>
+Example A-F 的 overlap 只有 1/6 (C / B, C, D, E, G, J)<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/nearborhood_overlap_example.png" alt="nearborhood_overlap_example"></p>
+<p>真實情況，確實 ties 強度(下方)跟 overlap(左邊) 是呈正比的<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/overlap_real.png" alt="overlap_real"></p>
+<p>當把 weak ties 移除時， giant component 會縮小得很快</p>
+<h1 id="fb-上的探討">FB 上的探討</h1>
+<p>左上是所有朋友<br>
+右上是比較熟的人<br>
+左下是事件<br>
+右下是親密夥伴<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/FB.png" alt="FB"></p>
+<p>passive engagement - 介於 strong 跟 weak 中間的人</p>
+<h1 id="closure--structural-holes--social-capital">closure &amp; structural holes &amp; social capital</h1>
+<p>討論在社群網路中的位置提供的優勢</p>
+<p><img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/social_capital.png" alt="social_capital"></p>
+<p>A 的 cluster coefficient 很高</p>
+<h2 id="embeddedness">Embeddedness</h2>
+<p>用處跟 cluster coefficient 類似
+edge 兩端的 node 的共同朋友
+A-B 的 Embeddedness 是 2</p>
+<h2 id="tightly-knit-groups">Tightly-knit groups</h2>
+<p>共同朋友越多 -&gt; 互信程度越高</p>
+<h2 id="zero-embeddedness">zero embeddedness</h2>
+<p>B-C 的 embeddedness 是 0</p>
+<h2 id="structural-holes">Structural holes</h2>
+<p>B 的位置稱為 Structural holes，像是E-B-C C-B-D 的空洞</p>
+<h2 id="b-的優勢">B 的優勢</h2>
+<p>B 有機會拿到 early access - 拿到最新的外部訊息<br>
+B 有更好的 Creativity (因能獲得新想法)<br>
+B 也有機會過濾訊息 - social &ldquo;gatekeeping&rdquo;</p>
+<h2 id="social-capital">social capital</h2>
+<ul>
+<li>physical capital - 技術優勢</li>
+<li>human - 天賦</li>
+<li>ecoomic - $$</li>
+<li>cultural - 文化</li>
+</ul>
+]]></content></item><item><title>批次 ppt 轉 pdf</title><link>https://blog.sappy.tw/posts/%E6%89%B9%E6%AC%A1ppt%E8%BD%89pdf/</link><pubDate>Fri, 24 Apr 2020 13:58:34 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E6%89%B9%E6%AC%A1ppt%E8%BD%89pdf/</guid><description>網路上的 powershell 程式碼，並修改了一下，使之能在最新版的 powershell + MS ppt 使用 # Batch convert all .ppt/.pptx files encountered in folder and all its subfolders # The produced PDF files are stored in the invocation folder # # Adapted from http://stackoverflow.com/questions/16534292/basic-powershell-batch-convert-word-docx-to-pdf # Thanks to MFT, takabanana, ComFreek # # If PowerShell exits</description><content type="html"><![CDATA[<p>網路上的 powershell 程式碼，並修改了一下，使之能在最新版的 powershell + MS ppt 使用</p>
 <div class="highlight"><pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="c"># Batch convert all .ppt/.pptx files encountered in folder and all its subfolders</span>
 <span class="c"># The produced PDF files are stored in the invocation folder</span>
 <span class="c">#</span>
@@ -81,7 +238,7 @@
 </ul>
 <h2 id="preferred-seller---這個-buyer-偏好的-seller">preferred seller - 這個 buyer 偏好的 seller</h2>
 <p>即使買家 payoff 最大化的賣家<br>
-<img src="https://images.sappy.tw/Social_Network/market/prefer-seller.png" alt="prefer-seller.png"></p>
+<img src="https://images.sappy.tw/Social_Network/market/perfer-seller.png" alt="perfer-seller.png"></p>
 <h2 id="preferred-seller-graph--market-clearing">preferred-seller graph &amp; market clearing</h2>
 <p>所有 buyer 跟其 preferred-seller 都連起來的 graph<br>
 當 preferred-seller graph 能夠形成 perfect graph 就稱為 market clearing<br>
@@ -89,8 +246,7 @@
 <h2 id="兩個問題">兩個問題</h2>
 <ol>
 <li>clear market 時， quality 好不好</li>
-<li>給定任意的買方偏好</li>
-<li>價格，是否一定存在 prefect matching (buyer 跟 seller 數量要相同)</li>
+<li>給定任意的買方偏好價格，是否一定存在 prefect matching (buyer 跟 seller 數量要相同)</li>
 </ol>
 <h3 id="1-clear-market-時-quality-好不好">1 clear market 時， quality 好不好</h3>
 <p>定義 total payoff M 是下面這樣<br>
@@ -140,6 +296,88 @@ $\sum_{i,j}p_{i}C_{ij}$  - 所有價格相加 (因為價格不會因為不同連
 如下圖<br>
 <img src="https://images.sappy.tw/Social_Network/market/relation-single-item.png" alt="relation-single-item"></p>
 <p>當 market clear　時，很像是 auction 的 Sealed-bid Second-price price</p>
+]]></content></item><item><title>社群網路筆記 拍賣</title><link>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_auctions/</link><pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_auctions/</guid><description>定義 True Value - 每個 bidder(買家) 都有自己的估價，買家不會買超過自己估價的東西 四種拍賣方式 Ascending-bid auction - 買家喊價，越出價越高，最高價者得標 Descending-bid auction - 賣家</description><content type="html"><![CDATA[<h1 id="定義">定義</h1>
+<ul>
+<li>True Value - 每個 bidder(買家) 都有自己的估價，買家不會買超過自己估價的東西</li>
+</ul>
+<h1 id="四種拍賣方式">四種拍賣方式</h1>
+<ol>
+<li>Ascending-bid auction - 買家喊價，越出價越高，最高價者得標</li>
+<li>Descending-bid auction - 賣家喊價，價格越喊越低，直到有人接受</li>
+<li>First-price sealed-bid auctions  - 同時出價，價格最高者得標，並付出喊價的價格</li>
+<li>Second-price sealed-bid auctions - 同時出價，價格最高者得標，並付出喊價次高者喊的價格</li>
+</ol>
+<h1 id="拍賣適合的時機">拍賣適合的時機</h1>
+<p>!! 買賣雙方都不知道真實的價格 !!</p>
+<p>如果買方知道賣方的估價，就直接用賣方估價買就好了<br>
+如果賣方知道買方的估價，就直接用買方估價賣就好了</p>
+<h1 id="拍賣方式的關係">拍賣方式的關係</h1>
+<p>Descending-bid auction 跟 First-price sealed-bid auctions 在數學上是一樣的<br>
+因為假設 bidder 估價為 b，當賣方逐步降價時，如果降到有 bidder 能接受的價格 b 時，該 bidder 就會買下<br>
+<img src="https://images.sappy.tw/Social_Network/auction/first-descending.png" alt="first-descending"></p>
+<p>Ascending-bid auction 跟 Second-price sealed-bid auctions 在數學上是一樣的
+因為假設 bidder 估價為 b，當買方逐步出價時，估價最高的 bidder 將會贏的拍賣，且因為是逐步出價的，所以最高出價的買方只要贏過次高出價的買方就好了，不需要出到自己的估價，因此跟 Second-price sealed-bid auctions 相同，贏得拍賣，並付出次高買方喊的價格即可<br>
+<img src="https://images.sappy.tw/Social_Network/auction/second-ascending.png" alt="second-ascending"></p>
+<p>!!! 改變規則會改變行為，因此 first-price 跟 second-prie 的收益會相等  !!!</p>
+<h1 id="數學符號">數學符號</h1>
+<ul>
+<li>bidder - 買家</li>
+<li>$b_i$ - 第 $i$ 個買家的出價</li>
+<li>$v_i$ - 第 $i$ 個買家的估價</li>
+<li>$b_i$ 的 payoff
+<ul>
+<li>如果贏了，則是 $v_i - b_i$</li>
+<li>如果輸了，則是 $0$</li>
+</ul>
+</li>
+<li>truthful bidding - 出的價格就是估價</li>
+</ul>
+<h1 id="second-price-auctions">Second-price auctions</h1>
+<p>!!! Sealed-bid Second-price price auction 中，每個 bidder 的 dominant strategy 就是出自己的估價</p>
+<h2 id="tie-breaking">Tie breaking</h2>
+<p>如果前兩大的出價相等的話，要怎麼決定哪個能得標呢?</p>
+<ol>
+<li>用說好的順序決定輸贏</li>
+<li>假設同樣價差之間差距 $\varepsilon$，而 $\varepsilon\approx0$</li>
+</ol>
+<h2 id="證明-truthful-bidding-在-second-price-sealed-bid-auctions-中視最好的策略">證明 truthful bidding 在 second-price sealed-bid auctions 中視最好的策略</h2>
+<h3 id="觀察">觀察</h3>
+<ol>
+<li>要證明 $b_i=v_i$ 時，沒有其他 $b_i'$ 能夠比 $b_i$ 還要好</li>
+<li>$b_i$ 有兩種方式可以做偏移，上升或下降</li>
+<li>$b_i$ 只影響輸贏，不影響 payoff</li>
+</ol>
+<h3 id="分段證明">分段證明</h3>
+<p>第一章圖是教科書的證明，第二張圖是我自己的想法<br>
+<img src="https://images.sappy.tw/Social_Network/auction/second-bid-proof.png" alt="second-bid-proof"> <br>
+<img src="https://images.sappy.tw/Social_Network/auction/second-bid-proof-2.svg" alt="second-bid-proof-2"></p>
+<h1 id="first-price-auctions">First-price auctions</h1>
+<ul>
+<li>如沒有贏， payoff 就是 0</li>
+<li>如果贏了， payoff 就是 $v_i-b_i$</li>
+</ul>
+<p>因為 payoff 會隨 $b_i$(出價) 改變，因此 truthfulness 就不再是 dominant strategy<br>
+也因此我們要把 bid 壓越地越好，但是要盡可能的贏得拍賣</p>
+<h1 id="all-pay-auction---即使沒贏也要付出代價">All-pay auction - 即使沒贏，也要付出代價</h1>
+<ul>
+<li>如出價 $b_i$ 沒有贏， payoff 是 $-b_i$</li>
+<li>如出價 $b_i$ 贏了， payoff 就是 $v_i-b_i$</li>
+</ul>
+<p>all pay auction 的 optimal bid 跟 first-price auction 類似</p>
+<h1 id="common-values--winners-curse">Common Values &amp; winner&rsquo;s curse</h1>
+<ul>
+<li>Common Values - 物品有實際價值，但沒人知道實際價值是多少，像是油田等等</li>
+<li>winner&rsquo;s curse - 如果買家的估價比實際價值高，那當買家實際開採或轉賣時，很可能賠錢，又因為是最高者得，所以買家高估實際價值的可能性比較高</li>
+<li>也因此就算是 second-price auction，truthful bidding 也不會是 dominant strategy， 因為物品具有實際價值</li>
+<li>因此 購買時要考慮 winner&rsquo;s curse</li>
+</ul>
+<p>模型</p>
+<ul>
+<li>$v_i$ - 估價</li>
+<li>$v$ - 實際價值，但沒人知道實際價值是多少</li>
+<li>$x_i$ - 誤差
+$v_i = v + x_i$</li>
+</ul>
 ]]></content></item><item><title>社群網路筆記 賽局理論</title><link>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E8%B3%BD%E5%B1%80/</link><pubDate>Sat, 11 Apr 2020 18:13:30 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E8%B3%BD%E5%B1%80/</guid><description>賽局理論最大的特色在於，他有許多決策者 名詞 Player Strategies Payoff Payoff Matrix 目前先考慮 one shot game player 同時下決策，且 player 之間的決策過程是獨立的 幾個假設 player 只關注如何最大化自身利</description><content type="html"><![CDATA[<p>賽局理論最大的特色在於，他有許多決策者</p>
 <h1 id="名詞">名詞</h1>
 <ol>
@@ -272,6 +510,14 @@ Homophily - 相似度</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">qemu-img create -f qcow2 1.qcow2 40G
 
 qemu-system-x86_64 --enable-kvm -hda 1.qcow2 -m <span class="m">1024</span> -net nic,model<span class="o">=</span>virtio -net user,hostfwd<span class="o">=</span>tcp::2223-:22 -cdrom ../ubuntu-16.04.6-desktop-amd64.iso -vga std -cpu host -smp 4,cores<span class="o">=</span>4,threads<span class="o">=</span>1,sockets<span class="o">=</span>4,maxcpus<span class="o">=</span><span class="m">16</span> -boot <span class="nv">strict</span><span class="o">=</span>on
+</code></pre></div><p>alpine</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">qemu-img create -f qcow2 1.qcow2 40G
+
+qemu-system-x86_64 --enable-kvm -hda 1.qcow2 -m <span class="m">1024</span> -net nic,model<span class="o">=</span>virtio -net user,hostfwd<span class="o">=</span>tcp::2223-:22 -cdrom alpine-virt-3.11.5-x86_64.iso -vga std -cpu host -smp 4,cores<span class="o">=</span>4,threads<span class="o">=</span>1,sockets<span class="o">=</span>4,maxcpus<span class="o">=</span><span class="m">16</span> -boot <span class="nv">strict</span><span class="o">=</span>on
+
+https://wiki.alpinelinux.org/wiki/Alpine_Install:_from_a_disc_to_a_virtualbox_machine_single_only
+
+
 </code></pre></div><p>必要安裝</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt install openssh-server
 
@@ -332,7 +578,7 @@ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 <span class="
 systemd-analyze blame</p>
 <h1 id="todo">Todo</h1>
 <ul>
-<li>[] Compiler 優化</li>
+<li>[v] Compiler 優化</li>
 <li></li>
 </ul>
 ]]></content></item><item><title>跨平台 terminal 設定</title><link>https://blog.sappy.tw/posts/%E8%B7%A8%E5%B9%B3%E5%8F%B0terminal%E8%A8%AD%E5%AE%9A/</link><pubDate>Sat, 28 Mar 2020 23:49:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E8%B7%A8%E5%B9%B3%E5%8F%B0terminal%E8%A8%AD%E5%AE%9A/</guid><description>緣由 最近在因為 terminal 跨平台讓我有點煩躁，所以才寫下這篇備忘 安裝 目前有兩款比較熱門的跨平台 terminal hyper terminus 就顏質跟設定方便度而言，我選擇了後者，也就是 terminus Windows 安</description><content type="html"><![CDATA[<h1 id="緣由">緣由</h1>
@@ -1028,16 +1274,16 @@ $tanh$ 則是代表資訊的數值 (-1 ~ 1)</p>
 </li>
 </ol>
 </section>
-]]></content></item><item><title>社群網路筆記 2</title><link>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</guid><description>社群網路的圖的定義 Node - 點, 個人 Edge - 邊, 人與人的關係 TODO IMAGE Undirected graph and directed graph undirected graph - 邊沒有特定方向 directed graph - 邊具有方向性 TODO IMAGE Adjacency matrix - 用矩陣來表達圖的關係, 1 代表</description><content type="html"><![CDATA[<h1 id="社群網路的圖的定義">社群網路的圖的定義</h1>
+]]></content></item><item><title>社群網路筆記 2</title><link>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</guid><description>社群網路的圖的定義 Node - 點, 個人 Edge - 邊, 人與人的關係 Undirected graph and directed graph undirected graph - 邊沒有特定方向 directed graph - 邊具有方向性 Adjacency matrix - 用矩陣來表達圖的關係, 1 代表有連接,</description><content type="html"><![CDATA[<h1 id="社群網路的圖的定義">社群網路的圖的定義</h1>
 <ul>
 <li>Node - 點, 個人</li>
 <li>Edge - 邊, 人與人的關係
-TODO IMAGE</li>
+<img src="https://images.sappy.tw/Social_Network/ch2/node_and_edge.png" alt="node_and_edge"></li>
 <li>Undirected graph and directed graph
 <ul>
 <li>undirected graph - 邊沒有特定方向</li>
 <li>directed graph - 邊具有方向性
-TODO IMAGE</li>
+<img src="https://images.sappy.tw/Social_Network/ch2/directed_&amp;_undirected_graph.png" alt="directed_&_undirected_graph"></li>
 </ul>
 </li>
 <li>Adjacency matrix - 用矩陣來表達圖的關係, 1 代表有連接, 0 代表沒有連接
@@ -1060,6 +1306,46 @@ TODO IMAGE</li>
 <ul>
 <li>大部分的社群網路都是這樣，越大越是如此</li>
 <li>在社群網路中 很常見</li>
+</ul>
+</li>
+<li>Connected components
+下面是有三個 node 的範例<br>
+<img src="https://images.sappy.tw/Social_Network/ch2/components.png" alt="components"></li>
+<li>Giant Components
+<ul>
+<li>有顯著影響力(很大的)的 Components</li>
+<li>幾乎所有的 large network 都有 giant component</li>
+<li>幾乎所有大網路都只有一個 giant component
+<ul>
+<li>因為兩邊所有點都沒連接的機率非常低</li>
+<li>假設雙方各有 N 個點，點跟點連接的機率是 99%</li>
+<li>則完全沒有點連接的機率是 $0.01*{N^2}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Distance
+<ul>
+<li>兩點之間最短距離</li>
+<li>用BFS演算法(breadth-first search)找最快
+<ul>
+<li>First find all friends at a distance of 1</li>
+<li>Find all their friends (not including distance-1 friends), and declare these to be distance 2</li>
+<li>Repeating this procedure to find friends of farther away<br>
+<img src="https://images.sappy.tw/Social_Network/ch2/BFS.png" alt="BFS"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Small-world property
+<ul>
+<li>Giant Components 中任兩點距離比想像中短</li>
+<li>Six degrees of separation
+<ul>
+<li>每個人走六個點就能夠到達另一點</li>
+<li><img src="https://images.sappy.tw/Social_Network/ch2/6-drgrees.png" alt="6-drgrees"></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
