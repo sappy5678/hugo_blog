@@ -1,4 +1,1119 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 11 Apr 2020 18:13:30 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>社群網路筆記 賽局理論</title><link>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E8%B3%BD%E5%B1%80/</link><pubDate>Sat, 11 Apr 2020 18:13:30 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E8%B3%BD%E5%B1%80/</guid><description>賽局理論最大的特色在於，他有許多決策者 名詞 Player Strategies Payoff Payoff Matrix 目前先考慮 one shot game player 同時下決策，且 player 之間的決策過程是獨立的 幾個假設 player 只關注如何最大化自身利</description><content type="html"><![CDATA[<p>賽局理論最大的特色在於，他有許多決策者</p>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 18 Jul 2020 13:55:38 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Elasticsearch 中文處理</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/elasticsearch/elasticsearch%E4%B8%AD%E6%96%87%E8%99%95%E7%90%86/</link><pubDate>Sat, 18 Jul 2020 13:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/elasticsearch/elasticsearch%E4%B8%AD%E6%96%87%E8%99%95%E7%90%86/</guid><description>目的 解決 elasticsearch 中，中文斷詞預設是 character-base 的斷詞方式 例如 今天天氣很好 應該要斷成 今天 天氣 很 好，而不是 elasticsearch 中的 今 天 天 氣 很 好 解法 中文斷詞目前最好的應該還是中研院</description><content type="html"><![CDATA[<h1 id="目的">目的</h1>
+<p>解決 elasticsearch 中，中文斷詞預設是 character-base 的斷詞方式<br>
+例如 <code>今天天氣很好</code> 應該要斷成 <code>今天 天氣 很 好</code>，而不是 elasticsearch 中的 <code>今 天 天 氣 很 好</code></p>
+<h1 id="解法">解法</h1>
+<p>中文斷詞目前最好的應該還是中研院的 <a href="https://github.com/ckiplab/ckiptagger">CKIPTagger</a> ，我們是自行斷完詞之後再用 elastic search 的 space 斷詞塞進去資料庫<br>
+中研院的斷詞器 CKIPtagger，是中研院第二版的斷詞器，主要是用類神經網路做，或者可以跟他們申請第一版的斷詞器，第一版主要是使用傳統斷詞方法<br>
+目前我們是自行撰寫一支 Python 程式來用 CKIPtagger 做斷詞，斷好的結果再放在 Document 中 POST 到 Elasticsearch，選擇這樣做是因為做起來比較靈活，可以自由修改處理過程，也不用擔心改版的時候 plugin 不能用<br>
+為了之後能繼續存取原始資料來做分析或其他用途，我們是存成兩份資料，一份原始資料，一份是斷詞斷完的資料<br>
+大概長得像下面這樣</p>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;origin&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;token&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+<span class="p">}</span>
+</code></pre></div>]]></content></item><item><title>社群網路筆記 CASCADING BEHAVIOR IN NETWORKS</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%BE%AE%E8%A7%80%E5%82%B3%E6%92%AD/</link><pubDate>Sun, 31 May 2020 11:59:37 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%BE%AE%E8%A7%80%E5%82%B3%E6%92%AD/</guid><description>網路中的擴散 Diffusion in networks 跟考慮整個人群比起來，考慮細粒度的傳播，就是跟考慮整體決定比起來，通常會比較關注身旁的人的所下的決定 考慮在 graph 中的擴散 也稱為</description><content type="html"><![CDATA[<h1 id="網路中的擴散-diffusion-in-networks">網路中的擴散 Diffusion in networks</h1>
+<ol>
+<li>跟考慮整個人群比起來，考慮細粒度的傳播，就是跟考慮整體決定比起來，通常會比較關注身旁的人的所下的決定</li>
+<li>考慮在 graph 中的擴散</li>
+<li>也稱為 diffusion of innovations</li>
+</ol>
+<p>人們模仿鄰居的原因有兩個</p>
+<ol>
+<li>Informational effects - 發現鄰居做了 A 行為後得到好處，每個人的收益都不受他人影響，目前研究結論有
+<ol>
+<li>創新，缺乏了解，使採用它具有風險</li>
+<li>能獲得很高的利益，所以人們才採用</li>
+<li>越早採用的人，社經地位通常越高，交友程度通常越多</li>
+<li>是否採納通常藉由觀察鄰居決定</li>
+<li>無 direct benefit effect</li>
+</ol>
+</li>
+<li>Direct-benefit effects - 發現鄰居做了 A 行為後得到好處，且越多人做收益越大，具有以下特性
+<ol>
+<li>吸引人的兩大原因
+<ol>
+<li>專家採用</li>
+<li>大多數人採用</li>
+</ol>
+</li>
+<li>可以傳播開的原因
+<ol>
+<li>Complexity - 不太複雜</li>
+<li>Observability - 很容易觀察到好處</li>
+<li>Trialability - 試用風險小</li>
+<li>符合社會的習慣</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="diffusion-through-a-network-的模型">diffusion through a network 的模型</h1>
+<ol>
+<li>用傳染病模型模擬</li>
+<li>用 direct benefit effect 模型模擬，這裡使用這個模型，特色有
+<ol>
+<li>越多人採用，收益越高</li>
+<li>出於自身利益，當足夠多鄰居採用時才應該採用</li>
+</ol>
+</li>
+</ol>
+<h2 id="direct-benefit-effect">direct benefit effect</h2>
+<ol>
+<li>跟所有鄰居玩 coordination game
+<img src="https://images.sappy.tw/Social_Network/%E5%BE%AE%E8%A7%80%E5%82%B3%E6%92%AD/coordination.jpg" alt="coordination"></li>
+<li>點 v 的 payoff 是跟所有鄰居玩 coordination game 的和，v 也是基於和來做決策</li>
+<li>p 是 v 的鄰居中採用 A 的比例， d 是鄰居數量， a b 則是不同 coordination game 選擇的 payoff
+當 node v 採用 A 時 $pda\geq(1-p)db$，否則採用 B 就是 $pda\leq(1-p)db$
+可變成 $p\geq\frac{b}{a+b}$，定義 $q=\frac{b}{a+b}$</li>
+</ol>
+<h2 id="實驗">實驗</h2>
+<ol>
+<li>假設 B 是舊的策略，A是新東西</li>
+<li>一開始有些人會開始採用 A</li>
+<li>其他人會開始慢慢轉變成 A</li>
+</ol>
+<p>TODO proof 過程中 只會從 B 變成 A，A不會變回 B</p>
+<p>問題</p>
+<ol>
+<li>所有人都會變成 A (complete cascade)</li>
+<li>如果不是，那不變成 A 的原因是什麼</li>
+</ol>
+<p>新思想很難傳播進 tightly-knit 的社群 (內部連接緊密，外部連接稀疏)</p>
+<ul>
+<li>現實中像是以下原因都會造成 tightly-knit 的社群
+<ul>
+<li>不同年齡層</li>
+<li>不同生活習慣</li>
+</ul>
+</li>
+</ul>
+<p>繼續傳播的策略</p>
+<ol>
+<li>提高 A 的質量， 讓 q 門檻下降，像是 a 從 3-&gt;4，q就會從 2/5 -&gt; 1/3</li>
+<li>讓 tightly-knit 的社群 內部有些節點開始轉換
+<ol>
+<li>衍伸出新問題，要怎麼選那些點轉換</li>
+</ol>
+</li>
+</ol>
+<h2 id="把-tightly-knit-用數學定義表示">把 tightly-knit 用數學定義表示</h2>
+<p>cascade 可以傳播多遠，取決於</p>
+<ol>
+<li>新技術的優點</li>
+<li>社群連接的緊密程度</li>
+</ol>
+<h3 id="定義-cluster">定義 cluster</h3>
+<ul>
+<li>a cluster of density p ， 就是一組(set) node，每個 node 至少有 p 比例的鄰居在這個 set 當中</li>
+<li>網路中可同時存在多個規模的 Clusters</li>
+<li>缺點是
+<ol>
+<li>p =1 的定義不好，因為所有點都在內的話也滿足 p =1 的定義</li>
+<li>即便兩個 p cluster 沒有連接，但兩個在一起也滿足定義</li>
+</ol>
+</li>
+</ul>
+<h3 id="宣稱">宣稱</h3>
+<ol>
+<li>remaining network 就是不包含初始點的點的集和</li>
+<li>若初始點採用 A，且轉換門檻為 threshold q，則
+<ol>
+<li>如 remaining network 包含 1-q 的 cluster，就不會是 complete cascade</li>
+<li>如果不會是 complete cascade，則remaining network 一定有包含 1-q 的 cluster</li>
+<li>1-q &lt;=&gt; complete cascade</li>
+</ol>
+</li>
+</ol>
+<h3 id="證明">證明</h3>
+<h4 id="如-remaining-network-包含-1-q-的-cluster就不會是-complete-cascade">如 remaining network 包含 1-q 的 cluster，就不會是 complete cascade</h4>
+<p>proof 1-q 的 cluster 是 complete cascade 的阻礙
+反證法
+假設有個大於 1-q 的 cluster
+有個 node v 在其中，且是第一個變成 A 的 node
+因 v 在 大於1-q cluster　中，所以外面最多也就 小於 q 比例的 node，因此最多也就 小於 q 比例的 node 採用 A，因此 v 不可能轉變成 A</p>
+<h4 id="如果不會是-complete-cascade則remaining-network-一定有包含-1-q-的-cluster">如果不會是 complete cascade，則remaining network 一定有包含 1-q 的 cluster</h4>
+<p>proof 1-q 的 cluster 是 complete cascade 的唯一阻礙
+假設 S 是最後依然不轉變的 cluster
+要證明 沒有轉換的 S 的 density 比 1-q 大</p>
+<p>假設 w 在 S 中，不會轉變，因為她的鄰居最多也就 小於 q 會採用 A
+而 w 有 1-比例的鄰居採用 B，且都在 S 中
+因此，就定義而言， S 就是有 1-q density 的 cluster</p>
+<h1 id="實驗結論">實驗結論</h1>
+<p>從接收到消息跟實際採用會需要一段時間<br>
+門檻低的消息容易傳送， weak ties 也比較容易傳播門檻低的消息</p>
+<h1 id="每個-node-都有自己的-a-b">每個 node 都有自己的 a b</h1>
+<p>跟之前類似，不過要分開考慮<br>
+blocking cluster ，就是跟之前的 1-q density 類似，只是條件是每個在裡面的 node v 的 $1-q_v$ 比例的鄰居也在 blocking cluster 內</p>
+]]></content></item><item><title>社群網路筆記 power law &amp; rich get richer</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_power_law/</link><pubDate>Sat, 30 May 2020 21:40:37 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_power_law/</guid><description>基本性質 Behavior 互相影響，而不是獨立事件 popularity 非常不平衡，高的很高，低的很低 檢驗分散程度是否是 normally distributed 實驗證明，發現不是，因 normal 會假設都是 independe</description><content type="html"><![CDATA[<h1 id="基本性質">基本性質</h1>
+<ul>
+<li>Behavior 互相影響，而不是獨立事件</li>
+<li>popularity 非常不平衡，高的很高，低的很低</li>
+</ul>
+<h1 id="檢驗分散程度是否是-normally-distributed">檢驗分散程度是否是 normally distributed</h1>
+<p>實驗證明，發現不是，因 normal 會假設都是 independency，但這裡不是</p>
+<h1 id="power-law">power law</h1>
+<p>呈現多項式 $f(k)=\frac{a}{k^c}$</p>
+<h2 id="驗證是否為-power-law">驗證是否為 power law</h2>
+<p>畫出取 log 的結果，看是不是直線<br>
+$\log f(k)=\log a - c \log k$<br>
+此時 -c 是斜率， loga 是跟 y 的交點<br>
+<img src="https://images.sappy.tw/Social_Network/powerlaw/powerlaw.png" alt="powerlaw"></p>
+<h1 id="rich-get-richer-model">rich-get-richer model</h1>
+<h2 id="模擬實驗">模擬實驗</h2>
+<ul>
+<li>
+<p>decision 不是完全無關</p>
+<ul>
+<li>information cascade 會影響</li>
+<li>network effect 也會影響</li>
+</ul>
+</li>
+<li>
+<p>pages 是順序生成的，由 page1 page2 &hellip; pageN</p>
+</li>
+<li>
+<p>每個 page 只連到一個 page (也可擴充成連到多個 page)</p>
+<ul>
+<li>當 page j 生成時，有 p 的機率連到前面生成的其中一個 page i</li>
+<li>當 page j 生成時，有 1-p 的機率連到前面生成的其中一個 page i 所連到的 page h
+<ul>
+<li>等效於 page h inlink 數量 越大，被連到的機率越高</li>
+<li>$V_h $= page h inlink 的數量，N 是所有 inlink 的總和</li>
+<li>page h 被選到的機率為 $\frac{V_h}{N}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>1-p 越大，越不平衡</p>
+</li>
+</ul>
+<h2 id="歷史重來每次暢銷的東西都不相同">歷史重來，每次暢銷的東西都不相同</h2>
+<p>會</p>
+<h2 id="preferential-attachment-vs-information-cascade">preferential attachment vs information cascade</h2>
+<ul>
+<li>相同點
+<ul>
+<li>兩者都有模仿</li>
+</ul>
+</li>
+<li>不同點
+<ul>
+<li>copy 讓人有比較多選項，IC 只能選擇接受或拒絕</li>
+<li>copy 只參考一個人決定，IC 是參考所有人決定</li>
+<li>copy 是盲目 copy，IC 是理性決策</li>
+</ul>
+</li>
+</ul>
+<h1 id="search-tools-跟推薦系統">Search Tools 跟推薦系統</h1>
+<ol>
+<li>大者越大，也叫做 scale free effect</li>
+<li>探索讓 rich get richer 效應下降</li>
+</ol>
+<h1 id="附註">附註</h1>
+<ul>
+<li>不是所有東西都能 copy，1-p 在城市中，等於人越多生越多</li>
+</ul>
+<h1 id="analysis-of-rich-get-richer">Analysis of Rich-Get-Richer</h1>
+<p>將 random variable 換成期望值
+t+1 時增加的量
+$\frac{dx_j(t)}{dt}=\frac{p}{t}+\frac{(1-p)x_j(t)}{t}$<br>
+<img src="https://images.sappy.tw/Social_Network/powerlaw/diff.png" alt="diff"></p>
+]]></content></item><item><title>社群網路筆記 network effect</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_network_effect/</link><pubDate>Wed, 20 May 2020 22:13:27 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_network_effect/</guid><description>Direct benefit effect OR Network effect INformation Cascade 中影響人們決策的原因有兩個 Information effect - 只影響考慮過程，不影響行動後獲得的利益 Direct benefit effect 或是 Network effect - 除了影響考慮的過程，更影響行動後獲得的</description><content type="html"><![CDATA[<h1 id="direct-benefit-effect-or-network-effect">Direct benefit effect OR Network effect</h1>
+<p>INformation Cascade 中影響人們決策的原因有兩個</p>
+<ol>
+<li>Information effect - 只影響考慮過程，不影響行動後獲得的利益</li>
+<li>Direct benefit effect 或是 Network effect - 除了影響考慮的過程，更影響行動後獲得的利益</li>
+</ol>
+<ul>
+<li>Network effect 是外部因素(externalities)，可以是正或者是負的</li>
+<li>Network effect 會影響別人的 welfare(payoff)，但不是直接影響(uncompensated)，而是間接影響
+<ul>
+<li>直接影響就是你買東西別人不會給你錢</li>
+<li>間接影響就是越多人用這東西對你價值越高，例如社群網路</li>
+</ul>
+</li>
+<li>本章節的 welfare 是看使用者的數量</li>
+</ul>
+<h1 id="the-economy-without-network-effects">The economy without network effects</h1>
+<p>先討論不具有 network effect 的商品，再來討論具有 network effect 的商品</p>
+<ol>
+<li>
+<p>假設這是個很大的市場，裡面有很多小的 consumer 跟 producter，每個對市場的影響都很小(價格不會波動)</p>
+</li>
+<li>
+<p>用 0~1 的實數代表無限多的 consumer(好處是能很方便回答 0~x 有 x 人)</p>
+</li>
+<li>
+<p>每個 consumer 只要一個商品</p>
+</li>
+<li>
+<p>每個 consumer 都有其 Intrinsic interest(偏好)</p>
+<ol>
+<li>Reservation price - 量化的 intrinsic interest</li>
+<li>consumer 的 Reservation price 由高到低排下來，及 consumer 0 的 reservation price 是最高的</li>
+<li>用 function r 代表 reservation，r(0) 代表 consumer 0 的 reservation price
+<ol>
+<li>由 4-2 可知 r(0) &gt; r(0.1) &gt; r(0.5) &gt; r(1)</li>
+<li>r 是嚴格遞減，即沒有一樣的 reservation price</li>
+<li>r 稱為 inverse demand function</li>
+<li>r 的反函數 $r^{-1}$ 稱為 demand function</li>
+<li><img src="https://images.sappy.tw/Social_Network/Network_Effect/Demand_function.jpg" alt="demand function"></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>p 代表商品的價格， p 是固定值</p>
+<ol>
+<li>r(x) &gt; p 就會買</li>
+<li>如果 p &gt; r(0)，就沒人買，因 r(0) 是最大的 reservation price</li>
+<li>如 p &lt; (1)，則所有人都會買，因 r(1) 是最小的 reservation price</li>
+</ol>
+</li>
+<li>
+<p>p* 是固定的生產成本</p>
+<ol>
+<li>每個 producer 只會賣出 p*</li>
+<li>因為在很多 producer 競爭情況下，利益會被拉到幾乎為 0</li>
+<li>producer 也不可能貼錢賣</li>
+<li>因此 producer 只能賣 p*</li>
+</ol>
+</li>
+</ol>
+<h2 id="equillibrium-quantity">Equillibrium quantity</h2>
+<p>有一 x* 使 r(x*) = p*，就稱呼 x* 為 equilibrium quantity<br>
+<img src="https://images.sappy.tw/Social_Network/Network_Effect/equilibrium_quantity.png" alt="equilibrium_quantity"></p>
+<h2 id="social-optimal">Social optimal</h2>
+<p>使 每個人的 welfare 加起來最大，就是 social optimal<br>
+在不考慮 network effect 的情況下，小於 x* 就買，大於 x* 就不買，就能達到 Social optimal</p>
+<p>每個人的 welfare 是 $如 x 買的話 w(x)=r(x)-p^* ，不然 w(x) = 0$<br>
+social welfare 是 $\int_0^1w(x)dx$，當此值最大時，就是 social welfare</p>
+<h1 id="economy-with-network-effects">economy with network effects</h1>
+<p>當 z% 的總人口使用商品時，獲得 f(z) 的效益，z 是已知的數字，且假設 f(z) = 0<br>
+因此 reservation price 變成 r(x)f(z)<br>
+為了簡化分析，進一步假設 r(1) = 0<br>
+<img src="https://images.sappy.tw/Social_Network/Network_Effect/network_effect.jpg" alt="network_effect"></p>
+<p>假設商品價值為 p*，那當 r(x)f(z) &gt; p* 時，消費者就會購買</p>
+<h2 id="self-fulling-expectations-equilibrium">self fulling expectations equilibrium</h2>
+<p>如果群體有共同期望，那那個期望就會自動成真，很像是 消費者對產品的信心 的總和<br>
+例如大家都認為台GG股票價值 100，那台GG的股票價值就會往 100 靠近，直到變成 100<br>
+例如大家都認為有 z 人會使用產品，那使用人數就會往 z 靠近，直到變成 z</p>
+<ul>
+<li>
+<p>z = 0 是 self fulfilled，因為f(x) = 0，所以 r(x)f(x) = 0，因此就沒人會買</p>
+</li>
+<li>
+<p>當 z 在 0~1 之間，</p>
+<ul>
+<li>r(x*)f(z) = p*</li>
+<li>此時會買的人 x 在 0 &lt; x &lt; x*，當 x* 為 z 時，會是 self fulfilled</li>
+<li>所以 p* = r(z)f(z)</li>
+<li><img src="https://images.sappy.tw/Social_Network/Network_Effect/network_effect_example.jpg" alt="network_effect_example"></li>
+<li>當 p* 移動時， z&rsquo; z&rsquo;&rsquo; 也會跟著移動</li>
+</ul>
+</li>
+<li>
+<p>當 z 不在 0 z&rsquo; z&rsquo;&rsquo; 上時</p>
+<ul>
+<li>0 &lt; z &lt; z&rsquo;， z 會 往 0 移動 (下降)</li>
+<li>z&rsquo; &lt; z &lt; z&rsquo;&rsquo; ， z 會往 z&rsquo;&rsquo; 移動 (上升)</li>
+<li>z &gt; z&rsquo;'，  z 會往 z&rsquo;&rsquo; 移動 (下降)</li>
+</ul>
+</li>
+<li>
+<p>z&rsquo; 是 unstable ，也就是創業門檻，過了門檻之後就會遠離 z&rsquo;，直奔 z&rsquo;&rsquo; ， 在 z&rsquo; 附近會遠離 z&rsquo;</p>
+</li>
+<li>
+<p>z&rsquo;&rsquo; 是 stable ，也可說是市占率，在 z&rsquo;&rsquo; 附近會往 z&rsquo;&rsquo; 靠</p>
+</li>
+<li>
+<p>降低 p* 可以使 z&rsquo; 降低，增加 z&rsquo;&rsquo;</p>
+</li>
+</ul>
+<h3 id="不知道-z-的情況下作分析---gz">不知道 z 的情況下作分析 - g(z)</h3>
+<ul>
+<li>假設大家有共識 z</li>
+<li>願意買的人在 0 ~ $\hat{z}$ 中間， $\hat{z} 是購買意願最低的人$，及 $[0,\hat{z}]$</li>
+<li>推導
+<ul>
+<li>$r(\hat{z})f(z)=p^*$</li>
+<li>$r(\hat{z})=\frac{p^*}{f(z)}$</li>
+<li>$\hat{z}=r^{-1}(\frac{p^*}{f(z)})$</li>
+<li>定義 g(z)，輸入 z 時映射到真正會買的人數 $\hat{z}$，所以 g(z) 為
+<ul>
+<li>如 $\frac{p^*}{f(z)}&lt;=r(0)，g(z)=\hat{z}=r^{-1}(\frac{p^*}{f(z)})$</li>
+<li>除此之外(p* 太大的情況下)， g(z) = 0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="https://images.sappy.tw/Social_Network/Network_Effect/g_example.jpg" alt="g_example"></li>
+</ul>
+<h3 id="dynamic-behavior---隨時間改變的行為">dynamic behavior - 隨時間改變的行為</h3>
+<p>把交易改成參與社群網路或不參與 - 比交易更動態</p>
+<p>z 會隨時間改變，時間是離散的 t = 0 1 2 3 &hellip;<br>
+當 t=0 時， 會有 $z_0$ 參與</p>
+<p>$z_t=g(z_{t-1})$，因為 g 是把預計購買人映射到實際購買人的函數，而 t=t-1階段的實際購買人，會是t=t階段的預計購買人<br>
+<img src="https://images.sappy.tw/Social_Network/Network_Effect/dynamic_g_example.jpg" alt="dynamic_g_example"></p>
+<h1 id="實際產品分析">實際產品分析</h1>
+<ul>
+<li>
+<p>如果 p* 很大，那 z&rsquo; 就會很大，因此幾乎不會有東西賣出去</p>
+</li>
+<li>
+<p>降低 p*，讓 z; 近乎於 0，這樣更容易跨過 z&rsquo;，且 z'&lsquo;也更大</p>
+</li>
+<li>
+<p>社群屬性的產品創業要成功，就要跨過 z&rsquo;(tipping point z&rsquo;)</p>
+</li>
+<li>
+<p>一開始小量投入是無法做起來的，因為很難跨過 z&rsquo;</p>
+</li>
+<li>
+<p>所以一開始就要燒錢(賠本賣等等)來跨過 z&rsquo;，之後把價格漲到能賺錢的地步</p>
+</li>
+<li>
+<p>或是用 fashion leader 來打響知名度(見 ch19)</p>
+</li>
+<li>
+<p>很多時候，產品成不成功是看誰先跨過 tipping point z&rsquo;，而不是誰品質比較好</p>
+</li>
+</ul>
+<h2 id="social-optimality-with-network-effect">Social optimality with network effect</h2>
+<p>之前我們說， 沒有 network effect 時 ，z* 之前的顧客買就是 social optimality<br>
+但是，有 network effect 就不一定是這樣，因為如果強迫 [z*,z*+c) 的人去購買，雖然 [z*,z*+c) 這段會讓 social welfare 下降，但是因為 z*+c 這段會讓整體 network effect 上升，因此上升的可能比下降還多，因此可能會賺更多</p>
+<p>$r(x)f(z^*)-p^* &lt; r(x)f(z^*+c)-p^*$ - 這是單個顧客，要做積分才是 social welfare</p>
+<h1 id="mixing-individual-effect-with-population-level-effect">Mixing individual effect with population-level effect</h1>
+<p>有些多合一機器，除了 social effect 的功能之外，還有其他能獨立使用的功能，因此 social effect 為 0 時，整體的 Reservation price 不是 0<br>
+例如傳真機可以掃描文件等等</p>
+<ul>
+<li>$f(z) = 1+ az^2$，1 就是附加價值，讓 reservation price 在 z=0 時不為 0</li>
+<li>$r(x) = 1-x $</li>
+<li>$如 $r(0)&gt;=\frac{p^*}{f(z)}，則 g(z)=r^{-1}(\frac{p^*}{f(z)})$，否則 $g(z)=0$</li>
+<li>$g(z) = 1-\frac{p^*}{1+az^2}$</li>
+</ul>
+<p><img src="https://images.sappy.tw/Social_Network/Network_Effect/mixing_example.jpg" alt="mixing_example"></p>
+]]></content></item><item><title>社群網路筆記 power &amp; bargaining</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_bargaining/</link><pubDate>Thu, 07 May 2020 21:40:37 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_bargaining/</guid><description>社群網路筆記 power &amp;amp; bargaining Power - 影響力 個人屬性、在網路中的位置，等等都會造成影響力 有些研究者認為影響力是相對的，而不是絕對的 Network Exchange theory Social exchange edge 上的 value 怎麼分配</description><content type="html"><![CDATA[<h1 id="社群網路筆記-power--bargaining">社群網路筆記 power &amp; bargaining</h1>
+<h1 id="power---影響力">Power - 影響力</h1>
+<p>個人屬性、在網路中的位置，等等都會造成影響力<br>
+有些研究者認為影響力是相對的，而不是絕對的</p>
+<h1 id="network-exchange-theory">Network Exchange theory</h1>
+<h2 id="social-exchange">Social exchange</h2>
+<p>edge 上的 value 怎麼分配給兩個 node<br>
+而此時 social exchange 的不平均程度則反映了 power 的相對程度</p>
+<p>探討位置造成分配不均的問題就是 network exchange theory</p>
+<h2 id="造成分配不均的原因">造成分配不均的原因</h2>
+<p>如 B &gt; A，則有可能是因為</p>
+<ul>
+<li>Dependence - A 依賴 B</li>
+<li>Exclusion - B 有能力排除 A</li>
+<li>Satiation - A 要給 B 更多資源才能使 B 滿意</li>
+<li>Betweenness - A 到其他點的最短路徑會包含 B(但是也有 Betweenness 越大， power 越小的反例)</li>
+</ul>
+<h2 id="one-exchange-rule">one-exchange rule</h2>
+<p>同一個 Node 只能跟鄰近的 一點 來分 Value (跟 matching 有點像)<br>
+如 A-B 且 A-C，則 A 只能跟 B 或 C 分 Value</p>
+<h2 id="實驗的一些術語">實驗的一些術語</h2>
+<ul>
+<li>High-information - 能看到所有人的交談結果</li>
+<li>Low-information  - 只能看到自己周圍的人的交談結果</li>
+</ul>
+<h2 id="實驗結果">實驗結果</h2>
+<ul>
+<li>Two node path
+<ul>
+<li>A-B</li>
+<li>50%-50%</li>
+</ul>
+</li>
+<li>Three node path
+<ul>
+<li>A-B-C</li>
+<li>(1/6)-(5/6)-0 or 0-(5/6)-(1/6)</li>
+</ul>
+</li>
+<li>Four node path
+<ul>
+<li>A-B-C-D</li>
+<li>B C 大約能站 7/12 ~ 2/3</li>
+</ul>
+</li>
+<li>Five node path
+<ul>
+<li>A-B-C-D-E</li>
+<li>C 只比 A E  好一些</li>
+</ul>
+</li>
+<li><img src="https://images.sappy.tw/Social_Network/bargaining/Fig12-1.png" alt="fig12-1">
+<ul>
+<li>D 不會跟 B 連，D 跟 E 大概五五分</li>
+</ul>
+</li>
+<li><img src="https://images.sappy.tw/Social_Network/bargaining/Fig12-3.png" alt="fig12-3">
+<ul>
+<li>D C 五五分，B 比 4 node 的 B 稍大一點</li>
+</ul>
+</li>
+<li><img src="https://images.sappy.tw/Social_Network/bargaining/Fig12-4.png" alt="fig12-4">
+<ul>
+<li>unstable network or unpredictable outcome</li>
+<li>永遠都不會停</li>
+</ul>
+</li>
+</ul>
+<h1 id="跟-buyer-seller-network-做連結">跟 buyer-seller-network 做連結</h1>
+<p>把一條 path 轉成左右左右<br>
+但是限制很多</p>
+<ol>
+<li>node 要是偶數</li>
+<li>不是任何結構都能轉成 bipartite，而且這只是數學表達方式相同而已</li>
+</ol>
+<h1 id="建立數學模型">建立數學模型</h1>
+<h2 id="nash-bargaining-solution">Nash bargaining solution</h2>
+<p><img src="https://images.sappy.tw/Social_Network/bargaining/nash-bargaining.png" alt="nash bargaining"></p>
+<p>如談判失敗，A 拿到 x，B 拿到 y<br>
+如 x+y &gt; 1，因為拿到 outside value 會使 A B 拿到最大利益，則 A B 永遠不會考慮協商<br>
+所以如果能談派的話，surplus(剩餘價值 s) = 1-x-y &gt;= 0<br>
+且談判技巧相當的話，A B 將會平分剩餘價值 s<br>
+因此
+A 的 outcome 是 $A=x+s/2=(x+1-y)/2$<br>
+B 的 outcome 是 $B=y+s/2=(y+1-x)/2$</p>
+<p>equi-dependent outcome - 互相依賴</p>
+<p>如果 outside option 越大，則拿得越多</p>
+<p>inflate  - 虛張聲勢，使人高估
+deflate - 使人低估</p>
+<h2 id="the-ultimatum-game---最後通牒">The ultimatum game - 最後通牒</h2>
+<p>A 提出分法，B只能選擇接受或拒絕，如果接受就成交，不接受就談判破裂，雙方都不會獲得任何東西</p>
+<p>在完全理性的情況下，A 會提出 A 0.99，B 0.01 這樣的分法<br>
+但實際實驗，A通常只拿 1/2 ~ 2/3，因為要考慮情緒</p>
+<h1 id="outcome">outcome</h1>
+<p>outcome 包含兩件事情</p>
+<ol>
+<li>哪兩個 node 分</li>
+<li>value 怎麼分</li>
+</ol>
+<h2 id="stable">stable</h2>
+<p>stable 定義: 當沒有任何 node X 能提出 offer 使 x y 都獲得更好的 outcome<br>
+當滿足 stable 時，不在 match 中的 edge，其兩端的 node 的 outcome 相加要大於 1，如果小於 1 ，代表該還有多的 value 可以分給兩端的 node
+<img src="https://images.sappy.tw/Social_Network/bargaining/stable.png" alt="stable"><br>
+擅長找到分配極端不均的情況<br>
+實際實驗中， 1/6 5/6 就算是極端不平均了</p>
+<p>三角形網路不會有 stable outcome</p>
+<p>缺點是 stable 網路有很多可能
+例如四個點的，可以 (1/2)-(1/2) 或 (1/3)-(2/3) 分，但是均分那個比較不合理(因 B 是優勢位置，應該會拿到更多才對)</p>
+<h2 id="balanced-outcome">balanced outcome</h2>
+<p>考慮 用 outside options 來擴充 nash bargaining solution，變成 balanced outcome
+B 的 outcome 是 1 - C 的 value = 1- 1/2 = 1/2
+<img src="https://images.sappy.tw/Social_Network/bargaining/balanced.png" alt="balanced"></p>
+<ul>
+<li>balanced 是 stable 的子集合，即是 balance 則一定是 stable</li>
+<li>如 B 同時跟 A B C D 連結，則 B 的 outside solution　是　max(1-C, 1-D, 1-E)</li>
+</ul>
+<h2 id="其他研究">其他研究</h2>
+<ul>
+<li>stable 跟 blanace 可以用 cooperative game 表示
+<ul>
+<li>stable 可以用 core solution 表示</li>
+<li>balance 可以用 kernel solution 表示</li>
+</ul>
+</li>
+<li>equiresistance - 其他可解釋 outcome 的理論</li>
+</ul>
+<h1 id="dynamic-game-在特定情況下跟-bargaining-solution-一致">Dynamic Game 在特定情況下跟 bargaining solution 一致</h1>
+<ul>
+<li>finite-horizon problem - 時間有限，由後往前推論</li>
+<li>infinite-horizon problem - 時間無限，由前往後推論</li>
+</ul>
+<h2 id="infinite-horizon">infinite-horizon</h2>
+<p>第一輪 A 出價，B決定要接收或拒絕<br>
+第二輪換 B 出價，A 決定接受或拒絕<br>
+為了避免無限進行，引入 breakdown probability p ，每輪結束後有 p 的機率會直接結束 game</p>
+<ul>
+<li>因為可以計算，所以通常第一輪 A 的提議就會被接受</li>
+<li>如果 p 很小，造成結束的原因是因為達成協議</li>
+<li>這裡只考慮一個 edge 兩個 node</li>
+<li>多個 node 還是研究的議題</li>
+</ul>
+<h2 id="分析-finite-horizon-problem">分析 finite-horizon problem</h2>
+<p>只做兩輪的情況</p>
+<h3 id="round-2b-提-offer">Round 2(B 提 offer)</h3>
+<p>B 只要給 A x(A 的 outside value) 就好，因為 A 不接受，遊戲就直接結束，A 也只能拿到 x<br>
+因此 B 可以留下 1 - x</p>
+<h3 id="round-1a-提-offer">Round 1(A 提 offer)</h3>
+<p>A 計算 B 的期望值是 $z=py+(1-p)(1-x)$， $py$ 是第一輪就 breakdown 的狀況， (1-p)(1-x) 是沒有 breakdown 的情況<br>
+因此 A 只要給 B z 就好，A 留下 1-z， 1-z &gt; x</p>
+<p>B 的 payoff 是 $z=py+(1-p)(1-x)$，</p>
+<ul>
+<li>當 p 趨近 1，對 A 有利，</li>
+<li>當 p 趨近 0， A 拿走的量很接近 A 的 outside option</li>
+<li>當 p = 0.5 則 接近 Nash bargaining outcome</li>
+</ul>
+<h2 id="infinite-horizon-problem">infinite-horizon problem</h2>
+<ul>
+<li>stationary strategies - 假設策略不隨時間改變</li>
+<li>stationary strategies 達成的平衡稱為 stationary equilibria</li>
+</ul>
+<p>A 提出 $(a_1,b_1)$，B 只會在 $b_1&gt;=z_B 時接受$<br>
+B 提出 $(a_2,b_2)$，A 只會在 $a_2&gt;=z_A 時接受$</p>
+<p>by 之前 Round 1 的分析，且 $(1-z_A) = b_2$ ，可知
+$b_1 = z_B = py+(1-p)(1-z_A) = py+(1-p)b_2$
+相對的<br>
+$a_2 = z_A = px+(1-p)(1-z_B) = py+(1-p)a_1$</p>
+<p>因此可得
+$a_1=\dfrac{(1-p)x+1-y}{2-p}$<br>
+$b_1=\dfrac{(1-p)y+1-x}{2-p}$<br>
+B gey payoff 是<br>
+$b_1=1-a_1=\dfrac{y+(1-p)(1-x)}{2-p}$</p>
+<p>當 p 接近 1 時， $(a_1,b_1) \approx (1-y,y)$<br>
+當 p 接近 0 時，game 會持續很久， payoff 是 $(\dfrac{x+1-y}{2} ,\dfrac{y+1-x}{2} )$</p>
+]]></content></item><item><title>社群網路筆記 資訊傳播 Information Cascades</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E8%B3%87%E8%A8%8A%E5%82%B3%E6%92%AD/</link><pubDate>Thu, 07 May 2020 21:40:37 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E8%B3%87%E8%A8%8A%E5%82%B3%E6%92%AD/</guid><description>Information Cascades 簡介 當自身有資訊，且也獲得別人跟你說的資訊時，是要依照自己的資訊做決定還是跟別人一起做 herding 、 information cascade、social contagion - 不依照自己獲</description><content type="html"><![CDATA[<h1 id="information-cascades">Information Cascades</h1>
+<h1 id="簡介">簡介</h1>
+<p>當自身有資訊，且也獲得別人跟你說的資訊時，是要依照自己的資訊做決定還是跟別人一起做</p>
+<ul>
+<li>herding 、 information cascade、social contagion - 不依照自己獲得的資訊做決策，而是跟別人一起做
+<ul>
+<li>不是單純模仿(imitating)</li>
+<li>也不是盲從(not mindless)</li>
+<li>也不是因為社交壓力(social pressure)</li>
+<li>而是經過計算後的決定 !!</li>
+<li>人越多，越容易傳播</li>
+</ul>
+</li>
+<li>Information effects - 別人只影響你下決策而已，不影響下完決策後能獲得的利益</li>
+<li>Direct benefit effects - 別人除了影響你下決策之外，更會影響下完決策後能獲得的利益
+<ul>
+<li>例如電話普及之前，越多人使用，你就能跟越多人聯絡，因此越多人用，電話給你的利益越大</li>
+</ul>
+</li>
+</ul>
+<h1 id="實驗">實驗</h1>
+<h2 id="實驗環境">實驗環境</h2>
+<ul>
+<li>實驗前告訴每個人，箱子裡的球是 兩藍色一紅色 或 兩紅色一藍色 的機率各半</li>
+<li>每個人輪流上台抽球，並告訴大家他覺得箱子裡的球是哪種顏色比較多</li>
+<li>每個人都只能看到他自己抽的球</li>
+</ul>
+<h2 id="推論">推論</h2>
+<ol>
+<li>第 1 號人，抽到啥顏色就猜主要是啥顏色，例如抽到<code>藍色</code>就猜<code>藍色</code></li>
+<li>第 2 號人，
+<ol>
+<li>如抽到跟 1 號相同，就猜跟 1 號相同的顏色</li>
+<li>如果不同，就猜自己抽到的顏色</li>
+</ol>
+</li>
+<li>第 3 號人，
+<ol>
+<li>如果前兩者一致，說明箱子裡那個顏色的機率比較大，無論自己抽到啥顏色，都會猜跟前兩者一樣的顏色 - information cascade</li>
+<li>如前二不一致，猜自己看到的顏色</li>
+</ol>
+</li>
+<li>第 4 號人，
+<ol>
+<li>他知道第 3 號有可能受到 information cascade，因此只有前兩號資訊是真的，所以 4 的決策資訊跟 3 相同</li>
+</ol>
+</li>
+<li>4 之後都跟 3 一樣</li>
+</ol>
+<h2 id="結論">結論</h2>
+<ul>
+<li>information cascade 容易形成 - 只要前兩個顏色相同，後面就會全部都猜一樣的顏色。全錯機率有 1/9</li>
+<li>cascade 也是脆弱的，如果中間有兩個人亮出抽到的<code>不一樣顏色球</code>給所有人看，那 cascade 就會被打破，因為有用資訊就變成 兩藍兩紅</li>
+<li>但是如果是 direct benefit effect 的 cascade 就很難打破了</li>
+</ul>
+<h2 id="數學表示">數學表示</h2>
+<p>主要是條件機率<br>
+$P[主要藍色|抽到甚麼顏色]$ 的機率 大於 1/2 時，就應該猜藍色$</p>
+<h3 id="第一人">第一人</h3>
+<p>$P[主要藍色|抽到藍色] = \frac{P[主要藍色]<em>P[抽到藍色|主要藍色時]}{P[抽到藍色]} = \frac{\frac{1}{2}</em>\frac{2}{3}}{\frac{1}{2}}=\frac{2}{3}$<br>
+<img src="https://images.sappy.tw/Social_Network/%E8%B3%87%E8%A8%8A%E5%82%B3%E6%92%AD/proof1.png" alt="proof1"></p>
+<p>其餘類似</p>
+<h3 id="第三人">第三人</h3>
+<p>$P[主要藍色|抽到藍色 藍色 紅色] = \frac{P[主要藍色]*P[抽到藍色 藍色 紅色|主要藍色時]}{P[抽到藍色 藍色 紅色]} = \frac{ \frac{1}{2} * ( \frac{2}{3}^2 * \frac{1}{3} ) }{\frac{6}{54}}=\frac{2}{3}$<br>
+<img src="https://images.sappy.tw/Social_Network/%E8%B3%87%E8%A8%8A%E5%82%B3%E6%92%AD/proof2.png" alt="proof2"></p>
+]]></content></item><item><title>Kubernetes 筆記</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_1/</link><pubDate>Sat, 02 May 2020 13:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_1/</guid><description>安裝 我目前是用 Rancher 來安裝，目前 Rancher 會出現 master cpu 使用率高的 bug(大約 10%)，不過不影響正常使用 rancher kubespray 官方安裝說明 kubeadm kubespray 安裝 kubespray 安裝 kubeadm-kubelet-and-kubectl 這一步的 10.10.* 換成cl</description><content type="html"><![CDATA[<h1 id="安裝">安裝</h1>
+<p>我目前是用 Rancher 來安裝，目前 Rancher 會出現 master cpu 使用率高的 bug(大約 10%)，不過不影響正常使用</p>
+<ul>
+<li><a href="https://rancher.com/">rancher</a></li>
+<li><a href="https://github.com/kubernetes-sigs/kubespray">kubespray</a>
+<ul>
+<li><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubespray/">官方安裝說明</a></li>
+</ul>
+</li>
+<li><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/">kubeadm</a></li>
+</ul>
+<h2 id="kubespray">kubespray</h2>
+<ol>
+<li><a href="https://github.com/kubernetes-sigs/kubespray">安裝 kubespray</a></li>
+<li><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl">安裝 kubeadm-kubelet-and-kubectl</a></li>
+<li>這一步的 10.10.* 換成cluster 的 ip <code>declare -a IPS=(10.10.1.3 10.10.1.4 10.10.1.5)</code></li>
+<li>在 hosts.yaml 設定 ansible_port
+<pre><code>node1:
+   ansible_host: 140.114.77.150
+   ansible_port: 2222
+   ip: 140.114.77.150
+   access_ip: 140.114.77.150
+</code></pre></li>
+<li>最後一行加上大 K，輸入 sudo 密碼<br>
+<code>ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml -K</code></li>
+<li>移除 cluster <code>ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root reset.yml -K</code></li>
+</ol>
+<h2 id="參考">參考</h2>
+<p><img src="https://medium.com/bimap-elk/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-kubespray-%E5%AE%89%E8%A3%9D-kubernetes-cluster-88c267bdfc3a" alt=""></p>
+<h1 id="基本名詞">基本名詞</h1>
+<ul>
+<li>Node</li>
+</ul>
+<h1 id="services">Services</h1>
+<ul>
+<li><a href="https://godleon.github.io/blog/Kubernetes/k8s-Service-Overview/">很清楚的解釋</a></li>
+</ul>
+<h2 id="名詞">名詞</h2>
+<ul>
+<li>ClusterIP - K8S 內部才能連到</li>
+<li>NodePort - 在每個 pod 運行的 node 上開 port，使外部可以透過 $(node ip):$(port number) 的方式連到 pod 上</li>
+<li>Load Balancer - 感覺在 public cloud(GCP AWS &hellip;) 上用處比較大?</li>
+<li>ExternalName - 將 內部 Domain name 映射到外部的方法? ()</li>
+</ul>
+<h2 id="其他有趣的東西">其他有趣的東西</h2>
+<ul>
+<li><a href="https://rio.io/">rio - 快速部屬 app By Rancher</a></li>
+<li><a href="https://rook.io/">rook - 自動部屬分散式系統</a>
+<ul>
+<li><a href="https://blog.fleeto.us/post/the-ultimate-rook-and-ceph-survival-guide/">Rancher + Rook 安裝</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="使用問題">使用問題</h1>
+<ul>
+<li><a href="https://www.cnblogs.com/mingbai/p/helmerr.html">helm 遇到權限問題</a></li>
+<li><a href="https://stackoverflow.com/questions/27435479/pass-net-host-to-docker-build">docker build 網路不通</a>
+<ul>
+<li>build 加參數 <code>--network=host</code>，變成 <code>docker build . --network=host</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="參考資料">參考資料</h1>
+<ul>
+<li><a href="https://kubernetes.io/docs/home/">官網 英文</a></li>
+<li><a href="https://jimmysong.io/kubernetes-handbook/">kubernetes-handbook 中文</a></li>
+<li><a href="https://godleon.github.io/blog/">小信豬的原始部落</a></li>
+<li>[儲存空間類]
+<ul>
+<li><a href="https://godleon.github.io/blog/Kubernetes/k8s-PersistentVolume-Overview/"> [Kubernetes] Persistent Volume (Claim) Overview </a></li>
+</ul>
+</li>
+</ul>
+]]></content></item><item><title>Kubernetes 筆記 - Knative</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_knative/</link><pubDate>Sat, 02 May 2020 13:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_knative/</guid><description>kubespray 按照上次安裝 istio 安裝 istioctl https://istio.io/docs/setup/getting-started/ 安裝 istio istioctl install https://istio.io/docs/setup/install/istioctl/ knative metalLB 安裝 https://metallb.universe.tf/installation/ 設定 Layer 2 (網路架構的L2) apiVersion:v1kind:ConfigMapmetadata:namespace:metallb-systemname:configdata:config:| address-pools:- name:defaultprotocol:layer2addresses:- 192.168.1.240-192.168.1.250# 多 ip- 192.168.1.240/32# 單 ip當設定成功後輸入 kubectl get service -n istio-system istio-ingre</description><content type="html"><![CDATA[<h1 id="kubespray">kubespray</h1>
+<p>按照上次安裝</p>
+<h1 id="istio">istio</h1>
+<h2 id="安裝-istioctl">安裝 istioctl</h2>
+<p><a href="https://istio.io/docs/setup/getting-started/">https://istio.io/docs/setup/getting-started/</a></p>
+<h2 id="安裝-istio">安裝 istio</h2>
+<p><code>istioctl install</code>
+<a href="https://istio.io/docs/setup/install/istioctl/">https://istio.io/docs/setup/install/istioctl/</a></p>
+<h1 id="knative">knative</h1>
+<h1 id="metallb">metalLB</h1>
+<h2 id="安裝">安裝</h2>
+<p><a href="https://metallb.universe.tf/installation/">https://metallb.universe.tf/installation/</a></p>
+<h2 id="設定-layer-2-網路架構的l2">設定 Layer 2 (網路架構的L2)</h2>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">apiVersion</span><span class="p">:</span><span class="w"> </span>v1<span class="w">
+</span><span class="w"></span><span class="k">kind</span><span class="p">:</span><span class="w"> </span>ConfigMap<span class="w">
+</span><span class="w"></span><span class="k">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">namespace</span><span class="p">:</span><span class="w"> </span>metallb-system<span class="w">
+</span><span class="w">  </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>config<span class="w">
+</span><span class="w"></span><span class="k">data</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">config</span><span class="p">:</span><span class="w"> </span><span class="sd">|
+</span><span class="sd">    address-pools:</span><span class="w">
+</span><span class="w">    </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>default<span class="w">
+</span><span class="w">      </span><span class="k">protocol</span><span class="p">:</span><span class="w"> </span>layer2<span class="w">
+</span><span class="w">      </span><span class="k">addresses</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="m">192.168.1.240-192.168.1.250</span><span class="w"> </span><span class="c"># 多 ip</span><span class="w">
+</span><span class="w">      </span>- <span class="m">192.168.1.240</span>/<span class="m">32</span><span class="w">  </span><span class="c"># 單 ip</span><span class="w">
+</span><span class="w">      
+</span></code></pre></div><p>當設定成功後輸入 <code>kubectl get service -n istio-system istio-ingressgateway</code>，便能看到EXTERNAL-IP從 PENDING 變成有 ip</p>
+]]></content></item><item><title>社群網路筆記 Networks in Their Surrounding Contexts</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_network_with_context/</link><pubDate>Fri, 24 Apr 2020 20:23:30 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_network_with_context/</guid><description>考慮 node 的 meta data，這會影響網路的演變 Homophily - 相似度 相似度越高，越容易相處在一起 要怎麼知道這個因素是否影響圖的連結 用 Homophily test Homophily test 跟純 random 比較，看看這因</description><content type="html"><![CDATA[<p>考慮 node 的 meta data，這會影響網路的演變</p>
+<h1 id="homophily---相似度">Homophily - 相似度</h1>
+<p>相似度越高，越容易相處在一起</p>
+<p>要怎麼知道這個因素是否影響圖的連結<br>
+用 Homophily test</p>
+<h2 id="homophily-test">Homophily test</h2>
+<p>跟純 random 比較，看看這因素是否會影響</p>
+<p>假設男性占 p 成，女性佔 q 成 (q = 1-p)
+一個 edge 兩端都是男性的機率是 $p^2$，都是女性是 $q^2$ ，一男一女是 $2pq$<br>
+如果跨性別的 edge 顯著比 2pq 還少，那就說明是 homophily<br>
+如下圖<br>
+<img src="https://images.sappy.tw/Social_Network/network_with_context/homophily_test.png" alt="homophily_test.png"></p>
+<h1 id="homophily-底下的機制---selection-and-social-influence">homophily 底下的機制 - selection and social influence</h1>
+<ul>
+<li>selection - 人會選擇有像似特質的做朋友</li>
+<li>characteristics - 特質
+<ul>
+<li>immutable - 不可變，人種</li>
+<li>mutable - 可變，興趣</li>
+</ul>
+</li>
+<li>Socialization - 同化現象</li>
+</ul>
+<h2 id="朋友相似是因認識前就相似還是認識後被同化">朋友相似，是因認識前就相似，還是認識後被同化</h2>
+<p>要觀察網路多個時間<br>
+longitudinal study - 長時間的研究</p>
+<p>假設同個特徵的是朋友，那可能是</p>
+<ol>
+<li>因這個特徵變朋友</li>
+<li>變朋友後被同化</li>
+<li>因其他原因變成朋友，但剛好有同樣特徵</li>
+</ol>
+<h1 id="affiliation">Affiliation</h1>
+<p>把 surrounding context (node 的 meta data) 變成網路內部看待<br>
+把 meta data 變成 node，稱為 focal point(或是 foci) ，這稱為 affiliation network<br>
+<img src="https://images.sappy.tw/Social_Network/network_with_context/affiliation.png" alt="affiliation"></p>
+<h2 id="social-affiliation-network">social-affiliation network</h2>
+<p><img src="https://images.sappy.tw/Social_Network/network_with_context/social-affiliation.png" alt="social-affiliation"></p>
+<p>擴展之前說的 triadic closure，讓他也能在 foci 跟 people 上使用<br>
+<img src="https://images.sappy.tw/Social_Network/network_with_context/extend_triadic_closure.PNG" alt="extend_triadic_closure"></p>
+]]></content></item><item><title>社群網路筆記 Positive and Negative Relationships</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E6%AD%A3%E8%B2%A0%E9%97%9C%E4%BF%82/</link><pubDate>Fri, 24 Apr 2020 20:23:30 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E6%AD%A3%E8%B2%A0%E9%97%9C%E4%BF%82/</guid><description>Structurtally balance edge 有正負關係 左邊兩個穩定，右邊兩個不穩定 Structural Banalnce property 如果是 fully connected 的話，過一段時間後會變成穩定狀態 X 跟 Y 內部 edge 都 + 值，但 X-Y 的 edge 都是 - 值 或是只有一個</description><content type="html"><![CDATA[<h1 id="structurtally-balance">Structurtally balance</h1>
+<p>edge 有正負關係<br>
+左邊兩個穩定，右邊兩個不穩定<br>
+<img src="https://images.sappy.tw/Social_Network/%E6%AD%A3%E8%B2%A0%E9%97%9C%E4%BF%82/structurally_balance.png" alt="structurally_balance.png"></p>
+<h1 id="structural-banalnce-property">Structural Banalnce property</h1>
+<p>如果是 fully connected 的話，過一段時間後會變成穩定狀態
+X 跟 Y 內部 edge 都 + 值，但 X-Y 的 edge 都是 - 值<br>
+或是只有一個 set，且都是 + 值<br>
+<img src="https://images.sappy.tw/Social_Network/%E6%AD%A3%E8%B2%A0%E9%97%9C%E4%BF%82/structurally_balance_network.png" alt="structurally_balance_network.png"></p>
+<h1 id="balance-theorem">Balance Theorem</h1>
+<p>cluster network = Structural Banalnce property
+證明 上述結果 (Structural Banalnce property)<br>
+當選一個 A 點出來，用 Structurtally balance 帶進去找 ? 的值，就發現符合理論<br>
+<img src="https://images.sappy.tw/Social_Network/%E6%AD%A3%E8%B2%A0%E9%97%9C%E4%BF%82/structurally_balance_network_proof.png" alt="structurally_balance_network_proof.png"></p>
+<h2 id="general-版本的-不一定要是-fully-connected">General 版本的 (不一定要是 fully connected)</h2>
+<ul>
+<li>loop(A 點出發，繞一圈再回到 A 點) 是偶數的 - 值，就稱為 structurally balanced or balanced</li>
+<li>clusterable - network 可被分為兩群(two disjoint set)
+右邊不是 clusterable<br>
+<img src="https://images.sappy.tw/Social_Network/%E6%AD%A3%E8%B2%A0%E9%97%9C%E4%BF%82/clusterable.png" alt="clusterable"></li>
+<li>Harary&rsquo;s balance theorem =&gt; : A signed network is balanced = clusterable</li>
+</ul>
+<p>證明方法</p>
+<ol>
+<li>證明每個 sub graph 是 balanced</li>
+<li>A B 兩點間經過的 edge 會是偶數個負值</li>
+<li>就可從上面兩個推出來</li>
+</ol>
+]]></content></item><item><title>社群網路筆記 Strong and Weak Ties</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_strong_and_weak_ties/</link><pubDate>Fri, 24 Apr 2020 15:23:30 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_strong_and_weak_ties/</guid><description>Triadic closure A-B，A-C 認識，則過一段時間後，B-C 很有可能也會互相認識 也有可能跨多點連結，如 D-G Clustering coefficient $三角形/只有兩個邊的三角形$ Bridges - 連結兩個 component 的</description><content type="html"><![CDATA[<ul>
+<li>Triadic closure
+A-B，A-C 認識，則過一段時間後，B-C 很有可能也會互相認識 <br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/triadic_closure.png" alt="triadic_closure"><br>
+也有可能跨多點連結，如 D-G<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/long-time.png" alt="long time">
+<ul>
+<li>Clustering coefficient
+<ul>
+<li>$三角形/只有兩個邊的三角形$</li>
+<li><img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/coefficient.png" alt="只有兩個邊的三角形"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="bridges---連結兩個-component-的邊">Bridges - 連結兩個 component 的邊</h1>
+<h2 id="bridge">Bridge</h2>
+<p>A-B 中間的即是 bridge<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/bridge.png" alt="bridge"></p>
+<h2 id="local-bridge">local bridge</h2>
+<p>但是 bridge 在社群網路上非常稀少，因此放鬆定義<br>
+兩個連線端點上無其他共同的點時，該連線即可稱為 local bridge<br>
+A-B 即是 local bridge<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/local-bridge.png" alt="local-bridge"></p>
+<h2 id="span">Span</h2>
+<p>當把 local bridge 刪除後 兩點的距離<br>
+span 一定 &gt;= 3  (因為 local bridge 沒有共同點)</p>
+<p>Bridge 類似於 Local bridge + 超大 span</p>
+<h1 id="strong-ties-and-weak-ties">Strong ties and weak ties</h1>
+<ul>
+<li>Strong ties =&gt; 朋友</li>
+<li>Weak ties =&gt; 認識的人</li>
+</ul>
+<h2 id="strong-triadic-closure-property">Strong triadic closure property</h2>
+<p>如果 A-B，A-C 都是 strong ties，則 B-C 一定有 ties(strong or weak)<br>
+左邊滿足 Strong triadic closure property，右邊不滿足  Strong triadic closure property<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/strong_triadic_closure_property.png" alt="strong_triadic_closure_property.png"></p>
+<h2 id="local-bridges-and-weak-ties">Local bridges and weak ties</h2>
+<p>如一個 點 A 所在的 graph 滿足 Strong Triadic Closure，有兩個以上的 strong tie，如果有 local bridge 則 local bridge 一定是 weak ties<br>
+用反證法來證明　　<br>
+假設 A-B 是 local bridge，根據 Strong triadic closure property，B-C 一定有邊，但這違反了 local bridge 的定義<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/Local_bridges_and_weak_ties.png" alt="Local_bridges_and_weak_ties"></p>
+<h2 id="clusters">clusters</h2>
+<p>大網路內的 clusters 其內部大多是 strong，並透過 weak ties 跟其他 cluster 連接
+下面章節會證明</p>
+<h1 id="tie-strength-and-network-structure-in-large-scale-data">Tie strength and network structure in large-scale data</h1>
+<p>因為 local bridge 實在太少，又放寬定義
+定義 nearborhood overlap<br>
+$\dfrac{A \cap B}{A \cup B}$  !!注意 $A \ cup B$ 不包含 A B 本身<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/nearborhood_overlap.png" alt="nearborhood_overlap"><br>
+這樣還有個好處就是可以數值化ties 的強弱<br>
+Example A-F 的 overlap 只有 1/6 (C / B, C, D, E, G, J)<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/nearborhood_overlap_example.png" alt="nearborhood_overlap_example"></p>
+<p>真實情況，確實 ties 強度(下方)跟 overlap(左邊) 是呈正比的<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/overlap_real.png" alt="overlap_real"></p>
+<p>當把 weak ties 移除時， giant component 會縮小得很快</p>
+<h1 id="fb-上的探討">FB 上的探討</h1>
+<p>左上是所有朋友<br>
+右上是比較熟的人<br>
+左下是事件<br>
+右下是親密夥伴<br>
+<img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/FB.png" alt="FB"></p>
+<p>passive engagement - 介於 strong 跟 weak 中間的人</p>
+<h1 id="closure--structural-holes--social-capital">closure &amp; structural holes &amp; social capital</h1>
+<p>討論在社群網路中的位置提供的優勢</p>
+<p><img src="https://images.sappy.tw/Social_Network/strong_and_weak_ties/social_capital.png" alt="social_capital"></p>
+<p>A 的 cluster coefficient 很高</p>
+<h2 id="embeddedness">Embeddedness</h2>
+<p>用處跟 cluster coefficient 類似
+edge 兩端的 node 的共同朋友
+A-B 的 Embeddedness 是 2</p>
+<h2 id="tightly-knit-groups">Tightly-knit groups</h2>
+<p>共同朋友越多 -&gt; 互信程度越高</p>
+<h2 id="zero-embeddedness">zero embeddedness</h2>
+<p>B-C 的 embeddedness 是 0</p>
+<h2 id="structural-holes">Structural holes</h2>
+<p>B 的位置稱為 Structural holes，像是E-B-C C-B-D 的空洞</p>
+<h2 id="b-的優勢">B 的優勢</h2>
+<p>B 有機會拿到 early access - 拿到最新的外部訊息<br>
+B 有更好的 Creativity (因能獲得新想法)<br>
+B 也有機會過濾訊息 - social &ldquo;gatekeeping&rdquo;</p>
+<h2 id="social-capital">social capital</h2>
+<ul>
+<li>physical capital - 技術優勢</li>
+<li>human - 天賦</li>
+<li>ecoomic - $$</li>
+<li>cultural - 文化</li>
+</ul>
+]]></content></item><item><title>批次 ppt 轉 pdf</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/%E6%89%B9%E6%AC%A1ppt%E8%BD%89pdf/</link><pubDate>Fri, 24 Apr 2020 13:58:34 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/%E6%89%B9%E6%AC%A1ppt%E8%BD%89pdf/</guid><description>網路上的 powershell 程式碼，並修改了一下，使之能在最新版的 powershell + MS ppt 使用 # Batch convert all .ppt/.pptx files encountered in folder and all its subfolders # The produced PDF files are stored in the invocation folder # # Adapted from http://stackoverflow.com/questions/16534292/basic-powershell-batch-convert-word-docx-to-pdf # Thanks to MFT, takabanana, ComFreek # # If PowerShell exits</description><content type="html"><![CDATA[<p>網路上的 powershell 程式碼，並修改了一下，使之能在最新版的 powershell + MS ppt 使用</p>
+<div class="highlight"><pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="c"># Batch convert all .ppt/.pptx files encountered in folder and all its subfolders</span>
+<span class="c"># The produced PDF files are stored in the invocation folder</span>
+<span class="c">#</span>
+<span class="c"># Adapted from http://stackoverflow.com/questions/16534292/basic-powershell-batch-convert-word-docx-to-pdf</span>
+<span class="c"># Thanks to MFT, takabanana, ComFreek</span>
+<span class="c">#</span>
+<span class="c"># If PowerShell exits with an error, check if unsigned scripts are allowed in your system.</span>
+<span class="c"># You can allow them by calling PowerShell as an Administrator and typing</span>
+<span class="c"># ```</span>
+<span class="c"># Set-ExecutionPolicy Unrestricted</span>
+<span class="c"># ```</span>
+<span class="c"># Get invocation path</span>
+<span class="c"># $wdTypes = Add-Type -AssemblyName &#39;Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType&#39;</span>
+<span class="nv">$curr_path</span> <span class="p">=</span> <span class="nb">Split-Path</span> <span class="n">-parent</span> <span class="nv">$MyInvocation</span><span class="p">.</span><span class="n">MyCommand</span><span class="p">.</span><span class="n">Path</span>
+<span class="c"># Create a PowerPoint object</span>
+<span class="nv">$ppt_app</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">-ComObject</span> <span class="n">powerpoint</span><span class="p">.</span><span class="n">application</span>
+<span class="c"># Get all objects of type .ppt? in $curr_path and its subfolders</span>
+<span class="nb">Get-ChildItem</span> <span class="n">-Path</span> <span class="nv">$curr_path</span> <span class="n">-Recurse</span> <span class="n">-Filter</span> <span class="p">*.</span><span class="n">ppt</span><span class="p">?</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&#34;Processing&#34;</span> <span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span> <span class="s2">&#34;...&#34;</span>
+    <span class="c"># Open it in PowerPoint</span>
+    <span class="nv">$document</span> <span class="p">=</span> <span class="nv">$ppt_app</span><span class="p">.</span><span class="n">Presentations</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span><span class="p">)</span>
+    <span class="c"># Create a name for the PDF document; they are stored in the invocation folder!</span>
+    <span class="c"># If you want them to be created locally in the folders containing the source PowerPoint file, replace $curr_path with $_.DirectoryName</span>
+    <span class="nv">$pdf_filename</span> <span class="p">=</span> <span class="s2">&#34;</span><span class="p">$(</span><span class="nv">$curr_path</span><span class="p">)</span><span class="s2">\</span><span class="p">$(</span><span class="nv">$_</span><span class="p">.</span><span class="n">BaseName</span><span class="p">)</span><span class="s2">.pdf&#34;</span>
+    <span class="c"># Save as PDF -- 17 is the literal value of `wdFormatPDF`</span>
+    
+    <span class="nv">$opt</span> <span class="p">=</span> <span class="no">[Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType]</span><span class="p">::</span><span class="n">ppSaveAsPDF</span>
+    <span class="nv">$document</span><span class="p">.</span><span class="n">SaveAs</span><span class="p">(</span><span class="nv">$pdf_filename</span><span class="p">,</span> <span class="nv">$opt</span><span class="p">)</span>
+    <span class="c"># Close PowerPoint file</span>
+    <span class="nv">$document</span><span class="p">.</span><span class="n">Close</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="c"># Exit and release the PowerPoint object</span>
+<span class="nv">$ppt_app</span><span class="p">.</span><span class="n">Quit</span><span class="p">()</span>
+<span class="no">[System.Runtime.Interopservices.Marshal]</span><span class="p">::</span><span class="n">ReleaseComObject</span><span class="p">(</span><span class="nv">$ppt_app</span><span class="p">)</span>
+</code></pre></div>]]></content></item><item><title>社群網路筆記 拍賣</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%B8%82%E5%A0%B4%E4%BA%A4%E6%98%93/</link><pubDate>Tue, 21 Apr 2020 10:15:37 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%B8%82%E5%A0%B4%E4%BA%A4%E6%98%93/</guid><description>Matching Markets - 市場交易 多人拍賣 人對不同貨品有不同程度的偏好 價格也是有偏好的 allocation 可以是最佳的 圖例 左邊是 賣家 右邊是 買家 實體線代表 賣家跟買家 之間有沒有可能有</description><content type="html"><![CDATA[<h1 id="matching-markets---市場交易">Matching Markets - 市場交易</h1>
+<ul>
+<li>多人拍賣</li>
+<li>人對不同貨品有不同程度的偏好</li>
+<li>價格也是有偏好的</li>
+<li>allocation 可以是最佳的</li>
+</ul>
+<h1 id="圖例">圖例</h1>
+<ul>
+<li>左邊是 賣家</li>
+<li>右邊是 買家</li>
+<li>實體線代表 賣家跟買家 之間有沒有可能有交易</li>
+<li>粗線 代表達成交易<br>
+<img src="https://images.sappy.tw/Social_Network/market/graph.png" alt="graph"></li>
+</ul>
+<h1 id="perfect-matching">Perfect matching</h1>
+<p>要完成以下兩個條件</p>
+<ol>
+<li>每個 node 都要用粗線連線到對面</li>
+<li>一個 node 只能有一條粗線(即不能多點對一點)</li>
+</ol>
+<h1 id="constricted-sets">Constricted sets</h1>
+<ol>
+<li>找出 seller set - $S$</li>
+<li>找出跟 $S$ 相連(near)的 node - $N(S)$</li>
+<li>如果 $|N(S)|$ 比 $|S|$ 小，則代表是 Constricted sets，即 $|N(S)|&lt; |S|$<br>
+<img src="https://images.sappy.tw/Social_Network/market/constricted_set.png" alt="constricted_set.png"></li>
+</ol>
+<ul>
+<li>如果 $|N(S)|$ 比 $|S|$ 小，則不能能形成 perfect match，因為不可能將所有點連起來</li>
+<li>Matching Theorem - 如果 graph 中存在 Constricted sets，則代表這個 graph 沒有 perfect match</li>
+</ul>
+<h1 id="valueation--optimal-assignments---加上偏好程度">Valueation &amp; optimal assignments - 加上偏好程度</h1>
+<ul>
+<li>右邊數字分別代表買家對 seller 1 2 3 的偏好(value)</li>
+<li>Quality - 所有買家的偏好相加</li>
+<li>optimal assignment - 買家偏好要最高<br>
+<img src="https://images.sappy.tw/Social_Network/market/value-graph.png" alt="value-graph"></li>
+</ul>
+<p>如果是 binary 的話，就只是 value 變成 0 跟 1 而已<br>
+<img src="https://images.sappy.tw/Social_Network/market/binary-value-graph.png" alt="value-graph"></p>
+<h1 id="price---加上售價">Price - 加上售價</h1>
+<ul>
+<li>如果左邊出價格 p ，如果 value - price &lt; 0，那 payoff 就是 0 (因為可以不買)</li>
+<li>買家想要最大化他的 payoff，即 value - price</li>
+</ul>
+<h2 id="preferred-seller---這個-buyer-偏好的-seller">preferred seller - 這個 buyer 偏好的 seller</h2>
+<p>即使買家 payoff 最大化的賣家<br>
+<img src="https://images.sappy.tw/Social_Network/market/perfer-seller.png" alt="perfer-seller.png"></p>
+<h2 id="preferred-seller-graph--market-clearing">preferred-seller graph &amp; market clearing</h2>
+<p>所有 buyer 跟其 preferred-seller 都連起來的 graph<br>
+當 preferred-seller graph 能夠形成 perfect graph 就稱為 market clearing<br>
+<img src="https://images.sappy.tw/Social_Network/market/perfer-seller-graph.png" alt="perfer-seller-graph"></p>
+<h2 id="兩個問題">兩個問題</h2>
+<ol>
+<li>clear market 時， quality 好不好</li>
+<li>給定任意的買方偏好價格，是否一定存在 prefect matching (buyer 跟 seller 數量要相同)</li>
+</ol>
+<h3 id="1-clear-market-時-quality-好不好">1 clear market 時， quality 好不好</h3>
+<p>定義 total payoff M 是下面這樣<br>
+<img src="https://images.sappy.tw/Social_Network/market/payoff_M.png" alt="perfer-seller-graph"></p>
+<p>$\sum_{i,j}v_{ij}C_{ij}$ - M 的 total value<br>
+$\sum_{i,j}p_{i}C_{ij}$  - 所有價格相加 (因為價格不會因為不同連線方式改變，所以是個常數)</p>
+<p>當 clear market 時，每個 buyer 都一定是連到 perfect-seller (因 preferred-seller graph 是成立 market clear 的先決條件)，因此 M 的 total value 一定是最大值，而 payoff 相加是個常數，因此會是最大值</p>
+<h3 id="2-作者稱之為-bipartitle-graph-auction-model">2 作者稱之為 bipartitle graph auction model</h3>
+<p>演算法</p>
+<ol>
+<li>每個 seller 初始價格為 0</li>
+<li>建立 perferred-seller graph</li>
+<li>如果已經 market clear 了，那就做完了</li>
+<li>不然就找一個 seller set S 的 constricted set</li>
+<li>把 N(S) 的 buyer 的售價全部 + 1</li>
+<li>將所有 seller 的售價減去所有 seller 售價的最小值， $p_i - min(p_1, p_2 &hellip;, p_n)$</li>
+<li>重複做上述步驟，直到找到 perfect matching</li>
+</ol>
+<p>如下圖<br>
+<img src="https://images.sappy.tw/Social_Network/market/bipartite-graph-auction.png" alt="bipartite-graph-auction"></p>
+<p>那這會停止嗎?
+會，因為這如同位能一樣，只會遞減，不會增加。
+且最小值又是 0 ，因此迭代次數夠多的話就一定會停 (因為只會遞減)</p>
+<h4 id="定義位能-potential">定義位能 (potential)</h4>
+<ul>
+<li>買家位能 = 買家的 payoff</li>
+<li>賣家位能 = 賣家的出價</li>
+<li>交易位能 = 買家 + 賣家的位能</li>
+</ul>
+<h4 id="證明">證明</h4>
+<ol>
+<li>初始位能都 &gt;= 0
+<ol>
+<li>因為初始所有 seller 初始 potential 都是 0</li>
+<li>所有 buyer 的 payoff 都是正的 (因 seller 售價都是 0)</li>
+</ol>
+</li>
+<li>會影響 potential 只有 step 5 跟 step 6
+<ol>
+<li>step 6 - 因為 buyer 跟 seller 的 potential 會抵消，因此不影響 potential</li>
+<li>因為 $|S| &gt; |N(S)|$，故 整體 potential 會下降</li>
+</ol>
+</li>
+</ol>
+<h1 id="將-single-item--auction-轉匯成-multi-item-auction">將 single-item  auction 轉匯成 multi-item auction</h1>
+<p>建立很多 fake additional seller，其他買家對 fake seller 的 value 都是 0<br>
+如下圖<br>
+<img src="https://images.sappy.tw/Social_Network/market/relation-single-item.png" alt="relation-single-item"></p>
+<p>當 market clear　時，很像是 auction 的 Sealed-bid Second-price price</p>
+]]></content></item><item><title>社群網路筆記 拍賣</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_auctions/</link><pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_auctions/</guid><description>定義 True Value - 每個 bidder(買家) 都有自己的估價，買家不會買超過自己估價的東西 四種拍賣方式 Ascending-bid auction - 買家喊價，越出價越高，最高價者得標 Descending-bid auction - 賣家</description><content type="html"><![CDATA[<h1 id="定義">定義</h1>
+<ul>
+<li>True Value - 每個 bidder(買家) 都有自己的估價，買家不會買超過自己估價的東西</li>
+</ul>
+<h1 id="四種拍賣方式">四種拍賣方式</h1>
+<ol>
+<li>Ascending-bid auction - 買家喊價，越出價越高，最高價者得標</li>
+<li>Descending-bid auction - 賣家喊價，價格越喊越低，直到有人接受</li>
+<li>First-price sealed-bid auctions  - 同時出價，價格最高者得標，並付出喊價的價格</li>
+<li>Second-price sealed-bid auctions - 同時出價，價格最高者得標，並付出喊價次高者喊的價格</li>
+</ol>
+<h1 id="拍賣適合的時機">拍賣適合的時機</h1>
+<p>!! 買賣雙方都不知道真實的價格 !!</p>
+<p>如果買方知道賣方的估價，就直接用賣方估價買就好了<br>
+如果賣方知道買方的估價，就直接用買方估價賣就好了</p>
+<h1 id="拍賣方式的關係">拍賣方式的關係</h1>
+<p>Descending-bid auction 跟 First-price sealed-bid auctions 在數學上是一樣的<br>
+因為假設 bidder 估價為 b，當賣方逐步降價時，如果降到有 bidder 能接受的價格 b 時，該 bidder 就會買下<br>
+<img src="https://images.sappy.tw/Social_Network/auction/first-descending.png" alt="first-descending"></p>
+<p>Ascending-bid auction 跟 Second-price sealed-bid auctions 在數學上是一樣的
+因為假設 bidder 估價為 b，當買方逐步出價時，估價最高的 bidder 將會贏的拍賣，且因為是逐步出價的，所以最高出價的買方只要贏過次高出價的買方就好了，不需要出到自己的估價，因此跟 Second-price sealed-bid auctions 相同，贏得拍賣，並付出次高買方喊的價格即可<br>
+<img src="https://images.sappy.tw/Social_Network/auction/second-ascending.png" alt="second-ascending"></p>
+<p>!!! 改變規則會改變行為，因此 first-price 跟 second-prie 的收益會相等  !!!</p>
+<h1 id="數學符號">數學符號</h1>
+<ul>
+<li>bidder - 買家</li>
+<li>$b_i$ - 第 $i$ 個買家的出價</li>
+<li>$v_i$ - 第 $i$ 個買家的估價</li>
+<li>$b_i$ 的 payoff
+<ul>
+<li>如果贏了，則是 $v_i - b_i$</li>
+<li>如果輸了，則是 $0$</li>
+</ul>
+</li>
+<li>truthful bidding - 出的價格就是估價</li>
+</ul>
+<h1 id="second-price-auctions">Second-price auctions</h1>
+<p>!!! Sealed-bid Second-price price auction 中，每個 bidder 的 dominant strategy 就是出自己的估價</p>
+<h2 id="tie-breaking">Tie breaking</h2>
+<p>如果前兩大的出價相等的話，要怎麼決定哪個能得標呢?</p>
+<ol>
+<li>用說好的順序決定輸贏</li>
+<li>假設同樣價差之間差距 $\varepsilon$，而 $\varepsilon\approx0$</li>
+</ol>
+<h2 id="證明-truthful-bidding-在-second-price-sealed-bid-auctions-中視最好的策略">證明 truthful bidding 在 second-price sealed-bid auctions 中視最好的策略</h2>
+<h3 id="觀察">觀察</h3>
+<ol>
+<li>要證明 $b_i=v_i$ 時，沒有其他 $b_i'$ 能夠比 $b_i$ 還要好</li>
+<li>$b_i$ 有兩種方式可以做偏移，上升或下降</li>
+<li>$b_i$ 只影響輸贏，不影響 payoff</li>
+</ol>
+<h3 id="分段證明">分段證明</h3>
+<p>第一章圖是教科書的證明，第二張圖是我自己的想法<br>
+<img src="https://images.sappy.tw/Social_Network/auction/second-bid-proof.png" alt="second-bid-proof"> <br>
+<img src="https://images.sappy.tw/Social_Network/auction/second-bid-proof-2.svg" alt="second-bid-proof-2"></p>
+<h1 id="first-price-auctions">First-price auctions</h1>
+<ul>
+<li>如沒有贏， payoff 就是 0</li>
+<li>如果贏了， payoff 就是 $v_i-b_i$</li>
+</ul>
+<p>因為 payoff 會隨 $b_i$(出價) 改變，因此 truthfulness 就不再是 dominant strategy<br>
+也因此我們要把 bid 壓越地越好，但是要盡可能的贏得拍賣</p>
+<h1 id="all-pay-auction---即使沒贏也要付出代價">All-pay auction - 即使沒贏，也要付出代價</h1>
+<ul>
+<li>如出價 $b_i$ 沒有贏， payoff 是 $-b_i$</li>
+<li>如出價 $b_i$ 贏了， payoff 就是 $v_i-b_i$</li>
+</ul>
+<p>all pay auction 的 optimal bid 跟 first-price auction 類似</p>
+<h1 id="common-values--winners-curse">Common Values &amp; winner&rsquo;s curse</h1>
+<ul>
+<li>Common Values - 物品有實際價值，但沒人知道實際價值是多少，像是油田等等</li>
+<li>winner&rsquo;s curse - 如果買家的估價比實際價值高，那當買家實際開採或轉賣時，很可能賠錢，又因為是最高者得，所以買家高估實際價值的可能性比較高</li>
+<li>也因此就算是 second-price auction，truthful bidding 也不會是 dominant strategy， 因為物品具有實際價值</li>
+<li>因此 購買時要考慮 winner&rsquo;s curse</li>
+</ul>
+<p>模型</p>
+<ul>
+<li>$v_i$ - 估價</li>
+<li>$v$ - 實際價值，但沒人知道實際價值是多少</li>
+<li>$x_i$ - 誤差
+$v_i = v + x_i$</li>
+</ul>
+]]></content></item><item><title>社群網路筆記 賽局理論</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E8%B3%BD%E5%B1%80/</link><pubDate>Sat, 11 Apr 2020 18:13:30 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E8%B3%BD%E5%B1%80/</guid><description>賽局理論最大的特色在於，他有許多決策者 名詞 Player Strategies Payoff Payoff Matrix 目前先考慮 one shot game player 同時下決策，且 player 之間的決策過程是獨立的 幾個假設 player 只關注如何最大化自身利</description><content type="html"><![CDATA[<p>賽局理論最大的特色在於，他有許多決策者</p>
 <h1 id="名詞">名詞</h1>
 <ol>
 <li>Player</li>
@@ -87,7 +1202,50 @@ player 同時下決策，且 player 之間的決策過程是獨立的</p>
 Subgame perfect equilibrium 是 Nash
 但 Nash 不一定是 Subgame perfect equilibrium</p>
 <p>QQAQQQQQQQQQQ</p>
-]]></content></item><item><title>社群網路筆記 1</title><link>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_1/</link><pubDate>Tue, 31 Mar 2020 23:49:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_1/</guid><description>社群網路的重要理論 The small world property - 六度空間法則，任兩點之間平均過六格就能抵達對面 ?? 但是，在規模多大內才有效? Scale-free, power-law degree distributions - power law，所有點的 degree 分布圖，</description><content type="html"><![CDATA[<h1 id="社群網路的重要理論">社群網路的重要理論</h1>
+]]></content></item><item><title>LSTM 心得</title><link>https://blog.sappy.tw/posts/ai/nlp/lstm/</link><pubDate>Fri, 03 Apr 2020 16:46:30 +0000</pubDate><guid>https://blog.sappy.tw/posts/ai/nlp/lstm/</guid><description>RNN RNN 其本質上就是一個具狀態的 NN，他跟其他 NN 不同的地方就在於他多了一個輸入，表示上一個狀態(Hidden State) 如下圖所示 1 RNN 示意圖 RNN 缺點 而隨之帶</description><content type="html"><![CDATA[<h1 id="rnn">RNN</h1>
+<p>RNN 其本質上就是一個具狀態的 NN，他跟其他 NN 不同的地方就在於他多了一個輸入，表示上一個狀態(Hidden State)<br>
+如下圖所示</p>
+<p><img src="https://miro.medium.com/max/250/1*T_ECcHZWpjn0Ki4_4BEzow.gif" alt="RNN 示意圖"><br>
+<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> RNN 示意圖</p>
+<h2 id="rnn-缺點">RNN 缺點</h2>
+<p>而隨之帶來的問題即是梯度消失 or 爆炸的問題<br>
+因 RNN 在計算時，是以乘法為主，而乘法有一個特性，那就是很容易使數值太大或太小，
+例如 (1.01) 的 365 次方 會是 37.7834343329，
+而   (0.99) 的 365 次方 則是 0.02551796445，
+因此如果網路很深，句子很長，遇到太長句子時，在 Backward Propagation (反向傳播) 很容易使數字太大或太小，造成梯度爆炸或消失的問題，使越前面的句子，其參數很難被 RNN 更新的很好。
+也因此，越是前面的句子，越難被 RNN 所利用 (因為其參數更新不好)，也因此造成 RNN 僅能很好的利用靠近句子結尾的幾個字而已。<br>
+<img src="https://miro.medium.com/max/960/1*Ku54qmCryZVBaIc6g8rjGA.gif" alt="RNN 反向傳播 示意圖"><br>
+<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> RNN 反向傳播 示意圖</p>
+<h1 id="lstm">LSTM</h1>
+<p><img src="https://www.researchgate.net/profile/Savvas_Varsamopoulos/publication/329362532/figure/fig5/AS:699592479870977@1543807253596/Structure-of-the-LSTM-cell-and-equations-that-describe-the-gates-of-an-LSTM-cell_W640.jpg" alt=""><br>
+LSTM 架構圖 <a href="https://www.researchgate.net/publication/329362532_Designing_neural_network_based_decoders_for_surface_codes/figures?lo=1">出處</a></p>
+<p>那要怎麼解決呢? LSTM 提出的做法是透過多一個狀態來保存長距離訊息</p>
+<h2 id="lstm-結構">LSTM 結構</h2>
+<p>$\sigma$ 控制著資訊流過去的百分比 (0 ~ 1)<br>
+$tanh$ 則是代表資訊的數值 (-1 ~ 1)</p>
+<h3 id="forget-gate-最左邊的-sigma">Forget gate (最左邊的 $\sigma$)</h3>
+<p>從圖中可以很明顯的看出，<br>
+決定長距離訊息 C 有多少要用到</p>
+<h3 id="input-gate-中間的黃色-sigma--tanh">Input gate (中間的黃色 $\sigma\ &amp;\ tanh$)</h3>
+<p>決定多少短距離訊息要被更新到 C 裡面</p>
+<h3 id="output-gate最右邊的區域">Output gate(最右邊的區域)</h3>
+<p>決定什麼要進入隱藏狀態中</p>
+<h1 id="gru">GRU</h1>
+<p><img src="https://miro.medium.com/max/1400/1*jhi5uOm9PvZfmxvfaCektw.png" alt=""><br>
+<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> GRU 架構圖</p>
+<h1 id="參考">參考</h1>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9">Illustrated Guide to Recurrent Neural Networks</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21">Illustrated Guide to LSTM’s and GRU’s: A step by step explanation</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+]]></content></item><item><title>社群網路筆記 1</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_1/</link><pubDate>Tue, 31 Mar 2020 23:49:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_1/</guid><description>社群網路的重要理論 The small world property - 六度空間法則，任兩點之間平均過六格就能抵達對面 ?? 但是，在規模多大內才有效? Scale-free, power-law degree distributions - power law，所有點的 degree 分布圖，</description><content type="html"><![CDATA[<h1 id="社群網路的重要理論">社群網路的重要理論</h1>
 <ol>
 <li>The small world property - 六度空間法則，任兩點之間平均過六格就能抵達對面 ?? 但是，在規模多大內才有效?</li>
 <li>Scale-free, power-law degree distributions  - power law，所有點的 degree 分布圖，會呈現平方下降</li>
@@ -107,7 +1265,7 @@ Subgame perfect equilibrium 是 Nash
 <p>[] TODO &ndash; 看影片
 Homophily - 相似度</p>
 <p>Community detection algorithms</p>
-]]></content></item><item><title>用 QEMU 建立VM</title><link>https://blog.sappy.tw/posts/%E7%94%A8qemu%E5%BB%BA%E7%AB%8Bvm/</link><pubDate>Sun, 29 Mar 2020 23:49:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%94%A8qemu%E5%BB%BA%E7%AB%8Bvm/</guid><description>緣由 練習 QEMU 安裝 目前有兩款比較熱門的跨平台 terminal hyper terminus 就顏質跟設定方便度而言，我選擇了後者，也就是 terminus 建立VM並開機 使用 chocolatey 安裝 choco install terminus 安裝 powershell core， choco</description><content type="html"><![CDATA[<h1 id="緣由">緣由</h1>
+]]></content></item><item><title>用 QEMU 建立VM</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/%E7%94%A8qemu%E5%BB%BA%E7%AB%8Bvm/</link><pubDate>Sun, 29 Mar 2020 23:49:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/%E7%94%A8qemu%E5%BB%BA%E7%AB%8Bvm/</guid><description>緣由 練習 QEMU 安裝 目前有兩款比較熱門的跨平台 terminal hyper terminus 就顏質跟設定方便度而言，我選擇了後者，也就是 terminus 建立VM並開機 使用 chocolatey 安裝 choco install terminus 安裝 powershell core， choco</description><content type="html"><![CDATA[<h1 id="緣由">緣由</h1>
 <p>練習 QEMU</p>
 <h1 id="安裝">安裝</h1>
 <p>目前有兩款比較熱門的跨平台 terminal</p>
@@ -130,6 +1288,14 @@ Homophily - 相似度</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">qemu-img create -f qcow2 1.qcow2 40G
 
 qemu-system-x86_64 --enable-kvm -hda 1.qcow2 -m <span class="m">1024</span> -net nic,model<span class="o">=</span>virtio -net user,hostfwd<span class="o">=</span>tcp::2223-:22 -cdrom ../ubuntu-16.04.6-desktop-amd64.iso -vga std -cpu host -smp 4,cores<span class="o">=</span>4,threads<span class="o">=</span>1,sockets<span class="o">=</span>4,maxcpus<span class="o">=</span><span class="m">16</span> -boot <span class="nv">strict</span><span class="o">=</span>on
+</code></pre></div><p>alpine</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">qemu-img create -f qcow2 1.qcow2 40G
+
+qemu-system-x86_64 --enable-kvm -hda 1.qcow2 -m <span class="m">1024</span> -net nic,model<span class="o">=</span>virtio -net user,hostfwd<span class="o">=</span>tcp::2223-:22 -cdrom alpine-virt-3.11.5-x86_64.iso -vga std -cpu host -smp 4,cores<span class="o">=</span>4,threads<span class="o">=</span>1,sockets<span class="o">=</span>4,maxcpus<span class="o">=</span><span class="m">16</span> -boot <span class="nv">strict</span><span class="o">=</span>on
+
+https://wiki.alpinelinux.org/wiki/Alpine_Install:_from_a_disc_to_a_virtualbox_machine_single_only
+
+
 </code></pre></div><p>必要安裝</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt install openssh-server
 
@@ -190,10 +1356,10 @@ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 <span class="
 systemd-analyze blame</p>
 <h1 id="todo">Todo</h1>
 <ul>
-<li>[] Compiler 優化</li>
-<li></li>
+<li>[v] Compiler 優化</li>
+<li>[[gdb簡易教學]]</li>
 </ul>
-]]></content></item><item><title>跨平台 terminal 設定</title><link>https://blog.sappy.tw/posts/%E8%B7%A8%E5%B9%B3%E5%8F%B0terminal%E8%A8%AD%E5%AE%9A/</link><pubDate>Sat, 28 Mar 2020 23:49:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E8%B7%A8%E5%B9%B3%E5%8F%B0terminal%E8%A8%AD%E5%AE%9A/</guid><description>緣由 最近在因為 terminal 跨平台讓我有點煩躁，所以才寫下這篇備忘 安裝 目前有兩款比較熱門的跨平台 terminal hyper terminus 就顏質跟設定方便度而言，我選擇了後者，也就是 terminus Windows 安</description><content type="html"><![CDATA[<h1 id="緣由">緣由</h1>
+]]></content></item><item><title>跨平台 terminal 設定</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/%E8%B7%A8%E5%B9%B3%E5%8F%B0terminal%E8%A8%AD%E5%AE%9A/</link><pubDate>Sat, 28 Mar 2020 23:49:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/%E8%B7%A8%E5%B9%B3%E5%8F%B0terminal%E8%A8%AD%E5%AE%9A/</guid><description>緣由 最近在因為 terminal 跨平台讓我有點煩躁，所以才寫下這篇備忘 安裝 目前有兩款比較熱門的跨平台 terminal hyper terminus 就顏質跟設定方便度而言，我選擇了後者，也就是 terminus Windows 安</description><content type="html"><![CDATA[<h1 id="緣由">緣由</h1>
 <p>最近在因為 terminal 跨平台讓我有點煩躁，所以才寫下這篇備忘</p>
 <h1 id="安裝">安裝</h1>
 <p>目前有兩款比較熱門的跨平台 terminal</p>
@@ -212,7 +1378,7 @@ systemd-analyze blame</p>
 我個人比較推 <code>FiraCode</code> <code>SourceCodePro</code> <code>CascadiaCode</code> 這三款</li>
 <li>打開 terminus，在 terminus 的設定 -&gt; 外觀 -&gt; 字體上選擇字體</li>
 </ol>
-]]></content></item><item><title>ubuntu 上的中文輸入法設定 Chinese Input Method Setup on Ubuntu</title><link>https://blog.sappy.tw/posts/chinese-input-install-on-ubuntu/</link><pubDate>Tue, 11 Feb 2020 12:33:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/chinese-input-install-on-ubuntu/</guid><description>緣由 最近在 Ubuntu 上做開發，便來安裝注音輸入法 安裝 此方法應該適用於 Ubuntu 12.10 以上版本（在 19.04 中測試過） 安裝 rime sudo apt-get install ibus-rime 安裝 注音 sudo apt-get install librime-data-terra-pinyin librime-data-bopomofo terminal 輸入 ibus-setup 會跳出 IBus Preferences 視</description><content type="html"><![CDATA[<h1 id="緣由">緣由</h1>
+]]></content></item><item><title>ubuntu 上的中文輸入法設定 Chinese Input Method Setup on Ubuntu</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/chinese-input-install-on-ubuntu/</link><pubDate>Tue, 11 Feb 2020 12:33:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/chinese-input-install-on-ubuntu/</guid><description>緣由 最近在 Ubuntu 上做開發，便來安裝注音輸入法 安裝 此方法應該適用於 Ubuntu 12.10 以上版本（在 19.04 中測試過） 安裝 rime sudo apt-get install ibus-rime 安裝 注音 sudo apt-get install librime-data-terra-pinyin librime-data-bopomofo terminal 輸入 ibus-setup 會跳出 IBus Preferences 視</description><content type="html"><![CDATA[<h1 id="緣由">緣由</h1>
 <p>最近在 Ubuntu 上做開發，便來安裝注音輸入法</p>
 <h1 id="安裝">安裝</h1>
 <p>此方法應該適用於 Ubuntu 12.10 以上版本（在 19.04 中測試過）</p>
@@ -230,7 +1396,7 @@ systemd-analyze blame</p>
 <li><a href="https://github.com/rime/plum">plum</a></li>
 <li><a href="https://github.com/rime/rime-bopomofo">rime-bopomofo</a></li>
 </ul>
-]]></content></item><item><title>文獻管理軟體比較</title><link>https://blog.sappy.tw/posts/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86%E8%BB%9F%E9%AB%94%E6%AF%94%E8%BC%83/</link><pubDate>Sat, 04 Jan 2020 17:05:24 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86%E8%BB%9F%E9%AB%94%E6%AF%94%E8%BC%83/</guid><description>文獻管理軟體比較 比較的時間以 2020/1/1 ~ 2020/1/5 的版本為主 前言 開始了研究生的生活後，陸陸續續使用了不同方法來管理文獻，但還是希望能穩定在一個軟體上，省去手</description><content type="html"><![CDATA[<h1 id="文獻管理軟體比較">文獻管理軟體比較</h1>
+]]></content></item><item><title>文獻管理軟體比較</title><link>https://blog.sappy.tw/posts/ai/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86%E8%BB%9F%E9%AB%94%E6%AF%94%E8%BC%83/</link><pubDate>Sat, 04 Jan 2020 17:05:24 +0000</pubDate><guid>https://blog.sappy.tw/posts/ai/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86%E8%BB%9F%E9%AB%94%E6%AF%94%E8%BC%83/</guid><description>文獻管理軟體比較 比較的時間以 2020/1/1 ~ 2020/1/5 的版本為主 前言 開始了研究生的生活後，陸陸續續使用了不同方法來管理文獻，但還是希望能穩定在一個軟體上，省去手</description><content type="html"><![CDATA[<h1 id="文獻管理軟體比較">文獻管理軟體比較</h1>
 <p>比較的時間以 2020/1/1 ~ 2020/1/5 的版本為主</p>
 <h1 id="前言">前言</h1>
 <p>開始了研究生的生活後，陸陸續續使用了不同方法來管理文獻，但還是希望能穩定在一個軟體上，省去手動的步驟。<br>
@@ -306,7 +1472,7 @@ systemd-analyze blame</p>
 <li>命名規則，這步驟很重要，我是 年_標題_作者 <code>{%y_}{%t_}{%a}</code> 這樣命名，也要用 collection 作為子資料夾來分大類 <code>/%s</code>
 <img src="https://images.sappy.tw/zotero/zotfile-rename.png" alt="zotfile-rename"></li>
 </ol>
-]]></content></item><item><title>Docker 開發環境簡易教學</title><link>https://blog.sappy.tw/posts/docker%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</link><pubDate>Sun, 29 Dec 2019 11:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/docker%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</guid><description>簡介 最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法 常駐 docker 並能連接上 terminal 用 {} 包起來代表變數 docker run -id {image} docker exec -it {id} bash 做 fuzz test</description><content type="html"><![CDATA[<h1 id="簡介">簡介</h1>
+]]></content></item><item><title>Docker 開發環境簡易教學</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/docker%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</link><pubDate>Sun, 29 Dec 2019 11:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/docker%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</guid><description>簡介 最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法 常駐 docker 並能連接上 terminal 用 {} 包起來代表變數 docker run -id {image} docker exec -it {id} bash 做 fuzz test</description><content type="html"><![CDATA[<h1 id="簡介">簡介</h1>
 <p>最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法</p>
 <h2 id="常駐-docker-並能連接上-terminal">常駐 docker 並能連接上 terminal</h2>
 <p>用 {} 包起來代表變數</p>
@@ -319,7 +1485,7 @@ docker <span class="nb">exec</span> -it <span class="o">{</span>id<span class="o
 <h2 id="打包現有環境到新-image">打包現有環境到新 image</h2>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker commit <span class="o">{</span>old_running_docker<span class="o">}</span> <span class="o">{</span>newimagename<span class="o">}</span>
 </code></pre></div><p><a href="https://stackoverflow.com/questions/28302178/how-can-i-add-a-volume-to-an-existing-docker-container">參考</a></p>
-]]></content></item><item><title>pyspark 小技巧</title><link>https://blog.sappy.tw/posts/pyspark%E5%B0%8F%E6%8A%80%E5%B7%A7/</link><pubDate>Sat, 28 Dec 2019 14:06:02 +0000</pubDate><guid>https://blog.sappy.tw/posts/pyspark%E5%B0%8F%E6%8A%80%E5%B7%A7/</guid><description>簡介 最近在弄 spark 時遇到一堆破事，特此紀錄 collect 很久，甚至沒反應 conf = SparkConf().setMaster(&amp;#34;local[*]&amp;#34;) \ .setAppName(&amp;#34;App_Name&amp;#34;) \ .set(&amp;#39;spark.executor.memory&amp;#39;, &amp;#39;4G&amp;#39;) \ .set(&amp;#39;spark.driver.memory&amp;#39;, &amp;#39;45G&amp;#39;) \ .set(&amp;#39;spark.driver.maxResultSize&amp;#39;, &amp;#39;10G&amp;#39;) self.sc = SparkContext(conf=conf) saveAsFile 很久，甚至沒反應 conf = SparkConf().setMaster(&amp;#34;local[*]&amp;#34;) \ .setAppName(&amp;#34;App_Name&amp;#34;) \ .set(&amp;#39;spark.executor.memory&amp;#39;, &amp;#39;4G&amp;#39;) \ .set(&amp;#39;spark.driver.memory&amp;#39;, &amp;#39;45G&amp;#39;) \ .set(&amp;#39;spark.driver.maxResultSize&amp;#39;, &amp;#39;10G&amp;#39;) self.sc =</description><content type="html"><![CDATA[<h1 id="簡介">簡介</h1>
+]]></content></item><item><title>pyspark 小技巧</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/pyspark%E5%B0%8F%E6%8A%80%E5%B7%A7/</link><pubDate>Sat, 28 Dec 2019 14:06:02 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/pyspark%E5%B0%8F%E6%8A%80%E5%B7%A7/</guid><description>簡介 最近在弄 spark 時遇到一堆破事，特此紀錄 collect 很久，甚至沒反應 conf = SparkConf().setMaster(&amp;#34;local[*]&amp;#34;) \ .setAppName(&amp;#34;App_Name&amp;#34;) \ .set(&amp;#39;spark.executor.memory&amp;#39;, &amp;#39;4G&amp;#39;) \ .set(&amp;#39;spark.driver.memory&amp;#39;, &amp;#39;45G&amp;#39;) \ .set(&amp;#39;spark.driver.maxResultSize&amp;#39;, &amp;#39;10G&amp;#39;) self.sc = SparkContext(conf=conf) saveAsFile 很久，甚至沒反應 conf = SparkConf().setMaster(&amp;#34;local[*]&amp;#34;) \ .setAppName(&amp;#34;App_Name&amp;#34;) \ .set(&amp;#39;spark.executor.memory&amp;#39;, &amp;#39;4G&amp;#39;) \ .set(&amp;#39;spark.driver.memory&amp;#39;, &amp;#39;45G&amp;#39;) \ .set(&amp;#39;spark.driver.maxResultSize&amp;#39;, &amp;#39;10G&amp;#39;) self.sc =</description><content type="html"><![CDATA[<h1 id="簡介">簡介</h1>
 <p>最近在弄 spark 時遇到一堆破事，特此紀錄</p>
 <h2 id="collect-很久甚至沒反應">collect 很久，甚至沒反應</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">conf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">()</span><span class="o">.</span><span class="n">setMaster</span><span class="p">(</span><span class="s2">&#34;local[*]&#34;</span><span class="p">)</span> \
@@ -338,7 +1504,7 @@ docker <span class="nb">exec</span> -it <span class="o">{</span>id<span class="o
 </code></pre></div><h2 id="for-loop-越跑越慢">for loop 越跑越慢</h2>
 <p>使用 repartition() 或 checkpoint() 可以解決這問題<br>
 <a href="https://changhsinlee.com/pyspark-dataframe-basics/">https://changhsinlee.com/pyspark-dataframe-basics/</a></p>
-]]></content></item><item><title>Linux 開機自啟動 Jupyter</title><link>https://blog.sappy.tw/posts/run-jupyter-on-boot/</link><pubDate>Wed, 07 Mar 2018 18:43:51 +0000</pubDate><guid>https://blog.sappy.tw/posts/run-jupyter-on-boot/</guid><description>環境 Ubuntu 16.04 桌面版 Anaconda 3.6 方法 用管理員權限使用 emacs1 打開 /etc/rc.local sudo emacs /etc/rc.local 加入下面兩行(請隨自己的設定改變) 說明 $user_name 是指自己的使用者名稱 su $user_name 是要以該使用者的身分執行</description><content type="html"><![CDATA[<h1 id="環境">環境</h1>
+]]></content></item><item><title>Linux 開機自啟動 Jupyter</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/run-jupyter-on-boot/</link><pubDate>Wed, 07 Mar 2018 18:43:51 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/run-jupyter-on-boot/</guid><description>環境 Ubuntu 16.04 桌面版 Anaconda 3.6 方法 用管理員權限使用 emacs1 打開 /etc/rc.local sudo emacs /etc/rc.local 加入下面兩行(請隨自己的設定改變) 說明 $user_name 是指自己的使用者名稱 su $user_name 是要以該使用者的身分執行</description><content type="html"><![CDATA[<h1 id="環境">環境</h1>
 <ul>
 <li>Ubuntu 16.04 桌面版</li>
 <li>Anaconda 3.6</li>
@@ -384,7 +1550,7 @@ su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter not
 </li>
 </ol>
 </section>
-]]></content></item><item><title>Pytorch 學習筆記</title><link>https://blog.sappy.tw/posts/pytorch-learning-get-start/</link><pubDate>Tue, 06 Mar 2018 22:44:40 +0000</pubDate><guid>https://blog.sappy.tw/posts/pytorch-learning-get-start/</guid><description>資源 官方教學 - 六十分鐘學會 Pytorch 六十分鐘學會 Pytorch - 中文翻譯 六十分鐘學會 Pytorch - 我的畫注 深度学习框架PyTorch：入门与实践 - 程式碼 這裡補充一些 Variable 的小</description><content type="html"><![CDATA[<h1 id="資源">資源</h1>
+]]></content></item><item><title>Pytorch 學習筆記</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/pytorch-learning-get-start/</link><pubDate>Tue, 06 Mar 2018 22:44:40 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/pytorch-learning-get-start/</guid><description>資源 官方教學 - 六十分鐘學會 Pytorch 六十分鐘學會 Pytorch - 中文翻譯 六十分鐘學會 Pytorch - 我的畫注 深度学习框架PyTorch：入门与实践 - 程式碼 這裡補充一些 Variable 的小</description><content type="html"><![CDATA[<h1 id="資源">資源</h1>
 <ul>
 <li>
 <p><a href="http://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html">官方教學 - 六十分鐘學會 Pytorch</a></p>
@@ -425,7 +1591,7 @@ Variable containing:
 </code></pre></div><p>輸出</p>
 <pre><code class="language-output" data-lang="output">&lt;AddBackward1 object at 0x7f73196e5eb8&gt;
 ((&lt;PowBackward0 object at 0x7f73196e5ba8&gt;, 0), (&lt;AccumulateGrad object at 0x7f73196e5b38&gt;, 0))
-</code></pre>]]></content></item><item><title>安裝 markdown-it</title><link>https://blog.sappy.tw/posts/markdown-it-install/</link><pubDate>Sun, 04 Mar 2018 19:47:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/markdown-it-install/</guid><description>起因 由於發現預設的 render 功能有點少，因此換了一下 renderer 安裝 主要參考 Hexo 研究筆記 1 hexo-next 使用hexo-renderer-markdown-it 但是發現 markdonw-it 的套</description><content type="html"><![CDATA[<h1 id="起因">起因</h1>
+</code></pre>]]></content></item><item><title>安裝 markdown-it</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/markdown-it-install/</link><pubDate>Sun, 04 Mar 2018 19:47:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/markdown-it-install/</guid><description>起因 由於發現預設的 render 功能有點少，因此換了一下 renderer 安裝 主要參考 Hexo 研究筆記 1 hexo-next 使用hexo-renderer-markdown-it 但是發現 markdonw-it 的套</description><content type="html"><![CDATA[<h1 id="起因">起因</h1>
 <p>由於發現預設的 render 功能有點少，因此換了一下 renderer</p>
 <h1 id="安裝">安裝</h1>
 <p>主要參考</p>
@@ -436,7 +1602,7 @@ Variable containing:
 <p>但是發現 markdonw-it 的套件已經很久沒更新了
 因此使用下面這行直接從 github 上安裝即可
 <code>npm install git+https://github.com/hexojs/hexo-renderer-markdown-it.git —save</code></p>
-]]></content></item><item><title>測試 markdown-it</title><link>https://blog.sappy.tw/posts/markdown-it-test/</link><pubDate>Sun, 04 Mar 2018 18:46:32 +0000</pubDate><guid>https://blog.sappy.tw/posts/markdown-it-test/</guid><description>markdown-it-footnote Footnote 1 link1. Footnote 2 link2. Inline footnote^[Text of inline footnote] definition. Duplicated footnote reference2. markdown-it-abbr This is HTML abbreviation example. It converts &amp;ldquo;HTML&amp;rdquo;, but keep intact partial entries like &amp;ldquo;xxxHTMLyyy&amp;rdquo; and so on. *[HTML]: Hyper Text Markup Language hexo-filter-github-emojis Hello✨Test 👽 Footnote can have markup and multiple paragraphs. &amp;#x21a9;&amp;#xfe0e; Footnote text. &amp;#x21a9;&amp;#xfe0e;</description><content type="html"><![CDATA[<h1 id="markdown-it-footnote">markdown-it-footnote</h1>
+]]></content></item><item><title>測試 markdown-it</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/markdown-it-test/</link><pubDate>Sun, 04 Mar 2018 18:46:32 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/markdown-it-test/</guid><description>markdown-it-footnote Footnote 1 link1. Footnote 2 link2. Inline footnote^[Text of inline footnote] definition. Duplicated footnote reference2. markdown-it-abbr This is HTML abbreviation example. It converts &amp;ldquo;HTML&amp;rdquo;, but keep intact partial entries like &amp;ldquo;xxxHTMLyyy&amp;rdquo; and so on. *[HTML]: Hyper Text Markup Language hexo-filter-github-emojis Hello✨Test 👽 Footnote can have markup and multiple paragraphs. &amp;#x21a9;&amp;#xfe0e; Footnote text. &amp;#x21a9;&amp;#xfe0e;</description><content type="html"><![CDATA[<h1 id="markdown-it-footnote">markdown-it-footnote</h1>
 <p>Footnote 1 link<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
 <p>Footnote 2 link<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
 <p>Inline footnote^[Text of inline footnote] definition.</p>
@@ -460,7 +1626,7 @@ It converts &ldquo;HTML&rdquo;, but keep intact partial entries like &ldquo;xxxH
 </li>
 </ol>
 </section>
-]]></content></item><item><title>protobuf install</title><link>https://blog.sappy.tw/posts/protobuf-install/</link><pubDate>Sat, 14 Oct 2017 09:37:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/protobuf-install/</guid><description>前言 最近在弄 caffe 的安裝，過程中需要安裝到 opencv，但opencv又需要安裝到 protobuf 環境 ubuntu 17.04 過程 基本上按照官網做就好了，唯一需要注意的是，如果有</description><content type="html"><![CDATA[<h1 id="前言">前言</h1>
+]]></content></item><item><title>protobuf install</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/protobuf-install/</link><pubDate>Sat, 14 Oct 2017 09:37:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/protobuf-install/</guid><description>前言 最近在弄 caffe 的安裝，過程中需要安裝到 opencv，但opencv又需要安裝到 protobuf 環境 ubuntu 17.04 過程 基本上按照官網做就好了，唯一需要注意的是，如果有</description><content type="html"><![CDATA[<h1 id="前言">前言</h1>
 <p>最近在弄 caffe 的安裝，過程中需要安裝到 opencv，但opencv又需要安裝到 protobuf</p>
 <h1 id="環境">環境</h1>
 <ul>
@@ -468,14 +1634,14 @@ It converts &ldquo;HTML&rdquo;, but keep intact partial entries like &ldquo;xxxH
 </ul>
 <h1 id="過程">過程</h1>
 <p>基本上按照官網做就好了，唯一需要注意的是，如果有安裝 anconda ，可能會吃到anaconda內建的libtool，因此我的作法是更新anaconda的libtool，讓它版本相符合</p>
-]]></content></item><item><title>update-alternatives 多版本控制</title><link>https://blog.sappy.tw/posts/update-alternatives/</link><pubDate>Mon, 09 Oct 2017 18:14:32 +0000</pubDate><guid>https://blog.sappy.tw/posts/update-alternatives/</guid><description>起因 因為要安裝 cuda ,但是我的 gcc/g++ 版本已經到了6.3了,因此得想辦法降回 4.x 解法 參考 注意: 優先度（install 最後的數字）是按照 大到小的 更詳細的參</description><content type="html"><![CDATA[<h1 id="起因">起因</h1>
+]]></content></item><item><title>update-alternatives 多版本控制</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/update-alternatives/</link><pubDate>Mon, 09 Oct 2017 18:14:32 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/update-alternatives/</guid><description>起因 因為要安裝 cuda ,但是我的 gcc/g++ 版本已經到了6.3了,因此得想辦法降回 4.x 解法 參考 注意: 優先度（install 最後的數字）是按照 大到小的 更詳細的參</description><content type="html"><![CDATA[<h1 id="起因">起因</h1>
 <p>因為要安裝 cuda ,但是我的 gcc/g++ 版本已經到了6.3了,因此得想辦法降回 4.x</p>
 <h1 id="解法">解法</h1>
 <p><a href="https://askubuntu.com/a/26518/745445">參考</a>
 注意: 優先度（install 最後的數字）是按照 大到小的</p>
 <p><a href="http://blog.csdn.net/jasonding1354/article/details/50470109">更詳細的參數</a></p>
 <p>可以用 &ndash;query 來找有沒有替代板</p>
-]]></content></item><item><title>Tensorflow with Gpu 安裝教學</title><link>https://blog.sappy.tw/posts/tensorflow-gpu-install/</link><pubDate>Thu, 28 Sep 2017 22:34:55 +0000</pubDate><guid>https://blog.sappy.tw/posts/tensorflow-gpu-install/</guid><description>&lt;h1 id="起因">起因&lt;/h1>
+]]></content></item><item><title>Tensorflow with Gpu 安裝教學</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/tensorflow-gpu-install/</link><pubDate>Thu, 28 Sep 2017 22:34:55 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/tensorflow-gpu-install/</guid><description>&lt;h1 id="起因">起因&lt;/h1>
 &lt;p>因為教授要求要做物體辨識, 加上實驗室的Server目前暫時不能使用,所以只好先在自己的電腦上面跑&lt;/p>
 &lt;h1 id="環境">環境&lt;/h1>
 &lt;ul>
@@ -526,7 +1692,7 @@ $ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 </code></pre></div></li>
 </ol>
 <h2 id="選用">選用</h2>
-<p>如要使用 pycharm 要記得幫它加上環境變數</p>]]></content></item><item><title>Ubuntu 調整硬碟大小教學</title><link>https://blog.sappy.tw/posts/ubuntu-resize-disk/</link><pubDate>Thu, 14 Sep 2017 21:13:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/ubuntu-resize-disk/</guid><description>前言 最近在安裝 opencv 時，因為VM硬碟大小不夠，所以只好擴充硬碟大小，但是 root partition 好像沒辦法在開機時調整大小(不確定)，所以這次用 Gparted 過程 首先，先用 live cd</description><content type="html"><![CDATA[<h1 id="前言">前言</h1>
+<p>如要使用 pycharm 要記得幫它加上環境變數</p>]]></content></item><item><title>Ubuntu 調整硬碟大小教學</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/ubuntu-resize-disk/</link><pubDate>Thu, 14 Sep 2017 21:13:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/ubuntu-resize-disk/</guid><description>前言 最近在安裝 opencv 時，因為VM硬碟大小不夠，所以只好擴充硬碟大小，但是 root partition 好像沒辦法在開機時調整大小(不確定)，所以這次用 Gparted 過程 首先，先用 live cd</description><content type="html"><![CDATA[<h1 id="前言">前言</h1>
 <p>最近在安裝 opencv 時，因為VM硬碟大小不夠，所以只好擴充硬碟大小，但是 root partition 好像沒辦法在開機時調整大小(不確定)，所以這次用 Gparted</p>
 <h1 id="過程">過程</h1>
 <p>首先，先用 live cd 做開機
@@ -535,7 +1701,7 @@ $ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 會看到被紅色圈起來的部分，然後對她右鍵，按下 swapoff
 <img src="images/snipaste_20170914_211549.png" alt="snipaste_20170914_211549">
 然後把他移動到右邊(先擴充到右邊，移過去，再縮小)，並且在對他右鍵做swapon 就完成了(灑花花</p>
-]]></content></item><item><title>OpenCV 安裝教學</title><link>https://blog.sappy.tw/posts/opencv-install/</link><pubDate>Thu, 14 Sep 2017 16:07:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/opencv-install/</guid><description>前言 因為教授要求安裝 opencv，但是因為 opencv 安裝複雜，所以在此紀錄一下 環境要求 opencv3.3 ubuntu 17.04 安裝紀錄 首先，我是參考 How to install OpenCV 3.1 on Ubuntu 14.04 64bits 以及官方文件 一開</description><content type="html"><![CDATA[<h1 id="前言">前言</h1>
+]]></content></item><item><title>OpenCV 安裝教學</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/opencv-install/</link><pubDate>Thu, 14 Sep 2017 16:07:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/opencv-install/</guid><description>前言 因為教授要求安裝 opencv，但是因為 opencv 安裝複雜，所以在此紀錄一下 環境要求 opencv3.3 ubuntu 17.04 安裝紀錄 首先，我是參考 How to install OpenCV 3.1 on Ubuntu 14.04 64bits 以及官方文件 一開</description><content type="html"><![CDATA[<h1 id="前言">前言</h1>
 <p>因為教授要求安裝 opencv，但是因為 opencv 安裝複雜，所以在此紀錄一下</p>
 <h1 id="環境要求">環境要求</h1>
 <ul>
@@ -565,14 +1731,14 @@ libpng12-dev 已經被 libpng12-0 所取代了，所以把上面的這部分換�
 </ul>
 <p>之後參考<a href="http://cccharles.pixnet.net/blog/post/338054801-%25E5%259C%25A8ubuntu-16.04%25E5%25AE%2589%25E8%25A3%259Dopencv-3.1">這篇</a> 安裝 Anaconda 的 opencv 以及一些加速器</p>
 <p>最後做完一些測試就OK了 ^^</p>
-]]></content></item><item><title>[Onenote]把pdf列印在同一頁</title><link>https://blog.sappy.tw/posts/onenote-print-pdf-in-one-page/</link><pubDate>Tue, 22 Aug 2017 10:39:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/onenote-print-pdf-in-one-page/</guid><description>前因 因為想讓Onenote的Pdf可以放在同一頁而不被切割成好幾頁，所以上網稍微找了一下方法 解法 到 檔案 -&amp;gt; 選項 -&amp;gt; 進階 (英文的話會是File -&amp;gt; Options</description><content type="html"><![CDATA[<h1 id="前因">前因</h1>
+]]></content></item><item><title>[Onenote]把pdf列印在同一頁</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/onenote-print-pdf-in-one-page/</link><pubDate>Tue, 22 Aug 2017 10:39:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/onenote-print-pdf-in-one-page/</guid><description>前因 因為想讓Onenote的Pdf可以放在同一頁而不被切割成好幾頁，所以上網稍微找了一下方法 解法 到 檔案 -&amp;gt; 選項 -&amp;gt; 進階 (英文的話會是File -&amp;gt; Options</description><content type="html"><![CDATA[<h1 id="前因">前因</h1>
 <p>因為想讓Onenote的Pdf可以放在同一頁而不被切割成好幾頁，所以上網稍微找了一下方法</p>
 <h1 id="解法">解法</h1>
 <p>到 檔案 -&gt; 選項 -&gt; 進階 (英文的話會是File -&gt; Options -&gt; Advanced)
 找到 在多頁上插入長的列印成品 (Insert long printouts on multiple pages) 並把他取消打勾，這樣就可以了 ^^</p>
 <h1 id="參考">參考</h1>
 <p><a href="https://social.technet.microsoft.com/Forums/office/en-US/f5ac4d90-b92a-446f-b766-0e5ff3445187/how-to-print-multiple-page-pdfs-onto-a-single-onenote-page?forum=officeitpro">How to print multiple page PDFs onto a single Onenote Page?</a></p>
-]]></content></item><item><title>cmder 設定</title><link>https://blog.sappy.tw/posts/cmder-setting/</link><pubDate>Sun, 20 Aug 2017 14:33:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/cmder-setting/</guid><description>緣由 因為最近開始在找 windows 10 系統上好用的另列命令列工具, 在友人的推薦下使用了這個 安裝 由於他的安裝只是把它解壓縮而已, 在此就不多說了 設定 ls 中文資料</description><content type="html"><![CDATA[<h1 id="緣由">緣由</h1>
+]]></content></item><item><title>cmder 設定</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/cmder-setting/</link><pubDate>Sun, 20 Aug 2017 14:33:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/cmder-setting/</guid><description>緣由 因為最近開始在找 windows 10 系統上好用的另列命令列工具, 在友人的推薦下使用了這個 安裝 由於他的安裝只是把它解壓縮而已, 在此就不多說了 設定 ls 中文資料</description><content type="html"><![CDATA[<h1 id="緣由">緣由</h1>
 <p>因為最近開始在找 windows 10 系統上好用的另列命令列工具, 在友人的推薦下使用了這個</p>
 <h1 id="安裝">安裝</h1>
 <p>由於他的安裝只是把它解壓縮而已, 在此就不多說了</p>
@@ -591,7 +1757,7 @@ libpng12-dev 已經被 libpng12-0 所取代了，所以把上面的這部分換�
 <pre><code>-new_console:d:&quot;D:\Data&quot;
 </code></pre><h1 id="參考資料">參考資料</h1>
 <p><a href="http://zwindr.blogspot.tw/2016/01/cmder-setting-1.html">子風的知識庫</a></p>
-]]></content></item><item><title>dpkg: error processing archive *</title><link>https://blog.sappy.tw/posts/dpkg-fail/</link><pubDate>Sat, 19 Aug 2017 12:39:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/dpkg-fail/</guid><description>前提 在更新時遇到 dpkg: error processing archive /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb (--unpack): trying to overwrite '/usr/lib/python2.7/dist-packages/lldb', which is also in package python-lldb-4.0 1:4.0-1ubuntu1 看到網路上的解法 sudo dpkg --force-all -i /var/cache/apt/archives/linux-libc-dev_3.13.0-88.135_armhf.deb 於是稍微修改一下，變成 sudo dpkg --force-all -i /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb 就大功告成了</description><content type="html"><![CDATA[<h1 id="前提">前提</h1>
+]]></content></item><item><title>dpkg: error processing archive *</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/dpkg-fail/</link><pubDate>Sat, 19 Aug 2017 12:39:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/dpkg-fail/</guid><description>前提 在更新時遇到 dpkg: error processing archive /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb (--unpack): trying to overwrite '/usr/lib/python2.7/dist-packages/lldb', which is also in package python-lldb-4.0 1:4.0-1ubuntu1 看到網路上的解法 sudo dpkg --force-all -i /var/cache/apt/archives/linux-libc-dev_3.13.0-88.135_armhf.deb 於是稍微修改一下，變成 sudo dpkg --force-all -i /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb 就大功告成了</description><content type="html"><![CDATA[<h1 id="前提">前提</h1>
 <p>在更新時遇到</p>
 <pre><code>dpkg: error processing archive /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb (--unpack): trying to overwrite '/usr/lib/python2.7/dist-packages/lldb', which is also in package python-lldb-4.0 1:4.0-1ubuntu1
 </code></pre><p>看到網路上的<a href="https://github.com/dnschneid/crouton/issues/2631">解法</a></p>
@@ -599,7 +1765,7 @@ libpng12-dev 已經被 libpng12-0 所取代了，所以把上面的這部分換�
 </code></pre><p>於是稍微修改一下，變成</p>
 <pre><code>sudo dpkg --force-all -i /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb
 </code></pre><p>就大功告成了</p>
-]]></content></item><item><title>如何在github上建立gitlab的鏡像</title><link>https://blog.sappy.tw/posts/gitlab-mirror-to-github/</link><pubDate>Tue, 15 Aug 2017 14:47:27 +0000</pubDate><guid>https://blog.sappy.tw/posts/gitlab-mirror-to-github/</guid><description>起因 因為 gitlab 上相對於 github 的可玩性跟福利都比較大所以打算逐漸遷移過去, 然而由於 github 上使用的人數依然比較多, 便想說能不能在 github 上面建立一個 gitlab 的複製版 設定</description><content type="html"><![CDATA[<h1 id="起因">起因</h1>
+]]></content></item><item><title>如何在github上建立gitlab的鏡像</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/gitlab-mirror-to-github/</link><pubDate>Tue, 15 Aug 2017 14:47:27 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/gitlab-mirror-to-github/</guid><description>起因 因為 gitlab 上相對於 github 的可玩性跟福利都比較大所以打算逐漸遷移過去, 然而由於 github 上使用的人數依然比較多, 便想說能不能在 github 上面建立一個 gitlab 的複製版 設定</description><content type="html"><![CDATA[<h1 id="起因">起因</h1>
 <p>因為 gitlab 上相對於 github 的可玩性跟福利都比較大所以打算逐漸遷移過去, 然而由於 github 上使用的人數依然比較多, 便想說能不能在 github 上面建立一個 gitlab 的複製版</p>
 <!-- raw HTML omitted -->
 <h1 id="設定">設定</h1>
@@ -612,7 +1778,7 @@ libpng12-dev 已經被 libpng12-0 所取代了，所以把上面的這部分換�
 </ol>
 <h1 id="參考資料">參考資料</h1>
 <p><a href="https://espadav8.co.uk/2016/08/22/gitlab-mirror-pushing-to-github/">espadav8 blog</a></p>
-]]></content></item><item><title>R RStudio 安裝教學</title><link>https://blog.sappy.tw/posts/rstudio-install/</link><pubDate>Wed, 28 Jun 2017 00:22:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/rstudio-install/</guid><description>起因 因為之前在 Ubuntu 上安裝 RStudio 時遇到一點問題，便把過程記錄下來，並讓其他人參考 安裝過程 (2017 / 06 /27 安裝) 環境需求 硬體需求 至少 1GB RAM 軟體需求 Ubuntu 17.04 要有roo</description><content type="html"><![CDATA[<h1 id="起因">起因</h1>
+]]></content></item><item><title>R RStudio 安裝教學</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/rstudio-install/</link><pubDate>Wed, 28 Jun 2017 00:22:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/rstudio-install/</guid><description>起因 因為之前在 Ubuntu 上安裝 RStudio 時遇到一點問題，便把過程記錄下來，並讓其他人參考 安裝過程 (2017 / 06 /27 安裝) 環境需求 硬體需求 至少 1GB RAM 軟體需求 Ubuntu 17.04 要有roo</description><content type="html"><![CDATA[<h1 id="起因">起因</h1>
 <p>因為之前在 Ubuntu 上安裝 RStudio 時遇到一點問題，便把過程記錄下來，並讓其他人參考</p>
 <h1 id="安裝過程">安裝過程</h1>
 <blockquote>
@@ -690,7 +1856,7 @@ a. 到 <a href="https://packages.debian.org/jessie/amd64/libgstreamer-plugins-ba
 </li>
 </ol>
 <p>到這裡就大功告成啦XDD</p>
-]]></content></item><item><title>ycmd-install</title><link>https://blog.sappy.tw/posts/ycmd-install/</link><pubDate>Sat, 27 May 2017 21:47:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/ycmd-install/</guid><description>什麼是ycmd ycmd原本是在vim上的You-Complete-Me, 而後作者把補全部分單獨分離出來做為一個後端,使其他編輯器也能享受這種</description><content type="html"><![CDATA[<h1 id="什麼是ycmd">什麼是ycmd</h1>
+]]></content></item><item><title>ycmd-install</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/ycmd-install/</link><pubDate>Sat, 27 May 2017 21:47:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/ycmd-install/</guid><description>什麼是ycmd ycmd原本是在vim上的You-Complete-Me, 而後作者把補全部分單獨分離出來做為一個後端,使其他編輯器也能享受這種</description><content type="html"><![CDATA[<h1 id="什麼是ycmd">什麼是ycmd</h1>
 <p>ycmd原本是在vim上的You-Complete-Me, 而後作者把補全部分單獨分離出來做為一個後端,使其他編輯器也能享受這種神級的補全系統.
 我目前主要是用它來補全c++,但是他還能夠補全像是go,JS之類的語言,可說是十分全能</p>
 <!-- raw HTML omitted -->
@@ -723,9 +1889,9 @@ a. 到 <a href="https://packages.debian.org/jessie/amd64/libgstreamer-plugins-ba
   (setq ycmd-force-semantic-completion t)
   (add-hook 'doc-view-mode-hook 'auto-revert-mode 'c++-mode-hook 'ycmd-mode)
 </code></pre><ul>
-<li>要記得安裝auto-complete 讓自動補權的前端顯示出來</li>
+<li>要記得安裝auto-complete 讓自動補全的前端顯示出來</li>
 </ul>
-]]></content></item><item><title>RancherOS安裝教學</title><link>https://blog.sappy.tw/posts/rancheros%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8/</link><pubDate>Mon, 01 May 2017 00:14:25 +0000</pubDate><guid>https://blog.sappy.tw/posts/rancheros%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8/</guid><description/><content type="html"></content></item><item><title>gdb簡易教學</title><link>https://blog.sappy.tw/posts/gdb%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</link><pubDate>Sat, 08 Apr 2017 17:12:01 +0000</pubDate><guid>https://blog.sappy.tw/posts/gdb%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</guid><description>簡介 gdb 是一種除錯的工具,經常在 Linux 環境中被使用 參考資料 Linux 除錯利器 - GDB 簡介 Debugging with GDB （入門篇） 小技巧 印出ascii或客製化輸出 輸出格式 使用方法 EX: p /c</description><content type="html"><![CDATA[<h1 id="簡介">簡介</h1>
+]]></content></item><item><title>RancherOS安裝教學</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/rancheros%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8/</link><pubDate>Mon, 01 May 2017 00:14:25 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/rancheros%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8/</guid><description/><content type="html"></content></item><item><title>gdb簡易教學</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/gdb%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</link><pubDate>Sat, 08 Apr 2017 17:12:01 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/gdb%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</guid><description>簡介 gdb 是一種除錯的工具,經常在 Linux 環境中被使用 參考資料 Linux 除錯利器 - GDB 簡介 Debugging with GDB （入門篇） 小技巧 印出ascii或客製化輸出 輸出格式 使用方法 EX: p /c</description><content type="html"><![CDATA[<h1 id="簡介">簡介</h1>
 <p>gdb 是一種除錯的工具,經常在 Linux 環境中被使用</p>
 <!-- raw HTML omitted -->
 <h1 id="參考資料">參考資料</h1>
@@ -747,7 +1913,7 @@ a. 到 <a href="https://packages.debian.org/jessie/amd64/libgstreamer-plugins-ba
 <p><a href="http://stackoverflow.com/questions/4183871/how-do-i-set-a-conditional-breakpoint-in-gdb-when-char-x-points-to-a-string-wh">by StackOverFlow</a></p>
 <pre><code>break x:20 if strcmp(y, &quot;hello&quot;) == 0
 </code></pre><p>20 是指行數, x 是可以是任何檔案名稱, 而 y 可以是任何變數</p>
-]]></content></item><item><title>Python 簡略教學</title><link>https://blog.sappy.tw/posts/python-%E7%B0%A1%E7%95%A5%E6%95%99%E5%AD%B8/</link><pubDate>Sun, 05 Mar 2017 10:39:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/python-%E7%B0%A1%E7%95%A5%E6%95%99%E5%AD%B8/</guid><description>安裝 請先到 Anaconda 安裝Anaconda (建議 Python 3.x 版本) 再來到 Pycharm 安裝 IDE (Community 版本是免費的) 安裝完成後, 打開 Pycharm 新增一個 .py 檔, 並輸入 print(&amp;ldquo;Hello World&amp;rdquo;), 之後執行看看, 看看有</description><content type="html"><![CDATA[<h1 id="安裝">安裝</h1>
+]]></content></item><item><title>Python 簡略教學</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/python-%E7%B0%A1%E7%95%A5%E6%95%99%E5%AD%B8/</link><pubDate>Sun, 05 Mar 2017 10:39:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/python-%E7%B0%A1%E7%95%A5%E6%95%99%E5%AD%B8/</guid><description>安裝 請先到 Anaconda 安裝Anaconda (建議 Python 3.x 版本) 再來到 Pycharm 安裝 IDE (Community 版本是免費的) 安裝完成後, 打開 Pycharm 新增一個 .py 檔, 並輸入 print(&amp;ldquo;Hello World&amp;rdquo;), 之後執行看看, 看看有</description><content type="html"><![CDATA[<h1 id="安裝">安裝</h1>
 <ol>
 <li>請先到 <a href="https://www.continuum.io/downloads">Anaconda</a> 安裝Anaconda (建議 Python 3.x 版本)</li>
 <li>再來到 <a href="https://www.jetbrains.com/pycharm/download/#section=windows">Pycharm</a> 安裝 IDE (Community 版本是免費的)</li>
@@ -825,7 +1991,7 @@ Python 常見以下幾種資料型態</p>
 <h1 id="library">library</h1>
 <h2 id="安裝-1">安裝</h2>
 <h2 id="使用">使用</h2>
-]]></content></item><item><title>Hello World</title><link>https://blog.sappy.tw/posts/hello-world/</link><pubDate>Tue, 28 Jun 2016 00:22:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/hello-world/</guid><description>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+]]></content></item><item><title>Hello World</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/hello-world/</link><pubDate>Tue, 28 Jun 2016 00:22:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/hello-world/</guid><description>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
 Quick Start Create a new post $ hexo new &amp;#34;My New Post&amp;#34; More info: Writing
 Run server $ hexo server More info: Server
 Generate static files $ hexo generate More info: Generating
@@ -843,59 +2009,16 @@ Deploy to remote sites $ hexo deploy More info: Deployment</description><content
 <h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ hexo deploy
 </code></pre></div><p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
-]]></content></item><item><title>LSTM 心得</title><link>https://blog.sappy.tw/posts/lstm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.sappy.tw/posts/lstm/</guid><description>RNN RNN 其本質上就是一個具狀態的 NN，他跟其他 NN 不同的地方就在於他多了一個輸入，表示上一個狀態(Hidden State) 如下圖所示 1 RNN 示意圖 RNN 缺點 而隨之帶</description><content type="html"><![CDATA[<h1 id="rnn">RNN</h1>
-<p>RNN 其本質上就是一個具狀態的 NN，他跟其他 NN 不同的地方就在於他多了一個輸入，表示上一個狀態(Hidden State)<br>
-如下圖所示</p>
-<p><img src="https://miro.medium.com/max/250/1*T_ECcHZWpjn0Ki4_4BEzow.gif" alt="RNN 示意圖"><br>
-<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> RNN 示意圖</p>
-<h2 id="rnn-缺點">RNN 缺點</h2>
-<p>而隨之帶來的問題即是梯度消失 or 爆炸的問題<br>
-因 RNN 在計算時，是以乘法為主，而乘法有一個特性，那就是很容易使數值太大或太小，
-例如 (1.01) 的 365 次方 會是 37.7834343329，
-而   (0.99) 的 365 次方 則是 0.02551796445，
-因此如果網路很深，句子很長，遇到太長句子時，在 Backward Propagation (反向傳播) 很容易使數字太大或太小，造成梯度爆炸或消失的問題，使越前面的句子，其參數很難被 RNN 更新的很好。
-也因此，越是前面的句子，越難被 RNN 所利用 (因為其參數更新不好)，也因此造成 RNN 僅能很好的利用靠近句子結尾的幾個字而已。<br>
-<img src="https://miro.medium.com/max/960/1*Ku54qmCryZVBaIc6g8rjGA.gif" alt="RNN 反向傳播 示意圖"><br>
-<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> RNN 反向傳播 示意圖</p>
-<h1 id="lstm">LSTM</h1>
-<p><img src="https://www.researchgate.net/profile/Savvas_Varsamopoulos/publication/329362532/figure/fig5/AS:699592479870977@1543807253596/Structure-of-the-LSTM-cell-and-equations-that-describe-the-gates-of-an-LSTM-cell_W640.jpg" alt=""><br>
-LSTM 架構圖 <a href="https://www.researchgate.net/publication/329362532_Designing_neural_network_based_decoders_for_surface_codes/figures?lo=1">出處</a></p>
-<p>那要怎麼解決呢? LSTM 提出的做法是透過多一個狀態來保存長距離訊息</p>
-<h2 id="lstm-結構">LSTM 結構</h2>
-<p>$\sigma$ 控制著資訊流過去的百分比 (0 ~ 1)<br>
-$tanh$ 則是代表資訊的數值 (-1 ~ 1)</p>
-<h3 id="forget-gate-最左邊的-sigma">Forget gate (最左邊的 $\sigma$)</h3>
-<p>從圖中可以很明顯的看出，<br>
-決定長距離訊息 C 有多少要用到</p>
-<h3 id="input-gate-中間的黃色-sigma--tanh">Input gate (中間的黃色 $\sigma\ &amp;\ tanh$)</h3>
-<p>決定多少短距離訊息要被更新到 C 裡面</p>
-<h3 id="output-gate最右邊的區域">Output gate(最右邊的區域)</h3>
-<p>決定什麼要進入隱藏狀態中</p>
-<h1 id="gru">GRU</h1>
-<p><img src="https://miro.medium.com/max/1400/1*jhi5uOm9PvZfmxvfaCektw.png" alt=""><br>
-<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> GRU 架構圖</p>
-<h1 id="參考">參考</h1>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p><a href="https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9">Illustrated Guide to Recurrent Neural Networks</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2" role="doc-endnote">
-<p><a href="https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21">Illustrated Guide to LSTM’s and GRU’s: A step by step explanation</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-]]></content></item><item><title>社群網路筆記 2</title><link>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</guid><description>社群網路的圖的定義 Node - 點, 個人 Edge - 邊, 人與人的關係 TODO IMAGE Undirected graph and directed graph undirected graph - 邊沒有特定方向 directed graph - 邊具有方向性 TODO IMAGE Adjacency matrix - 用矩陣來表達圖的關係, 1 代表</description><content type="html"><![CDATA[<h1 id="社群網路的圖的定義">社群網路的圖的定義</h1>
+]]></content></item><item><title>社群網路筆記 2</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</guid><description>社群網路的圖的定義 Node - 點, 個人 Edge - 邊, 人與人的關係 Undirected graph and directed graph undirected graph - 邊沒有特定方向 directed graph - 邊具有方向性 Adjacency matrix - 用矩陣來表達圖的關係, 1 代表有連接,</description><content type="html"><![CDATA[<h1 id="社群網路的圖的定義">社群網路的圖的定義</h1>
 <ul>
 <li>Node - 點, 個人</li>
 <li>Edge - 邊, 人與人的關係
-TODO IMAGE</li>
+<img src="https://images.sappy.tw/Social_Network/ch2/node_and_edge.png" alt="node_and_edge"></li>
 <li>Undirected graph and directed graph
 <ul>
 <li>undirected graph - 邊沒有特定方向</li>
 <li>directed graph - 邊具有方向性
-TODO IMAGE</li>
+<img src="https://images.sappy.tw/Social_Network/ch2/directed_&amp;_undirected_graph.png" alt="directed_&_undirected_graph"></li>
 </ul>
 </li>
 <li>Adjacency matrix - 用矩陣來表達圖的關係, 1 代表有連接, 0 代表沒有連接
@@ -918,6 +2041,46 @@ TODO IMAGE</li>
 <ul>
 <li>大部分的社群網路都是這樣，越大越是如此</li>
 <li>在社群網路中 很常見</li>
+</ul>
+</li>
+<li>Connected components
+下面是有三個 node 的範例<br>
+<img src="https://images.sappy.tw/Social_Network/ch2/components.png" alt="components"></li>
+<li>Giant Components
+<ul>
+<li>有顯著影響力(很大的)的 Components</li>
+<li>幾乎所有的 large network 都有 giant component</li>
+<li>幾乎所有大網路都只有一個 giant component
+<ul>
+<li>因為兩邊所有點都沒連接的機率非常低</li>
+<li>假設雙方各有 N 個點，點跟點連接的機率是 99%</li>
+<li>則完全沒有點連接的機率是 $0.01*{N^2}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Distance
+<ul>
+<li>兩點之間最短距離</li>
+<li>用BFS演算法(breadth-first search)找最快
+<ul>
+<li>First find all friends at a distance of 1</li>
+<li>Find all their friends (not including distance-1 friends), and declare these to be distance 2</li>
+<li>Repeating this procedure to find friends of farther away<br>
+<img src="https://images.sappy.tw/Social_Network/ch2/BFS.png" alt="BFS"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Small-world property
+<ul>
+<li>Giant Components 中任兩點距離比想像中短</li>
+<li>Six degrees of separation
+<ul>
+<li>每個人走六個點就能夠到達另一點</li>
+<li><img src="https://images.sappy.tw/Social_Network/ch2/6-drgrees.png" alt="6-drgrees"></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
