@@ -27,6 +27,9 @@ publishDir = "docs"
   # Categories are disabled by default.
 
 [params]
+  # 自訂變數
+  toc = true
+
   dateform        = "Jan 2, 2006"
   dateformShort   = "Jan 2"
   dateformNum     = "2006-01-02"
@@ -79,3 +82,4 @@ publishDir = "docs"
     name = "About"
     url = "about-hugo/"
     weight = 20
+
