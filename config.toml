@@ -83,5 +83,8 @@ publishDir = "docs"
     weight = 20
 
 [frontmatter]
-  # 自訂變數
-  toc = true
+
+  [[frontmatter.params]]
+  
+    # 自訂變數
+    toc = true
