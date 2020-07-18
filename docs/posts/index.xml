@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 18 Jul 2020 13:55:38 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker 開發環境簡易教學</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/elasticsearch/elasticsearch%E4%B8%AD%E6%96%87%E8%99%95%E7%90%86/</link><pubDate>Sat, 18 Jul 2020 13:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/elasticsearch/elasticsearch%E4%B8%AD%E6%96%87%E8%99%95%E7%90%86/</guid><description>目的 解決 elasticsearch 中，中文斷詞預設是 character-base 的斷詞方式 例如 今天天氣很好 應該要斷成 今天 天氣 很 好，而不是 elasticsearch 中的 今 天 天 氣 很 好 解法 中文斷詞目前最好的應該還是中研院</description><content type="html"><![CDATA[<h1 id="目的">目的</h1>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 18 Jul 2020 13:55:38 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Elasticsearch 中文處理</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/elasticsearch/elasticsearch%E4%B8%AD%E6%96%87%E8%99%95%E7%90%86/</link><pubDate>Sat, 18 Jul 2020 13:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/elasticsearch/elasticsearch%E4%B8%AD%E6%96%87%E8%99%95%E7%90%86/</guid><description>目的 解決 elasticsearch 中，中文斷詞預設是 character-base 的斷詞方式 例如 今天天氣很好 應該要斷成 今天 天氣 很 好，而不是 elasticsearch 中的 今 天 天 氣 很 好 解法 中文斷詞目前最好的應該還是中研院</description><content type="html"><![CDATA[<h1 id="目的">目的</h1>
 <p>解決 elasticsearch 中，中文斷詞預設是 character-base 的斷詞方式<br>
 例如 <code>今天天氣很好</code> 應該要斷成 <code>今天 天氣 很 好</code>，而不是 elasticsearch 中的 <code>今 天 天 氣 很 好</code></p>
 <h1 id="解法">解法</h1>
@@ -8,8 +8,8 @@
 為了之後能繼續存取原始資料來做分析或其他用途，我們是存成兩份資料，一份原始資料，一份是斷詞斷完的資料<br>
 大概長得像下面這樣</p>
 <div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-    <span class="err">origin:</span> <span class="nt">&#34;&#34;</span><span class="p">,</span>
-    <span class="err">token:</span> <span class="nt">&#34;&#34;</span>
+    <span class="nt">&#34;origin&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;token&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
 <span class="p">}</span>
 </code></pre></div>]]></content></item><item><title>社群網路筆記 CASCADING BEHAVIOR IN NETWORKS</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%BE%AE%E8%A7%80%E5%82%B3%E6%92%AD/</link><pubDate>Sun, 31 May 2020 11:59:37 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%BE%AE%E8%A7%80%E5%82%B3%E6%92%AD/</guid><description>網路中的擴散 Diffusion in networks 跟考慮整個人群比起來，考慮細粒度的傳播，就是跟考慮整體決定比起來，通常會比較關注身旁的人的所下的決定 考慮在 graph 中的擴散 也稱為</description><content type="html"><![CDATA[<h1 id="網路中的擴散-diffusion-in-networks">網路中的擴散 Diffusion in networks</h1>
 <ol>
@@ -632,6 +632,107 @@ $P[主要藍色|抽到甚麼顏色]$ 的機率 大於 1/2 時，就應該猜藍�
 <h3 id="第三人">第三人</h3>
 <p>$P[主要藍色|抽到藍色 藍色 紅色] = \frac{P[主要藍色]*P[抽到藍色 藍色 紅色|主要藍色時]}{P[抽到藍色 藍色 紅色]} = \frac{ \frac{1}{2} * ( \frac{2}{3}^2 * \frac{1}{3} ) }{\frac{6}{54}}=\frac{2}{3}$<br>
 <img src="https://images.sappy.tw/Social_Network/%E8%B3%87%E8%A8%8A%E5%82%B3%E6%92%AD/proof2.png" alt="proof2"></p>
+]]></content></item><item><title>Kubernetes 筆記</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_1/</link><pubDate>Sat, 02 May 2020 13:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_1/</guid><description>安裝 我目前是用 Rancher 來安裝，目前 Rancher 會出現 master cpu 使用率高的 bug(大約 10%)，不過不影響正常使用 rancher kubespray 官方安裝說明 kubeadm kubespray 安裝 kubespray 安裝 kubeadm-kubelet-and-kubectl 這一步的 10.10.* 換成cl</description><content type="html"><![CDATA[<h1 id="安裝">安裝</h1>
+<p>我目前是用 Rancher 來安裝，目前 Rancher 會出現 master cpu 使用率高的 bug(大約 10%)，不過不影響正常使用</p>
+<ul>
+<li><a href="https://rancher.com/">rancher</a></li>
+<li><a href="https://github.com/kubernetes-sigs/kubespray">kubespray</a>
+<ul>
+<li><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubespray/">官方安裝說明</a></li>
+</ul>
+</li>
+<li><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/">kubeadm</a></li>
+</ul>
+<h2 id="kubespray">kubespray</h2>
+<ol>
+<li><a href="https://github.com/kubernetes-sigs/kubespray">安裝 kubespray</a></li>
+<li><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl">安裝 kubeadm-kubelet-and-kubectl</a></li>
+<li>這一步的 10.10.* 換成cluster 的 ip <code>declare -a IPS=(10.10.1.3 10.10.1.4 10.10.1.5)</code></li>
+<li>在 hosts.yaml 設定 ansible_port
+<pre><code>node1:
+   ansible_host: 140.114.77.150
+   ansible_port: 2222
+   ip: 140.114.77.150
+   access_ip: 140.114.77.150
+</code></pre></li>
+<li>最後一行加上大 K，輸入 sudo 密碼<br>
+<code>ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml -K</code></li>
+<li>移除 cluster <code>ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root reset.yml -K</code></li>
+</ol>
+<h2 id="參考">參考</h2>
+<p><img src="https://medium.com/bimap-elk/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-kubespray-%E5%AE%89%E8%A3%9D-kubernetes-cluster-88c267bdfc3a" alt=""></p>
+<h1 id="基本名詞">基本名詞</h1>
+<ul>
+<li>Node</li>
+</ul>
+<h1 id="services">Services</h1>
+<ul>
+<li><a href="https://godleon.github.io/blog/Kubernetes/k8s-Service-Overview/">很清楚的解釋</a></li>
+</ul>
+<h2 id="名詞">名詞</h2>
+<ul>
+<li>ClusterIP - K8S 內部才能連到</li>
+<li>NodePort - 在每個 pod 運行的 node 上開 port，使外部可以透過 $(node ip):$(port number) 的方式連到 pod 上</li>
+<li>Load Balancer - 感覺在 public cloud(GCP AWS &hellip;) 上用處比較大?</li>
+<li>ExternalName - 將 內部 Domain name 映射到外部的方法? ()</li>
+</ul>
+<h2 id="其他有趣的東西">其他有趣的東西</h2>
+<ul>
+<li><a href="https://rio.io/">rio - 快速部屬 app By Rancher</a></li>
+<li><a href="https://rook.io/">rook - 自動部屬分散式系統</a>
+<ul>
+<li><a href="https://blog.fleeto.us/post/the-ultimate-rook-and-ceph-survival-guide/">Rancher + Rook 安裝</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="使用問題">使用問題</h1>
+<ul>
+<li><a href="https://www.cnblogs.com/mingbai/p/helmerr.html">helm 遇到權限問題</a></li>
+<li><a href="https://stackoverflow.com/questions/27435479/pass-net-host-to-docker-build">docker build 網路不通</a>
+<ul>
+<li>build 加參數 <code>--network=host</code>，變成 <code>docker build . --network=host</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="參考資料">參考資料</h1>
+<ul>
+<li><a href="https://kubernetes.io/docs/home/">官網 英文</a></li>
+<li><a href="https://jimmysong.io/kubernetes-handbook/">kubernetes-handbook 中文</a></li>
+<li><a href="https://godleon.github.io/blog/">小信豬的原始部落</a></li>
+<li>[儲存空間類]
+<ul>
+<li><a href="https://godleon.github.io/blog/Kubernetes/k8s-PersistentVolume-Overview/"> [Kubernetes] Persistent Volume (Claim) Overview </a></li>
+</ul>
+</li>
+</ul>
+]]></content></item><item><title>Kubernetes 筆記 - Knative</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_knative/</link><pubDate>Sat, 02 May 2020 13:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_knative/</guid><description>kubespray 按照上次安裝 istio 安裝 istioctl https://istio.io/docs/setup/getting-started/ 安裝 istio istioctl install https://istio.io/docs/setup/install/istioctl/ knative metalLB 安裝 https://metallb.universe.tf/installation/ 設定 Layer 2 (網路架構的L2) apiVersion:v1kind:ConfigMapmetadata:namespace:metallb-systemname:configdata:config:| address-pools:- name:defaultprotocol:layer2addresses:- 192.168.1.240-192.168.1.250# 多 ip- 192.168.1.240/32# 單 ip當設定成功後輸入 kubectl get service -n istio-system istio-ingre</description><content type="html"><![CDATA[<h1 id="kubespray">kubespray</h1>
+<p>按照上次安裝</p>
+<h1 id="istio">istio</h1>
+<h2 id="安裝-istioctl">安裝 istioctl</h2>
+<p><a href="https://istio.io/docs/setup/getting-started/">https://istio.io/docs/setup/getting-started/</a></p>
+<h2 id="安裝-istio">安裝 istio</h2>
+<p><code>istioctl install</code>
+<a href="https://istio.io/docs/setup/install/istioctl/">https://istio.io/docs/setup/install/istioctl/</a></p>
+<h1 id="knative">knative</h1>
+<h1 id="metallb">metalLB</h1>
+<h2 id="安裝">安裝</h2>
+<p><a href="https://metallb.universe.tf/installation/">https://metallb.universe.tf/installation/</a></p>
+<h2 id="設定-layer-2-網路架構的l2">設定 Layer 2 (網路架構的L2)</h2>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">apiVersion</span><span class="p">:</span><span class="w"> </span>v1<span class="w">
+</span><span class="w"></span><span class="k">kind</span><span class="p">:</span><span class="w"> </span>ConfigMap<span class="w">
+</span><span class="w"></span><span class="k">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">namespace</span><span class="p">:</span><span class="w"> </span>metallb-system<span class="w">
+</span><span class="w">  </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>config<span class="w">
+</span><span class="w"></span><span class="k">data</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">config</span><span class="p">:</span><span class="w"> </span><span class="sd">|
+</span><span class="sd">    address-pools:</span><span class="w">
+</span><span class="w">    </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>default<span class="w">
+</span><span class="w">      </span><span class="k">protocol</span><span class="p">:</span><span class="w"> </span>layer2<span class="w">
+</span><span class="w">      </span><span class="k">addresses</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="m">192.168.1.240-192.168.1.250</span><span class="w"> </span><span class="c"># 多 ip</span><span class="w">
+</span><span class="w">      </span>- <span class="m">192.168.1.240</span>/<span class="m">32</span><span class="w">  </span><span class="c"># 單 ip</span><span class="w">
+</span><span class="w">      
+</span></code></pre></div><p>當設定成功後輸入 <code>kubectl get service -n istio-system istio-ingressgateway</code>，便能看到EXTERNAL-IP從 PENDING 變成有 ip</p>
 ]]></content></item><item><title>社群網路筆記 Networks in Their Surrounding Contexts</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_network_with_context/</link><pubDate>Fri, 24 Apr 2020 20:23:30 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_network_with_context/</guid><description>考慮 node 的 meta data，這會影響網路的演變 Homophily - 相似度 相似度越高，越容易相處在一起 要怎麼知道這個因素是否影響圖的連結 用 Homophily test Homophily test 跟純 random 比較，看看這因</description><content type="html"><![CDATA[<p>考慮 node 的 meta data，這會影響網路的演變</p>
 <h1 id="homophily---相似度">Homophily - 相似度</h1>
 <p>相似度越高，越容易相處在一起</p>
@@ -1101,6 +1202,49 @@ player 同時下決策，且 player 之間的決策過程是獨立的</p>
 Subgame perfect equilibrium 是 Nash
 但 Nash 不一定是 Subgame perfect equilibrium</p>
 <p>QQAQQQQQQQQQQ</p>
+]]></content></item><item><title>LSTM 心得</title><link>https://blog.sappy.tw/posts/ai/nlp/lstm/</link><pubDate>Fri, 03 Apr 2020 16:46:30 +0000</pubDate><guid>https://blog.sappy.tw/posts/ai/nlp/lstm/</guid><description>RNN RNN 其本質上就是一個具狀態的 NN，他跟其他 NN 不同的地方就在於他多了一個輸入，表示上一個狀態(Hidden State) 如下圖所示 1 RNN 示意圖 RNN 缺點 而隨之帶</description><content type="html"><![CDATA[<h1 id="rnn">RNN</h1>
+<p>RNN 其本質上就是一個具狀態的 NN，他跟其他 NN 不同的地方就在於他多了一個輸入，表示上一個狀態(Hidden State)<br>
+如下圖所示</p>
+<p><img src="https://miro.medium.com/max/250/1*T_ECcHZWpjn0Ki4_4BEzow.gif" alt="RNN 示意圖"><br>
+<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> RNN 示意圖</p>
+<h2 id="rnn-缺點">RNN 缺點</h2>
+<p>而隨之帶來的問題即是梯度消失 or 爆炸的問題<br>
+因 RNN 在計算時，是以乘法為主，而乘法有一個特性，那就是很容易使數值太大或太小，
+例如 (1.01) 的 365 次方 會是 37.7834343329，
+而   (0.99) 的 365 次方 則是 0.02551796445，
+因此如果網路很深，句子很長，遇到太長句子時，在 Backward Propagation (反向傳播) 很容易使數字太大或太小，造成梯度爆炸或消失的問題，使越前面的句子，其參數很難被 RNN 更新的很好。
+也因此，越是前面的句子，越難被 RNN 所利用 (因為其參數更新不好)，也因此造成 RNN 僅能很好的利用靠近句子結尾的幾個字而已。<br>
+<img src="https://miro.medium.com/max/960/1*Ku54qmCryZVBaIc6g8rjGA.gif" alt="RNN 反向傳播 示意圖"><br>
+<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> RNN 反向傳播 示意圖</p>
+<h1 id="lstm">LSTM</h1>
+<p><img src="https://www.researchgate.net/profile/Savvas_Varsamopoulos/publication/329362532/figure/fig5/AS:699592479870977@1543807253596/Structure-of-the-LSTM-cell-and-equations-that-describe-the-gates-of-an-LSTM-cell_W640.jpg" alt=""><br>
+LSTM 架構圖 <a href="https://www.researchgate.net/publication/329362532_Designing_neural_network_based_decoders_for_surface_codes/figures?lo=1">出處</a></p>
+<p>那要怎麼解決呢? LSTM 提出的做法是透過多一個狀態來保存長距離訊息</p>
+<h2 id="lstm-結構">LSTM 結構</h2>
+<p>$\sigma$ 控制著資訊流過去的百分比 (0 ~ 1)<br>
+$tanh$ 則是代表資訊的數值 (-1 ~ 1)</p>
+<h3 id="forget-gate-最左邊的-sigma">Forget gate (最左邊的 $\sigma$)</h3>
+<p>從圖中可以很明顯的看出，<br>
+決定長距離訊息 C 有多少要用到</p>
+<h3 id="input-gate-中間的黃色-sigma--tanh">Input gate (中間的黃色 $\sigma\ &amp;\ tanh$)</h3>
+<p>決定多少短距離訊息要被更新到 C 裡面</p>
+<h3 id="output-gate最右邊的區域">Output gate(最右邊的區域)</h3>
+<p>決定什麼要進入隱藏狀態中</p>
+<h1 id="gru">GRU</h1>
+<p><img src="https://miro.medium.com/max/1400/1*jhi5uOm9PvZfmxvfaCektw.png" alt=""><br>
+<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> GRU 架構圖</p>
+<h1 id="參考">參考</h1>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9">Illustrated Guide to Recurrent Neural Networks</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21">Illustrated Guide to LSTM’s and GRU’s: A step by step explanation</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 ]]></content></item><item><title>社群網路筆記 1</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_1/</link><pubDate>Tue, 31 Mar 2020 23:49:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_1/</guid><description>社群網路的重要理論 The small world property - 六度空間法則，任兩點之間平均過六格就能抵達對面 ?? 但是，在規模多大內才有效? Scale-free, power-law degree distributions - power law，所有點的 degree 分布圖，</description><content type="html"><![CDATA[<h1 id="社群網路的重要理論">社群網路的重要理論</h1>
 <ol>
 <li>The small world property - 六度空間法則，任兩點之間平均過六格就能抵達對面 ?? 但是，在規模多大內才有效?</li>
@@ -1865,150 +2009,6 @@ Deploy to remote sites $ hexo deploy More info: Deployment</description><content
 <h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ hexo deploy
 </code></pre></div><p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
-]]></content></item><item><title>Kubernetes 筆記</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_1/</guid><description>安裝 我目前是用 Rancher 來安裝，目前 Rancher 會出現 master cpu 使用率高的 bug(大約 10%)，不過不影響正常使用 rancher kubespray 官方安裝說明 kubeadm kubespray 安裝 kubespray 安裝 kubeadm-kubelet-and-kubectl 這一步的 10.10.* 換成cl</description><content type="html"><![CDATA[<h1 id="安裝">安裝</h1>
-<p>我目前是用 Rancher 來安裝，目前 Rancher 會出現 master cpu 使用率高的 bug(大約 10%)，不過不影響正常使用</p>
-<ul>
-<li><a href="https://rancher.com/">rancher</a></li>
-<li><a href="https://github.com/kubernetes-sigs/kubespray">kubespray</a>
-<ul>
-<li><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubespray/">官方安裝說明</a></li>
-</ul>
-</li>
-<li><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/">kubeadm</a></li>
-</ul>
-<h2 id="kubespray">kubespray</h2>
-<ol>
-<li><a href="https://github.com/kubernetes-sigs/kubespray">安裝 kubespray</a></li>
-<li><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl">安裝 kubeadm-kubelet-and-kubectl</a></li>
-<li>這一步的 10.10.* 換成cluster 的 ip <code>declare -a IPS=(10.10.1.3 10.10.1.4 10.10.1.5)</code></li>
-<li>在 hosts.yaml 設定 ansible_port
-<pre><code>node1:
-   ansible_host: 140.114.77.150
-   ansible_port: 2222
-   ip: 140.114.77.150
-   access_ip: 140.114.77.150
-</code></pre></li>
-<li>最後一行加上大 K，輸入 sudo 密碼<br>
-<code>ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml -K</code></li>
-<li>移除 cluster <code>ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root reset.yml -K</code></li>
-</ol>
-<h2 id="參考">參考</h2>
-<p><img src="https://medium.com/bimap-elk/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-kubespray-%E5%AE%89%E8%A3%9D-kubernetes-cluster-88c267bdfc3a" alt=""></p>
-<h1 id="基本名詞">基本名詞</h1>
-<ul>
-<li>Node</li>
-</ul>
-<h1 id="services">Services</h1>
-<ul>
-<li><a href="https://godleon.github.io/blog/Kubernetes/k8s-Service-Overview/">很清楚的解釋</a></li>
-</ul>
-<h2 id="名詞">名詞</h2>
-<ul>
-<li>ClusterIP - K8S 內部才能連到</li>
-<li>NodePort - 在每個 pod 運行的 node 上開 port，使外部可以透過 $(node ip):$(port number) 的方式連到 pod 上</li>
-<li>Load Balancer - 感覺在 public cloud(GCP AWS &hellip;) 上用處比較大?</li>
-<li>ExternalName - 將 內部 Domain name 映射到外部的方法? ()</li>
-</ul>
-<h2 id="其他有趣的東西">其他有趣的東西</h2>
-<ul>
-<li><a href="https://rio.io/">rio - 快速部屬 app By Rancher</a></li>
-<li><a href="https://rook.io/">rook - 自動部屬分散式系統</a>
-<ul>
-<li><a href="https://blog.fleeto.us/post/the-ultimate-rook-and-ceph-survival-guide/">Rancher + Rook 安裝</a></li>
-</ul>
-</li>
-</ul>
-<h1 id="使用問題">使用問題</h1>
-<ul>
-<li><a href="https://www.cnblogs.com/mingbai/p/helmerr.html">helm 遇到權限問題</a></li>
-<li><a href="https://stackoverflow.com/questions/27435479/pass-net-host-to-docker-build">docker build 網路不通</a>
-<ul>
-<li>build 加參數 <code>--network=host</code>，變成 <code>docker build . --network=host</code></li>
-</ul>
-</li>
-</ul>
-<h1 id="參考資料">參考資料</h1>
-<ul>
-<li><a href="https://kubernetes.io/docs/home/">官網 英文</a></li>
-<li><a href="https://jimmysong.io/kubernetes-handbook/">kubernetes-handbook 中文</a></li>
-<li><a href="https://godleon.github.io/blog/">小信豬的原始部落</a></li>
-<li>[儲存空間類]
-<ul>
-<li><a href="https://godleon.github.io/blog/Kubernetes/k8s-PersistentVolume-Overview/"> [Kubernetes] Persistent Volume (Claim) Overview </a></li>
-</ul>
-</li>
-</ul>
-]]></content></item><item><title>Kubernetes 筆記</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_knative/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_knative/</guid><description>kubespray 按照上次安裝 istio 安裝 istioctl https://istio.io/docs/setup/getting-started/ 安裝 istio istioctl install https://istio.io/docs/setup/install/istioctl/ knative metalLB 安裝 https://metallb.universe.tf/installation/ 設定 Layer 2 (網路架構的L2) apiVersion:v1kind:ConfigMapmetadata:namespace:metallb-systemname:configdata:config:| address-pools:- name:defaultprotocol:layer2addresses:- 192.168.1.240-192.168.1.250# 多 ip- 192.168.1.240/32# 單 ip當設定成功後輸入 kubectl get service -n istio-system istio-ingre</description><content type="html"><![CDATA[<h1 id="kubespray">kubespray</h1>
-<p>按照上次安裝</p>
-<h1 id="istio">istio</h1>
-<h2 id="安裝-istioctl">安裝 istioctl</h2>
-<p><a href="https://istio.io/docs/setup/getting-started/">https://istio.io/docs/setup/getting-started/</a></p>
-<h2 id="安裝-istio">安裝 istio</h2>
-<p><code>istioctl install</code>
-<a href="https://istio.io/docs/setup/install/istioctl/">https://istio.io/docs/setup/install/istioctl/</a></p>
-<h1 id="knative">knative</h1>
-<h1 id="metallb">metalLB</h1>
-<h2 id="安裝">安裝</h2>
-<p><a href="https://metallb.universe.tf/installation/">https://metallb.universe.tf/installation/</a></p>
-<h2 id="設定-layer-2-網路架構的l2">設定 Layer 2 (網路架構的L2)</h2>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">apiVersion</span><span class="p">:</span><span class="w"> </span>v1<span class="w">
-</span><span class="w"></span><span class="k">kind</span><span class="p">:</span><span class="w"> </span>ConfigMap<span class="w">
-</span><span class="w"></span><span class="k">metadata</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">namespace</span><span class="p">:</span><span class="w"> </span>metallb-system<span class="w">
-</span><span class="w">  </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>config<span class="w">
-</span><span class="w"></span><span class="k">data</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">config</span><span class="p">:</span><span class="w"> </span><span class="sd">|
-</span><span class="sd">    address-pools:</span><span class="w">
-</span><span class="w">    </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>default<span class="w">
-</span><span class="w">      </span><span class="k">protocol</span><span class="p">:</span><span class="w"> </span>layer2<span class="w">
-</span><span class="w">      </span><span class="k">addresses</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="m">192.168.1.240-192.168.1.250</span><span class="w"> </span><span class="c"># 多 ip</span><span class="w">
-</span><span class="w">      </span>- <span class="m">192.168.1.240</span>/<span class="m">32</span><span class="w">  </span><span class="c"># 單 ip</span><span class="w">
-</span><span class="w">      
-</span></code></pre></div><p>當設定成功後輸入 <code>kubectl get service -n istio-system istio-ingressgateway</code>，便能看到EXTERNAL-IP從 PENDING 變成有 ip</p>
-]]></content></item><item><title>LSTM 心得</title><link>https://blog.sappy.tw/posts/ai/nlp/lstm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.sappy.tw/posts/ai/nlp/lstm/</guid><description>RNN RNN 其本質上就是一個具狀態的 NN，他跟其他 NN 不同的地方就在於他多了一個輸入，表示上一個狀態(Hidden State) 如下圖所示 1 RNN 示意圖 RNN 缺點 而隨之帶</description><content type="html"><![CDATA[<h1 id="rnn">RNN</h1>
-<p>RNN 其本質上就是一個具狀態的 NN，他跟其他 NN 不同的地方就在於他多了一個輸入，表示上一個狀態(Hidden State)<br>
-如下圖所示</p>
-<p><img src="https://miro.medium.com/max/250/1*T_ECcHZWpjn0Ki4_4BEzow.gif" alt="RNN 示意圖"><br>
-<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> RNN 示意圖</p>
-<h2 id="rnn-缺點">RNN 缺點</h2>
-<p>而隨之帶來的問題即是梯度消失 or 爆炸的問題<br>
-因 RNN 在計算時，是以乘法為主，而乘法有一個特性，那就是很容易使數值太大或太小，
-例如 (1.01) 的 365 次方 會是 37.7834343329，
-而   (0.99) 的 365 次方 則是 0.02551796445，
-因此如果網路很深，句子很長，遇到太長句子時，在 Backward Propagation (反向傳播) 很容易使數字太大或太小，造成梯度爆炸或消失的問題，使越前面的句子，其參數很難被 RNN 更新的很好。
-也因此，越是前面的句子，越難被 RNN 所利用 (因為其參數更新不好)，也因此造成 RNN 僅能很好的利用靠近句子結尾的幾個字而已。<br>
-<img src="https://miro.medium.com/max/960/1*Ku54qmCryZVBaIc6g8rjGA.gif" alt="RNN 反向傳播 示意圖"><br>
-<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> RNN 反向傳播 示意圖</p>
-<h1 id="lstm">LSTM</h1>
-<p><img src="https://www.researchgate.net/profile/Savvas_Varsamopoulos/publication/329362532/figure/fig5/AS:699592479870977@1543807253596/Structure-of-the-LSTM-cell-and-equations-that-describe-the-gates-of-an-LSTM-cell_W640.jpg" alt=""><br>
-LSTM 架構圖 <a href="https://www.researchgate.net/publication/329362532_Designing_neural_network_based_decoders_for_surface_codes/figures?lo=1">出處</a></p>
-<p>那要怎麼解決呢? LSTM 提出的做法是透過多一個狀態來保存長距離訊息</p>
-<h2 id="lstm-結構">LSTM 結構</h2>
-<p>$\sigma$ 控制著資訊流過去的百分比 (0 ~ 1)<br>
-$tanh$ 則是代表資訊的數值 (-1 ~ 1)</p>
-<h3 id="forget-gate-最左邊的-sigma">Forget gate (最左邊的 $\sigma$)</h3>
-<p>從圖中可以很明顯的看出，<br>
-決定長距離訊息 C 有多少要用到</p>
-<h3 id="input-gate-中間的黃色-sigma--tanh">Input gate (中間的黃色 $\sigma\ &amp;\ tanh$)</h3>
-<p>決定多少短距離訊息要被更新到 C 裡面</p>
-<h3 id="output-gate最右邊的區域">Output gate(最右邊的區域)</h3>
-<p>決定什麼要進入隱藏狀態中</p>
-<h1 id="gru">GRU</h1>
-<p><img src="https://miro.medium.com/max/1400/1*jhi5uOm9PvZfmxvfaCektw.png" alt=""><br>
-<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> GRU 架構圖</p>
-<h1 id="參考">參考</h1>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p><a href="https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9">Illustrated Guide to Recurrent Neural Networks</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2" role="doc-endnote">
-<p><a href="https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21">Illustrated Guide to LSTM’s and GRU’s: A step by step explanation</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
 ]]></content></item><item><title>社群網路筆記 2</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</guid><description>社群網路的圖的定義 Node - 點, 個人 Edge - 邊, 人與人的關係 Undirected graph and directed graph undirected graph - 邊沒有特定方向 directed graph - 邊具有方向性 Adjacency matrix - 用矩陣來表達圖的關係, 1 代表有連接,</description><content type="html"><![CDATA[<h1 id="社群網路的圖的定義">社群網路的圖的定義</h1>
 <ul>
 <li>Node - 點, 個人</li>
