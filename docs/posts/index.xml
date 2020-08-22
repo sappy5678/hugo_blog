@@ -1,4 +1,193 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 18 Jul 2020 13:55:38 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Elasticsearch 中文斷詞處理</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/elasticsearch/elasticsearch%E4%B8%AD%E6%96%87%E8%99%95%E7%90%86/</link><pubDate>Sat, 18 Jul 2020 13:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/elasticsearch/elasticsearch%E4%B8%AD%E6%96%87%E8%99%95%E7%90%86/</guid><description>目的 解決 elasticsearch 中，中文斷詞預設是 character-base 的斷詞方式 例如 今天天氣很好 應該要斷成 今天 天氣 很 好，而不是 elasticsearch 中的 今 天 天 氣 很 好 解法 中文斷詞目前最好的應該還是中研院</description><content type="html"><![CDATA[<h1 id="目的">目的</h1>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 22 Aug 2020 15:36:28 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>LSTM 心得</title><link>https://blog.sappy.tw/posts/meetup/cntug/gitops/</link><pubDate>Sat, 22 Aug 2020 15:36:28 +0000</pubDate><guid>https://blog.sappy.tw/posts/meetup/cntug/gitops/</guid><description>本篇是 CNTUG Meetups 的簡短心得 概念 所有環境的變動變動都在 git 發生並記錄在 git 能從 git 自動部屬 因此如果用是普通的 CI/CD ，在沒有人工介入修改行為一切都是用 git tigger 的情況</description><content type="html"><![CDATA[<p>本篇是 CNTUG Meetups 的簡短心得</p>
+<h1 id="概念">概念</h1>
+<ol>
+<li>所有環境的變動變動都在 git 發生並記錄在 git</li>
+<li>能從 git 自動部屬</li>
+</ol>
+<p>因此如果用是普通的 CI/CD ，在沒有人工介入修改行為一切都是用 git tigger 的情況下，應該也可以稱為 gitops</p>
+<h1 id="實作建議">實作建議</h1>
+<ol>
+<li>Application repo 跟 environment repo 分開</li>
+<li>push/pull base -&gt; 推薦使用 pull base
+<ul>
+<li>push base 跟傳統 CD 差不多，較不推薦使用</li>
+<li>pull base 推薦使用，自動化 process 放在 k8s 中，K8S 定期拉 git 上的環境設定，並自動更新環境，改 images tag 也會自動更新到 git 上的 env repo</li>
+</ul>
+</li>
+</ol>
+<h1 id="優點">優點</h1>
+<ul>
+<li>進退版方便</li>
+<li>確保環境一致，不會有人為修改</li>
+</ul>
+<h1 id="實作">實作</h1>
+<ul>
+<li>ArgoCD</li>
+<li>Flux</li>
+<li>Pulumi</li>
+</ul>
+<h2 id="argocd">ArgoCD</h2>
+<h3 id="特性">特性</h3>
+<ul>
+<li>原生做不到金絲雀部屬，要使用 argo rollout</li>
+<li>for K8S only</li>
+<li>pull base</li>
+<li>只觀察 git repo</li>
+<li>dex - 預設搭配作認證</li>
+<li>repo-server - 觀察 github</li>
+<li>可以部屬到多個 cluster</li>
+<li>能看到人為修改差異</li>
+<li>Redhat 推薦XD</li>
+<li>history 放在 CRD 裡面，因此 CRD 不能亂動</li>
+<li>會存資料在 CRD &amp; configMap</li>
+<li>講者認為 ArgoCD &gt; flux</li>
+</ul>
+<h2 id="flux">Flux</h2>
+<ul>
+<li>原生做不到金絲雀部屬</li>
+<li>pull base</li>
+<li>追蹤 git + docker images</li>
+<li>semver version or 時間 來判斷哪個 docker images 最新</li>
+</ul>
+<h1 id="其他">其他</h1>
+<h2 id="其他建議">其他建議</h2>
+<ol>
+<li>部屬在哪裡 -&gt; 看資安政策，一般來說 prod 去連 dev 比較不會被刁難， dev 去連 prod 比較會被刁難</li>
+<li>Docker images 不要用 latest 做命名</li>
+<li>k8s master 絕對絕對不能開 public internet</li>
+</ol>
+<h2 id="有趣問題">有趣問題</h2>
+<ul>
+<li>
+<p>使用 gitops，如果 running state 因為 HPA 把 replicas 變多(或少)時，上版後會不會被改回去？因為 deployment .yaml 裡面的 replicas 不會被 HPA 改到 -&gt; 不過講者說 gitops 有能力做到，這問題可被修正</p>
+</li>
+<li>
+<p>之前我用試著用程式回寫 git repo，結果造成無窮迴圈。 (git 觸發 jenkins 觸發 kubernetes 寫回 git 再觸發 jenkins 觸發 kubernetes ) -&gt; 講者說的回覆是開源幫你做完惹</p>
+</li>
+<li>
+<p>got it, 所以如果用經典的pipline來講 沒有人工介入修改行為一切都是用git tigger 所以也可以講 gitops XD -&gt; 講者說的回覆是說這是正確的</p>
+</li>
+</ul>
+]]></content></item><item><title>文獻管理軟體比較</title><link>https://blog.sappy.tw/posts/ai/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86%E8%BB%9F%E9%AB%94%E6%AF%94%E8%BC%83/</link><pubDate>Sat, 22 Aug 2020 15:33:56 +0000</pubDate><guid>https://blog.sappy.tw/posts/ai/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86%E8%BB%9F%E9%AB%94%E6%AF%94%E8%BC%83/</guid><description>文獻管理軟體比較 比較的時間以 2020/1/1 ~ 2020/1/5 的版本為主 前言 開始了研究生的生活後，陸陸續續使用了不同方法來管理文獻，但還是希望能穩定在一個軟體上，省去手</description><content type="html"><![CDATA[<h1 id="文獻管理軟體比較">文獻管理軟體比較</h1>
+<p>比較的時間以 2020/1/1 ~ 2020/1/5 的版本為主</p>
+<h1 id="前言">前言</h1>
+<p>開始了研究生的生活後，陸陸續續使用了不同方法來管理文獻，但還是希望能穩定在一個軟體上，省去手動的步驟。<br>
+經過了一段時間的比較後，終於誕生了這篇文章。</p>
+<h1 id="需求簡介">需求簡介</h1>
+<ol>
+<li>標註必須附著在 pdf 上 - 由於我本身喜歡在 pdf 上做註記，也希望未來若要更換軟體時能方便地把我的資料帶走，而我的筆記就應當是我的筆記，不能被鎖死在特定格式上</li>
+<li>取用文獻方便且正確（特別是在 arXiv 上的） - 由於我的領域很多時候會在 arXiv 上看到論文，因此要能夠正確的解析 arXiv 上的文獻，獲得正確的引用資訊外，也必須足夠方便把文獻放入管理軟體中，最好能一鍵解決</li>
+<li>跨平台 - 由於我習慣用 ipad 來閱讀論文，用 pc or mac 寫作，因此至少要能跨這三個平台</li>
+<li>便宜 - 因為我很窮ＱＡＱ</li>
+<li>可用偏好的 pdf 閱讀器閱讀及編輯 - 因為學校有提供 adobe pdf，而有些軟體內建的不是很好用</li>
+</ol>
+<h1 id="開始比較">開始比較</h1>
+<h2 id="參賽選手">參賽選手</h2>
+<ol>
+<li><a href="https://www.mendeley.com">Mendeley</a> - 之前使用的軟體</li>
+<li><a href="https://www.zotero.org/">Zotero</a> - 本次冠軍</li>
+<li><a href="https://endnote.com/">Endnote x9</a> - 老牌管理軟體</li>
+<li><a href="https://www.citavi.com/en">Citavi 6</a> - 功能強大</li>
+<li><a href="https://www.readcube.com/home">ReadCube</a> - 管理軟體新銳</li>
+</ol>
+<h2 id="第一輪淘汰">第一輪淘汰</h2>
+<ol>
+<li>Citavi 6 - 沒有跨平台</li>
+<li>Endnote x9 - 對 arXiv 支援不好</li>
+<li>ReadCube - 對 arXiv 支援不好 + 無法註記在 pdf 上</li>
+</ol>
+<h2 id="第二輪比較">第二輪比較</h2>
+<h3 id="mendeley">Mendeley</h3>
+<h4 id="優點">優點</h4>
+<ol>
+<li>龐大社群</li>
+<li>優秀的論文推薦功能</li>
+<li>對 arXiv 支援超好</li>
+<li>跨平台</li>
+</ol>
+<h4 id="缺點">缺點</h4>
+<ol>
+<li>不能直接標記在 pdf 上</li>
+<li>搜尋時，相同論文會出現多篇，引用、被引用次數不精確（跟 google scholar 相比）</li>
+<li>貴(相比 Zotero)</li>
+</ol>
+<h3 id="zotero">Zotero</h3>
+<h4 id="優點-1">優點</h4>
+<ol>
+<li>開源</li>
+<li>支持 plugin</li>
+<li>便宜（搭配 zotfile 服用）</li>
+<li>可直接標註在 pdf 上</li>
+<li>可自訂 pdf 檔名（zotfile）</li>
+</ol>
+<h4 id="缺點-1">缺點</h4>
+<ol>
+<li>對 arXiv 支援不佳（相比 Mendeley）</li>
+<li>沒有論文推薦功能</li>
+<li>不跨平台（iPad）</li>
+</ol>
+<h1 id="結論">結論</h1>
+<p>最終還是選定 Zotero + Zotfile 搭配使用
+下面來說明一下我自己的設定</p>
+<h1 id="zotero-設定">Zotero 設定</h1>
+<ol>
+<li>安裝 <a href="http://zotfile.com/">Zotfile</a></li>
+<li>取消自動快照
+<img src="https://images.sappy.tw/zotero/zotero-1.png" alt="zotero-1">
+<img src="https://images.sappy.tw/zotero/zotero-sync.png" alt="zotero-sync"></li>
+<li>修改連結目錄成為相對目錄，這是最重要的步驟，在此目錄下的所有檔案都會變成相對目錄，因此在不同電腦上只要設定正確，就都能成功開啟檔案
+<img src="https://images.sappy.tw/zotero/zotero-linked-file.png" alt="zotero-linked-file"></li>
+<li>設定 Zotfile，告知要把檔案幫去哪裡，要跟上面的相對路徑一樣
+<img src="https://images.sappy.tw/zotero/zotfile-config.png" alt="zotfile-config"></li>
+<li>傳送到 ipad - 個人感覺不是很必要，因為這只是把檔案放到雲端硬碟上的資料夾而已，如果第五步驟已經把檔案放在雲端硬碟中，那這步驟就可以略過，不過假若將來檔案多起來，或許就能用這功能，減少在雲端硬碟中一個個慢慢找的時間
+<img src="https://images.sappy.tw/zotero/zotfile-send-to-table.png" alt="zotfile-send-to-table"></li>
+<li>命名規則，這步驟很重要，我是 年_標題_作者 <code>{%y_}{%t_}{%a}</code> 這樣命名，也要用 collection 作為子資料夾來分大類 <code>/%s</code>
+<img src="https://images.sappy.tw/zotero/zotfile-rename.png" alt="zotfile-rename"></li>
+</ol>
+]]></content></item><item><title>LSTM 心得</title><link>https://blog.sappy.tw/posts/ai/nlp/lstm/</link><pubDate>Sat, 22 Aug 2020 15:33:45 +0000</pubDate><guid>https://blog.sappy.tw/posts/ai/nlp/lstm/</guid><description>RNN RNN 其本質上就是一個具狀態的 NN，他跟其他 NN 不同的地方就在於他多了一個輸入，表示上一個狀態(Hidden State) 如下圖所示 1 RNN 示意圖 RNN 缺點 而隨之帶</description><content type="html"><![CDATA[<h1 id="rnn">RNN</h1>
+<p>RNN 其本質上就是一個具狀態的 NN，他跟其他 NN 不同的地方就在於他多了一個輸入，表示上一個狀態(Hidden State)<br>
+如下圖所示</p>
+<p><img src="https://miro.medium.com/max/250/1*T_ECcHZWpjn0Ki4_4BEzow.gif" alt="RNN 示意圖"><br>
+<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> RNN 示意圖</p>
+<h2 id="rnn-缺點">RNN 缺點</h2>
+<p>而隨之帶來的問題即是梯度消失 or 爆炸的問題<br>
+因 RNN 在計算時，是以乘法為主，而乘法有一個特性，那就是很容易使數值太大或太小，
+例如 (1.01) 的 365 次方 會是 37.7834343329，
+而   (0.99) 的 365 次方 則是 0.02551796445，
+因此如果網路很深，句子很長，遇到太長句子時，在 Backward Propagation (反向傳播) 很容易使數字太大或太小，造成梯度爆炸或消失的問題，使越前面的句子，其參數很難被 RNN 更新的很好。
+也因此，越是前面的句子，越難被 RNN 所利用 (因為其參數更新不好)，也因此造成 RNN 僅能很好的利用靠近句子結尾的幾個字而已。<br>
+<img src="https://miro.medium.com/max/960/1*Ku54qmCryZVBaIc6g8rjGA.gif" alt="RNN 反向傳播 示意圖"><br>
+<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> RNN 反向傳播 示意圖</p>
+<h1 id="lstm">LSTM</h1>
+<p><img src="https://www.researchgate.net/profile/Savvas_Varsamopoulos/publication/329362532/figure/fig5/AS:699592479870977@1543807253596/Structure-of-the-LSTM-cell-and-equations-that-describe-the-gates-of-an-LSTM-cell_W640.jpg" alt=""><br>
+LSTM 架構圖 <a href="https://www.researchgate.net/publication/329362532_Designing_neural_network_based_decoders_for_surface_codes/figures?lo=1">出處</a></p>
+<p>那要怎麼解決呢? LSTM 提出的做法是透過多一個狀態來保存長距離訊息</p>
+<h2 id="lstm-結構">LSTM 結構</h2>
+<p>$\sigma$ 控制著資訊流過去的百分比 (0 ~ 1)<br>
+$tanh$ 則是代表資訊的數值 (-1 ~ 1)</p>
+<h3 id="forget-gate-最左邊的-sigma">Forget gate (最左邊的 $\sigma$)</h3>
+<p>從圖中可以很明顯的看出，<br>
+決定長距離訊息 C 有多少要用到</p>
+<h3 id="input-gate-中間的黃色-sigma--tanh">Input gate (中間的黃色 $\sigma\ &amp;\ tanh$)</h3>
+<p>決定多少短距離訊息要被更新到 C 裡面</p>
+<h3 id="output-gate最右邊的區域">Output gate(最右邊的區域)</h3>
+<p>決定什麼要進入隱藏狀態中</p>
+<h1 id="gru">GRU</h1>
+<p><img src="https://miro.medium.com/max/1400/1*jhi5uOm9PvZfmxvfaCektw.png" alt=""><br>
+<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> GRU 架構圖</p>
+<h1 id="參考">參考</h1>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9">Illustrated Guide to Recurrent Neural Networks</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21">Illustrated Guide to LSTM’s and GRU’s: A step by step explanation</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+]]></content></item><item><title>Elasticsearch 中文斷詞處理</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/elasticsearch/elasticsearch%E4%B8%AD%E6%96%87%E8%99%95%E7%90%86/</link><pubDate>Sat, 18 Jul 2020 13:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/elasticsearch/elasticsearch%E4%B8%AD%E6%96%87%E8%99%95%E7%90%86/</guid><description>目的 解決 elasticsearch 中，中文斷詞預設是 character-base 的斷詞方式 例如 今天天氣很好 應該要斷成 今天 天氣 很 好，而不是 elasticsearch 中的 今 天 天 氣 很 好 解法 中文斷詞目前最好的應該還是中研院</description><content type="html"><![CDATA[<h1 id="目的">目的</h1>
 <p>解決 elasticsearch 中，中文斷詞預設是 character-base 的斷詞方式<br>
 例如 <code>今天天氣很好</code> 應該要斷成 <code>今天 天氣 很 好</code>，而不是 elasticsearch 中的 <code>今 天 天 氣 很 好</code></p>
 <h1 id="解法">解法</h1>
@@ -1202,49 +1391,6 @@ player 同時下決策，且 player 之間的決策過程是獨立的</p>
 Subgame perfect equilibrium 是 Nash
 但 Nash 不一定是 Subgame perfect equilibrium</p>
 <p>QQAQQQQQQQQQQ</p>
-]]></content></item><item><title>LSTM 心得</title><link>https://blog.sappy.tw/posts/ai/nlp/lstm/</link><pubDate>Fri, 03 Apr 2020 16:46:30 +0000</pubDate><guid>https://blog.sappy.tw/posts/ai/nlp/lstm/</guid><description>RNN RNN 其本質上就是一個具狀態的 NN，他跟其他 NN 不同的地方就在於他多了一個輸入，表示上一個狀態(Hidden State) 如下圖所示 1 RNN 示意圖 RNN 缺點 而隨之帶</description><content type="html"><![CDATA[<h1 id="rnn">RNN</h1>
-<p>RNN 其本質上就是一個具狀態的 NN，他跟其他 NN 不同的地方就在於他多了一個輸入，表示上一個狀態(Hidden State)<br>
-如下圖所示</p>
-<p><img src="https://miro.medium.com/max/250/1*T_ECcHZWpjn0Ki4_4BEzow.gif" alt="RNN 示意圖"><br>
-<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> RNN 示意圖</p>
-<h2 id="rnn-缺點">RNN 缺點</h2>
-<p>而隨之帶來的問題即是梯度消失 or 爆炸的問題<br>
-因 RNN 在計算時，是以乘法為主，而乘法有一個特性，那就是很容易使數值太大或太小，
-例如 (1.01) 的 365 次方 會是 37.7834343329，
-而   (0.99) 的 365 次方 則是 0.02551796445，
-因此如果網路很深，句子很長，遇到太長句子時，在 Backward Propagation (反向傳播) 很容易使數字太大或太小，造成梯度爆炸或消失的問題，使越前面的句子，其參數很難被 RNN 更新的很好。
-也因此，越是前面的句子，越難被 RNN 所利用 (因為其參數更新不好)，也因此造成 RNN 僅能很好的利用靠近句子結尾的幾個字而已。<br>
-<img src="https://miro.medium.com/max/960/1*Ku54qmCryZVBaIc6g8rjGA.gif" alt="RNN 反向傳播 示意圖"><br>
-<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> RNN 反向傳播 示意圖</p>
-<h1 id="lstm">LSTM</h1>
-<p><img src="https://www.researchgate.net/profile/Savvas_Varsamopoulos/publication/329362532/figure/fig5/AS:699592479870977@1543807253596/Structure-of-the-LSTM-cell-and-equations-that-describe-the-gates-of-an-LSTM-cell_W640.jpg" alt=""><br>
-LSTM 架構圖 <a href="https://www.researchgate.net/publication/329362532_Designing_neural_network_based_decoders_for_surface_codes/figures?lo=1">出處</a></p>
-<p>那要怎麼解決呢? LSTM 提出的做法是透過多一個狀態來保存長距離訊息</p>
-<h2 id="lstm-結構">LSTM 結構</h2>
-<p>$\sigma$ 控制著資訊流過去的百分比 (0 ~ 1)<br>
-$tanh$ 則是代表資訊的數值 (-1 ~ 1)</p>
-<h3 id="forget-gate-最左邊的-sigma">Forget gate (最左邊的 $\sigma$)</h3>
-<p>從圖中可以很明顯的看出，<br>
-決定長距離訊息 C 有多少要用到</p>
-<h3 id="input-gate-中間的黃色-sigma--tanh">Input gate (中間的黃色 $\sigma\ &amp;\ tanh$)</h3>
-<p>決定多少短距離訊息要被更新到 C 裡面</p>
-<h3 id="output-gate最右邊的區域">Output gate(最右邊的區域)</h3>
-<p>決定什麼要進入隱藏狀態中</p>
-<h1 id="gru">GRU</h1>
-<p><img src="https://miro.medium.com/max/1400/1*jhi5uOm9PvZfmxvfaCektw.png" alt=""><br>
-<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> GRU 架構圖</p>
-<h1 id="參考">參考</h1>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p><a href="https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9">Illustrated Guide to Recurrent Neural Networks</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2" role="doc-endnote">
-<p><a href="https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21">Illustrated Guide to LSTM’s and GRU’s: A step by step explanation</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
 ]]></content></item><item><title>社群網路筆記 1</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_1/</link><pubDate>Tue, 31 Mar 2020 23:49:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_1/</guid><description>社群網路的重要理論 The small world property - 六度空間法則，任兩點之間平均過六格就能抵達對面 ?? 但是，在規模多大內才有效? Scale-free, power-law degree distributions - power law，所有點的 degree 分布圖，</description><content type="html"><![CDATA[<h1 id="社群網路的重要理論">社群網路的重要理論</h1>
 <ol>
 <li>The small world property - 六度空間法則，任兩點之間平均過六格就能抵達對面 ?? 但是，在規模多大內才有效?</li>
@@ -1396,82 +1542,6 @@ systemd-analyze blame</p>
 <li><a href="https://github.com/rime/plum">plum</a></li>
 <li><a href="https://github.com/rime/rime-bopomofo">rime-bopomofo</a></li>
 </ul>
-]]></content></item><item><title>文獻管理軟體比較</title><link>https://blog.sappy.tw/posts/ai/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86%E8%BB%9F%E9%AB%94%E6%AF%94%E8%BC%83/</link><pubDate>Sat, 04 Jan 2020 17:05:24 +0000</pubDate><guid>https://blog.sappy.tw/posts/ai/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86/%E6%96%87%E7%8D%BB%E7%AE%A1%E7%90%86%E8%BB%9F%E9%AB%94%E6%AF%94%E8%BC%83/</guid><description>文獻管理軟體比較 比較的時間以 2020/1/1 ~ 2020/1/5 的版本為主 前言 開始了研究生的生活後，陸陸續續使用了不同方法來管理文獻，但還是希望能穩定在一個軟體上，省去手</description><content type="html"><![CDATA[<h1 id="文獻管理軟體比較">文獻管理軟體比較</h1>
-<p>比較的時間以 2020/1/1 ~ 2020/1/5 的版本為主</p>
-<h1 id="前言">前言</h1>
-<p>開始了研究生的生活後，陸陸續續使用了不同方法來管理文獻，但還是希望能穩定在一個軟體上，省去手動的步驟。<br>
-經過了一段時間的比較後，終於誕生了這篇文章。</p>
-<h1 id="需求簡介">需求簡介</h1>
-<ol>
-<li>標註必須附著在 pdf 上 - 由於我本身喜歡在 pdf 上做註記，也希望未來若要更換軟體時能方便地把我的資料帶走，而我的筆記就應當是我的筆記，不能被鎖死在特定格式上</li>
-<li>取用文獻方便且正確（特別是在 arXiv 上的） - 由於我的領域很多時候會在 arXiv 上看到論文，因此要能夠正確的解析 arXiv 上的文獻，獲得正確的引用資訊外，也必須足夠方便把文獻放入管理軟體中，最好能一鍵解決</li>
-<li>跨平台 - 由於我習慣用 ipad 來閱讀論文，用 pc or mac 寫作，因此至少要能跨這三個平台</li>
-<li>便宜 - 因為我很窮ＱＡＱ</li>
-<li>可用偏好的 pdf 閱讀器閱讀及編輯 - 因為學校有提供 adobe pdf，而有些軟體內建的不是很好用</li>
-</ol>
-<h1 id="開始比較">開始比較</h1>
-<h2 id="參賽選手">參賽選手</h2>
-<ol>
-<li><a href="https://www.mendeley.com">Mendeley</a> - 之前使用的軟體</li>
-<li><a href="https://www.zotero.org/">Zotero</a> - 本次冠軍</li>
-<li><a href="https://endnote.com/">Endnote x9</a> - 老牌管理軟體</li>
-<li><a href="https://www.citavi.com/en">Citavi 6</a> - 功能強大</li>
-<li><a href="https://www.readcube.com/home">ReadCube</a> - 管理軟體新銳</li>
-</ol>
-<h2 id="第一輪淘汰">第一輪淘汰</h2>
-<ol>
-<li>Citavi 6 - 沒有跨平台</li>
-<li>Endnote x9 - 對 arXiv 支援不好</li>
-<li>ReadCube - 對 arXiv 支援不好 + 無法註記在 pdf 上</li>
-</ol>
-<h2 id="第二輪比較">第二輪比較</h2>
-<h3 id="mendeley">Mendeley</h3>
-<h4 id="優點">優點</h4>
-<ol>
-<li>龐大社群</li>
-<li>優秀的論文推薦功能</li>
-<li>對 arXiv 支援超好</li>
-<li>跨平台</li>
-</ol>
-<h4 id="缺點">缺點</h4>
-<ol>
-<li>不能直接標記在 pdf 上</li>
-<li>搜尋時，相同論文會出現多篇，引用、被引用次數不精確（跟 google scholar 相比）</li>
-<li>貴(相比 Zotero)</li>
-</ol>
-<h3 id="zotero">Zotero</h3>
-<h4 id="優點-1">優點</h4>
-<ol>
-<li>開源</li>
-<li>支持 plugin</li>
-<li>便宜（搭配 zotfile 服用）</li>
-<li>可直接標註在 pdf 上</li>
-<li>可自訂 pdf 檔名（zotfile）</li>
-</ol>
-<h4 id="缺點-1">缺點</h4>
-<ol>
-<li>對 arXiv 支援不佳（相比 Mendeley）</li>
-<li>沒有論文推薦功能</li>
-<li>不跨平台（iPad）</li>
-</ol>
-<h1 id="結論">結論</h1>
-<p>最終還是選定 Zotero + Zotfile 搭配使用
-下面來說明一下我自己的設定</p>
-<h1 id="zotero-設定">Zotero 設定</h1>
-<ol>
-<li>安裝 <a href="http://zotfile.com/">Zotfile</a></li>
-<li>取消自動快照
-<img src="https://images.sappy.tw/zotero/zotero-1.png" alt="zotero-1">
-<img src="https://images.sappy.tw/zotero/zotero-sync.png" alt="zotero-sync"></li>
-<li>修改連結目錄成為相對目錄，這是最重要的步驟，在此目錄下的所有檔案都會變成相對目錄，因此在不同電腦上只要設定正確，就都能成功開啟檔案
-<img src="https://images.sappy.tw/zotero/zotero-linked-file.png" alt="zotero-linked-file"></li>
-<li>設定 Zotfile，告知要把檔案幫去哪裡，要跟上面的相對路徑一樣
-<img src="https://images.sappy.tw/zotero/zotfile-config.png" alt="zotfile-config"></li>
-<li>傳送到 ipad - 個人感覺不是很必要，因為這只是把檔案放到雲端硬碟上的資料夾而已，如果第五步驟已經把檔案放在雲端硬碟中，那這步驟就可以略過，不過假若將來檔案多起來，或許就能用這功能，減少在雲端硬碟中一個個慢慢找的時間
-<img src="https://images.sappy.tw/zotero/zotfile-send-to-table.png" alt="zotfile-send-to-table"></li>
-<li>命名規則，這步驟很重要，我是 年_標題_作者 <code>{%y_}{%t_}{%a}</code> 這樣命名，也要用 collection 作為子資料夾來分大類 <code>/%s</code>
-<img src="https://images.sappy.tw/zotero/zotfile-rename.png" alt="zotfile-rename"></li>
-</ol>
 ]]></content></item><item><title>Docker 開發環境簡易教學</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/docker%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</link><pubDate>Sun, 29 Dec 2019 11:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/docker%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8/</guid><description>簡介 最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法 常駐 docker 並能連接上 terminal 用 {} 包起來代表變數 docker run -id {image} docker exec -it {id} bash 做 fuzz test</description><content type="html"><![CDATA[<h1 id="簡介">簡介</h1>
 <p>最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法</p>
 <h2 id="常駐-docker-並能連接上-terminal">常駐 docker 並能連接上 terminal</h2>
