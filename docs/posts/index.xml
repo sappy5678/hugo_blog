@@ -1,4 +1,72 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 22 Aug 2020 15:36:28 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>LSTM 心得</title><link>https://blog.sappy.tw/posts/meetup/cntug/gitops/</link><pubDate>Sat, 22 Aug 2020 15:36:28 +0000</pubDate><guid>https://blog.sappy.tw/posts/meetup/cntug/gitops/</guid><description>本篇是 CNTUG Meetups 的簡短心得 概念 所有環境的變動變動都在 git 發生並記錄在 git 能從 git 自動部屬 因此如果用是普通的 CI/CD ，在沒有人工介入修改行為一切都是用 git tigger 的情況</description><content type="html"><![CDATA[<p>本篇是 CNTUG Meetups 的簡短心得</p>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 07 Dec 2020 14:15:13 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>台積電求職心得</title><link>https://blog.sappy.tw/posts/%E6%B1%82%E8%81%B7/%E5%8F%B0%E7%A9%8D%E9%9B%BB/</link><pubDate>Mon, 07 Dec 2020 14:15:13 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E6%B1%82%E8%81%B7/%E5%8F%B0%E7%A9%8D%E9%9B%BB/</guid><description>目錄 目錄 流程 程式上機考 Interview Mocha 性向測驗 英文測驗 主管面試 竹科 南科 人資面試 本篇簡單記錄了我在 109 年 12 月初到台積電求職 IT Engineer (預聘) 的過程 流程 台積電應徵流</description><content type="html"><![CDATA[<h1 id="目錄">目錄</h1>
+<ul>
+<li><a href="#%E7%9B%AE%E9%8C%84">目錄</a></li>
+<li><a href="#%E6%B5%81%E7%A8%8B">流程</a></li>
+<li><a href="#%E7%A8%8B%E5%BC%8F%E4%B8%8A%E6%A9%9F%E8%80%83">程式上機考</a></li>
+<li><a href="#interview-mocha">Interview Mocha</a></li>
+<li><a href="#%E6%80%A7%E5%90%91%E6%B8%AC%E9%A9%97">性向測驗</a></li>
+<li><a href="#%E8%8B%B1%E6%96%87%E6%B8%AC%E9%A9%97">英文測驗</a></li>
+<li><a href="#%E4%B8%BB%E7%AE%A1%E9%9D%A2%E8%A9%A6">主管面試</a>
+<ul>
+<li><a href="#%E7%AB%B9%E7%A7%91">竹科</a></li>
+<li><a href="#%E5%8D%97%E7%A7%91">南科</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%BA%E8%B3%87%E9%9D%A2%E8%A9%A6">人資面試</a></li>
+</ul>
+<p>本篇簡單記錄了我在 109 年 12 月初到台積電求職 IT Engineer (預聘) 的過程</p>
+<h1 id="流程">流程</h1>
+<p>台積電應徵流程主要分成下面幾個部分</p>
+<ol>
+<li>程式上機考 - 此為Coding測驗，適合對程式開發、測試、與應用有興趣者</li>
+<li>Interview Mocha - 此為資訊基礎架構測驗，適合對網路、資料庫、Cloud與Big Data環境建置有興趣者</li>
+<li>性向測驗</li>
+<li>英文測驗</li>
+<li>主管面試</li>
+<li>人資面試</li>
+</ol>
+<h1 id="程式上機考">程式上機考</h1>
+<p>台積電使用 hackrank 這套系統，題目有三題，限制時間是 90 分鐘，可以使用任何語言跟該語言內建的函式庫(例如可以直接用 sort，除非題目有特別說明)<br>
+難易度大概是一題 easy，兩題 medium (leetcode 難度)，我因為沒有刷 leetcode 及 BFS 有點生疏了，導致這邊只拿到 1.5 題</p>
+<h1 id="interview-mocha">Interview Mocha</h1>
+<p>主要是考你資訊基礎，例如 OS、網路、資料庫、SQL、雲端計算、AI 等等<br>
+題目都蠻基礎的，SQL、雲端計算、AI 非常簡單，而 OS、網路、資料庫 我忘了不少，所以一半是靠猜的，但是應該也是很基礎的東西  。</p>
+<h1 id="性向測驗">性向測驗</h1>
+<p>都是選擇題，主要是看你在遇到問題時會怎麼應對，以及吸收新知的渴望程度，這邊就誠實填寫就好，我朋友有說，如果面試主管發現你性向測驗跟你履歷不太符合的時候，就可能會挑出來問。。</p>
+<h1 id="英文測驗">英文測驗</h1>
+<p>我用我渣渣的 TOEIC 成績單(615)抵免，所以免試。</p>
+<h1 id="主管面試">主管面試</h1>
+<p>預聘的話都會在竹科面試，而我是因為朋友的推薦，才又得到一個南科面試的機會</p>
+<h2 id="竹科">竹科</h2>
+<p>一進去有兩個主管，分別是管理基礎設施的團隊，還有工廠內程式的開發團隊，不過面試官跟進去後的主管不一定是同一個團隊的。<br>
+一開始會先要求你自我介紹，而後他們會從履歷中問感興趣的問題。<br>
+我一開始是被問到我怎麼用 ELK 做分析，主管會希望你講越詳細越好(例如打哪個 API)。</p>
+<p>第二個問題是關於 API 的設計，你覺得你之前用過的某個開源程式，他 API 的設計如何，還有他使用上遇到的困難等等，這邊我回答得不是很好，因為我那時候最大的困難就是環境架設，所以我也就回答這樣而已，但現在想來，主管還是想要求回答得更加具體。</p>
+<p>第三個問題是，你的主管讓你使用新/舊的技術，但你認為舊的或新的技術比較適合的時候，你會怎麼說服主管，我回答使用一個小 demo 以及說服身邊的人來說服主管，不過看的出來主管不是很滿意。</p>
+<p>之後他們會讓你提問題，因為最後一個問題是新舊技術的取捨，以及聽說台積有用到 Flutter 跟 Serverless，因此讓我有點好奇台積電內部的基礎設施是怎麼演化的，然後也大概知道他們是從 裸機 -&gt; VM -&gt; 微軟的某個服務 -&gt; Kubernetes 的變化，不過這變化其實就是遇到問題，然後想辦法克服的過程，他們也說，這些變化讓他們的流程大幅加快，Issue 從進來到部屬上線可能只需要不到 24 小時，行政流程也從幾個禮拜的層層批閱，進步到一天就能過關。</p>
+<p>最後我問說我的缺點在哪邊，他們的看法是</p>
+<ol>
+<li>太過重視技術，但台積會比較想要能用技術解決問題的人</li>
+<li>技術細節沒有說得很清楚</li>
+</ol>
+<p>個人認為我這次面試不太好QQ</p>
+<h2 id="南科">南科</h2>
+<p>一進去有一個主管，南科聽起來是做兩部分，一個是把生產機器上的感應器資料拉出來(感覺就是手工活)，一個是維運，兩者都要 on call，跟竹科一樣，面試官跟進去後的主管不一定是同一個團隊的。<br>
+一樣一開始會先要求你自我介紹，而後他們會從履歷中問感興趣的問題。</p>
+<p>我主要是被問到怎麼使用 GCP、Kubernetes、ELK、CI/CD 等等，剛好最近我正在使用這些，就說了一下我最近用來做什麼，跟竹科比，更像是純粹聊天XD<br>
+例如用過 GCP 的那些服務，Kubernetes 的環境(雲端還是地端，地端怎麼架設的)，怎麼用 Elasticsearch 分析文字資料，CI/CD 用來做啥等等。</p>
+<p>之後主管介紹工作內容，南科聽起來是做兩部分，一個是把生產機器上的感應器資料拉出來(感覺就是手工活)，一個是維運，兩者都要 on call，上班時間是 8:30 ~ 7 or 8:00，然後你能問問題。</p>
+<p>我這次是問未來的發展性，不過主管的回答比較偏公司內部的發展，不是工程師生涯的發展，另一個問題則是他們怎麼引入新技術，主管是跟我說</p>
+<ol>
+<li>遇到問題，這問題用新技術解比較好</li>
+<li>準備 2、3 頁 ppt 跟主管簡報優缺點</li>
+<li>主管認為可行就小規模引入</li>
+<li>逐漸擴大規模</li>
+</ol>
+<h1 id="人資面試">人資面試</h1>
+<p>竹科跟南科好像共用，所以只由一次，他主要是問你寫在那應徵人員問卷上的問題，並且會問比較仔細，會通過一連串問題逐步深入，以及一些之外的問題，例如團隊內部衝突，你通常是怎麼解決的(我說我是個聆聽者)、時間有限，但內容做不完怎麼辦(我回答排定優先級)，還有你能不能接受加班等等。<br>
+我也認為我這次回答得不太好QQ</p>
+]]></content></item><item><title>GitOPs</title><link>https://blog.sappy.tw/posts/meetup/cntug/gitops/</link><pubDate>Sat, 22 Aug 2020 15:36:28 +0000</pubDate><guid>https://blog.sappy.tw/posts/meetup/cntug/gitops/</guid><description>本篇是 CNTUG Meetups 的簡短心得 概念 所有環境的變動變動都在 git 發生並記錄在 git 能從 git 自動部屬 因此如果用是普通的 CI/CD ，在沒有人工介入修改行為一切都是用 git tigger 的情況</description><content type="html"><![CDATA[<p>本篇是 CNTUG Meetups 的簡短心得</p>
 <h1 id="概念">概念</h1>
 <ol>
 <li>所有環境的變動變動都在 git 發生並記錄在 git</li>
@@ -499,25 +567,25 @@ social welfare 是 $\int_0^1w(x)dx$，當此值最大時，就是 social welfare
 <li>此時會買的人 x 在 0 &lt; x &lt; x*，當 x* 為 z 時，會是 self fulfilled</li>
 <li>所以 p* = r(z)f(z)</li>
 <li><img src="https://images.sappy.tw/Social_Network/Network_Effect/network_effect_example.jpg" alt="network_effect_example"></li>
-<li>當 p* 移動時， z&rsquo; z&rsquo;&rsquo; 也會跟著移動</li>
+<li>當 p* 移動時， z' z'' 也會跟著移動</li>
 </ul>
 </li>
 <li>
-<p>當 z 不在 0 z&rsquo; z&rsquo;&rsquo; 上時</p>
+<p>當 z 不在 0 z' z'' 上時</p>
 <ul>
-<li>0 &lt; z &lt; z&rsquo;， z 會 往 0 移動 (下降)</li>
-<li>z&rsquo; &lt; z &lt; z&rsquo;&rsquo; ， z 會往 z&rsquo;&rsquo; 移動 (上升)</li>
-<li>z &gt; z&rsquo;'，  z 會往 z&rsquo;&rsquo; 移動 (下降)</li>
+<li>0 &lt; z &lt; z'， z 會 往 0 移動 (下降)</li>
+<li>z' &lt; z &lt; z'' ， z 會往 z'' 移動 (上升)</li>
+<li>z &gt; z''，  z 會往 z'' 移動 (下降)</li>
 </ul>
 </li>
 <li>
-<p>z&rsquo; 是 unstable ，也就是創業門檻，過了門檻之後就會遠離 z&rsquo;，直奔 z&rsquo;&rsquo; ， 在 z&rsquo; 附近會遠離 z&rsquo;</p>
+<p>z' 是 unstable ，也就是創業門檻，過了門檻之後就會遠離 z'，直奔 z'' ， 在 z' 附近會遠離 z'</p>
 </li>
 <li>
-<p>z&rsquo;&rsquo; 是 stable ，也可說是市占率，在 z&rsquo;&rsquo; 附近會往 z&rsquo;&rsquo; 靠</p>
+<p>z'' 是 stable ，也可說是市占率，在 z'' 附近會往 z'' 靠</p>
 </li>
 <li>
-<p>降低 p* 可以使 z&rsquo; 降低，增加 z&rsquo;&rsquo;</p>
+<p>降低 p* 可以使 z' 降低，增加 z''</p>
 </li>
 </ul>
 <h3 id="不知道-z-的情況下作分析---gz">不知道 z 的情況下作分析 - g(z)</h3>
@@ -531,7 +599,7 @@ social welfare 是 $\int_0^1w(x)dx$，當此值最大時，就是 social welfare
 <li>$\hat{z}=r^{-1}(\frac{p^*}{f(z)})$</li>
 <li>定義 g(z)，輸入 z 時映射到真正會買的人數 $\hat{z}$，所以 g(z) 為
 <ul>
-<li>如 $\frac{p^*}{f(z)}&lt;=r(0)，g(z)=\hat{z}=r^{-1}(\frac{p^*}{f(z)})$</li>
+<li>如 $\frac{p^<em>}{f(z)}&lt;=r(0)，g(z)=\hat{z}=r^{-1}(\frac{p^</em>}{f(z)})$</li>
 <li>除此之外(p* 太大的情況下)， g(z) = 0</li>
 </ul>
 </li>
@@ -548,38 +616,38 @@ social welfare 是 $\int_0^1w(x)dx$，當此值最大時，就是 social welfare
 <h1 id="實際產品分析">實際產品分析</h1>
 <ul>
 <li>
-<p>如果 p* 很大，那 z&rsquo; 就會很大，因此幾乎不會有東西賣出去</p>
+<p>如果 p* 很大，那 z' 就會很大，因此幾乎不會有東西賣出去</p>
 </li>
 <li>
-<p>降低 p*，讓 z; 近乎於 0，這樣更容易跨過 z&rsquo;，且 z'&lsquo;也更大</p>
+<p>降低 p*，讓 z; 近乎於 0，這樣更容易跨過 z'，且 z'&lsquo;也更大</p>
 </li>
 <li>
-<p>社群屬性的產品創業要成功，就要跨過 z&rsquo;(tipping point z&rsquo;)</p>
+<p>社群屬性的產品創業要成功，就要跨過 z&rsquo;(tipping point z')</p>
 </li>
 <li>
-<p>一開始小量投入是無法做起來的，因為很難跨過 z&rsquo;</p>
+<p>一開始小量投入是無法做起來的，因為很難跨過 z'</p>
 </li>
 <li>
-<p>所以一開始就要燒錢(賠本賣等等)來跨過 z&rsquo;，之後把價格漲到能賺錢的地步</p>
+<p>所以一開始就要燒錢(賠本賣等等)來跨過 z'，之後把價格漲到能賺錢的地步</p>
 </li>
 <li>
 <p>或是用 fashion leader 來打響知名度(見 ch19)</p>
 </li>
 <li>
-<p>很多時候，產品成不成功是看誰先跨過 tipping point z&rsquo;，而不是誰品質比較好</p>
+<p>很多時候，產品成不成功是看誰先跨過 tipping point z'，而不是誰品質比較好</p>
 </li>
 </ul>
 <h2 id="social-optimality-with-network-effect">Social optimality with network effect</h2>
 <p>之前我們說， 沒有 network effect 時 ，z* 之前的顧客買就是 social optimality<br>
 但是，有 network effect 就不一定是這樣，因為如果強迫 [z*,z*+c) 的人去購買，雖然 [z*,z*+c) 這段會讓 social welfare 下降，但是因為 z*+c 這段會讓整體 network effect 上升，因此上升的可能比下降還多，因此可能會賺更多</p>
-<p>$r(x)f(z^*)-p^* &lt; r(x)f(z^*+c)-p^*$ - 這是單個顧客，要做積分才是 social welfare</p>
+<p>$r(x)f(z^<em>)-p^</em> &lt; r(x)f(z^<em>+c)-p^</em>$ - 這是單個顧客，要做積分才是 social welfare</p>
 <h1 id="mixing-individual-effect-with-population-level-effect">Mixing individual effect with population-level effect</h1>
 <p>有些多合一機器，除了 social effect 的功能之外，還有其他能獨立使用的功能，因此 social effect 為 0 時，整體的 Reservation price 不是 0<br>
 例如傳真機可以掃描文件等等</p>
 <ul>
 <li>$f(z) = 1+ az^2$，1 就是附加價值，讓 reservation price 在 z=0 時不為 0</li>
 <li>$r(x) = 1-x $</li>
-<li>$如 $r(0)&gt;=\frac{p^*}{f(z)}，則 g(z)=r^{-1}(\frac{p^*}{f(z)})$，否則 $g(z)=0$</li>
+<li>$如 $r(0)&gt;=\frac{p^<em>}{f(z)}，則 g(z)=r^{-1}(\frac{p^</em>}{f(z)})$，否則 $g(z)=0$</li>
 <li>$g(z) = 1-\frac{p^*}{1+az^2}$</li>
 </ul>
 <p><img src="https://images.sappy.tw/Social_Network/Network_Effect/mixing_example.jpg" alt="mixing_example"></p>
@@ -894,7 +962,7 @@ $P[主要藍色|抽到甚麼顏色]$ 的機率 大於 1/2 時，就應該猜藍�
 </ul>
 </li>
 </ul>
-]]></content></item><item><title>Kubernetes 筆記 - Knative</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_knative/</link><pubDate>Sat, 02 May 2020 13:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_knative/</guid><description>kubespray 按照上次安裝 istio 安裝 istioctl https://istio.io/docs/setup/getting-started/ 安裝 istio istioctl install https://istio.io/docs/setup/install/istioctl/ knative metalLB 安裝 https://metallb.universe.tf/installation/ 設定 Layer 2 (網路架構的L2) apiVersion:v1kind:ConfigMapmetadata:namespace:metallb-systemname:configdata:config:| address-pools:- name:defaultprotocol:layer2addresses:- 192.168.1.240-192.168.1.250# 多 ip- 192.168.1.240/32# 單 ip當設定成功後輸入 kubectl get service -n istio-system istio-ingre</description><content type="html"><![CDATA[<h1 id="kubespray">kubespray</h1>
+]]></content></item><item><title>Kubernetes 筆記 - Knative</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_knative/</link><pubDate>Sat, 02 May 2020 13:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_knative/</guid><description>kubespray 按照上次安裝 istio 安裝 istioctl https://istio.io/docs/setup/getting-started/ 安裝 istio istioctl install https://istio.io/docs/setup/install/istioctl/ knative metalLB 安裝 https://metallb.universe.tf/installation/ 設定 Layer 2 (網路架構的L2) apiVersion:v1kind:ConfigMapmetadata:namespace:metallb-systemname:configdata:config:|address-pools: - name: default protocol: layer2 addresses: - 192.168.1.240-192.168.1.250 # 多 ip - 192.168.1.240/32 # 單 ip 當設定成功後輸入 kubectl get service -n istio-system isti</description><content type="html"><![CDATA[<h1 id="kubespray">kubespray</h1>
 <p>按照上次安裝</p>
 <h1 id="istio">istio</h1>
 <h2 id="安裝-istioctl">安裝 istioctl</h2>
@@ -907,20 +975,20 @@ $P[主要藍色|抽到甚麼顏色]$ 的機率 大於 1/2 時，就應該猜藍�
 <h2 id="安裝">安裝</h2>
 <p><a href="https://metallb.universe.tf/installation/">https://metallb.universe.tf/installation/</a></p>
 <h2 id="設定-layer-2-網路架構的l2">設定 Layer 2 (網路架構的L2)</h2>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">apiVersion</span><span class="p">:</span><span class="w"> </span>v1<span class="w">
-</span><span class="w"></span><span class="k">kind</span><span class="p">:</span><span class="w"> </span>ConfigMap<span class="w">
-</span><span class="w"></span><span class="k">metadata</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">namespace</span><span class="p">:</span><span class="w"> </span>metallb-system<span class="w">
-</span><span class="w">  </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>config<span class="w">
-</span><span class="w"></span><span class="k">data</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">config</span><span class="p">:</span><span class="w"> </span><span class="sd">|
-</span><span class="sd">    address-pools:</span><span class="w">
-</span><span class="w">    </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>default<span class="w">
-</span><span class="w">      </span><span class="k">protocol</span><span class="p">:</span><span class="w"> </span>layer2<span class="w">
-</span><span class="w">      </span><span class="k">addresses</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="m">192.168.1.240-192.168.1.250</span><span class="w"> </span><span class="c"># 多 ip</span><span class="w">
-</span><span class="w">      </span>- <span class="m">192.168.1.240</span>/<span class="m">32</span><span class="w">  </span><span class="c"># 單 ip</span><span class="w">
-</span><span class="w">      
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ConfigMap</span><span class="w">
+</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">metallb-system</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">config</span><span class="w">
+</span><span class="w"></span><span class="nt">data</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">config</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span><span class="sd">    address-pools:
+</span><span class="sd">    - name: default
+</span><span class="sd">      protocol: layer2
+</span><span class="sd">      addresses:
+</span><span class="sd">      - 192.168.1.240-192.168.1.250 # 多 ip
+</span><span class="sd">      - 192.168.1.240/32  # 單 ip
+</span><span class="sd">      </span><span class="w">    
 </span></code></pre></div><p>當設定成功後輸入 <code>kubectl get service -n istio-system istio-ingressgateway</code>，便能看到EXTERNAL-IP從 PENDING 變成有 ip</p>
 ]]></content></item><item><title>社群網路筆記 Networks in Their Surrounding Contexts</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_network_with_context/</link><pubDate>Fri, 24 Apr 2020 20:23:30 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_network_with_context/</guid><description>考慮 node 的 meta data，這會影響網路的演變 Homophily - 相似度 相似度越高，越容易相處在一起 要怎麼知道這個因素是否影響圖的連結 用 Homophily test Homophily test 跟純 random 比較，看看這因</description><content type="html"><![CDATA[<p>考慮 node 的 meta data，這會影響網路的演變</p>
 <h1 id="homophily---相似度">Homophily - 相似度</h1>
@@ -2001,7 +2069,7 @@ a. 到 <a href="https://packages.debian.org/jessie/amd64/libgstreamer-plugins-ba
 <p>Python 是個很口語化的程式語言
 如同你剛才所看到的</p>
 <pre><code class="language-python=" data-lang="python=">print(&quot;Hello World&quot;)
-</code></pre><p>便代表著印出 Hello World 這幾個單字, 當然, 中文也是OK的, 只要你將他包裹在 &quot;&rdquo; 兩個引號之中
+</code></pre><p>便代表著印出 Hello World 這幾個單字, 當然, 中文也是OK的, 只要你將他包裹在 &quot;&quot; 兩個引號之中
 便可以將他印出來, 現在換你來試試看</p>
 <!-- raw HTML omitted -->
 <h3 id="輸入">輸入</h3>
@@ -2018,7 +2086,7 @@ Python 常見以下幾種資料型態</p>
 <ul>
 <li>int (整數): 例如 0 1 2 &hellip;. , 也可以是負數, 像是 -598 -753 -1 之類的</li>
 <li>float (浮點數): 也是我們所謂的小數點, 例如 3.1415926 123.999 -3.784 等等,要注意的是, 小數點會有誤差, 所以使用時要特別小心</li>
-<li>string (字串): 例如我們一開始的 &ldquo;Hello World&rdquo; 或者是 &ldquo;Input&rdquo; 等等, 這裡要注意的是,字串都要用 &quot;&rdquo; 兩個引號包起來, 而且你所有的 input() 的值, 都會被當成字串看待</li>
+<li>string (字串): 例如我們一開始的 &ldquo;Hello World&rdquo; 或者是 &ldquo;Input&rdquo; 等等, 這裡要注意的是,字串都要用 &quot;&quot; 兩個引號包起來, 而且你所有的 input() 的值, 都會被當成字串看待</li>
 <li>bool (布林): 他只有兩個值, True 和 False, 常用來作為條件判斷用</li>
 <li>list (列表): 用來同時存放很多資料的型態, 類似於數學上的矩陣,之後會有更詳細的介紹</li>
 <li>tuple (元組): 跟 list 類似, 最大的不同在於這個是不能改變的, 之後會有更詳細的介紹</li>
