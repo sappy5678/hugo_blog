@@ -1,4 +1,5 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 07 Dec 2020 14:15:13 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>台積電求職心得</title><link>https://blog.sappy.tw/posts/%E6%B1%82%E8%81%B7/%E5%8F%B0%E7%A9%8D%E9%9B%BB/</link><pubDate>Mon, 07 Dec 2020 14:15:13 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E6%B1%82%E8%81%B7/%E5%8F%B0%E7%A9%8D%E9%9B%BB/</guid><description>目錄 目錄 流程 程式上機考 Interview Mocha 性向測驗 英文測驗 主管面試 竹科 南科 人資面試 本篇簡單記錄了我在 109 年 12 月初到台積電求職 IT Engineer (預聘) 的過程 流程 台積電應徵流</description><content type="html"><![CDATA[<h1 id="目錄">目錄</h1>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 04 Nov 2021 17:05:24 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>文件夾測試</title><link>https://blog.sappy.tw/posts/ai_deploy/ttt/</link><pubDate>Thu, 04 Nov 2021 17:05:24 +0000</pubDate><guid>https://blog.sappy.tw/posts/ai_deploy/ttt/</guid><description>文獻管理軟體比較 比較的時間以 2020/1/1 ~ 2020/1/5 的版本為主</description><content type="html">&lt;h1 id="文獻管理軟體比較">文獻管理軟體比較&lt;/h1>
+&lt;p>比較的時間以 2020/1/1 ~ 2020/1/5 的版本為主&lt;/p></content></item><item><title>台積電求職心得</title><link>https://blog.sappy.tw/posts/%E6%B1%82%E8%81%B7/%E5%8F%B0%E7%A9%8D%E9%9B%BB/</link><pubDate>Mon, 07 Dec 2020 14:15:13 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E6%B1%82%E8%81%B7/%E5%8F%B0%E7%A9%8D%E9%9B%BB/</guid><description>目錄 目錄 流程 程式上機考 Interview Mocha 性向測驗 英文測驗 主管面試 竹科 南科 人資面試 本篇簡單記錄了我在 109 年 12 月初到台積電求職 IT Engineer (預聘) 的過程 流程 台積電應徵流</description><content type="html"><![CDATA[<h1 id="目錄">目錄</h1>
 <ul>
 <li><a href="#%E7%9B%AE%E9%8C%84">目錄</a></li>
 <li><a href="#%E6%B5%81%E7%A8%8B">流程</a></li>
@@ -248,10 +249,10 @@ $tanh$ 則是代表資訊的數值 (-1 ~ 1)</p>
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p><a href="https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9">Illustrated Guide to Recurrent Neural Networks</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9">Illustrated Guide to Recurrent Neural Networks</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p><a href="https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21">Illustrated Guide to LSTM’s and GRU’s: A step by step explanation</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21">Illustrated Guide to LSTM’s and GRU’s: A step by step explanation</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
@@ -264,7 +265,7 @@ $tanh$ 則是代表資訊的數值 (-1 ~ 1)</p>
 目前我們是自行撰寫一支 Python 程式來用 CKIPtagger 做斷詞，斷好的結果再放在 Document 中 POST 到 Elasticsearch，選擇這樣做是因為做起來比較靈活，可以自由修改處理過程，也不用擔心改版的時候 plugin 不能用<br>
 為了之後能繼續存取原始資料來做分析或其他用途，我們是存成兩份資料，一份原始資料，一份是斷詞斷完的資料<br>
 大概長得像下面這樣</p>
-<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
     <span class="nt">&#34;origin&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
     <span class="nt">&#34;token&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
 <span class="p">}</span>
@@ -906,7 +907,7 @@ $P[主要藍色|抽到甚麼顏色]$ 的機率 大於 1/2 時，就應該猜藍�
 <li><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl">安裝 kubeadm-kubelet-and-kubectl</a></li>
 <li>這一步的 10.10.* 換成cluster 的 ip <code>declare -a IPS=(10.10.1.3 10.10.1.4 10.10.1.5)</code></li>
 <li>在 hosts.yaml 設定 ansible_port
-<pre><code>node1:
+<pre tabindex="0"><code>node1:
    ansible_host: 140.114.77.150
    ansible_port: 2222
    ip: 140.114.77.150
@@ -975,7 +976,7 @@ $P[主要藍色|抽到甚麼顏色]$ 的機率 大於 1/2 時，就應該猜藍�
 <h2 id="安裝">安裝</h2>
 <p><a href="https://metallb.universe.tf/installation/">https://metallb.universe.tf/installation/</a></p>
 <h2 id="設定-layer-2-網路架構的l2">設定 Layer 2 (網路架構的L2)</h2>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
 </span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ConfigMap</span><span class="w">
 </span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">metallb-system</span><span class="w">
@@ -1148,7 +1149,7 @@ B 也有機會過濾訊息 - social &ldquo;gatekeeping&rdquo;</p>
 <li>cultural - 文化</li>
 </ul>
 ]]></content></item><item><title>批次 ppt 轉 pdf</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/%E6%89%B9%E6%AC%A1ppt%E8%BD%89pdf/</link><pubDate>Fri, 24 Apr 2020 13:58:34 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/%E6%89%B9%E6%AC%A1ppt%E8%BD%89pdf/</guid><description>網路上的 powershell 程式碼，並修改了一下，使之能在最新版的 powershell + MS ppt 使用 # Batch convert all .ppt/.pptx files encountered in folder and all its subfolders # The produced PDF files are stored in the invocation folder # # Adapted from http://stackoverflow.com/questions/16534292/basic-powershell-batch-convert-word-docx-to-pdf # Thanks to MFT, takabanana, ComFreek # # If PowerShell exits</description><content type="html"><![CDATA[<p>網路上的 powershell 程式碼，並修改了一下，使之能在最新版的 powershell + MS ppt 使用</p>
-<div class="highlight"><pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="c"># Batch convert all .ppt/.pptx files encountered in folder and all its subfolders</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="c"># Batch convert all .ppt/.pptx files encountered in folder and all its subfolders</span>
 <span class="c"># The produced PDF files are stored in the invocation folder</span>
 <span class="c">#</span>
 <span class="c"># Adapted from http://stackoverflow.com/questions/16534292/basic-powershell-batch-convert-word-docx-to-pdf</span>
@@ -1165,7 +1166,7 @@ B 也有機會過濾訊息 - social &ldquo;gatekeeping&rdquo;</p>
 <span class="c"># Create a PowerPoint object</span>
 <span class="nv">$ppt_app</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">-ComObject</span> <span class="n">powerpoint</span><span class="p">.</span><span class="n">application</span>
 <span class="c"># Get all objects of type .ppt? in $curr_path and its subfolders</span>
-<span class="nb">Get-ChildItem</span> <span class="n">-Path</span> <span class="nv">$curr_path</span> <span class="n">-Recurse</span> <span class="n">-Filter</span> <span class="p">*.</span><span class="n">ppt</span><span class="p">?</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span>
+<span class="nb">Get-ChildItem</span> <span class="n">-Path</span> <span class="nv">$curr_path</span> <span class="n">-Recurse</span> <span class="n">-Filter</span> <span class="p">*.</span><span class="n">ppt</span><span class="p">?</span> <span class="p">|</span> <span class="nb">ForEach-Object</span> <span class="p">{</span>
     <span class="nb">Write-Host</span> <span class="s2">&#34;Processing&#34;</span> <span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span> <span class="s2">&#34;...&#34;</span>
     <span class="c"># Open it in PowerPoint</span>
     <span class="nv">$document</span> <span class="p">=</span> <span class="nv">$ppt_app</span><span class="p">.</span><span class="n">Presentations</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span><span class="p">)</span>
@@ -1499,11 +1500,11 @@ Homophily - 相似度</p>
 <li>打開 terminus，在 terminus 的設定 -&gt; 外觀 -&gt; 字體上選擇字體</li>
 </ol>
 <p>開機</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">qemu-img create -f qcow2 1.qcow2 40G
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">qemu-img create -f qcow2 1.qcow2 40G
 
 qemu-system-x86_64 --enable-kvm -hda 1.qcow2 -m <span class="m">1024</span> -net nic,model<span class="o">=</span>virtio -net user,hostfwd<span class="o">=</span>tcp::2223-:22 -cdrom ../ubuntu-16.04.6-desktop-amd64.iso -vga std -cpu host -smp 4,cores<span class="o">=</span>4,threads<span class="o">=</span>1,sockets<span class="o">=</span>4,maxcpus<span class="o">=</span><span class="m">16</span> -boot <span class="nv">strict</span><span class="o">=</span>on
 </code></pre></div><p>alpine</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">qemu-img create -f qcow2 1.qcow2 40G
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">qemu-img create -f qcow2 1.qcow2 40G
 
 qemu-system-x86_64 --enable-kvm -hda 1.qcow2 -m <span class="m">1024</span> -net nic,model<span class="o">=</span>virtio -net user,hostfwd<span class="o">=</span>tcp::2223-:22 -cdrom alpine-virt-3.11.5-x86_64.iso -vga std -cpu host -smp 4,cores<span class="o">=</span>4,threads<span class="o">=</span>1,sockets<span class="o">=</span>4,maxcpus<span class="o">=</span><span class="m">16</span> -boot <span class="nv">strict</span><span class="o">=</span>on
 
@@ -1511,15 +1512,15 @@ https://wiki.alpinelinux.org/wiki/Alpine_Install:_from_a_disc_to_a_virtualbox_ma
 
 
 </code></pre></div><p>必要安裝</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt install openssh-server
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install openssh-server
 
 sudo sed -i <span class="s1">&#39;s/APT::Periodic::Update-Package-Lists &#34;1&#34;/APT::Periodic::Update-Package-Lists &#34;0&#34;/&#39;</span> /etc/apt/apt.conf.d/20auto-upgrades
 
 </code></pre></div><p>安裝 tensorflow
 &ndash;no-cache-dir tensorflow 是為了修正 memory error 的 bug</p>
-<pre><code>pip3 install --no-cache-dir tensorflow
+<pre tabindex="0"><code>pip3 install --no-cache-dir tensorflow
 </code></pre><p>編譯 kernel</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">uname -r
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">uname -r
 
 mkdir kernel
 <span class="nb">cd</span> kernel
@@ -1561,7 +1562,7 @@ uname -r
 systemd-analyze 
 
 </code></pre></div><p>compiler</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt install software-properties-common
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install software-properties-common
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt update
 sudo apt install gcc-9 g++-9
@@ -1614,26 +1615,26 @@ systemd-analyze blame</p>
 <p>最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法</p>
 <h2 id="常駐-docker-並能連接上-terminal">常駐 docker 並能連接上 terminal</h2>
 <p>用 {} 包起來代表變數</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker run -id <span class="o">{</span>image<span class="o">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">docker run -id <span class="o">{</span>image<span class="o">}</span>
 
 docker <span class="nb">exec</span> -it <span class="o">{</span>id<span class="o">}</span> bash
 </code></pre></div><h2 id="做-fuzz-test">做 fuzz test</h2>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker run -id --ulimit <span class="nv">core</span><span class="o">=</span>-1 --privileged <span class="o">{</span>image<span class="o">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">docker run -id --ulimit <span class="nv">core</span><span class="o">=</span>-1 --privileged <span class="o">{</span>image<span class="o">}</span>
 </code></pre></div><p><a href="https://ephrain.net/docker-%E5%9C%A8-container-%E8%A3%A1%E8%A8%AD%E5%AE%9A-core-dump-%E7%9A%84%E6%AA%94%E6%A1%88%E5%90%8D%E7%A8%B1%E6%A0%BC%E5%BC%8F/">參考</a></p>
 <h2 id="打包現有環境到新-image">打包現有環境到新 image</h2>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker commit <span class="o">{</span>old_running_docker<span class="o">}</span> <span class="o">{</span>newimagename<span class="o">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">docker commit <span class="o">{</span>old_running_docker<span class="o">}</span> <span class="o">{</span>newimagename<span class="o">}</span>
 </code></pre></div><p><a href="https://stackoverflow.com/questions/28302178/how-can-i-add-a-volume-to-an-existing-docker-container">參考</a></p>
 ]]></content></item><item><title>pyspark 小技巧</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/pyspark%E5%B0%8F%E6%8A%80%E5%B7%A7/</link><pubDate>Sat, 28 Dec 2019 14:06:02 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/pyspark%E5%B0%8F%E6%8A%80%E5%B7%A7/</guid><description>簡介 最近在弄 spark 時遇到一堆破事，特此紀錄 collect 很久，甚至沒反應 conf = SparkConf().setMaster(&amp;#34;local[*]&amp;#34;) \ .setAppName(&amp;#34;App_Name&amp;#34;) \ .set(&amp;#39;spark.executor.memory&amp;#39;, &amp;#39;4G&amp;#39;) \ .set(&amp;#39;spark.driver.memory&amp;#39;, &amp;#39;45G&amp;#39;) \ .set(&amp;#39;spark.driver.maxResultSize&amp;#39;, &amp;#39;10G&amp;#39;) self.sc = SparkContext(conf=conf) saveAsFile 很久，甚至沒反應 conf = SparkConf().setMaster(&amp;#34;local[*]&amp;#34;) \ .setAppName(&amp;#34;App_Name&amp;#34;) \ .set(&amp;#39;spark.executor.memory&amp;#39;, &amp;#39;4G&amp;#39;) \ .set(&amp;#39;spark.driver.memory&amp;#39;, &amp;#39;45G&amp;#39;) \ .set(&amp;#39;spark.driver.maxResultSize&amp;#39;, &amp;#39;10G&amp;#39;) self.sc =</description><content type="html"><![CDATA[<h1 id="簡介">簡介</h1>
 <p>最近在弄 spark 時遇到一堆破事，特此紀錄</p>
 <h2 id="collect-很久甚至沒反應">collect 很久，甚至沒反應</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">conf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">()</span><span class="o">.</span><span class="n">setMaster</span><span class="p">(</span><span class="s2">&#34;local[*]&#34;</span><span class="p">)</span> \
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">conf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">()</span><span class="o">.</span><span class="n">setMaster</span><span class="p">(</span><span class="s2">&#34;local[*]&#34;</span><span class="p">)</span> \
     <span class="o">.</span><span class="n">setAppName</span><span class="p">(</span><span class="s2">&#34;App_Name&#34;</span><span class="p">)</span> \
     <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;spark.executor.memory&#39;</span><span class="p">,</span> <span class="s1">&#39;4G&#39;</span><span class="p">)</span> \
     <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;spark.driver.memory&#39;</span><span class="p">,</span> <span class="s1">&#39;45G&#39;</span><span class="p">)</span> \
     <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;spark.driver.maxResultSize&#39;</span><span class="p">,</span> <span class="s1">&#39;10G&#39;</span><span class="p">)</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">sc</span> <span class="o">=</span> <span class="n">SparkContext</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">)</span>
 </code></pre></div><h2 id="saveasfile-很久甚至沒反應">saveAsFile 很久，甚至沒反應</h2>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">conf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">()</span><span class="o">.</span><span class="n">setMaster</span><span class="p">(</span><span class="s2">&#34;local[*]&#34;</span><span class="p">)</span> \
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">conf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">()</span><span class="o">.</span><span class="n">setMaster</span><span class="p">(</span><span class="s2">&#34;local[*]&#34;</span><span class="p">)</span> \
     <span class="o">.</span><span class="n">setAppName</span><span class="p">(</span><span class="s2">&#34;App_Name&#34;</span><span class="p">)</span> \
     <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;spark.executor.memory&#39;</span><span class="p">,</span> <span class="s1">&#39;4G&#39;</span><span class="p">)</span> \
     <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;spark.driver.memory&#39;</span><span class="p">,</span> <span class="s1">&#39;45G&#39;</span><span class="p">)</span> \
@@ -1651,7 +1652,7 @@ docker <span class="nb">exec</span> -it <span class="o">{</span>id<span class="o
 <ol>
 <li>
 <p>用管理員權限使用 emacs<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> 打開 /etc/rc.local</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo emacs /etc/rc.local
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo emacs /etc/rc.local
 </code></pre></div></li>
 <li>
 <p>加入下面兩行(請隨自己的設定改變)
@@ -1662,15 +1663,15 @@ docker <span class="nb">exec</span> -it <span class="o">{</span>id<span class="o
 <li>/home/$user_name/anaconda3/envs/DL3/bin/jupyter 則是你執行 jupyter 的位置，這裡是以 ubuntu 下的 anaconda 為例</li>
 <li>lab 跟 notebook 分別是執行 <a href="https://github.com/jupyterlab/jupyterlab">jupyter lab</a> 跟 <a href="http://jupyter.org/">jupyter notebook</a>，看個人需要使用</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">su <span class="nv">$user_name</span> -c <span class="s2">&#34;/home/</span><span class="nv">$user_name</span><span class="s2">/anaconda3/envs/DL3/bin/jupyter lab --no-browser;&#34;</span> <span class="p">&amp;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">su <span class="nv">$user_name</span> -c <span class="s2">&#34;/home/</span><span class="nv">$user_name</span><span class="s2">/anaconda3/envs/DL3/bin/jupyter lab --no-browser;&#34;</span> <span class="p">&amp;</span>
 su <span class="nv">$user_name</span> -c <span class="s2">&#34;/home/</span><span class="nv">$user_name</span><span class="s2">/anaconda3/envs/DL3/bin/jupyter notebook --port 8889 --no-browser;&#34;</span> <span class="p">&amp;</span>
 </code></pre></div><p>所以我是</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter lab --no-browser;&#34;</span> <span class="p">&amp;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter lab --no-browser;&#34;</span> <span class="p">&amp;</span>
 su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter notebook --port 8889 --no-browser;&#34;</span> <span class="p">&amp;</span>
 </code></pre></div></li>
 <li>
 <p>可以使用下面的指令來協助除錯，詳細可以看<a href="http://linux.vbird.org/linux_basic/0510osloader.php#rc.local">這篇文章</a></p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">systemctl status rc-local.service
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">systemctl status rc-local.service
 </code></pre></div></li>
 </ol>
 <h1 id="結論">結論</h1>
@@ -1684,7 +1685,7 @@ su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter not
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p>一種編輯器 <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>一種編輯器&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
@@ -1704,19 +1705,19 @@ su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter not
 </li>
 </ul>
 <p>這裡補充一些 Variable 的小東西</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">([</span><span class="mi">3</span><span class="p">]),</span> <span class="n">requires_grad</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">([</span><span class="mi">4</span><span class="p">]),</span> <span class="n">requires_grad</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">([</span><span class="mi">3</span><span class="p">]),</span> <span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">([</span><span class="mi">4</span><span class="p">]),</span> <span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 
 
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 
 <span class="n">d</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># a^2 + b</span>
 </code></pre></div><p>可以透過 算出 梯度</p>
-<pre><code class="language-pytohn" data-lang="pytohn">d.backward()
+<pre tabindex="0"><code class="language-pytohn" data-lang="pytohn">d.backward()
 print(a.grad)
 print(b.grad)
 </code></pre><p>輸出是</p>
-<pre><code class="language-output" data-lang="output">Variable containing:
+<pre tabindex="0"><code class="language-output" data-lang="output">Variable containing:
  6
 [torch.FloatTensor of size 1]
 
@@ -1724,10 +1725,10 @@ Variable containing:
  1
 [torch.FloatTensor of size 1]
 </code></pre><p>透過 grad_fn 可以看出計算圖(Computation Graph)長成甚麼樣子</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">grad_fn</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">grad_fn</span><span class="o">.</span><span class="n">next_functions</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">grad_fn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">grad_fn</span><span class="o">.</span><span class="n">next_functions</span><span class="p">)</span>
 </code></pre></div><p>輸出</p>
-<pre><code class="language-output" data-lang="output">&lt;AddBackward1 object at 0x7f73196e5eb8&gt;
+<pre tabindex="0"><code class="language-output" data-lang="output">&lt;AddBackward1 object at 0x7f73196e5eb8&gt;
 ((&lt;PowBackward0 object at 0x7f73196e5ba8&gt;, 0), (&lt;AccumulateGrad object at 0x7f73196e5b38&gt;, 0))
 </code></pre>]]></content></item><item><title>安裝 markdown-it</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/markdown-it-install/</link><pubDate>Sun, 04 Mar 2018 19:47:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/markdown-it-install/</guid><description>起因 由於發現預設的 render 功能有點少，因此換了一下 renderer 安裝 主要參考 Hexo 研究筆記 1 hexo-next 使用hexo-renderer-markdown-it 但是發現 markdonw-it 的套</description><content type="html"><![CDATA[<h1 id="起因">起因</h1>
 <p>由於發現預設的 render 功能有點少，因此換了一下 renderer</p>
@@ -1740,7 +1741,7 @@ Variable containing:
 <p>但是發現 markdonw-it 的套件已經很久沒更新了
 因此使用下面這行直接從 github 上安裝即可
 <code>npm install git+https://github.com/hexojs/hexo-renderer-markdown-it.git —save</code></p>
-]]></content></item><item><title>測試 markdown-it</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/markdown-it-test/</link><pubDate>Sun, 04 Mar 2018 18:46:32 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/markdown-it-test/</guid><description>markdown-it-footnote Footnote 1 link1. Footnote 2 link2. Inline footnote^[Text of inline footnote] definition. Duplicated footnote reference2. markdown-it-abbr This is HTML abbreviation example. It converts &amp;ldquo;HTML&amp;rdquo;, but keep intact partial entries like &amp;ldquo;xxxHTMLyyy&amp;rdquo; and so on. *[HTML]: Hyper Text Markup Language hexo-filter-github-emojis Hello✨Test 👽 Footnote can have markup and multiple paragraphs. &amp;#x21a9;&amp;#xfe0e; Footnote text. &amp;#x21a9;&amp;#xfe0e;</description><content type="html"><![CDATA[<h1 id="markdown-it-footnote">markdown-it-footnote</h1>
+]]></content></item><item><title>測試 markdown-it</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/markdown-it-test/</link><pubDate>Sun, 04 Mar 2018 18:46:32 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/markdown-it-test/</guid><description>markdown-it-footnote Footnote 1 link1. Footnote 2 link2. Inline footnote^[Text of inline footnote] definition. Duplicated footnote reference2. markdown-it-abbr This is HTML abbreviation example. It converts &amp;ldquo;HTML&amp;rdquo;, but keep intact partial entries like &amp;ldquo;xxxHTMLyyy&amp;rdquo; and so on. *[HTML]: Hyper Text Markup Language hexo-filter-github-emojis Hello✨Test 👽 Footnote can have markup and multiple paragraphs.&amp;#160;&amp;#x21a9;&amp;#xfe0e; Footnote text.&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description><content type="html"><![CDATA[<h1 id="markdown-it-footnote">markdown-it-footnote</h1>
 <p>Footnote 1 link<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
 <p>Footnote 2 link<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
 <p>Inline footnote^[Text of inline footnote] definition.</p>
@@ -1757,10 +1758,10 @@ It converts &ldquo;HTML&rdquo;, but keep intact partial entries like &ldquo;xxxH
 <ol>
 <li id="fn:1" role="doc-endnote">
 <p>Footnote <strong>can have markup</strong></p>
-<p>and multiple paragraphs. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>and multiple paragraphs.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p>Footnote text. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>Footnote text.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
@@ -1808,9 +1809,9 @@ It converts &ldquo;HTML&rdquo;, but keep intact partial entries like &ldquo;xxxH
 <p>cudnn 要手動安裝,所以先下載 tar 檔案,</p>
 <p>進到放著tar的資料夾</p>
 <p>用 下面指令解壓縮</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">tar -xzvf cudnn-9.0-linux-x64-v7.tgz
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">tar -xzvf cudnn-9.0-linux-x64-v7.tgz
 </code></pre></div><p>複製到目錄</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo cp cuda/include/cudnn.h /usr/local/cuda/include
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo cp cuda/include/cudnn.h /usr/local/cuda/include
 $ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 $ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 </code></pre></div><p>​</p>
@@ -1818,14 +1819,14 @@ $ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 <li>
 <p>到 <code>/usr/local/cuda/lib64</code> 底下</p>
 <p>使用下面指令, 創造一個軟連結 （因為 Tensorflow 使用 cudnn 6.0, 所以要用這方法把 讓它可以使用 libcudnn.so.6 這個檔案）</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">ln -s libcudnn.so.7.* libcudnn.so.6
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">ln -s libcudnn.so.7.* libcudnn.so.6
 </code></pre></div></li>
 <li>
 <p>用 pip 安裝 tensorflow with Gpu</p>
 </li>
 <li>
 <p>在 <code>~/.bashrc</code> 最底下加上</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">export</span> <span class="nv">CUDA_HOME</span><span class="o">=</span>/usr/local/cuda/
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">export</span> <span class="nv">CUDA_HOME</span><span class="o">=</span>/usr/local/cuda/
 <span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64&#34;</span>
 </code></pre></div></li>
 </ol>
@@ -1851,12 +1852,12 @@ $ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 以及<a href="http://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html">官方文件</a></p>
 <p>一開始我是先 按照 <a href="https://gist.github.com/MarcWang/0547f87cf777b6576275">How to install OpenCV 3.1 on Ubuntu 14.04 64bits</a> 安裝</p>
 <p>在下面這行遇到一些困難</p>
-<pre><code>sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
+<pre tabindex="0"><code>sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
 </code></pre><p>首先，libjasper-dev 已經被從 ubuntu 17 上移除了，所以我是透過 <a href="https://stackoverflow.com/a/44488374/4754280">這個方法</a> 來安裝 ubuntu 16 版的 libjasper-dev
 其次
 libpng12-dev 已經被 libpng12-0 所取代了，所以把上面的這部分換掉即可</p>
 <p>這裡說明一下比較會用到的編譯的參數( <a href="http://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html">官方文件</a> 上都找的到)</p>
-<pre><code>cmake -D CMAKE_BUILD_TYPE=RELEASE \
+<pre tabindex="0"><code>cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D CMAKE_INSTALL_PREFIX=/usr/local \
     -D INSTALL_C_EXAMPLES=OFF \
     -D INSTALL_PYTHON_EXAMPLES=ON \
@@ -1892,16 +1893,16 @@ libpng12-dev 已經被 libpng12-0 所取代了，所以把上面的這部分換�
 <li>切到 setting -&gt; Startup -&gt; Tasks -&gt; {cmd}</li>
 <li>最後面加入(D:\Data 可以換成你想要的路徑)</li>
 </ol>
-<pre><code>-new_console:d:&quot;D:\Data&quot;
+<pre tabindex="0"><code>-new_console:d:&quot;D:\Data&quot;
 </code></pre><h1 id="參考資料">參考資料</h1>
 <p><a href="http://zwindr.blogspot.tw/2016/01/cmder-setting-1.html">子風的知識庫</a></p>
 ]]></content></item><item><title>dpkg: error processing archive *</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/dpkg-fail/</link><pubDate>Sat, 19 Aug 2017 12:39:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/dpkg-fail/</guid><description>前提 在更新時遇到 dpkg: error processing archive /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb (--unpack): trying to overwrite '/usr/lib/python2.7/dist-packages/lldb', which is also in package python-lldb-4.0 1:4.0-1ubuntu1 看到網路上的解法 sudo dpkg --force-all -i /var/cache/apt/archives/linux-libc-dev_3.13.0-88.135_armhf.deb 於是稍微修改一下，變成 sudo dpkg --force-all -i /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb 就大功告成了</description><content type="html"><![CDATA[<h1 id="前提">前提</h1>
 <p>在更新時遇到</p>
-<pre><code>dpkg: error processing archive /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb (--unpack): trying to overwrite '/usr/lib/python2.7/dist-packages/lldb', which is also in package python-lldb-4.0 1:4.0-1ubuntu1
+<pre tabindex="0"><code>dpkg: error processing archive /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb (--unpack): trying to overwrite '/usr/lib/python2.7/dist-packages/lldb', which is also in package python-lldb-4.0 1:4.0-1ubuntu1
 </code></pre><p>看到網路上的<a href="https://github.com/dnschneid/crouton/issues/2631">解法</a></p>
-<pre><code>sudo dpkg --force-all -i /var/cache/apt/archives/linux-libc-dev_3.13.0-88.135_armhf.deb
+<pre tabindex="0"><code>sudo dpkg --force-all -i /var/cache/apt/archives/linux-libc-dev_3.13.0-88.135_armhf.deb
 </code></pre><p>於是稍微修改一下，變成</p>
-<pre><code>sudo dpkg --force-all -i /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb
+<pre tabindex="0"><code>sudo dpkg --force-all -i /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb
 </code></pre><p>就大功告成了</p>
 ]]></content></item><item><title>如何在github上建立gitlab的鏡像</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/gitlab-mirror-to-github/</link><pubDate>Tue, 15 Aug 2017 14:47:27 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/gitlab-mirror-to-github/</guid><description>起因 因為 gitlab 上相對於 github 的可玩性跟福利都比較大所以打算逐漸遷移過去, 然而由於 github 上使用的人數依然比較多, 便想說能不能在 github 上面建立一個 gitlab 的複製版 設定</description><content type="html"><![CDATA[<h1 id="起因">起因</h1>
 <p>因為 gitlab 上相對於 github 的可玩性跟福利都比較大所以打算逐漸遷移過去, 然而由於 github 上使用的人數依然比較多, 便想說能不能在 github 上面建立一個 gitlab 的複製版</p>
@@ -1944,19 +1945,19 @@ libpng12-dev 已經被 libpng12-0 所取代了，所以把上面的這部分換�
 這裡使用 CRAN 維護的版本</p>
 <p><!-- raw HTML omitted --><strong>注意!! 請選擇可信賴的外部團體維護的版本</strong><!-- raw HTML omitted --></p>
 <p>輸入下列指令</p>
-<pre><code>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+<pre tabindex="0"><code>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 </code></pre><p>你將會看到如下的輸出
 <img src="https://i.imgur.com/MxCrJIr.png" alt=""></p>
 <p>再來把套件來源加入到套件管理系統的列表中
 <!-- raw HTML omitted --><strong>請把最後的zesty換成你ubuntu的版本</strong><!-- raw HTML omitted -->
 請參考<a href="https://wiki.ubuntu.com/Releases">版本名稱對照表</a></p>
-<pre><code>sudo add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu zesty/'
+<pre tabindex="0"><code>sudo add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu zesty/'
 </code></pre><p>更新你的列表資訊</p>
-<pre><code>sudo apt-get update
+<pre tabindex="0"><code>sudo apt-get update
 </code></pre><p>如果成功你可能會看到如下輸出(get 後的數字不一定會一樣)
 <img src="https://i.imgur.com/C6jkVzl.png" alt=""></p>
 <p>最後就可以安裝R 了</p>
-<pre><code>sudo apt-get install r-base
+<pre tabindex="0"><code>sudo apt-get install r-base
 </code></pre><p>如果一切順利，沒有跑出錯誤的訊息那應該就代表你成功了(灑花花</p>
 <h1 id="第二步---安裝-rstudio">第二步 - 安裝 Rstudio</h1>
 <p>他有分成兩個版本</p>
@@ -1978,18 +1979,18 @@ a. <a href="https://www.rstudio.com/products/rstudio/download/">快速連結</a>
 a. <img src="https://i.imgur.com/fDVGiIx.png" alt=""></p>
 <p>b. 看你是 32 bit or 64 bit
 c. Command Line (小黑窗) 底下可以用底下的命令</p>
-<pre><code>wget 下載網址 
+<pre tabindex="0"><code>wget 下載網址 
 </code></pre></li>
 <li>
 <p>因為 RStudio 的新版本加入了兩個相依套件，所以要先安裝
 a. 到 <a href="https://packages.debian.org/jessie/amd64/libgstreamer-plugins-base0.10-0/download">https://packages.debian.org/jessie/amd64/libgstreamer-plugins-base0.10-0/download</a> ， 下載 libgstreamer-plugins-base0.10-0_0.10.36-2_amd64.deb</p>
 <p>b. 到  <a href="https://packages.debian.org/jessie/amd64/libgstreamer0.10-0/download">https://packages.debian.org/jessie/amd64/libgstreamer0.10-0/download</a> 下載 libgstreamer0.10-0_0.10.36-1.5_amd64.deb</p>
 <p>c.使用 sudo dpkg -i  剛剛下載的兩個套件名稱 安裝套件，大概長這樣 並補充一下，用tab鍵可以自動補全名稱，但是要在同一個目錄底下</p>
-<pre><code>sudo dpkg -i  libgstreamer-plugins-base0.10-0_0.10.36-2_amd64.deb libgstreamer0.10-0_0.10.36-1.5
+<pre tabindex="0"><code>sudo dpkg -i  libgstreamer-plugins-base0.10-0_0.10.36-2_amd64.deb libgstreamer0.10-0_0.10.36-1.5
 </code></pre><p>d. 安裝另外兩個相依套件</p>
-<pre><code>sudo apt install libjpeg62 libedit2
+<pre tabindex="0"><code>sudo apt install libjpeg62 libedit2
 </code></pre><p>e. 最後 安裝 Rstudio</p>
-<pre><code>sudo dpkg -i rstudio-1.0.143-amd64.deb
+<pre tabindex="0"><code>sudo dpkg -i rstudio-1.0.143-amd64.deb
 </code></pre><p><img src="https://i.imgur.com/TTSfnFF.png" alt=""></p>
 </li>
 </ol>
@@ -2011,13 +2012,13 @@ a. 到 <a href="https://packages.debian.org/jessie/amd64/libgstreamer-plugins-ba
 <ul>
 <li>如果出現這樣的錯誤訊息</li>
 </ul>
-<pre><code>layout: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.20' not found (required by layout)
+<pre tabindex="0"><code>layout: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.20' not found (required by layout)
 </code></pre><p>那麼請先<a href="https://askubuntu.com/a/582910">更新你的函式庫</a>
 如果你的 python 環境是 anaconda, 那麼<a href="https://askubuntu.com/a/786944">這樣更新</a></p>
 <ul>
 <li>路徑不正確  - 他的路徑是吃絕對路徑,所以要像是這樣子</li>
 </ul>
-<pre><code>  ;;; ycmd 的路徑
+<pre tabindex="0"><code>  ;;; ycmd 的路徑
   (set-variable 'ycmd-server-command '(&quot;python&quot; &quot;/home/sappy5678/emacs_setting/require_plugin/ycmd/ycmd/&quot;))
   ;;; 把要用的資料夾加入白名單
   (setq ycmd-extra-conf-whitelist '(&quot;~/hw/*&quot;))
@@ -2049,7 +2050,7 @@ a. 到 <a href="https://packages.debian.org/jessie/amd64/libgstreamer-plugins-ba
 </ul>
 <h3 id="中斷點條件">中斷點條件</h3>
 <p><a href="http://stackoverflow.com/questions/4183871/how-do-i-set-a-conditional-breakpoint-in-gdb-when-char-x-points-to-a-string-wh">by StackOverFlow</a></p>
-<pre><code>break x:20 if strcmp(y, &quot;hello&quot;) == 0
+<pre tabindex="0"><code>break x:20 if strcmp(y, &quot;hello&quot;) == 0
 </code></pre><p>20 是指行數, x 是可以是任何檔案名稱, 而 y 可以是任何變數</p>
 ]]></content></item><item><title>Python 簡略教學</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/python-%E7%B0%A1%E7%95%A5%E6%95%99%E5%AD%B8/</link><pubDate>Sun, 05 Mar 2017 10:39:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/python-%E7%B0%A1%E7%95%A5%E6%95%99%E5%AD%B8/</guid><description>安裝 請先到 Anaconda 安裝Anaconda (建議 Python 3.x 版本) 再來到 Pycharm 安裝 IDE (Community 版本是免費的) 安裝完成後, 打開 Pycharm 新增一個 .py 檔, 並輸入 print(&amp;ldquo;Hello World&amp;rdquo;), 之後執行看看, 看看有</description><content type="html"><![CDATA[<h1 id="安裝">安裝</h1>
 <ol>
@@ -2068,7 +2069,7 @@ a. 到 <a href="https://packages.debian.org/jessie/amd64/libgstreamer-plugins-ba
 <h3 id="輸出">輸出</h3>
 <p>Python 是個很口語化的程式語言
 如同你剛才所看到的</p>
-<pre><code class="language-python=" data-lang="python=">print(&quot;Hello World&quot;)
+<pre tabindex="0"><code class="language-python=" data-lang="python=">print(&quot;Hello World&quot;)
 </code></pre><p>便代表著印出 Hello World 這幾個單字, 當然, 中文也是OK的, 只要你將他包裹在 &quot;&quot; 兩個引號之中
 便可以將他印出來, 現在換你來試試看</p>
 <!-- raw HTML omitted -->
@@ -2136,16 +2137,16 @@ Generate static files $ hexo generate More info: Generating
 Deploy to remote sites $ hexo deploy More info: Deployment</description><content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="quick-start">Quick Start</h2>
 <h3 id="create-a-new-post">Create a new post</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ hexo new <span class="s2">&#34;My New Post&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ hexo new <span class="s2">&#34;My New Post&#34;</span>
 </code></pre></div><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="run-server">Run server</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ hexo server
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ hexo server
 </code></pre></div><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
 <h3 id="generate-static-files">Generate static files</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ hexo generate
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ hexo generate
 </code></pre></div><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
 <h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ hexo deploy
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ hexo deploy
 </code></pre></div><p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
 ]]></content></item><item><title>社群網路筆記 2</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</guid><description>社群網路的圖的定義 Node - 點, 個人 Edge - 邊, 人與人的關係 Undirected graph and directed graph undirected graph - 邊沒有特定方向 directed graph - 邊具有方向性 Adjacency matrix - 用矩陣來表達圖的關係, 1 代表有連接,</description><content type="html"><![CDATA[<h1 id="社群網路的圖的定義">社群網路的圖的定義</h1>
 <ul>
