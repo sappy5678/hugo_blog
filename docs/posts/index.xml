@@ -1,5 +1,23 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 04 Nov 2021 17:05:24 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>文件夾測試</title><link>https://blog.sappy.tw/posts/ai_deploy/ttt/</link><pubDate>Thu, 04 Nov 2021 17:05:24 +0000</pubDate><guid>https://blog.sappy.tw/posts/ai_deploy/ttt/</guid><description>文獻管理軟體比較 比較的時間以 2020/1/1 ~ 2020/1/5 的版本為主</description><content type="html">&lt;h1 id="文獻管理軟體比較">文獻管理軟體比較&lt;/h1>
-&lt;p>比較的時間以 2020/1/1 ~ 2020/1/5 的版本為主&lt;/p></content></item><item><title>台積電求職心得</title><link>https://blog.sappy.tw/posts/%E6%B1%82%E8%81%B7/%E5%8F%B0%E7%A9%8D%E9%9B%BB/</link><pubDate>Mon, 07 Dec 2020 14:15:13 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E6%B1%82%E8%81%B7/%E5%8F%B0%E7%A9%8D%E9%9B%BB/</guid><description>目錄 目錄 流程 程式上機考 Interview Mocha 性向測驗 英文測驗 主管面試 竹科 南科 人資面試 本篇簡單記錄了我在 109 年 12 月初到台積電求職 IT Engineer (預聘) 的過程 流程 台積電應徵流</description><content type="html"><![CDATA[<h1 id="目錄">目錄</h1>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 15 Nov 2021 15:33:45 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>NLP Transformers 模型部署</title><link>https://blog.sappy.tw/posts/ai/nlp/ai%E6%A8%A1%E5%9E%8B%E9%83%A8%E5%B1%AC/</link><pubDate>Mon, 15 Nov 2021 15:33:45 +0000</pubDate><guid>https://blog.sappy.tw/posts/ai/nlp/ai%E6%A8%A1%E5%9E%8B%E9%83%A8%E5%B1%AC/</guid><description>起因 畢業之後，在實驗室協助學長部屬要給聯合報使用的自然語言處理系統，由於速度過慢，因此首要任務便是提高模型的處理速度 常見的模型加速方法 使用更</description><content type="html"><![CDATA[<h1 id="起因">起因</h1>
+<p>畢業之後，在實驗室協助學長部屬要給聯合報使用的自然語言處理系統，由於速度過慢，因此首要任務便是提高模型的處理速度</p>
+<h1 id="常見的模型加速方法">常見的模型加速方法</h1>
+<ol>
+<li>使用更好的硬體(GPU、CPU(AVX512)、FPGA)</li>
+<li>使用專門的運行環境 (ONNX)</li>
+<li>調整推理方式(降低無用的計算)</li>
+</ol>
+<h1 id="我的解法">我的解法</h1>
+<p>使用 ONNX 及 支援 AVX512 的 CPU，並不使用 batch 計算，降低 batch 計算時出現的無用 padding</p>
+<h1 id="結果">結果</h1>
+<p>將模型的 throughput 提高 9 倍， latency 降低至原本的 1/6</p>
+<h1 id="參考資料">參考資料</h1>
+<ul>
+<li><a href="https://huggingface.co/blog/bert-cpu-scaling-part-1">Scaling up BERT-like model Inference on modern CPU - Part 1</a></li>
+<li><a href="https://huggingface.co/blog/bert-cpu-scaling-part-2">Scaling up BERT-like model Inference on modern CPU - Part 2</a></li>
+<li><a href="https://blog.roblox.com/2020/05/scaled-bert-serve-1-billion-daily-requests-cpus/">How We Scaled Bert To Serve 1+ Billion Daily Requests on CPUs - Roblox Blog</a></li>
+<li><a href="https://www.comet.ml/site/how-to-10x-throughput-when-serving-hugging-face-models-without-a-gpu/">How to 10x throughput when serving Hugging Face models without a GPU – Comet</a></li>
+</ul>
+]]></content></item><item><title>台積電求職心得</title><link>https://blog.sappy.tw/posts/%E6%B1%82%E8%81%B7/%E5%8F%B0%E7%A9%8D%E9%9B%BB/</link><pubDate>Mon, 07 Dec 2020 14:15:13 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E6%B1%82%E8%81%B7/%E5%8F%B0%E7%A9%8D%E9%9B%BB/</guid><description>目錄 目錄 流程 程式上機考 Interview Mocha 性向測驗 英文測驗 主管面試 竹科 南科 人資面試 本篇簡單記錄了我在 109 年 12 月初到台積電求職 IT Engineer (預聘) 的過程 流程 台積電應徵流</description><content type="html"><![CDATA[<h1 id="目錄">目錄</h1>
 <ul>
 <li><a href="#%E7%9B%AE%E9%8C%84">目錄</a></li>
 <li><a href="#%E6%B5%81%E7%A8%8B">流程</a></li>
@@ -226,7 +244,7 @@
 因此如果網路很深，句子很長，遇到太長句子時，在 Backward Propagation (反向傳播) 很容易使數字太大或太小，造成梯度爆炸或消失的問題，使越前面的句子，其參數很難被 RNN 更新的很好。
 也因此，越是前面的句子，越難被 RNN 所利用 (因為其參數更新不好)，也因此造成 RNN 僅能很好的利用靠近句子結尾的幾個字而已。<br>
 <img src="https://miro.medium.com/max/960/1*Ku54qmCryZVBaIc6g8rjGA.gif" alt="RNN 反向傳播 示意圖"><br>
-<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> RNN 反向傳播 示意圖</p>
+<sup id="fnref1:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> RNN 反向傳播 示意圖</p>
 <h1 id="lstm">LSTM</h1>
 <p><img src="https://www.researchgate.net/profile/Savvas_Varsamopoulos/publication/329362532/figure/fig5/AS:699592479870977@1543807253596/Structure-of-the-LSTM-cell-and-equations-that-describe-the-gates-of-an-LSTM-cell_W640.jpg" alt=""><br>
 LSTM 架構圖 <a href="https://www.researchgate.net/publication/329362532_Designing_neural_network_based_decoders_for_surface_codes/figures?lo=1">出處</a></p>
@@ -245,17 +263,17 @@ $tanh$ 則是代表資訊的數值 (-1 ~ 1)</p>
 <p><img src="https://miro.medium.com/max/1400/1*jhi5uOm9PvZfmxvfaCektw.png" alt=""><br>
 <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> GRU 架構圖</p>
 <h1 id="參考">參考</h1>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p><a href="https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9">Illustrated Guide to Recurrent Neural Networks</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:1">
+<p><a href="https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9">Illustrated Guide to Recurrent Neural Networks</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:2" role="doc-endnote">
+<li id="fn:2">
 <p><a href="https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21">Illustrated Guide to LSTM’s and GRU’s: A step by step explanation</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 ]]></content></item><item><title>Elasticsearch 中文斷詞處理</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/elasticsearch/elasticsearch%E4%B8%AD%E6%96%87%E8%99%95%E7%90%86/</link><pubDate>Sat, 18 Jul 2020 13:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/elasticsearch/elasticsearch%E4%B8%AD%E6%96%87%E8%99%95%E7%90%86/</guid><description>目的 解決 elasticsearch 中，中文斷詞預設是 character-base 的斷詞方式 例如 今天天氣很好 應該要斷成 今天 天氣 很 好，而不是 elasticsearch 中的 今 天 天 氣 很 好 解法 中文斷詞目前最好的應該還是中研院</description><content type="html"><![CDATA[<h1 id="目的">目的</h1>
 <p>解決 elasticsearch 中，中文斷詞預設是 character-base 的斷詞方式<br>
 例如 <code>今天天氣很好</code> 應該要斷成 <code>今天 天氣 很 好</code>，而不是 elasticsearch 中的 <code>今 天 天 氣 很 好</code></p>
@@ -265,11 +283,11 @@ $tanh$ 則是代表資訊的數值 (-1 ~ 1)</p>
 目前我們是自行撰寫一支 Python 程式來用 CKIPtagger 做斷詞，斷好的結果再放在 Document 中 POST 到 Elasticsearch，選擇這樣做是因為做起來比較靈活，可以自由修改處理過程，也不用擔心改版的時候 plugin 不能用<br>
 為了之後能繼續存取原始資料來做分析或其他用途，我們是存成兩份資料，一份原始資料，一份是斷詞斷完的資料<br>
 大概長得像下面這樣</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-    <span class="nt">&#34;origin&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-    <span class="nt">&#34;token&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
-<span class="p">}</span>
-</code></pre></div>]]></content></item><item><title>社群網路筆記 CASCADING BEHAVIOR IN NETWORKS</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%BE%AE%E8%A7%80%E5%82%B3%E6%92%AD/</link><pubDate>Sun, 31 May 2020 11:59:37 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%BE%AE%E8%A7%80%E5%82%B3%E6%92%AD/</guid><description>網路中的擴散 Diffusion in networks 跟考慮整個人群比起來，考慮細粒度的傳播，就是跟考慮整體決定比起來，通常會比較關注身旁的人的所下的決定 考慮在 graph 中的擴散 也稱為</description><content type="html"><![CDATA[<h1 id="網路中的擴散-diffusion-in-networks">網路中的擴散 Diffusion in networks</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;origin&#34;</span><span class="p">:</span> <span class="s2">&#34;今天天氣很好&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;token&#34;</span><span class="p">:</span> <span class="s2">&#34;今天 天氣 很 好&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>]]></content></item><item><title>社群網路筆記 CASCADING BEHAVIOR IN NETWORKS</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%BE%AE%E8%A7%80%E5%82%B3%E6%92%AD/</link><pubDate>Sun, 31 May 2020 11:59:37 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%BE%AE%E8%A7%80%E5%82%B3%E6%92%AD/</guid><description>網路中的擴散 Diffusion in networks 跟考慮整個人群比起來，考慮細粒度的傳播，就是跟考慮整體決定比起來，通常會比較關注身旁的人的所下的決定 考慮在 graph 中的擴散 也稱為</description><content type="html"><![CDATA[<h1 id="網路中的擴散-diffusion-in-networks">網路中的擴散 Diffusion in networks</h1>
 <ol>
 <li>跟考慮整個人群比起來，考慮細粒度的傳播，就是跟考慮整體決定比起來，通常會比較關注身旁的人的所下的決定</li>
 <li>考慮在 graph 中的擴散</li>
@@ -568,25 +586,25 @@ social welfare 是 $\int_0^1w(x)dx$，當此值最大時，就是 social welfare
 <li>此時會買的人 x 在 0 &lt; x &lt; x*，當 x* 為 z 時，會是 self fulfilled</li>
 <li>所以 p* = r(z)f(z)</li>
 <li><img src="https://images.sappy.tw/Social_Network/Network_Effect/network_effect_example.jpg" alt="network_effect_example"></li>
-<li>當 p* 移動時， z' z'' 也會跟著移動</li>
+<li>當 p* 移動時， z&rsquo; z&rsquo;&rsquo; 也會跟著移動</li>
 </ul>
 </li>
 <li>
-<p>當 z 不在 0 z' z'' 上時</p>
+<p>當 z 不在 0 z&rsquo; z&rsquo;&rsquo; 上時</p>
 <ul>
-<li>0 &lt; z &lt; z'， z 會 往 0 移動 (下降)</li>
-<li>z' &lt; z &lt; z'' ， z 會往 z'' 移動 (上升)</li>
-<li>z &gt; z''，  z 會往 z'' 移動 (下降)</li>
+<li>0 &lt; z &lt; z&rsquo;， z 會 往 0 移動 (下降)</li>
+<li>z&rsquo; &lt; z &lt; z&rsquo;&rsquo; ， z 會往 z&rsquo;&rsquo; 移動 (上升)</li>
+<li>z &gt; z&rsquo;&rsquo;，  z 會往 z&rsquo;&rsquo; 移動 (下降)</li>
 </ul>
 </li>
 <li>
-<p>z' 是 unstable ，也就是創業門檻，過了門檻之後就會遠離 z'，直奔 z'' ， 在 z' 附近會遠離 z'</p>
+<p>z&rsquo; 是 unstable ，也就是創業門檻，過了門檻之後就會遠離 z&rsquo;，直奔 z&rsquo;&rsquo; ， 在 z&rsquo; 附近會遠離 z'</p>
 </li>
 <li>
-<p>z'' 是 stable ，也可說是市占率，在 z'' 附近會往 z'' 靠</p>
+<p>z&rsquo;&rsquo; 是 stable ，也可說是市占率，在 z&rsquo;&rsquo; 附近會往 z&rsquo;&rsquo; 靠</p>
 </li>
 <li>
-<p>降低 p* 可以使 z' 降低，增加 z''</p>
+<p>降低 p* 可以使 z&rsquo; 降低，增加 z''</p>
 </li>
 </ul>
 <h3 id="不知道-z-的情況下作分析---gz">不知道 z 的情況下作分析 - g(z)</h3>
@@ -617,25 +635,25 @@ social welfare 是 $\int_0^1w(x)dx$，當此值最大時，就是 social welfare
 <h1 id="實際產品分析">實際產品分析</h1>
 <ul>
 <li>
-<p>如果 p* 很大，那 z' 就會很大，因此幾乎不會有東西賣出去</p>
+<p>如果 p* 很大，那 z&rsquo; 就會很大，因此幾乎不會有東西賣出去</p>
 </li>
 <li>
-<p>降低 p*，讓 z; 近乎於 0，這樣更容易跨過 z'，且 z'&lsquo;也更大</p>
+<p>降低 p*，讓 z; 近乎於 0，這樣更容易跨過 z&rsquo;，且 z&rsquo;&lsquo;也更大</p>
 </li>
 <li>
-<p>社群屬性的產品創業要成功，就要跨過 z&rsquo;(tipping point z')</p>
+<p>社群屬性的產品創業要成功，就要跨過 z&rsquo;(tipping point z&rsquo;)</p>
 </li>
 <li>
 <p>一開始小量投入是無法做起來的，因為很難跨過 z'</p>
 </li>
 <li>
-<p>所以一開始就要燒錢(賠本賣等等)來跨過 z'，之後把價格漲到能賺錢的地步</p>
+<p>所以一開始就要燒錢(賠本賣等等)來跨過 z&rsquo;，之後把價格漲到能賺錢的地步</p>
 </li>
 <li>
 <p>或是用 fashion leader 來打響知名度(見 ch19)</p>
 </li>
 <li>
-<p>很多時候，產品成不成功是看誰先跨過 tipping point z'，而不是誰品質比較好</p>
+<p>很多時候，產品成不成功是看誰先跨過 tipping point z&rsquo;，而不是誰品質比較好</p>
 </li>
 </ul>
 <h2 id="social-optimality-with-network-effect">Social optimality with network effect</h2>
@@ -963,7 +981,7 @@ $P[主要藍色|抽到甚麼顏色]$ 的機率 大於 1/2 時，就應該猜藍�
 </ul>
 </li>
 </ul>
-]]></content></item><item><title>Kubernetes 筆記 - Knative</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_knative/</link><pubDate>Sat, 02 May 2020 13:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_knative/</guid><description>kubespray 按照上次安裝 istio 安裝 istioctl https://istio.io/docs/setup/getting-started/ 安裝 istio istioctl install https://istio.io/docs/setup/install/istioctl/ knative metalLB 安裝 https://metallb.universe.tf/installation/ 設定 Layer 2 (網路架構的L2) apiVersion:v1kind:ConfigMapmetadata:namespace:metallb-systemname:configdata:config:|address-pools: - name: default protocol: layer2 addresses: - 192.168.1.240-192.168.1.250 # 多 ip - 192.168.1.240/32 # 單 ip 當設定成功後輸入 kubectl get service -n istio-system isti</description><content type="html"><![CDATA[<h1 id="kubespray">kubespray</h1>
+]]></content></item><item><title>Kubernetes 筆記 - Knative</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_knative/</link><pubDate>Sat, 02 May 2020 13:55:38 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_knative/</guid><description>kubespray 按照上次安裝 istio 安裝 istioctl https://istio.io/docs/setup/getting-started/ 安裝 istio istioctl install https://istio.io/docs/setup/install/istioctl/ knative metalLB 安裝 https://metallb.universe.tf/installation/ 設定 Layer 2 (網路架構的L2) apiVersion: v1 kind: ConfigMap metadata: namespace: metallb-system name: config data: config: | address-pools: - name: default protocol: layer2 addresses: - 192.168.1.240-192.168.1.250 # 多 ip - 192.168.1.240/32 # 單 ip 當設定成功</description><content type="html"><![CDATA[<h1 id="kubespray">kubespray</h1>
 <p>按照上次安裝</p>
 <h1 id="istio">istio</h1>
 <h2 id="安裝-istioctl">安裝 istioctl</h2>
@@ -976,21 +994,21 @@ $P[主要藍色|抽到甚麼顏色]$ 的機率 大於 1/2 時，就應該猜藍�
 <h2 id="安裝">安裝</h2>
 <p><a href="https://metallb.universe.tf/installation/">https://metallb.universe.tf/installation/</a></p>
 <h2 id="設定-layer-2-網路架構的l2">設定 Layer 2 (網路架構的L2)</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ConfigMap</span><span class="w">
-</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">metallb-system</span><span class="w">
-</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">config</span><span class="w">
-</span><span class="w"></span><span class="nt">data</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">config</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
-</span><span class="sd">    address-pools:
-</span><span class="sd">    - name: default
-</span><span class="sd">      protocol: layer2
-</span><span class="sd">      addresses:
-</span><span class="sd">      - 192.168.1.240-192.168.1.250 # 多 ip
-</span><span class="sd">      - 192.168.1.240/32  # 單 ip
-</span><span class="sd">      </span><span class="w">    
-</span></code></pre></div><p>當設定成功後輸入 <code>kubectl get service -n istio-system istio-ingressgateway</code>，便能看到EXTERNAL-IP從 PENDING 變成有 ip</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ConfigMap</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">metallb-system</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">data</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">config</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">    address-pools:
+</span></span></span><span class="line"><span class="cl"><span class="sd">    - name: default
+</span></span></span><span class="line"><span class="cl"><span class="sd">      protocol: layer2
+</span></span></span><span class="line"><span class="cl"><span class="sd">      addresses:
+</span></span></span><span class="line"><span class="cl"><span class="sd">      - 192.168.1.240-192.168.1.250 # 多 ip
+</span></span></span><span class="line"><span class="cl"><span class="sd">      - 192.168.1.240/32  # 單 ip
+</span></span></span><span class="line"><span class="cl"><span class="sd">      </span><span class="w">    
+</span></span></span></code></pre></div><p>當設定成功後輸入 <code>kubectl get service -n istio-system istio-ingressgateway</code>，便能看到EXTERNAL-IP從 PENDING 變成有 ip</p>
 ]]></content></item><item><title>社群網路筆記 Networks in Their Surrounding Contexts</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_network_with_context/</link><pubDate>Fri, 24 Apr 2020 20:23:30 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_network_with_context/</guid><description>考慮 node 的 meta data，這會影響網路的演變 Homophily - 相似度 相似度越高，越容易相處在一起 要怎麼知道這個因素是否影響圖的連結 用 Homophily test Homophily test 跟純 random 比較，看看這因</description><content type="html"><![CDATA[<p>考慮 node 的 meta data，這會影響網路的演變</p>
 <h1 id="homophily---相似度">Homophily - 相似度</h1>
 <p>相似度越高，越容易相處在一起</p>
@@ -1149,41 +1167,41 @@ B 也有機會過濾訊息 - social &ldquo;gatekeeping&rdquo;</p>
 <li>cultural - 文化</li>
 </ul>
 ]]></content></item><item><title>批次 ppt 轉 pdf</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/%E6%89%B9%E6%AC%A1ppt%E8%BD%89pdf/</link><pubDate>Fri, 24 Apr 2020 13:58:34 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/%E6%89%B9%E6%AC%A1ppt%E8%BD%89pdf/</guid><description>網路上的 powershell 程式碼，並修改了一下，使之能在最新版的 powershell + MS ppt 使用 # Batch convert all .ppt/.pptx files encountered in folder and all its subfolders # The produced PDF files are stored in the invocation folder # # Adapted from http://stackoverflow.com/questions/16534292/basic-powershell-batch-convert-word-docx-to-pdf # Thanks to MFT, takabanana, ComFreek # # If PowerShell exits</description><content type="html"><![CDATA[<p>網路上的 powershell 程式碼，並修改了一下，使之能在最新版的 powershell + MS ppt 使用</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="c"># Batch convert all .ppt/.pptx files encountered in folder and all its subfolders</span>
-<span class="c"># The produced PDF files are stored in the invocation folder</span>
-<span class="c">#</span>
-<span class="c"># Adapted from http://stackoverflow.com/questions/16534292/basic-powershell-batch-convert-word-docx-to-pdf</span>
-<span class="c"># Thanks to MFT, takabanana, ComFreek</span>
-<span class="c">#</span>
-<span class="c"># If PowerShell exits with an error, check if unsigned scripts are allowed in your system.</span>
-<span class="c"># You can allow them by calling PowerShell as an Administrator and typing</span>
-<span class="c"># ```</span>
-<span class="c"># Set-ExecutionPolicy Unrestricted</span>
-<span class="c"># ```</span>
-<span class="c"># Get invocation path</span>
-<span class="c"># $wdTypes = Add-Type -AssemblyName &#39;Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType&#39;</span>
-<span class="nv">$curr_path</span> <span class="p">=</span> <span class="nb">Split-Path</span> <span class="n">-parent</span> <span class="nv">$MyInvocation</span><span class="p">.</span><span class="n">MyCommand</span><span class="p">.</span><span class="n">Path</span>
-<span class="c"># Create a PowerPoint object</span>
-<span class="nv">$ppt_app</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">-ComObject</span> <span class="n">powerpoint</span><span class="p">.</span><span class="n">application</span>
-<span class="c"># Get all objects of type .ppt? in $curr_path and its subfolders</span>
-<span class="nb">Get-ChildItem</span> <span class="n">-Path</span> <span class="nv">$curr_path</span> <span class="n">-Recurse</span> <span class="n">-Filter</span> <span class="p">*.</span><span class="n">ppt</span><span class="p">?</span> <span class="p">|</span> <span class="nb">ForEach-Object</span> <span class="p">{</span>
-    <span class="nb">Write-Host</span> <span class="s2">&#34;Processing&#34;</span> <span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span> <span class="s2">&#34;...&#34;</span>
-    <span class="c"># Open it in PowerPoint</span>
-    <span class="nv">$document</span> <span class="p">=</span> <span class="nv">$ppt_app</span><span class="p">.</span><span class="n">Presentations</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span><span class="p">)</span>
-    <span class="c"># Create a name for the PDF document; they are stored in the invocation folder!</span>
-    <span class="c"># If you want them to be created locally in the folders containing the source PowerPoint file, replace $curr_path with $_.DirectoryName</span>
-    <span class="nv">$pdf_filename</span> <span class="p">=</span> <span class="s2">&#34;</span><span class="p">$(</span><span class="nv">$curr_path</span><span class="p">)</span><span class="s2">\</span><span class="p">$(</span><span class="nv">$_</span><span class="p">.</span><span class="n">BaseName</span><span class="p">)</span><span class="s2">.pdf&#34;</span>
-    <span class="c"># Save as PDF -- 17 is the literal value of `wdFormatPDF`</span>
-    
-    <span class="nv">$opt</span> <span class="p">=</span> <span class="no">[Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType]</span><span class="p">::</span><span class="n">ppSaveAsPDF</span>
-    <span class="nv">$document</span><span class="p">.</span><span class="n">SaveAs</span><span class="p">(</span><span class="nv">$pdf_filename</span><span class="p">,</span> <span class="nv">$opt</span><span class="p">)</span>
-    <span class="c"># Close PowerPoint file</span>
-    <span class="nv">$document</span><span class="p">.</span><span class="n">Close</span><span class="p">()</span>
-<span class="p">}</span>
-<span class="c"># Exit and release the PowerPoint object</span>
-<span class="nv">$ppt_app</span><span class="p">.</span><span class="n">Quit</span><span class="p">()</span>
-<span class="no">[System.Runtime.Interopservices.Marshal]</span><span class="p">::</span><span class="n">ReleaseComObject</span><span class="p">(</span><span class="nv">$ppt_app</span><span class="p">)</span>
-</code></pre></div>]]></content></item><item><title>社群網路筆記 拍賣</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%B8%82%E5%A0%B4%E4%BA%A4%E6%98%93/</link><pubDate>Tue, 21 Apr 2020 10:15:37 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%B8%82%E5%A0%B4%E4%BA%A4%E6%98%93/</guid><description>Matching Markets - 市場交易 多人拍賣 人對不同貨品有不同程度的偏好 價格也是有偏好的 allocation 可以是最佳的 圖例 左邊是 賣家 右邊是 買家 實體線代表 賣家跟買家 之間有沒有可能有</description><content type="html"><![CDATA[<h1 id="matching-markets---市場交易">Matching Markets - 市場交易</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># Batch convert all .ppt/.pptx files encountered in folder and all its subfolders</span>
+</span></span><span class="line"><span class="cl"><span class="c"># The produced PDF files are stored in the invocation folder</span>
+</span></span><span class="line"><span class="cl"><span class="c">#</span>
+</span></span><span class="line"><span class="cl"><span class="c"># Adapted from http://stackoverflow.com/questions/16534292/basic-powershell-batch-convert-word-docx-to-pdf</span>
+</span></span><span class="line"><span class="cl"><span class="c"># Thanks to MFT, takabanana, ComFreek</span>
+</span></span><span class="line"><span class="cl"><span class="c">#</span>
+</span></span><span class="line"><span class="cl"><span class="c"># If PowerShell exits with an error, check if unsigned scripts are allowed in your system.</span>
+</span></span><span class="line"><span class="cl"><span class="c"># You can allow them by calling PowerShell as an Administrator and typing</span>
+</span></span><span class="line"><span class="cl"><span class="c"># ```</span>
+</span></span><span class="line"><span class="cl"><span class="c"># Set-ExecutionPolicy Unrestricted</span>
+</span></span><span class="line"><span class="cl"><span class="c"># ```</span>
+</span></span><span class="line"><span class="cl"><span class="c"># Get invocation path</span>
+</span></span><span class="line"><span class="cl"><span class="c"># $wdTypes = Add-Type -AssemblyName &#39;Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$curr_path</span> <span class="p">=</span> <span class="nb">Split-Path</span> <span class="n">-parent</span> <span class="nv">$MyInvocation</span><span class="p">.</span><span class="n">MyCommand</span><span class="p">.</span><span class="n">Path</span>
+</span></span><span class="line"><span class="cl"><span class="c"># Create a PowerPoint object</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$ppt_app</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">-ComObject</span> <span class="n">powerpoint</span><span class="p">.</span><span class="n">application</span>
+</span></span><span class="line"><span class="cl"><span class="c"># Get all objects of type .ppt? in $curr_path and its subfolders</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Get-ChildItem</span> <span class="n">-Path</span> <span class="nv">$curr_path</span> <span class="n">-Recurse</span> <span class="n">-Filter</span> <span class="p">*.</span><span class="n">ppt</span><span class="p">?</span> <span class="p">|</span> <span class="nb">ForEach-Object</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Write-Host</span> <span class="s2">&#34;Processing&#34;</span> <span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span> <span class="s2">&#34;...&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># Open it in PowerPoint</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$document</span> <span class="p">=</span> <span class="nv">$ppt_app</span><span class="p">.</span><span class="n">Presentations</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># Create a name for the PDF document; they are stored in the invocation folder!</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># If you want them to be created locally in the folders containing the source PowerPoint file, replace $curr_path with $_.DirectoryName</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$pdf_filename</span> <span class="p">=</span> <span class="s2">&#34;</span><span class="p">$(</span><span class="nv">$curr_path</span><span class="p">)</span><span class="s2">\</span><span class="p">$(</span><span class="nv">$_</span><span class="p">.</span><span class="n">BaseName</span><span class="p">)</span><span class="s2">.pdf&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># Save as PDF -- 17 is the literal value of `wdFormatPDF`</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nv">$opt</span> <span class="p">=</span> <span class="no">[Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType]</span><span class="p">::</span><span class="n">ppSaveAsPDF</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$document</span><span class="p">.</span><span class="n">SaveAs</span><span class="p">(</span><span class="nv">$pdf_filename</span><span class="p">,</span> <span class="nv">$opt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># Close PowerPoint file</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$document</span><span class="p">.</span><span class="n">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c"># Exit and release the PowerPoint object</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$ppt_app</span><span class="p">.</span><span class="n">Quit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="no">[System.Runtime.Interopservices.Marshal]</span><span class="p">::</span><span class="n">ReleaseComObject</span><span class="p">(</span><span class="nv">$ppt_app</span><span class="p">)</span>
+</span></span></code></pre></div>]]></content></item><item><title>社群網路筆記 拍賣</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%B8%82%E5%A0%B4%E4%BA%A4%E6%98%93/</link><pubDate>Tue, 21 Apr 2020 10:15:37 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF_%E5%B8%82%E5%A0%B4%E4%BA%A4%E6%98%93/</guid><description>Matching Markets - 市場交易 多人拍賣 人對不同貨品有不同程度的偏好 價格也是有偏好的 allocation 可以是最佳的 圖例 左邊是 賣家 右邊是 買家 實體線代表 賣家跟買家 之間有沒有可能有</description><content type="html"><![CDATA[<h1 id="matching-markets---市場交易">Matching Markets - 市場交易</h1>
 <ul>
 <li>多人拍賣</li>
 <li>人對不同貨品有不同程度的偏好</li>
@@ -1336,7 +1354,7 @@ $\sum_{i,j}p_{i}C_{ij}$  - 所有價格相加 (因為價格不會因為不同連
 <h2 id="證明-truthful-bidding-在-second-price-sealed-bid-auctions-中視最好的策略">證明 truthful bidding 在 second-price sealed-bid auctions 中視最好的策略</h2>
 <h3 id="觀察">觀察</h3>
 <ol>
-<li>要證明 $b_i=v_i$ 時，沒有其他 $b_i'$ 能夠比 $b_i$ 還要好</li>
+<li>要證明 $b_i=v_i$ 時，沒有其他 $b_i&rsquo;$ 能夠比 $b_i$ 還要好</li>
 <li>$b_i$ 有兩種方式可以做偏移，上升或下降</li>
 <li>$b_i$ 只影響輸贏，不影響 payoff</li>
 </ol>
@@ -1500,74 +1518,70 @@ Homophily - 相似度</p>
 <li>打開 terminus，在 terminus 的設定 -&gt; 外觀 -&gt; 字體上選擇字體</li>
 </ol>
 <p>開機</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">qemu-img create -f qcow2 1.qcow2 40G
-
-qemu-system-x86_64 --enable-kvm -hda 1.qcow2 -m <span class="m">1024</span> -net nic,model<span class="o">=</span>virtio -net user,hostfwd<span class="o">=</span>tcp::2223-:22 -cdrom ../ubuntu-16.04.6-desktop-amd64.iso -vga std -cpu host -smp 4,cores<span class="o">=</span>4,threads<span class="o">=</span>1,sockets<span class="o">=</span>4,maxcpus<span class="o">=</span><span class="m">16</span> -boot <span class="nv">strict</span><span class="o">=</span>on
-</code></pre></div><p>alpine</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">qemu-img create -f qcow2 1.qcow2 40G
-
-qemu-system-x86_64 --enable-kvm -hda 1.qcow2 -m <span class="m">1024</span> -net nic,model<span class="o">=</span>virtio -net user,hostfwd<span class="o">=</span>tcp::2223-:22 -cdrom alpine-virt-3.11.5-x86_64.iso -vga std -cpu host -smp 4,cores<span class="o">=</span>4,threads<span class="o">=</span>1,sockets<span class="o">=</span>4,maxcpus<span class="o">=</span><span class="m">16</span> -boot <span class="nv">strict</span><span class="o">=</span>on
-
-https://wiki.alpinelinux.org/wiki/Alpine_Install:_from_a_disc_to_a_virtualbox_machine_single_only
-
-
-</code></pre></div><p>必要安裝</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install openssh-server
-
-sudo sed -i <span class="s1">&#39;s/APT::Periodic::Update-Package-Lists &#34;1&#34;/APT::Periodic::Update-Package-Lists &#34;0&#34;/&#39;</span> /etc/apt/apt.conf.d/20auto-upgrades
-
-</code></pre></div><p>安裝 tensorflow
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">qemu-img create -f qcow2 1.qcow2 40G
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">qemu-system-x86_64 --enable-kvm -hda 1.qcow2 -m <span class="m">1024</span> -net nic,model<span class="o">=</span>virtio -net user,hostfwd<span class="o">=</span>tcp::2223-:22 -cdrom ../ubuntu-16.04.6-desktop-amd64.iso -vga std -cpu host -smp 4,cores<span class="o">=</span>4,threads<span class="o">=</span>1,sockets<span class="o">=</span>4,maxcpus<span class="o">=</span><span class="m">16</span> -boot <span class="nv">strict</span><span class="o">=</span>on
+</span></span></code></pre></div><p>alpine</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">qemu-img create -f qcow2 1.qcow2 40G
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">qemu-system-x86_64 --enable-kvm -hda 1.qcow2 -m <span class="m">1024</span> -net nic,model<span class="o">=</span>virtio -net user,hostfwd<span class="o">=</span>tcp::2223-:22 -cdrom alpine-virt-3.11.5-x86_64.iso -vga std -cpu host -smp 4,cores<span class="o">=</span>4,threads<span class="o">=</span>1,sockets<span class="o">=</span>4,maxcpus<span class="o">=</span><span class="m">16</span> -boot <span class="nv">strict</span><span class="o">=</span>on
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">https://wiki.alpinelinux.org/wiki/Alpine_Install:_from_a_disc_to_a_virtualbox_machine_single_only
+</span></span></code></pre></div><p>必要安裝</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install openssh-server
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo sed -i <span class="s1">&#39;s/APT::Periodic::Update-Package-Lists &#34;1&#34;/APT::Periodic::Update-Package-Lists &#34;0&#34;/&#39;</span> /etc/apt/apt.conf.d/20auto-upgrades
+</span></span></code></pre></div><p>安裝 tensorflow
 &ndash;no-cache-dir tensorflow 是為了修正 memory error 的 bug</p>
 <pre tabindex="0"><code>pip3 install --no-cache-dir tensorflow
 </code></pre><p>編譯 kernel</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">uname -r
-
-mkdir kernel
-<span class="nb">cd</span> kernel
-
-wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.6.2.tar.xz
-
-tar Jxvf linux-5.6.2.tar.xz
-
-sudo mv linux-5.6.2/ /usr/src/
-
-sudo apt install fakeroot build-essential libncurses5-dev kernel-package openssl bison flex libssl-dev
-
-<span class="nb">cd</span> /usr/src/linux-5.6.2
-
-<span class="c1"># sudo cp /boot/config-`uname -r` ./.config</span>
-
-<span class="c1"># make oldconfig</span>
-
-touch REPORTING-BUGS
-
-make menuconfig
-
-sudo fakeroot make-kpkg -j4 --initrd kernel_image kernel_headers
-sudo fakeroot make-kpkg -j32 --initrd kernel_image kernel_headers
-
-<span class="nb">cd</span> ..
-
-wget 192.168.122.1:8000/linux-image-5.6.2_5.6.2-10.00.Custom_amd64.deb
-wget 192.168.122.1:8000/linux-headers-5.6.2_5.6.2-10.00.Custom_amd64.deb
-
-sudo dpkg -i linux-image-5.6.2_5.6.2-10.00.Custom_amd64.deb
-
-sudo dpkg -i linux-headers-5.6.2_5.6.2-10.00.Custom_amd64.deb
-
-sudo reboot now
-
-uname -r
-
-systemd-analyze 
-
-</code></pre></div><p>compiler</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install software-properties-common
-sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-sudo apt update
-sudo apt install gcc-9 g++-9
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 <span class="m">90</span> --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gcov gcov /usr/bin/gcov-9
-</code></pre></div><p>分析
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uname -r
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mkdir kernel
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> kernel
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.6.2.tar.xz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tar Jxvf linux-5.6.2.tar.xz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo mv linux-5.6.2/ /usr/src/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo apt install fakeroot build-essential libncurses5-dev kernel-package openssl bison flex libssl-dev
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /usr/src/linux-5.6.2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># sudo cp /boot/config-`uname -r` ./.config</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># make oldconfig</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">touch REPORTING-BUGS
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">make menuconfig
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo fakeroot make-kpkg -j4 --initrd kernel_image kernel_headers
+</span></span><span class="line"><span class="cl">sudo fakeroot make-kpkg -j32 --initrd kernel_image kernel_headers
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ..
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">wget 192.168.122.1:8000/linux-image-5.6.2_5.6.2-10.00.Custom_amd64.deb
+</span></span><span class="line"><span class="cl">wget 192.168.122.1:8000/linux-headers-5.6.2_5.6.2-10.00.Custom_amd64.deb
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo dpkg -i linux-image-5.6.2_5.6.2-10.00.Custom_amd64.deb
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo dpkg -i linux-headers-5.6.2_5.6.2-10.00.Custom_amd64.deb
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo reboot now
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">uname -r
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">systemd-analyze 
+</span></span></code></pre></div><p>compiler</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install software-properties-common
+</span></span><span class="line"><span class="cl">sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+</span></span><span class="line"><span class="cl">sudo apt update
+</span></span><span class="line"><span class="cl">sudo apt install gcc-9 g++-9
+</span></span><span class="line"><span class="cl">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 <span class="m">90</span> --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gcov gcov /usr/bin/gcov-9
+</span></span></code></pre></div><p>分析
 systemd-analyze blame</p>
 <h1 id="todo">Todo</h1>
 <ul>
@@ -1615,32 +1629,32 @@ systemd-analyze blame</p>
 <p>最近在嘗試使用 docker 作為開發環境的選項，這篇只是單純紀錄可能遇到的問題跟常用用法</p>
 <h2 id="常駐-docker-並能連接上-terminal">常駐 docker 並能連接上 terminal</h2>
 <p>用 {} 包起來代表變數</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">docker run -id <span class="o">{</span>image<span class="o">}</span>
-
-docker <span class="nb">exec</span> -it <span class="o">{</span>id<span class="o">}</span> bash
-</code></pre></div><h2 id="做-fuzz-test">做 fuzz test</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">docker run -id --ulimit <span class="nv">core</span><span class="o">=</span>-1 --privileged <span class="o">{</span>image<span class="o">}</span>
-</code></pre></div><p><a href="https://ephrain.net/docker-%E5%9C%A8-container-%E8%A3%A1%E8%A8%AD%E5%AE%9A-core-dump-%E7%9A%84%E6%AA%94%E6%A1%88%E5%90%8D%E7%A8%B1%E6%A0%BC%E5%BC%8F/">參考</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -id <span class="o">{</span>image<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">docker <span class="nb">exec</span> -it <span class="o">{</span>id<span class="o">}</span> bash
+</span></span></code></pre></div><h2 id="做-fuzz-test">做 fuzz test</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -id --ulimit <span class="nv">core</span><span class="o">=</span>-1 --privileged <span class="o">{</span>image<span class="o">}</span>
+</span></span></code></pre></div><p><a href="https://ephrain.net/docker-%E5%9C%A8-container-%E8%A3%A1%E8%A8%AD%E5%AE%9A-core-dump-%E7%9A%84%E6%AA%94%E6%A1%88%E5%90%8D%E7%A8%B1%E6%A0%BC%E5%BC%8F/">參考</a></p>
 <h2 id="打包現有環境到新-image">打包現有環境到新 image</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">docker commit <span class="o">{</span>old_running_docker<span class="o">}</span> <span class="o">{</span>newimagename<span class="o">}</span>
-</code></pre></div><p><a href="https://stackoverflow.com/questions/28302178/how-can-i-add-a-volume-to-an-existing-docker-container">參考</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker commit <span class="o">{</span>old_running_docker<span class="o">}</span> <span class="o">{</span>newimagename<span class="o">}</span>
+</span></span></code></pre></div><p><a href="https://stackoverflow.com/questions/28302178/how-can-i-add-a-volume-to-an-existing-docker-container">參考</a></p>
 ]]></content></item><item><title>pyspark 小技巧</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/pyspark%E5%B0%8F%E6%8A%80%E5%B7%A7/</link><pubDate>Sat, 28 Dec 2019 14:06:02 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/pyspark%E5%B0%8F%E6%8A%80%E5%B7%A7/</guid><description>簡介 最近在弄 spark 時遇到一堆破事，特此紀錄 collect 很久，甚至沒反應 conf = SparkConf().setMaster(&amp;#34;local[*]&amp;#34;) \ .setAppName(&amp;#34;App_Name&amp;#34;) \ .set(&amp;#39;spark.executor.memory&amp;#39;, &amp;#39;4G&amp;#39;) \ .set(&amp;#39;spark.driver.memory&amp;#39;, &amp;#39;45G&amp;#39;) \ .set(&amp;#39;spark.driver.maxResultSize&amp;#39;, &amp;#39;10G&amp;#39;) self.sc = SparkContext(conf=conf) saveAsFile 很久，甚至沒反應 conf = SparkConf().setMaster(&amp;#34;local[*]&amp;#34;) \ .setAppName(&amp;#34;App_Name&amp;#34;) \ .set(&amp;#39;spark.executor.memory&amp;#39;, &amp;#39;4G&amp;#39;) \ .set(&amp;#39;spark.driver.memory&amp;#39;, &amp;#39;45G&amp;#39;) \ .set(&amp;#39;spark.driver.maxResultSize&amp;#39;, &amp;#39;10G&amp;#39;) self.sc =</description><content type="html"><![CDATA[<h1 id="簡介">簡介</h1>
 <p>最近在弄 spark 時遇到一堆破事，特此紀錄</p>
 <h2 id="collect-很久甚至沒反應">collect 很久，甚至沒反應</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">conf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">()</span><span class="o">.</span><span class="n">setMaster</span><span class="p">(</span><span class="s2">&#34;local[*]&#34;</span><span class="p">)</span> \
-    <span class="o">.</span><span class="n">setAppName</span><span class="p">(</span><span class="s2">&#34;App_Name&#34;</span><span class="p">)</span> \
-    <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;spark.executor.memory&#39;</span><span class="p">,</span> <span class="s1">&#39;4G&#39;</span><span class="p">)</span> \
-    <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;spark.driver.memory&#39;</span><span class="p">,</span> <span class="s1">&#39;45G&#39;</span><span class="p">)</span> \
-    <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;spark.driver.maxResultSize&#39;</span><span class="p">,</span> <span class="s1">&#39;10G&#39;</span><span class="p">)</span>
-<span class="bp">self</span><span class="o">.</span><span class="n">sc</span> <span class="o">=</span> <span class="n">SparkContext</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">)</span>
-</code></pre></div><h2 id="saveasfile-很久甚至沒反應">saveAsFile 很久，甚至沒反應</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">conf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">()</span><span class="o">.</span><span class="n">setMaster</span><span class="p">(</span><span class="s2">&#34;local[*]&#34;</span><span class="p">)</span> \
-    <span class="o">.</span><span class="n">setAppName</span><span class="p">(</span><span class="s2">&#34;App_Name&#34;</span><span class="p">)</span> \
-    <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;spark.executor.memory&#39;</span><span class="p">,</span> <span class="s1">&#39;4G&#39;</span><span class="p">)</span> \
-    <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;spark.driver.memory&#39;</span><span class="p">,</span> <span class="s1">&#39;45G&#39;</span><span class="p">)</span> \
-    <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;spark.driver.maxResultSize&#39;</span><span class="p">,</span> <span class="s1">&#39;10G&#39;</span><span class="p">)</span>
-<span class="bp">self</span><span class="o">.</span><span class="n">sc</span> <span class="o">=</span> <span class="n">SparkContext</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">)</span>
-</code></pre></div><h2 id="for-loop-越跑越慢">for loop 越跑越慢</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">conf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">()</span><span class="o">.</span><span class="n">setMaster</span><span class="p">(</span><span class="s2">&#34;local[*]&#34;</span><span class="p">)</span> \
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">setAppName</span><span class="p">(</span><span class="s2">&#34;App_Name&#34;</span><span class="p">)</span> \
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;spark.executor.memory&#39;</span><span class="p">,</span> <span class="s1">&#39;4G&#39;</span><span class="p">)</span> \
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;spark.driver.memory&#39;</span><span class="p">,</span> <span class="s1">&#39;45G&#39;</span><span class="p">)</span> \
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;spark.driver.maxResultSize&#39;</span><span class="p">,</span> <span class="s1">&#39;10G&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">sc</span> <span class="o">=</span> <span class="n">SparkContext</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="saveasfile-很久甚至沒反應">saveAsFile 很久，甚至沒反應</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">conf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">()</span><span class="o">.</span><span class="n">setMaster</span><span class="p">(</span><span class="s2">&#34;local[*]&#34;</span><span class="p">)</span> \
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">setAppName</span><span class="p">(</span><span class="s2">&#34;App_Name&#34;</span><span class="p">)</span> \
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;spark.executor.memory&#39;</span><span class="p">,</span> <span class="s1">&#39;4G&#39;</span><span class="p">)</span> \
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;spark.driver.memory&#39;</span><span class="p">,</span> <span class="s1">&#39;45G&#39;</span><span class="p">)</span> \
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;spark.driver.maxResultSize&#39;</span><span class="p">,</span> <span class="s1">&#39;10G&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">sc</span> <span class="o">=</span> <span class="n">SparkContext</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="for-loop-越跑越慢">for loop 越跑越慢</h2>
 <p>使用 repartition() 或 checkpoint() 可以解決這問題<br>
 <a href="https://changhsinlee.com/pyspark-dataframe-basics/">https://changhsinlee.com/pyspark-dataframe-basics/</a></p>
 ]]></content></item><item><title>Linux 開機自啟動 Jupyter</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/run-jupyter-on-boot/</link><pubDate>Wed, 07 Mar 2018 18:43:51 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/run-jupyter-on-boot/</guid><description>環境 Ubuntu 16.04 桌面版 Anaconda 3.6 方法 用管理員權限使用 emacs1 打開 /etc/rc.local sudo emacs /etc/rc.local 加入下面兩行(請隨自己的設定改變) 說明 $user_name 是指自己的使用者名稱 su $user_name 是要以該使用者的身分執行</description><content type="html"><![CDATA[<h1 id="環境">環境</h1>
@@ -1652,8 +1666,8 @@ docker <span class="nb">exec</span> -it <span class="o">{</span>id<span class="o
 <ol>
 <li>
 <p>用管理員權限使用 emacs<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> 打開 /etc/rc.local</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo emacs /etc/rc.local
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo emacs /etc/rc.local
+</span></span></code></pre></div></li>
 <li>
 <p>加入下面兩行(請隨自己的設定改變)
 說明</p>
@@ -1663,16 +1677,16 @@ docker <span class="nb">exec</span> -it <span class="o">{</span>id<span class="o
 <li>/home/$user_name/anaconda3/envs/DL3/bin/jupyter 則是你執行 jupyter 的位置，這裡是以 ubuntu 下的 anaconda 為例</li>
 <li>lab 跟 notebook 分別是執行 <a href="https://github.com/jupyterlab/jupyterlab">jupyter lab</a> 跟 <a href="http://jupyter.org/">jupyter notebook</a>，看個人需要使用</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">su <span class="nv">$user_name</span> -c <span class="s2">&#34;/home/</span><span class="nv">$user_name</span><span class="s2">/anaconda3/envs/DL3/bin/jupyter lab --no-browser;&#34;</span> <span class="p">&amp;</span>
-su <span class="nv">$user_name</span> -c <span class="s2">&#34;/home/</span><span class="nv">$user_name</span><span class="s2">/anaconda3/envs/DL3/bin/jupyter notebook --port 8889 --no-browser;&#34;</span> <span class="p">&amp;</span>
-</code></pre></div><p>所以我是</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter lab --no-browser;&#34;</span> <span class="p">&amp;</span>
-su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter notebook --port 8889 --no-browser;&#34;</span> <span class="p">&amp;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">su <span class="nv">$user_name</span> -c <span class="s2">&#34;/home/</span><span class="nv">$user_name</span><span class="s2">/anaconda3/envs/DL3/bin/jupyter lab --no-browser;&#34;</span> <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">su <span class="nv">$user_name</span> -c <span class="s2">&#34;/home/</span><span class="nv">$user_name</span><span class="s2">/anaconda3/envs/DL3/bin/jupyter notebook --port 8889 --no-browser;&#34;</span> <span class="p">&amp;</span>
+</span></span></code></pre></div><p>所以我是</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter lab --no-browser;&#34;</span> <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter notebook --port 8889 --no-browser;&#34;</span> <span class="p">&amp;</span>
+</span></span></code></pre></div></li>
 <li>
 <p>可以使用下面的指令來協助除錯，詳細可以看<a href="http://linux.vbird.org/linux_basic/0510osloader.php#rc.local">這篇文章</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">systemctl status rc-local.service
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl status rc-local.service
+</span></span></code></pre></div></li>
 </ol>
 <h1 id="結論">結論</h1>
 <p>rc.local 雖然已經過時了，但是&hellip;&hellip;能用就好 😁 😁</p>
@@ -1681,14 +1695,14 @@ su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter not
 <li><a href="http://linux.vbird.org/linux_basic/0510osloader.php">鳥哥的 Linux 私房菜</a></li>
 <li><a href="https://stackoverflow.com/questions/44231789/run-jupyter-notebook-on-boot-on-ubuntu">server - Run Jupyter-notebook on boot on Ubuntu - Stack Overflow</a></li>
 </ul>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
+<li id="fn:1">
 <p>一種編輯器&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 ]]></content></item><item><title>Pytorch 學習筆記</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/pytorch-learning-get-start/</link><pubDate>Tue, 06 Mar 2018 22:44:40 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/pytorch-learning-get-start/</guid><description>資源 官方教學 - 六十分鐘學會 Pytorch 六十分鐘學會 Pytorch - 中文翻譯 六十分鐘學會 Pytorch - 我的畫注 深度学习框架PyTorch：入门与实践 - 程式碼 這裡補充一些 Variable 的小</description><content type="html"><![CDATA[<h1 id="資源">資源</h1>
 <ul>
 <li>
@@ -1705,14 +1719,14 @@ su sappy -c <span class="s2">&#34;/home/sappy/anaconda3/envs/DL3/bin/jupyter not
 </li>
 </ul>
 <p>這裡補充一些 Variable 的小東西</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">([</span><span class="mi">3</span><span class="p">]),</span> <span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">([</span><span class="mi">4</span><span class="p">]),</span> <span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
-
-<span class="n">d</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># a^2 + b</span>
-</code></pre></div><p>可以透過 算出 梯度</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">([</span><span class="mi">3</span><span class="p">]),</span> <span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">([</span><span class="mi">4</span><span class="p">]),</span> <span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">d</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># a^2 + b</span>
+</span></span></code></pre></div><p>可以透過 算出 梯度</p>
 <pre tabindex="0"><code class="language-pytohn" data-lang="pytohn">d.backward()
 print(a.grad)
 print(b.grad)
@@ -1725,9 +1739,9 @@ Variable containing:
  1
 [torch.FloatTensor of size 1]
 </code></pre><p>透過 grad_fn 可以看出計算圖(Computation Graph)長成甚麼樣子</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">grad_fn</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">grad_fn</span><span class="o">.</span><span class="n">next_functions</span><span class="p">)</span>
-</code></pre></div><p>輸出</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">grad_fn</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">grad_fn</span><span class="o">.</span><span class="n">next_functions</span><span class="p">)</span>
+</span></span></code></pre></div><p>輸出</p>
 <pre tabindex="0"><code class="language-output" data-lang="output">&lt;AddBackward1 object at 0x7f73196e5eb8&gt;
 ((&lt;PowBackward0 object at 0x7f73196e5ba8&gt;, 0), (&lt;AccumulateGrad object at 0x7f73196e5b38&gt;, 0))
 </code></pre>]]></content></item><item><title>安裝 markdown-it</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/markdown-it-install/</link><pubDate>Sun, 04 Mar 2018 19:47:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/markdown-it-install/</guid><description>起因 由於發現預設的 render 功能有點少，因此換了一下 renderer 安裝 主要參考 Hexo 研究筆記 1 hexo-next 使用hexo-renderer-markdown-it 但是發現 markdonw-it 的套</description><content type="html"><![CDATA[<h1 id="起因">起因</h1>
@@ -1741,11 +1755,11 @@ Variable containing:
 <p>但是發現 markdonw-it 的套件已經很久沒更新了
 因此使用下面這行直接從 github 上安裝即可
 <code>npm install git+https://github.com/hexojs/hexo-renderer-markdown-it.git —save</code></p>
-]]></content></item><item><title>測試 markdown-it</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/markdown-it-test/</link><pubDate>Sun, 04 Mar 2018 18:46:32 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/markdown-it-test/</guid><description>markdown-it-footnote Footnote 1 link1. Footnote 2 link2. Inline footnote^[Text of inline footnote] definition. Duplicated footnote reference2. markdown-it-abbr This is HTML abbreviation example. It converts &amp;ldquo;HTML&amp;rdquo;, but keep intact partial entries like &amp;ldquo;xxxHTMLyyy&amp;rdquo; and so on. *[HTML]: Hyper Text Markup Language hexo-filter-github-emojis Hello✨Test 👽 Footnote can have markup and multiple paragraphs.&amp;#160;&amp;#x21a9;&amp;#xfe0e; Footnote text.&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description><content type="html"><![CDATA[<h1 id="markdown-it-footnote">markdown-it-footnote</h1>
+]]></content></item><item><title>測試 markdown-it</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/markdown-it-test/</link><pubDate>Sun, 04 Mar 2018 18:46:32 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/markdown-it-test/</guid><description>markdown-it-footnote Footnote 1 link1. Footnote 2 link2. Inline footnote^[Text of inline footnote] definition. Duplicated footnote reference2. markdown-it-abbr This is HTML abbreviation example. It converts &amp;ldquo;HTML&amp;rdquo;, but keep intact partial entries like &amp;ldquo;xxxHTMLyyy&amp;rdquo; and so on. *[HTML]: Hyper Text Markup Language hexo-filter-github-emojis Hello✨Test 👽 Footnote can have markup and multiple paragraphs.&amp;#160;&amp;#x21a9;&amp;#xfe0e; Footnote text.&amp;#160;&amp;#x21a9;&amp;#xfe0e;&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description><content type="html"><![CDATA[<h1 id="markdown-it-footnote">markdown-it-footnote</h1>
 <p>Footnote 1 link<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
 <p>Footnote 2 link<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
 <p>Inline footnote^[Text of inline footnote] definition.</p>
-<p>Duplicated footnote reference<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
+<p>Duplicated footnote reference<sup id="fnref1:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
 <h1 id="markdown-it-abbr">markdown-it-abbr</h1>
 <p>This is HTML abbreviation example.
 It converts &ldquo;HTML&rdquo;, but keep intact partial entries like &ldquo;xxxHTMLyyy&rdquo; and so on.
@@ -1753,18 +1767,18 @@ It converts &ldquo;HTML&rdquo;, but keep intact partial entries like &ldquo;xxxH
 <h1 id="hexo-filter-github-emojis">hexo-filter-github-emojis</h1>
 <p>Hello✨Test
 👽</p>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
+<li id="fn:1">
 <p>Footnote <strong>can have markup</strong></p>
 <p>and multiple paragraphs.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:2" role="doc-endnote">
-<p>Footnote text.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:2">
+<p>Footnote text.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 ]]></content></item><item><title>protobuf install</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/protobuf-install/</link><pubDate>Sat, 14 Oct 2017 09:37:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/protobuf-install/</guid><description>前言 最近在弄 caffe 的安裝，過程中需要安裝到 opencv，但opencv又需要安裝到 protobuf 環境 ubuntu 17.04 過程 基本上按照官網做就好了，唯一需要注意的是，如果有</description><content type="html"><![CDATA[<h1 id="前言">前言</h1>
 <p>最近在弄 caffe 的安裝，過程中需要安裝到 opencv，但opencv又需要安裝到 protobuf</p>
 <h1 id="環境">環境</h1>
@@ -1809,26 +1823,26 @@ It converts &ldquo;HTML&rdquo;, but keep intact partial entries like &ldquo;xxxH
 <p>cudnn 要手動安裝,所以先下載 tar 檔案,</p>
 <p>進到放著tar的資料夾</p>
 <p>用 下面指令解壓縮</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">tar -xzvf cudnn-9.0-linux-x64-v7.tgz
-</code></pre></div><p>複製到目錄</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo cp cuda/include/cudnn.h /usr/local/cuda/include
-$ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
-$ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
-</code></pre></div><p>​</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">tar -xzvf cudnn-9.0-linux-x64-v7.tgz
+</span></span></code></pre></div><p>複製到目錄</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo cp cuda/include/cudnn.h /usr/local/cuda/include
+</span></span><span class="line"><span class="cl">$ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+</span></span><span class="line"><span class="cl">$ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
+</span></span></code></pre></div><p>​</p>
 </li>
 <li>
 <p>到 <code>/usr/local/cuda/lib64</code> 底下</p>
 <p>使用下面指令, 創造一個軟連結 （因為 Tensorflow 使用 cudnn 6.0, 所以要用這方法把 讓它可以使用 libcudnn.so.6 這個檔案）</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">ln -s libcudnn.so.7.* libcudnn.so.6
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ln -s libcudnn.so.7.* libcudnn.so.6
+</span></span></code></pre></div></li>
 <li>
 <p>用 pip 安裝 tensorflow with Gpu</p>
 </li>
 <li>
 <p>在 <code>~/.bashrc</code> 最底下加上</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">export</span> <span class="nv">CUDA_HOME</span><span class="o">=</span>/usr/local/cuda/
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64&#34;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CUDA_HOME</span><span class="o">=</span>/usr/local/cuda/
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64&#34;</span>
+</span></span></code></pre></div></li>
 </ol>
 <h2 id="選用">選用</h2>
 <p>如要使用 pycharm 要記得幫它加上環境變數</p>]]></content></item><item><title>Ubuntu 調整硬碟大小教學</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/ubuntu-resize-disk/</link><pubDate>Thu, 14 Sep 2017 21:13:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/ubuntu-resize-disk/</guid><description>前言 最近在安裝 opencv 時，因為VM硬碟大小不夠，所以只好擴充硬碟大小，但是 root partition 好像沒辦法在開機時調整大小(不確定)，所以這次用 Gparted 過程 首先，先用 live cd</description><content type="html"><![CDATA[<h1 id="前言">前言</h1>
@@ -1893,12 +1907,12 @@ libpng12-dev 已經被 libpng12-0 所取代了，所以把上面的這部分換�
 <li>切到 setting -&gt; Startup -&gt; Tasks -&gt; {cmd}</li>
 <li>最後面加入(D:\Data 可以換成你想要的路徑)</li>
 </ol>
-<pre tabindex="0"><code>-new_console:d:&quot;D:\Data&quot;
+<pre tabindex="0"><code>-new_console:d:&#34;D:\Data&#34;
 </code></pre><h1 id="參考資料">參考資料</h1>
 <p><a href="http://zwindr.blogspot.tw/2016/01/cmder-setting-1.html">子風的知識庫</a></p>
-]]></content></item><item><title>dpkg: error processing archive *</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/dpkg-fail/</link><pubDate>Sat, 19 Aug 2017 12:39:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/dpkg-fail/</guid><description>前提 在更新時遇到 dpkg: error processing archive /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb (--unpack): trying to overwrite '/usr/lib/python2.7/dist-packages/lldb', which is also in package python-lldb-4.0 1:4.0-1ubuntu1 看到網路上的解法 sudo dpkg --force-all -i /var/cache/apt/archives/linux-libc-dev_3.13.0-88.135_armhf.deb 於是稍微修改一下，變成 sudo dpkg --force-all -i /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb 就大功告成了</description><content type="html"><![CDATA[<h1 id="前提">前提</h1>
+]]></content></item><item><title>dpkg: error processing archive *</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/dpkg-fail/</link><pubDate>Sat, 19 Aug 2017 12:39:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/dpkg-fail/</guid><description>前提 在更新時遇到 dpkg: error processing archive /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb (--unpack): trying to overwrite &amp;#39;/usr/lib/python2.7/dist-packages/lldb&amp;#39;, which is also in package python-lldb-4.0 1:4.0-1ubuntu1 看到網路上的解法 sudo dpkg --force-all -i /var/cache/apt/archives/linux-libc-dev_3.13.0-88.135_armhf.deb 於是稍微修改一下，變成 sudo dpkg --force-all -i /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb 就大功告成了</description><content type="html"><![CDATA[<h1 id="前提">前提</h1>
 <p>在更新時遇到</p>
-<pre tabindex="0"><code>dpkg: error processing archive /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb (--unpack): trying to overwrite '/usr/lib/python2.7/dist-packages/lldb', which is also in package python-lldb-4.0 1:4.0-1ubuntu1
+<pre tabindex="0"><code>dpkg: error processing archive /var/cache/apt/archives/python-lldb-6.0_1%3a6.0~svn310966-1~exp1_amd64.deb (--unpack): trying to overwrite &#39;/usr/lib/python2.7/dist-packages/lldb&#39;, which is also in package python-lldb-4.0 1:4.0-1ubuntu1
 </code></pre><p>看到網路上的<a href="https://github.com/dnschneid/crouton/issues/2631">解法</a></p>
 <pre tabindex="0"><code>sudo dpkg --force-all -i /var/cache/apt/archives/linux-libc-dev_3.13.0-88.135_armhf.deb
 </code></pre><p>於是稍微修改一下，變成</p>
@@ -1951,7 +1965,7 @@ libpng12-dev 已經被 libpng12-0 所取代了，所以把上面的這部分換�
 <p>再來把套件來源加入到套件管理系統的列表中
 <!-- raw HTML omitted --><strong>請把最後的zesty換成你ubuntu的版本</strong><!-- raw HTML omitted -->
 請參考<a href="https://wiki.ubuntu.com/Releases">版本名稱對照表</a></p>
-<pre tabindex="0"><code>sudo add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu zesty/'
+<pre tabindex="0"><code>sudo add-apt-repository &#39;deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu zesty/&#39;
 </code></pre><p>更新你的列表資訊</p>
 <pre tabindex="0"><code>sudo apt-get update
 </code></pre><p>如果成功你可能會看到如下輸出(get 後的數字不一定會一樣)
@@ -2012,21 +2026,21 @@ a. 到 <a href="https://packages.debian.org/jessie/amd64/libgstreamer-plugins-ba
 <ul>
 <li>如果出現這樣的錯誤訊息</li>
 </ul>
-<pre tabindex="0"><code>layout: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.20' not found (required by layout)
+<pre tabindex="0"><code>layout: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.20&#39; not found (required by layout)
 </code></pre><p>那麼請先<a href="https://askubuntu.com/a/582910">更新你的函式庫</a>
 如果你的 python 環境是 anaconda, 那麼<a href="https://askubuntu.com/a/786944">這樣更新</a></p>
 <ul>
 <li>路徑不正確  - 他的路徑是吃絕對路徑,所以要像是這樣子</li>
 </ul>
 <pre tabindex="0"><code>  ;;; ycmd 的路徑
-  (set-variable 'ycmd-server-command '(&quot;python&quot; &quot;/home/sappy5678/emacs_setting/require_plugin/ycmd/ycmd/&quot;))
+  (set-variable &#39;ycmd-server-command &#39;(&#34;python&#34; &#34;/home/sappy5678/emacs_setting/require_plugin/ycmd/ycmd/&#34;))
   ;;; 把要用的資料夾加入白名單
-  (setq ycmd-extra-conf-whitelist '(&quot;~/hw/*&quot;))
+  (setq ycmd-extra-conf-whitelist &#39;(&#34;~/hw/*&#34;))
   ;;; 使用ycmd裡面預設的配置
-  (set-variable 'ycmd-global-config &quot;/.emacs.d/layers/+tools/ycmd/global_conf.py&quot;)
+  (set-variable &#39;ycmd-global-config &#34;/.emacs.d/layers/+tools/ycmd/global_conf.py&#34;)
   ;;; 預設開始起自動補全
   (setq ycmd-force-semantic-completion t)
-  (add-hook 'doc-view-mode-hook 'auto-revert-mode 'c++-mode-hook 'ycmd-mode)
+  (add-hook &#39;doc-view-mode-hook &#39;auto-revert-mode &#39;c++-mode-hook &#39;ycmd-mode)
 </code></pre><ul>
 <li>要記得安裝auto-complete 讓自動補全的前端顯示出來</li>
 </ul>
@@ -2050,7 +2064,7 @@ a. 到 <a href="https://packages.debian.org/jessie/amd64/libgstreamer-plugins-ba
 </ul>
 <h3 id="中斷點條件">中斷點條件</h3>
 <p><a href="http://stackoverflow.com/questions/4183871/how-do-i-set-a-conditional-breakpoint-in-gdb-when-char-x-points-to-a-string-wh">by StackOverFlow</a></p>
-<pre tabindex="0"><code>break x:20 if strcmp(y, &quot;hello&quot;) == 0
+<pre tabindex="0"><code>break x:20 if strcmp(y, &#34;hello&#34;) == 0
 </code></pre><p>20 是指行數, x 是可以是任何檔案名稱, 而 y 可以是任何變數</p>
 ]]></content></item><item><title>Python 簡略教學</title><link>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/python-%E7%B0%A1%E7%95%A5%E6%95%99%E5%AD%B8/</link><pubDate>Sun, 05 Mar 2017 10:39:58 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E9%9B%9C%E8%AB%87/python-%E7%B0%A1%E7%95%A5%E6%95%99%E5%AD%B8/</guid><description>安裝 請先到 Anaconda 安裝Anaconda (建議 Python 3.x 版本) 再來到 Pycharm 安裝 IDE (Community 版本是免費的) 安裝完成後, 打開 Pycharm 新增一個 .py 檔, 並輸入 print(&amp;ldquo;Hello World&amp;rdquo;), 之後執行看看, 看看有</description><content type="html"><![CDATA[<h1 id="安裝">安裝</h1>
 <ol>
@@ -2069,7 +2083,7 @@ a. 到 <a href="https://packages.debian.org/jessie/amd64/libgstreamer-plugins-ba
 <h3 id="輸出">輸出</h3>
 <p>Python 是個很口語化的程式語言
 如同你剛才所看到的</p>
-<pre tabindex="0"><code class="language-python=" data-lang="python=">print(&quot;Hello World&quot;)
+<pre tabindex="0"><code class="language-python=" data-lang="python=">print(&#34;Hello World&#34;)
 </code></pre><p>便代表著印出 Hello World 這幾個單字, 當然, 中文也是OK的, 只要你將他包裹在 &quot;&quot; 兩個引號之中
 便可以將他印出來, 現在換你來試試看</p>
 <!-- raw HTML omitted -->
@@ -2137,17 +2151,17 @@ Generate static files $ hexo generate More info: Generating
 Deploy to remote sites $ hexo deploy More info: Deployment</description><content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="quick-start">Quick Start</h2>
 <h3 id="create-a-new-post">Create a new post</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ hexo new <span class="s2">&#34;My New Post&#34;</span>
-</code></pre></div><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ hexo new <span class="s2">&#34;My New Post&#34;</span>
+</span></span></code></pre></div><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="run-server">Run server</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ hexo server
-</code></pre></div><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ hexo server
+</span></span></code></pre></div><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
 <h3 id="generate-static-files">Generate static files</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ hexo generate
-</code></pre></div><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ hexo generate
+</span></span></code></pre></div><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
 <h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ hexo deploy
-</code></pre></div><p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ hexo deploy
+</span></span></code></pre></div><p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
 ]]></content></item><item><title>社群網路筆記 2</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</guid><description>社群網路的圖的定義 Node - 點, 個人 Edge - 邊, 人與人的關係 Undirected graph and directed graph undirected graph - 邊沒有特定方向 directed graph - 邊具有方向性 Adjacency matrix - 用矩陣來表達圖的關係, 1 代表有連接,</description><content type="html"><![CDATA[<h1 id="社群網路的圖的定義">社群網路的圖的定義</h1>
 <ul>
 <li>Node - 點, 個人</li>
@@ -2157,7 +2171,7 @@ Deploy to remote sites $ hexo deploy More info: Deployment</description><content
 <ul>
 <li>undirected graph - 邊沒有特定方向</li>
 <li>directed graph - 邊具有方向性
-<img src="https://images.sappy.tw/Social_Network/ch2/directed_&amp;_undirected_graph.png" alt="directed_&_undirected_graph"></li>
+<img src="https://images.sappy.tw/Social_Network/ch2/directed_&amp;_undirected_graph.png" alt="directed_&amp;_undirected_graph"></li>
 </ul>
 </li>
 <li>Adjacency matrix - 用矩陣來表達圖的關係, 1 代表有連接, 0 代表沒有連接
