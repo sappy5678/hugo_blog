@@ -87,7 +87,7 @@ Tags: MySQL</p>
 <p>例如下面這句執行時，會把 10 ~ 20 範圍內的鎖全部鎖起來，防止有其他 transaction 在中間插入新的 row</p>
 <p><code>SELECT c1 FROM t WHERE c1 BETWEEN 10 and 20 FOR UPDATE;</code></p>
 <p>這樣做是為了防止 <code>幻讀 (Phantom Reads)</code> 發生，亦即 t1 讀取同樣範圍兩次，但 t2 在這之間插入了一筆資料，這時候 t1 兩次讀出來的行數會不一樣，這就是 <code>幻讀 (Phantom Reads)</code></p>
-<p>也因為這是為了防止 幻讀 (Phantom Reads) 的發生，因此如果把 transaction isolation level 切成 <code>[READ COMMITTED](https://dev.mysql.com/doc/refman/8.0/en/innodb-transaction-isolation-levels.html#isolevel_read-committed)</code> 的話，就不會產生 gap lock</p>
+<p>也因為這是為了防止 幻讀 (Phantom Reads) 的發生，因此如果把 transaction isolation level 切成 <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-transaction-isolation-levels.html#isolevel_read-committed">READ COMMITTED</a> 的話，就不會產生 gap lock</p>
 <p>Gap lock 對於 unique index 無效，但對其他類型的 index 有效</p>
 <p>例如下面這句</p>
 <p><code>SELECT * FROM child WHERE id = 100;</code></p>
@@ -105,7 +105,7 @@ Tags: MySQL</p>
 <p>例如 gap 是 10 ~ 20，這時候如果一個要插入 13 另一個插入 17 的話，這兩個插入就不會衝突，因此都可以拿到 Insert Intention lock</p>
 <h1 id="-auto-inc-lockshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-auto-inc-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-auto-inc-locks">AUTO-INC Locks</a></h1>
 <p>當插入有 AUTO_INCREMENT 的 table 時，則會把整張表 lock 住，其他想插入的 transaction 必須等到做完後才能繼續做，這樣做是為了取得連續的 index</p>
-<p>我們可以透過 變數 <code>[innodb_autoinc_lock_mode](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_autoinc_lock_mode)</code> 來控制 lock 的行為，詳細可以看 <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-auto-increment-handling.html">Section 15.6.1.6, “AUTO_INCREMENT Handling in InnoDB”</a></p>
+<p>我們可以透過 變數 <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_autoinc_lock_mode">innodb_autoinc_lock_mode</a> 來控制 lock 的行為，詳細可以看 <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-auto-increment-handling.html">Section 15.6.1.6, “AUTO_INCREMENT Handling in InnoDB”</a></p>
 <h1 id="-predicate-locks-for-spatial-indexeshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-predicate-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-predicate-locks">Predicate Locks for Spatial Indexes</a></h1>
 <h1 id="延伸閱讀">延伸閱讀</h1>
 <ul>
