@@ -1,4 +1,119 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 27 Sep 2022 16:00:33 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>K8S debug 技巧</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_debug/</link><pubDate>Tue, 27 Sep 2022 16:00:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_debug/</guid><description>紀錄一下最近找問題時用到的指令 查詢上一個 pod 的 log 發現 pod 有重啟的紀錄，因此透過這指令去查死掉的 pod 的 logs 來得知發生甚麼事情 kubectl logs -f -n {NAMESPACE} pod/{PODNAME} --previous</description><content type="html"><![CDATA[<p>紀錄一下最近找問題時用到的指令</p>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 01 Jan 2023 09:25:20 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>MySQL Lock Mode</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/mysql/mysql-lock-mode/</link><pubDate>Sun, 01 Jan 2023 09:25:20 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/mysql/mysql-lock-mode/</guid><description>mysql lock mode Status: Not started Tags: MySQL MySQL :: MySQL 8.0 Reference Manual :: 15.7.1 InnoDB Locking InnoDB 的 lock 主要分成這幾種 • Shared and Exclusive Locks InnoDB 在 row-level 的 lock 有兩種不同的類型 Shared(S) locks - 讓持有該 lock 的 transaction 能讀取這行 row 的資料 Exclusive(X) locks - 讓持</description><content type="html"><![CDATA[<h1 id="mysql-lock-mode">mysql lock mode</h1>
+<p>Status: Not started
+Tags: MySQL</p>
+<p><a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html">MySQL :: MySQL 8.0 Reference Manual :: 15.7.1 InnoDB Locking</a></p>
+<p>InnoDB 的 lock</p>
+<p>主要分成這幾種</p>
+<h1 id="-shared-and-exclusive-lockshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-shared-exclusive-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-shared-exclusive-locks">Shared and Exclusive Locks</a></h1>
+<p>InnoDB 在 row-level 的 lock 有兩種不同的類型</p>
+<ul>
+<li>Shared(S) locks - 讓持有該 lock 的 transaction 能讀取這行 row 的資料</li>
+<li>Exclusive(X) locks - 讓持有該 lock 的 transaction 能修改 刪除這行 row 的資料</li>
+</ul>
+<p>其中 S  lock 是可以共享的， X lock 則不能</p>
+<p>舉些例子</p>
+<ol>
+<li>如果 transaction t1 已經有 row r 的 S lock，那這時 transaction t2 要求 row r 的 lock 時
+<ul>
+<li>如果 t2 要求 row r 的 S lock，則兩個. transaction 都能拿到 S lock， S lock 互相不排斥</li>
+<li>如果 t2 要求 row r 的 X lock，則 t2 需要等到 t1 做完後才能拿到 row r 的 X lock</li>
+</ul>
+</li>
+<li>如果 transaction t1 已經有 row r 的 X lock，那這時無論 transaction t2 要求 X lock 或是 S lock 都需要等 t1 做完後才能拿到</li>
+</ol>
+<h1 id="-intention-lockshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-intention-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-intention-locks">Intention Locks</a></h1>
+<p>InnoDB 支援不同顆粒度的鎖，像是 row lock，或者是 table lock</p>
+<p>那假設現在 transaction t1 想要對整張表 table1 加上 X lock，此時 InnoDB 會需要先檢查 table1 這張表的每個 record 是否已經有被其他 transaction lock 了，才能決定是否要給 transaction t1 表級別的  lock。</p>
+<p>但是，要掃描整張表的 record lock 效率太差了，因此才誕生出 intention lock，讓 InnoDB 能更好的判斷是否能夠給 transaction table 等級的 lock</p>
+<p>Intention lock 表示某個 transaction 想要再這個 table 的某個 record 上加上鎖</p>
+<p>因此</p>
+<ul>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_intention_shared_lock">intention shared lock</a> (IS) 表示這張表上，有個 transaction 想要拿到某個 row 的 S lock</li>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_intention_exclusive_lock">intention exclusive lock</a> (IX) 表示這張表上，有個 transaction 想要拿到某個 row 的 X lock</li>
+</ul>
+<p>首先，先確立兩點規則</p>
+<ol>
+<li>任何 transaction 要拿 row S lock 時，必須先拿到該 table 的 intention share(IS) lock 或是更強的 lock</li>
+<li>任何 transaction 要拿 row X lock 時，必須先拿到該 table 的 intention exclusive(IX) lock</li>
+</ol>
+<p>因此，如果一個 transaction 想要拿到 table 等級的 X 或 S lock，則我們只需要檢查該 table 有沒有被其他 transaction 加上 IX 或 IS lock，就能知道該不該給 table 等級的 X 或 S lock</p>
+<p>也因此，IX 跟 IS 相互之間是不衝突的，只有當 table 等級的 S 或 X lock 來時，才要判斷是否能給 lock，下面是 table 級別 lock 的兼容性</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>X</th>
+<th>IX</th>
+<th>S</th>
+<th>IS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X</td>
+<td>Conflict</td>
+<td>Conflict</td>
+<td>Conflict</td>
+<td>Conflict</td>
+</tr>
+<tr>
+<td>IX</td>
+<td>Conflict</td>
+<td>Compatible</td>
+<td>Conflict</td>
+<td>Compatible</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Conflict</td>
+<td>Conflict</td>
+<td>Compatible</td>
+<td>Compatible</td>
+</tr>
+<tr>
+<td>IS</td>
+<td>Conflict</td>
+<td>Compatible</td>
+<td>Compatible</td>
+<td>Compatible</td>
+</tr>
+</tbody>
+</table>
+<h1 id="-record-lockshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-record-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-record-locks">Record Locks</a></h1>
+<p>在 InnoDB 中 row lock 其實就是把該 row 的 <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html">cluster index</a> 給 lock 住，因此 InnoDB 的 row lock 其實就是 record lock.</p>
+<p>如果說該 table 沒有 cluster index，那 InnoDB 會自己建一個隱藏的 <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html">cluster index</a>，並 lock 對應 row 的 index</p>
+<h1 id="-gap-lockshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-gap-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-gap-locks">Gap Locks</a></h1>
+<p>用來鎖 兩個 index 中間範圍的鎖</p>
+<p>例如下面這句執行時，會把 10 ~ 20 範圍內的鎖全部鎖起來，防止有其他 transaction 在中間插入新的 row</p>
+<p><code>SELECT c1 FROM t WHERE c1 BETWEEN 10 and 20 FOR UPDATE;</code></p>
+<p>這樣做是為了防止 <code>幻讀 (Phantom Reads)</code> 發生，亦即 t1 讀取同樣範圍兩次，但 t2 在這之間插入了一筆資料，這時候 t1 兩次讀出來的行數會不一樣，這就是 <code>幻讀 (Phantom Reads)</code></p>
+<p>也因為這是為了防止 幻讀 (Phantom Reads) 的發生，因此如果把 transaction isolation level 切成 <code>[READ COMMITTED](https://dev.mysql.com/doc/refman/8.0/en/innodb-transaction-isolation-levels.html#isolevel_read-committed)</code> 的話，就不會產生 gap lock</p>
+<p>Gap lock 對於 unique index 無效，但對其他類型的 index 有效</p>
+<p>例如下面這句</p>
+<p><code>SELECT * FROM child WHERE id = 100;</code></p>
+<p>如果 id 不是 <code>unique index</code> 的話，那 100 之前到下一個有效 index (例如 90) 之間的範圍 (91 ~ 100)會被鎖起來，然而，如果是 <code>unique index</code> ，則只會鎖上這行而已</p>
+<p>此外，比較有趣的一點是  gap lock 是可以被多個 transaction 同時持有的，因為 gap lock 之間不衝突，都是執行同樣的功能 (防止 record 遭到變化)，也因此， S gap lock  跟 X gap lock 沒有區別</p>
+<p>更多例子可以參考</p>
+<p><a href="https://juejin.cn/post/7018137095315128328">带你了解record lock、gap lock、next-key lock - 掘金 (juejin.cn)</a></p>
+<p><a href="https://blog.twjoin.com/%E9%8E%96-lock-%E7%9A%84%E4%BB%8B%E7%B4%B9%E8%88%87%E6%AD%BB%E9%8E%96%E5%88%86%E6%9E%90-19833c18baab">鎖( Lock )的介紹與死鎖分析</a></p>
+<h1 id="-next-key-lockshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-next-key-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-next-key-locks">Next-Key Locks</a></h1>
+<p>就是 record lock + gap lock，例如</p>
+<p><code>SELECT * FROM child WHERE id = 100;</code></p>
+<p>如果 id 不是 <code>unique index</code> 的話，那 100 之前到下一個有效 index (例如 90) 之間的範圍 (91 ~ 100)會被鎖起來，然而，如果是 <code>unique index</code> ，則只會鎖上這行而已</p>
+<h1 id="-insert-intention-lockshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-insert-intention-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-insert-intention-locks">Insert Intention Locks</a></h1>
+<p>是 gap lock 的一種，在插入前會要先取得，主要是讓兩個插入可以不用等待</p>
+<p>例如 gap 是 10 ~ 20，這時候如果一個要插入 13 另一個插入 17 的話，這兩個插入就不會衝突，因此都可以拿到 Insert Intention lock</p>
+<h1 id="-auto-inc-lockshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-auto-inc-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-auto-inc-locks">AUTO-INC Locks</a></h1>
+<p>當插入有 AUTO_INCREMENT 的 table 時，則會把整張表 lock 住，其他想插入的 transaction 必須等到做完後才能繼續做，這樣做是為了取得連續的 index</p>
+<p>我們可以透過 變數 <code>[innodb_autoinc_lock_mode](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_autoinc_lock_mode)</code> 來控制 lock 的行為，詳細可以看 <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-auto-increment-handling.html">Section 15.6.1.6, “AUTO_INCREMENT Handling in InnoDB”</a></p>
+<h1 id="-predicate-locks-for-spatial-indexeshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-predicate-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-predicate-locks">Predicate Locks for Spatial Indexes</a></h1>
+<h1 id="延伸閱讀">延伸閱讀</h1>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/222111898">你的insert死锁了看这里 - 知乎 (zhihu.com)</a></li>
+<li><a href="https://github.com/octachrome/innodb-locks">https://github.com/octachrome/innodb-locks</a></li>
+<li></li>
+</ul>
+]]></content></item><item><title>K8S debug 技巧</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_debug/</link><pubDate>Tue, 27 Sep 2022 16:00:33 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/k8s/k8s_debug/</guid><description>紀錄一下最近找問題時用到的指令 查詢上一個 pod 的 log 發現 pod 有重啟的紀錄，因此透過這指令去查死掉的 pod 的 logs 來得知發生甚麼事情 kubectl logs -f -n {NAMESPACE} pod/{PODNAME} --previous</description><content type="html"><![CDATA[<p>紀錄一下最近找問題時用到的指令</p>
 <h2 id="查詢上一個-pod-的-log">查詢上一個 pod 的 log</h2>
 <p>發現 pod 有重啟的紀錄，因此透過這指令去查死掉的 pod 的 logs 來得知發生甚麼事情</p>
 <pre tabindex="0"><code>kubectl logs -f -n {NAMESPACE} pod/{PODNAME} --previous
@@ -2166,121 +2281,6 @@ Deploy to remote sites $ hexo deploy More info: Deployment</description><content
 <h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ hexo deploy
 </span></span></code></pre></div><p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
-]]></content></item><item><title>MySQL Lock Mode</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/mysql/mysql-lock-mode/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/mysql/mysql-lock-mode/</guid><description>mysql lock mode Status: Not started Tags: MySQL MySQL :: MySQL 8.0 Reference Manual :: 15.7.1 InnoDB Locking InnoDB 的 lock 主要分成這幾種 • Shared and Exclusive Locks InnoDB 在 row-level 的 lock 有兩種不同的類型 Shared(S) locks - 讓持有該 lock 的 transaction 能讀取這行 row 的資料 Exclusive(X) locks - 讓持</description><content type="html"><![CDATA[<h1 id="mysql-lock-mode">mysql lock mode</h1>
-<p>Status: Not started
-Tags: MySQL</p>
-<p><a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html">MySQL :: MySQL 8.0 Reference Manual :: 15.7.1 InnoDB Locking</a></p>
-<p>InnoDB 的 lock</p>
-<p>主要分成這幾種</p>
-<h1 id="-shared-and-exclusive-lockshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-shared-exclusive-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-shared-exclusive-locks">Shared and Exclusive Locks</a></h1>
-<p>InnoDB 在 row-level 的 lock 有兩種不同的類型</p>
-<ul>
-<li>Shared(S) locks - 讓持有該 lock 的 transaction 能讀取這行 row 的資料</li>
-<li>Exclusive(X) locks - 讓持有該 lock 的 transaction 能修改 刪除這行 row 的資料</li>
-</ul>
-<p>其中 S  lock 是可以共享的， X lock 則不能</p>
-<p>舉些例子</p>
-<ol>
-<li>如果 transaction t1 已經有 row r 的 S lock，那這時 transaction t2 要求 row r 的 lock 時
-<ul>
-<li>如果 t2 要求 row r 的 S lock，則兩個. transaction 都能拿到 S lock， S lock 互相不排斥</li>
-<li>如果 t2 要求 row r 的 X lock，則 t2 需要等到 t1 做完後才能拿到 row r 的 X lock</li>
-</ul>
-</li>
-<li>如果 transaction t1 已經有 row r 的 X lock，那這時無論 transaction t2 要求 X lock 或是 S lock 都需要等 t1 做完後才能拿到</li>
-</ol>
-<h1 id="-intention-lockshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-intention-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-intention-locks">Intention Locks</a></h1>
-<p>InnoDB 支援不同顆粒度的鎖，像是 row lock，或者是 table lock</p>
-<p>那假設現在 transaction t1 想要對整張表 table1 加上 X lock，此時 InnoDB 會需要先檢查 table1 這張表的每個 record 是否已經有被其他 transaction lock 了，才能決定是否要給 transaction t1 表級別的  lock。</p>
-<p>但是，要掃描整張表的 record lock 效率太差了，因此才誕生出 intention lock，讓 InnoDB 能更好的判斷是否能夠給 transaction table 等級的 lock</p>
-<p>Intention lock 表示某個 transaction 想要再這個 table 的某個 record 上加上鎖</p>
-<p>因此</p>
-<ul>
-<li><a href="https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_intention_shared_lock">intention shared lock</a> (IS) 表示這張表上，有個 transaction 想要拿到某個 row 的 S lock</li>
-<li><a href="https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_intention_exclusive_lock">intention exclusive lock</a> (IX) 表示這張表上，有個 transaction 想要拿到某個 row 的 X lock</li>
-</ul>
-<p>首先，先確立兩點規則</p>
-<ol>
-<li>任何 transaction 要拿 row S lock 時，必須先拿到該 table 的 intention share(IS) lock 或是更強的 lock</li>
-<li>任何 transaction 要拿 row X lock 時，必須先拿到該 table 的 intention exclusive(IX) lock</li>
-</ol>
-<p>因此，如果一個 transaction 想要拿到 table 等級的 X 或 S lock，則我們只需要檢查該 table 有沒有被其他 transaction 加上 IX 或 IS lock，就能知道該不該給 table 等級的 X 或 S lock</p>
-<p>也因此，IX 跟 IS 相互之間是不衝突的，只有當 table 等級的 S 或 X lock 來時，才要判斷是否能給 lock，下面是 table 級別 lock 的兼容性</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>X</th>
-<th>IX</th>
-<th>S</th>
-<th>IS</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>X</td>
-<td>Conflict</td>
-<td>Conflict</td>
-<td>Conflict</td>
-<td>Conflict</td>
-</tr>
-<tr>
-<td>IX</td>
-<td>Conflict</td>
-<td>Compatible</td>
-<td>Conflict</td>
-<td>Compatible</td>
-</tr>
-<tr>
-<td>S</td>
-<td>Conflict</td>
-<td>Conflict</td>
-<td>Compatible</td>
-<td>Compatible</td>
-</tr>
-<tr>
-<td>IS</td>
-<td>Conflict</td>
-<td>Compatible</td>
-<td>Compatible</td>
-<td>Compatible</td>
-</tr>
-</tbody>
-</table>
-<h1 id="-record-lockshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-record-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-record-locks">Record Locks</a></h1>
-<p>在 InnoDB 中 row lock 其實就是把該 row 的 <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html">cluster index</a> 給 lock 住，因此 InnoDB 的 row lock 其實就是 record lock.</p>
-<p>如果說該 table 沒有 cluster index，那 InnoDB 會自己建一個隱藏的 <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html">cluster index</a>，並 lock 對應 row 的 index</p>
-<h1 id="-gap-lockshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-gap-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-gap-locks">Gap Locks</a></h1>
-<p>用來鎖 兩個 index 中間範圍的鎖</p>
-<p>例如下面這句執行時，會把 10 ~ 20 範圍內的鎖全部鎖起來，防止有其他 transaction 在中間插入新的 row</p>
-<p><code>SELECT c1 FROM t WHERE c1 BETWEEN 10 and 20 FOR UPDATE;</code></p>
-<p>這樣做是為了防止 <code>幻讀 (Phantom Reads)</code> 發生，亦即 t1 讀取同樣範圍兩次，但 t2 在這之間插入了一筆資料，這時候 t1 兩次讀出來的行數會不一樣，這就是 <code>幻讀 (Phantom Reads)</code></p>
-<p>也因為這是為了防止 幻讀 (Phantom Reads) 的發生，因此如果把 transaction isolation level 切成 <code>[READ COMMITTED](https://dev.mysql.com/doc/refman/8.0/en/innodb-transaction-isolation-levels.html#isolevel_read-committed)</code> 的話，就不會產生 gap lock</p>
-<p>Gap lock 對於 unique index 無效，但對其他類型的 index 有效</p>
-<p>例如下面這句</p>
-<p><code>SELECT * FROM child WHERE id = 100;</code></p>
-<p>如果 id 不是 <code>unique index</code> 的話，那 100 之前到下一個有效 index (例如 90) 之間的範圍 (91 ~ 100)會被鎖起來，然而，如果是 <code>unique index</code> ，則只會鎖上這行而已</p>
-<p>此外，比較有趣的一點是  gap lock 是可以被多個 transaction 同時持有的，因為 gap lock 之間不衝突，都是執行同樣的功能 (防止 record 遭到變化)，也因此， S gap lock  跟 X gap lock 沒有區別</p>
-<p>更多例子可以參考</p>
-<p><a href="https://juejin.cn/post/7018137095315128328">带你了解record lock、gap lock、next-key lock - 掘金 (juejin.cn)</a></p>
-<p><a href="https://blog.twjoin.com/%E9%8E%96-lock-%E7%9A%84%E4%BB%8B%E7%B4%B9%E8%88%87%E6%AD%BB%E9%8E%96%E5%88%86%E6%9E%90-19833c18baab">鎖( Lock )的介紹與死鎖分析</a></p>
-<h1 id="-next-key-lockshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-next-key-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-next-key-locks">Next-Key Locks</a></h1>
-<p>就是 record lock + gap lock，例如</p>
-<p><code>SELECT * FROM child WHERE id = 100;</code></p>
-<p>如果 id 不是 <code>unique index</code> 的話，那 100 之前到下一個有效 index (例如 90) 之間的範圍 (91 ~ 100)會被鎖起來，然而，如果是 <code>unique index</code> ，則只會鎖上這行而已</p>
-<h1 id="-insert-intention-lockshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-insert-intention-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-insert-intention-locks">Insert Intention Locks</a></h1>
-<p>是 gap lock 的一種，在插入前會要先取得，主要是讓兩個插入可以不用等待</p>
-<p>例如 gap 是 10 ~ 20，這時候如果一個要插入 13 另一個插入 17 的話，這兩個插入就不會衝突，因此都可以拿到 Insert Intention lock</p>
-<h1 id="-auto-inc-lockshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-auto-inc-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-auto-inc-locks">AUTO-INC Locks</a></h1>
-<p>當插入有 AUTO_INCREMENT 的 table 時，則會把整張表 lock 住，其他想插入的 transaction 必須等到做完後才能繼續做，這樣做是為了取得連續的 index</p>
-<p>我們可以透過 變數 <code>[innodb_autoinc_lock_mode](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_autoinc_lock_mode)</code> 來控制 lock 的行為，詳細可以看 <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-auto-increment-handling.html">Section 15.6.1.6, “AUTO_INCREMENT Handling in InnoDB”</a></p>
-<h1 id="-predicate-locks-for-spatial-indexeshttpsdevmysqlcomdocrefman80eninnodb-lockinghtmlinnodb-predicate-locks">• <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-predicate-locks">Predicate Locks for Spatial Indexes</a></h1>
-<h1 id="延伸閱讀">延伸閱讀</h1>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/222111898">你的insert死锁了看这里 - 知乎 (zhihu.com)</a></li>
-<li><a href="https://github.com/octachrome/innodb-locks">https://github.com/octachrome/innodb-locks</a></li>
-<li></li>
-</ul>
 ]]></content></item><item><title>社群網路筆記 2</title><link>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.sappy.tw/posts/%E5%A4%A7%E5%AD%B8%E5%AD%B8%E7%BF%92/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF/%E7%A4%BE%E7%BE%A4%E7%B6%B2%E8%B7%AF%E7%AD%86%E8%A8%98_2/</guid><description>社群網路的圖的定義 Node - 點, 個人 Edge - 邊, 人與人的關係 Undirected graph and directed graph undirected graph - 邊沒有特定方向 directed graph - 邊具有方向性 Adjacency matrix - 用矩陣來表達圖的關係, 1 代表有連接,</description><content type="html"><![CDATA[<h1 id="社群網路的圖的定義">社群網路的圖的定義</h1>
 <ul>
 <li>Node - 點, 個人</li>
