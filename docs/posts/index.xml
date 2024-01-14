@@ -1,4 +1,203 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 02 Sep 2023 17:14:20 +0800</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>樂觀鎖 悲觀鎖</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/lock/%E6%A8%82%E8%A7%80%E9%8E%96_%E6%82%B2%E8%A7%80%E9%8E%96/</link><pubDate>Sat, 02 Sep 2023 17:14:20 +0800</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/lock/%E6%A8%82%E8%A7%80%E9%8E%96_%E6%82%B2%E8%A7%80%E9%8E%96/</guid><description>常見的鎖可以分成悲觀鎖跟樂觀鎖 悲觀鎖是認為同時修改資料的人很多，該特定資料被同時修改的機率比較大，因此會給資料加上一把鎖，只有先拿到鎖的人才</description><content type="html"><![CDATA[<p>常見的鎖可以分成<strong>悲觀鎖跟樂觀鎖</strong></p>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sappy blog</title><link>https://blog.sappy.tw/posts/</link><description>Recent content in Posts on sappy blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 14 Jan 2024 15:08:46 +0000</lastBuildDate><atom:link href="https://blog.sappy.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 Pulumi 自動建立 Proxmox LXC 環境</title><link>https://blog.sappy.tw/posts/homelab/%E4%BD%BF%E7%94%A8pulumi%E8%87%AA%E5%8B%95%E5%BB%BA%E7%AB%8Bproxmoxlxc%E7%92%B0%E5%A2%83/</link><pubDate>Sun, 14 Jan 2024 15:08:46 +0000</pubDate><guid>https://blog.sappy.tw/posts/homelab/%E4%BD%BF%E7%94%A8pulumi%E8%87%AA%E5%8B%95%E5%BB%BA%E7%AB%8Bproxmoxlxc%E7%92%B0%E5%A2%83/</guid><description>使用 Pulumi 自動建立 Proxmox LXC 環境 Tags: blog, proxmox, pulumi Parent item: Pulumi (https://www.notion.so/Pulumi-cc595460967a4fb488579f3ebc5afc53?pvs=21) 簡介 最近在嘗試使用 Pulumi + ProxmoxVE 搭建 HomeLab 的開發環境 摸了一段時間後終於搞清楚怎麼用了，因此這邊簡單做個紀錄 我們這次</description><content type="html"><![CDATA[<h1 id="使用-pulumi-自動建立-proxmox-lxc-環境">使用 Pulumi 自動建立 Proxmox LXC 環境</h1>
+<p>Tags: blog, proxmox, pulumi
+Parent item: Pulumi (<a href="https://www.notion.so/Pulumi-cc595460967a4fb488579f3ebc5afc53?pvs=21">https://www.notion.so/Pulumi-cc595460967a4fb488579f3ebc5afc53?pvs=21</a>)</p>
+<h1 id="簡介">簡介</h1>
+<p>最近在嘗試使用 Pulumi + ProxmoxVE 搭建 HomeLab 的開發環境</p>
+<p>摸了一段時間後終於搞清楚怎麼用了，因此這邊簡單做個紀錄</p>
+<p>我們這次使用的是 <a href="https://github.com/muhlba91/pulumi-proxmoxve">https://github.com/muhlba91/pulumi-proxmoxve</a> 這個第三方的元件，他是透過  tf-bridge  再去使用 <a href="https://github.com/bpg/terraform-provider-proxmox">https://github.com/bpg/terraform-provider-proxmox</a> 這個 terraform 的元件</p>
+<h1 id="安裝步驟">安裝步驟</h1>
+<h2 id="建立-pulumi-專案">建立 Pulumi 專案</h2>
+<p>首先，我們先建立一個空資料夾作為專案的資料夾</p>
+<p>並在資料夾中執行 <code>pulumi new python</code> 來建立一個新專案</p>
+<p>我們會看到，資料夾的結構變成這樣</p>
+<p><img src="https://images.sappy.tw/HomeLab/%E4%BD%BF%E7%94%A8Pulumi%E8%87%AA%E5%8B%95%E5%BB%BA%E7%AB%8BProxmoxLXC%E7%92%B0%E5%A2%83/Untitled.png" alt="Untitled"></p>
+<p><code>Pulumi.yaml</code> 裡面出現的會是我們剛剛填入的資料，其中 <code>options</code> 可以指定 python 環境要不要由 Pulumi 控制，預設會在專案內建立 <code>venv</code> 這個資料夾，並使用該環境來執行 pulumi</p>
+<p>如果想要由自己來管理環境的話，可以把這個選項拿掉，他就會用目前 shell 環境下的 python 去執行</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">homelab</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">runtime</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">python</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">options</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">virtualenv</span><span class="p">:</span><span class="w"> </span><span class="l">venv</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">a homelab iac</span><span class="w">
+</span></span></span></code></pre></div><h2 id="安裝套件">安裝套件</h2>
+<p>接下來就是安裝我們需要的元件，我們根據 <a href="https://www.pulumi.com/registry/packages/proxmoxve/installation-configuration/">說明</a>，安裝對應語言的函式庫</p>
+<p>這邊以 python 為例子，指令如下 <code>pip install pulumi-proxmoxve</code></p>
+<h2 id="設定-provider">設定 provider</h2>
+<p>安裝完成後，就可以開始來設定我們的 provider 了</p>
+<p>provider 需要的參數有以下這些</p>
+<ul>
+<li>
+<p>resource_name - Pulumi 的辨識名稱，跟 Proxmox 無關，填一個好記的字串即可</p>
+</li>
+<li>
+<p>insecure - 是否跳過 TLS 檢查，這邊我選是</p>
+</li>
+<li>
+<p>endpoint - Proxmox 的位置，填入 IP Port 就好了</p>
+</li>
+<li>
+<p>api_token - 呼叫API時，用來驗證使用者身分的工具，可以在 datacenter 底下建立，建立完成後他會給你一個 UUID，再把 User 、 TokenID、剛剛拿到的 UUID 填入下面的程式即可</p>
+<p><img src="https://images.sappy.tw/HomeLab/%E4%BD%BF%E7%94%A8Pulumi%E8%87%AA%E5%8B%95%E5%BB%BA%E7%AB%8BProxmoxLXC%E7%92%B0%E5%A2%83/Untitled%201.png" alt="Untitled"></p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pulumi</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pulumi_proxmoxve</span> <span class="k">as</span> <span class="nn">pve</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">provider</span> <span class="o">=</span> <span class="n">pve</span><span class="o">.</span><span class="n">Provider</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">resource_name</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{Name}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">insecure</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">endpoint</span><span class="o">=</span><span class="s2">&#34;https://</span><span class="si">{IP}</span><span class="s2">:</span><span class="si">{Port}</span><span class="s2">/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">api_token</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{User}</span><span class="s2">!</span><span class="si">{TokenID}</span><span class="s2">=</span><span class="si">{UUID}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="給-apitoken-權限">給 APIToken 權限</h2>
+<p>接下來我們需要給 APIToken 相對應的權限，這邊我是給 PVEAdmin</p>
+<p><img src="https://images.sappy.tw/HomeLab/%E4%BD%BF%E7%94%A8Pulumi%E8%87%AA%E5%8B%95%E5%BB%BA%E7%AB%8BProxmoxLXC%E7%92%B0%E5%A2%83/Untitled%202.png" alt="Untitled"></p>
+<h2 id="給-lxc-名稱--id以及登入用的-ssh-key">給 LXC 名稱 + ID，以及登入用的 ssh key</h2>
+<p>接下來看看 LXC 的每個步驟分別需要那些基本參數</p>
+<p><img src="https://images.sappy.tw/HomeLab/%E4%BD%BF%E7%94%A8Pulumi%E8%87%AA%E5%8B%95%E5%BB%BA%E7%AB%8BProxmoxLXC%E7%92%B0%E5%A2%83/Untitled%203.png" alt="Untitled"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pulumi</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pulumi_proxmoxve</span> <span class="k">as</span> <span class="nn">pve</span>
+</span></span><span class="line"><span class="cl"><span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;{ssh public key}&#34;</span><span class="p">]</span> <span class="c1"># 我是使用 ssh 登入，所以把 ssh publisc key 放這邊</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">pulumiTestCT</span> <span class="o">=</span> <span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">resource_name</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{Name}</span><span class="s2">&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">opts</span><span class="o">=</span><span class="n">pulumi</span><span class="o">.</span><span class="n">ResourceOptions</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="n">provider</span><span class="p">),</span> <span class="c1"># 跟程式說使用我們之前設定的 provider 來執行操作</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vm_id</span><span class="o">=</span><span class="p">{</span><span class="n">ID</span><span class="p">},</span> <span class="c1"># CT ID</span>
+</span></span><span class="line"><span class="cl">    <span class="n">unprivileged</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># 對應到 unprivileged container</span>
+</span></span><span class="line"><span class="cl">    <span class="n">started</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># 設定完成後自動啟動</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start_on_boot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># 開機後自動啟動</span>
+</span></span><span class="line"><span class="cl">    <span class="n">node_name</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{NodeName}</span><span class="s2">&#34;</span><span class="p">,</span> <span class="c1"># 對應到 node 那個欄位</span>
+</span></span><span class="line"><span class="cl">    <span class="n">initialization</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerInitializationArgs</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hostname</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{Name}</span><span class="s2">&#34;</span><span class="p">,</span> <span class="c1"># 對應到 Hostname 那個欄位</span>
+</span></span><span class="line"><span class="cl">        <span class="n">user_account</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerInitializationUserAccountArgs</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span><span class="n">keys</span><span class="p">),</span>  <span class="c1"># 我是使用 ssh 登入，所以把 ssh publisc key 放這邊</span>
+</span></span><span class="line"><span class="cl">    <span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">features</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerFeaturesArgs</span><span class="p">(</span><span class="n">nesting</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 對應到 Nesting </span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="找到需要的-ct-template">找到需要的 CT Template</h2>
+<p>可以使用 <code>pveam list local</code> 這個指令找出 CT template 的位置</p>
+<p><img src="https://images.sappy.tw/HomeLab/%E4%BD%BF%E7%94%A8Pulumi%E8%87%AA%E5%8B%95%E5%BB%BA%E7%AB%8BProxmoxLXC%E7%92%B0%E5%A2%83/Untitled%204.png" alt="Untitled"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">pulumiTestCT</span> <span class="o">=</span> <span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">resource_name</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{Name}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">opts</span><span class="o">=</span><span class="n">pulumi</span><span class="o">.</span><span class="n">ResourceOptions</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="n">provider</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vm_id</span><span class="o">=</span><span class="p">{</span><span class="n">ID</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="n">unprivileged</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">started</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start_on_boot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">node_name</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{NodeName}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">features</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerFeaturesArgs</span><span class="p">(</span><span class="n">nesting</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">operating_system</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerOperatingSystemArgs</span><span class="p">(</span> <span class="c1"># 設定我們要的 OS</span>
+</span></span><span class="line"><span class="cl">        <span class="n">template_file_id</span><span class="o">=</span><span class="s2">&#34;local:vztmpl/debian-12-standard_12.2-1_amd64.tar.zst&#34;</span><span class="p">,</span> <span class="c1"># 可以使用 pveam list local 這個指令找出 CT template 的位置 </span>
+</span></span><span class="line"><span class="cl">        <span class="nb">type</span><span class="o">=</span><span class="s2">&#34;debian&#34;</span><span class="p">,</span> <span class="c1"># 不同作業系統</span>
+</span></span><span class="line"><span class="cl">    <span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">initialization</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerInitializationArgs</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hostname</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{Name}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">user_account</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerInitializationUserAccountArgs</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span><span class="n">keys</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">),</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="設定開機硬碟">設定開機硬碟</h2>
+<p><img src="https://images.sappy.tw/HomeLab/%E4%BD%BF%E7%94%A8Pulumi%E8%87%AA%E5%8B%95%E5%BB%BA%E7%AB%8BProxmoxLXC%E7%92%B0%E5%A2%83/Untitled%205.png" alt="Untitled"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">pulumiTestCT</span> <span class="o">=</span> <span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">resource_name</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{Name}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">opts</span><span class="o">=</span><span class="n">pulumi</span><span class="o">.</span><span class="n">ResourceOptions</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="n">provider</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vm_id</span><span class="o">=</span><span class="p">{</span><span class="n">ID</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="n">unprivileged</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">started</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start_on_boot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">node_name</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{NodeName}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">features</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerFeaturesArgs</span><span class="p">(</span><span class="n">nesting</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">operating_system</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerOperatingSystemArgs</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">template_file_id</span><span class="o">=</span><span class="s2">&#34;local:vztmpl/debian-12-standard_12.2-1_amd64.tar.zst&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="nb">type</span><span class="o">=</span><span class="s2">&#34;debian&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">initialization</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerInitializationArgs</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hostname</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{Name}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">user_account</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerInitializationUserAccountArgs</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span><span class="n">keys</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">disk</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerDiskArgs</span><span class="p">(</span><span class="n">datastore_id</span><span class="o">=</span><span class="s2">&#34;localHDD&#34;</span><span class="p">),</span> <span class="c1"># 指定要使用哪個儲存空間</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="設定-cpu記憶體">設定 CPU/記憶體</h2>
+<p><img src="https://images.sappy.tw/HomeLab/%E4%BD%BF%E7%94%A8Pulumi%E8%87%AA%E5%8B%95%E5%BB%BA%E7%AB%8BProxmoxLXC%E7%92%B0%E5%A2%83/Untitled%206.png" alt="Untitled"></p>
+<p><img src="https://images.sappy.tw/HomeLab/%E4%BD%BF%E7%94%A8Pulumi%E8%87%AA%E5%8B%95%E5%BB%BA%E7%AB%8BProxmoxLXC%E7%92%B0%E5%A2%83/Untitled%207.png" alt="Untitled"></p>
+<p>因為這次只是測試，所以 CPU Memory 都不用填，都使用預設值就好</p>
+<h2 id="設定網路">設定網路</h2>
+<p><img src="https://images.sappy.tw/HomeLab/%E4%BD%BF%E7%94%A8Pulumi%E8%87%AA%E5%8B%95%E5%BB%BA%E7%AB%8BProxmoxLXC%E7%92%B0%E5%A2%83/Untitled%208.png" alt="Untitled"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">pulumiTestCT</span> <span class="o">=</span> <span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">resource_name</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{Name}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">opts</span><span class="o">=</span><span class="n">pulumi</span><span class="o">.</span><span class="n">ResourceOptions</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="n">provider</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vm_id</span><span class="o">=</span><span class="p">{</span><span class="n">ID</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="n">unprivileged</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">started</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start_on_boot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">node_name</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{NodeName}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">features</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerFeaturesArgs</span><span class="p">(</span><span class="n">nesting</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">operating_system</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerOperatingSystemArgs</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">template_file_id</span><span class="o">=</span><span class="s2">&#34;local:vztmpl/debian-12-standard_12.2-1_amd64.tar.zst&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="nb">type</span><span class="o">=</span><span class="s2">&#34;debian&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">disk</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerDiskArgs</span><span class="p">(</span><span class="n">datastore_id</span><span class="o">=</span><span class="s2">&#34;localHDD&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">initialization</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerInitializationArgs</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hostname</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{Name}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">user_account</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerInitializationUserAccountArgs</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span><span class="n">keys</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ip_configs</span><span class="o">=</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerInitializationIpConfigArgs</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="n">ipv4</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerInitializationIpConfigIpv4Args</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">address</span><span class="o">=</span><span class="s2">&#34;{IP/CIDR}&#34;</span><span class="p">,</span> <span class="n">gateway</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{Gateway}</span><span class="s2">&#34;</span> <span class="c1"># 設定 IP/CIDR + gateway</span>
+</span></span><span class="line"><span class="cl">                <span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">network_interfaces</span><span class="o">=</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerNetworkInterfaceArgs</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&#34;eth0&#34;</span><span class="p">,</span> <span class="n">firewall</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 使用 eth0，並打開防火牆(也可以不開)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="組合上述步驟--部屬">組合上述步驟 + 部屬</h2>
+<p>最後我們把所有步驟組合起來，會變成下面這樣，就大功告成了</p>
+<p>現在我們可以使用 <code>pulumi up</code> 來部屬了</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pulumi</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pulumi_proxmoxve</span> <span class="k">as</span> <span class="nn">pve</span>
+</span></span><span class="line"><span class="cl"><span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;{ssh public key}&#34;</span><span class="p">]</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">provider</span> <span class="o">=</span> <span class="n">pve</span><span class="o">.</span><span class="n">Provider</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">resource_name</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{Name}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">insecure</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">endpoint</span><span class="o">=</span><span class="s2">&#34;https://</span><span class="si">{IP}</span><span class="s2">:</span><span class="si">{Port}</span><span class="s2">/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">api_token</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{User}</span><span class="s2">!</span><span class="si">{TokenID}</span><span class="s2">=</span><span class="si">{UUID}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">pulumiTestCT</span> <span class="o">=</span> <span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">resource_name</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{Name}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">opts</span><span class="o">=</span><span class="n">pulumi</span><span class="o">.</span><span class="n">ResourceOptions</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="n">provider</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vm_id</span><span class="o">=</span><span class="p">{</span><span class="n">ID</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="n">unprivileged</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">started</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start_on_boot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">node_name</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{NodeName}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">features</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerFeaturesArgs</span><span class="p">(</span><span class="n">nesting</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">operating_system</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerOperatingSystemArgs</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">template_file_id</span><span class="o">=</span><span class="s2">&#34;local:vztmpl/debian-12-standard_12.2-1_amd64.tar.zst&#34;</span><span class="p">,</span> <span class="c1"># pveam list local</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">type</span><span class="o">=</span><span class="s2">&#34;debian&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">),</span>
+</span></span><span class="line"><span class="cl">		<span class="n">disk</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerDiskArgs</span><span class="p">(</span><span class="n">datastore_id</span><span class="o">=</span><span class="s2">&#34;localHDD&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">initialization</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerInitializationArgs</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hostname</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">{Name}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">user_account</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerInitializationUserAccountArgs</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span><span class="n">keys</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ip_configs</span><span class="o">=</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerInitializationIpConfigArgs</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="n">ipv4</span><span class="o">=</span><span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerInitializationIpConfigIpv4Args</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">address</span><span class="o">=</span><span class="s2">&#34;192.168.51.5/24&#34;</span><span class="p">,</span> <span class="n">gateway</span><span class="o">=</span><span class="s2">&#34;192.168.51.1&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">network_interfaces</span><span class="o">=</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pve</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">ContainerNetworkInterfaceArgs</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&#34;eth0&#34;</span><span class="p">,</span> <span class="n">firewall</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div>]]></content></item><item><title>樂觀鎖 悲觀鎖</title><link>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/lock/%E6%A8%82%E8%A7%80%E9%8E%96_%E6%82%B2%E8%A7%80%E9%8E%96/</link><pubDate>Sat, 02 Sep 2023 17:14:20 +0800</pubDate><guid>https://blog.sappy.tw/posts/%E5%BE%8C%E7%AB%AF/lock/%E6%A8%82%E8%A7%80%E9%8E%96_%E6%82%B2%E8%A7%80%E9%8E%96/</guid><description>常見的鎖可以分成悲觀鎖跟樂觀鎖 悲觀鎖是認為同時修改資料的人很多，該特定資料被同時修改的機率比較大，因此會給資料加上一把鎖，只有先拿到鎖的人才</description><content type="html"><![CDATA[<p>常見的鎖可以分成<strong>悲觀鎖跟樂觀鎖</strong></p>
 <p>悲觀鎖是認為同時修改資料的人很多，該特定資料被同時修改的機率比較大，因此會給資料加上一把鎖，只有先拿到鎖的人才有資格去修改資料，其餘的人只能排隊等待，直到第一個人修改完資料才有資格去修改資料</p>
 <p>而樂觀鎖則是認為大部分時候同時修改資料的人不多，甚至只有一個人，因此該特定資料同時被修改的機率不高，所以很多人可以同時修改資料，但是只有第一個人的修改會被接受，其他人的修改都會被拒絕，只能重新跑一次修改資料的流程</p>
 <h2 id="悲觀鎖">悲觀鎖</h2>
